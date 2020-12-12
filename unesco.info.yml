@@ -1,0 +1,27 @@
+name: Unesco
+type: theme
+base theme: claro
+description: 'Unesco base theme.'
+alt text: 'Unesco front theme.'
+package: Unesco
+version: 1.0
+core_version_requirement: ^8.8 || ^9
+
+libraries:
+ - unesco/global-styling
+
+regions:
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar seconnd'
+  footer: Footer
+  disabled: Disabled
+
+regions_hidden:
+  - secondary_menu

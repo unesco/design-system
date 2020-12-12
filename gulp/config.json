@@ -1,0 +1,28 @@
+{
+  "messages": {
+    "error": {
+      "title": "Error",
+      "message": "Gulp reported error: <%= error.message %>!"
+    },
+    "success": {
+      "title": "Success",
+      "message": "Gulp tasks completed successfully!"
+    }
+  },
+  "sass": {
+    "src": "./sass/**/*.scss",
+    "destination": "./assets/stylesheets",
+    "sourcemaps": "./",
+    "config": {
+      "outputStyle": "compressed",
+      "errLogToConsole": true,
+      "includePaths": []
+    }
+  },
+  "javascript": {
+    "file": "app.js",
+    "src": "./javascripts/*.js",
+    "destination": "./assets/scripts",
+    "sourcemaps": "./"
+  }
+}

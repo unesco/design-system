@@ -1,0 +1,16 @@
+global-styling:
+  version: 1.0
+  css:
+    base:
+      assets/stylesheets/unesco_style.css: {}
+      assets/stylesheets/unesco_print.css: { media: print }
+
+  js:
+    assets/scripts/app.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
