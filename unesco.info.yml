@@ -1,6 +1,6 @@
 name: Unesco
 type: theme
-base theme: claro
+base theme: bootstrap
 description: 'Unesco base theme.'
 alt text: 'Unesco front theme.'
 package: Unesco
