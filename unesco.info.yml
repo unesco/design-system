@@ -12,15 +12,11 @@ libraries:
 
 regions:
   header: 'Header'
-  primary_menu: 'Primary menu'
-  secondary_menu: 'Secondary menu'
-  breadcrumb: Breadcrumb
-  highlighted: Highlighted
-  help: Help
+  sub_header: 'Satellite Header'
   content: Content
-  sidebar_first: 'Sidebar first'
-  sidebar_second: 'Sidebar seconnd'
+  footer_top: 'Footer top'
   footer: Footer
+  footer_bottom: 'Footer bottom'
   disabled: Disabled
 
 regions_hidden:
