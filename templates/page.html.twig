@@ -1,11 +1,10 @@
 {#
 /**
  * @file
- * Claro's theme implementation to display a single Drupal page.
+ * Theme override to display a single page.
  *
- * The doctype, html, head, and body tags are not in this template. Instead
- * they can be found in the html.html.twig template normally located in the
- * core/modules/system directory.
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template in this directory.
  *
  * Available variables:
  *
@@ -29,52 +28,68 @@
  *
  * Regions:
  * - page.header: Items for the header region.
- * - page.pre_content: Items for the pre-content region.
- * - page.breadcrumb: Items for the breadcrumb region.
- * - page.highlighted: Items for the highlighted region.
- * - page.help: Dynamic help text, mostly for admin pages.
+ * - page.sub_header: Items for the sub header region.
  * - page.content: The main content of the current page.
+ * - page.footer_top: Items for the footer top region.
+ * - page.footer: Items for the footer region.
+ * - page.footer_bottom: Items for the footer bottom region.
  *
  * @see template_preprocess_page()
  * @see html.html.twig
  */
 #}
-  <header class="content-header clearfix">
-    <div class="layout-container">
-      {% if page.header %}
-        <div class="header">
-          {{ page.header }}
+
+{% set footer_classes = ' ' ~
+  (b4_footer_schema != 'none' ? " footer-#{b4_footer_schema}" : ' ') ~
+  (b4_footer_schema != 'none' ? (b4_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
+  (b4_footer_bg_schema != 'none' ? " bg-#{b4_footer_bg_schema}" : ' ')
+%}
+
+<header>
+  {% if page.header %}
+    <div class="header">
+      {{ page.header }}
+    </div>
+  {% endif %}
+  {% if page.sub_header %}
+    <div class="sub-header">
+      {{ page.sub_header }}
+    </div>
+  {% endif %}
+</header>
+
+<main role="main">
+  <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+  <div class="{{ b4_top_container }}">
+
+    <div class="row no-gutters">
+      <div class="order-1 order-lg-2 {{ content_classes }}">
+        {{ page.content }}
+      </div>
+    </div>
+  </div>
+
+</main>
+
+{% if page.footer or page.footer_top or page.footer_bottom %}
+  <footer class="mt-auto {{ footer_classes }}">
+    <div class="{{ b4_top_container }}">
+      {% if page.footer_top %}
+        <div class="footer-top">
+          {{ page.footer_top }}
         </div>
       {% endif %}
-      {% if page.sub_header %}
-        <div class="sub-header">
-          {{ page.sub_header }}
+      {% if page.footer %}
+        <div class="footer">
+          {{ page.footer }}
+        </div>
+      {% endif %}
+      {% if page.footer_bottom %}
+        <div class="footer">
+          {{ page.footer_bottom }}
         </div>
       {% endif %}
     </div>
-  </header>
-
-  <div class="layout-container">
-    <main class="page-content clearfix" role="main">
-      <div class="visually-hidden"><a id="main-content" tabindex="-1"></a></div>
-      {{ page.content }}
-    </main>
-  </div>
-
-  <footer class="content-footer">
-    {% if page.footer_top %}
-      <div class="footer-top">
-        {{ page.footer_top }}
-      </div>
-    {% endif %}
-    {% if page.footer %}
-      <div class="footer">
-        {{ page.footer }}
-      </div>
-    {% endif %}
-    {% if page.footer_bottom %}
-      <div class="footer">
-        {{ page.footer_bottom }}
-      </div>
-    {% endif %}
   </footer>
+{% endif %}
