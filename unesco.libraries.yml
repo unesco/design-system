@@ -9,8 +9,14 @@ global-styling:
     assets/scripts/app.js: {}
 
   dependencies:
+    - unesco/popper
     - core/jquery
     - core/drupal.ajax
     - core/drupal
     - core/drupalSettings
     - core/jquery.once
+
+popper:
+  version: 1.11.0
+  js:
+    https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js: { type: external, weight: -10 }
