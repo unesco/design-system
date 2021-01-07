@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap4 theme file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function unesco_form_system_theme_settings_alter(&$form, FormStateInterface $form_state, $form_id = NULL) {
+  // Work-around for a core bug affecting admin themes. See issue #943212.
+  if (isset($form_id)) {
+    return;
+  }
+
+  $form['unesco_details'] = [
+    '#type' => 'details',
+    '#title' => t('UNESCO'),
+    '#description' => t('Custom Unesco settings'),
+    '#open' => TRUE,
+    '#weight' => 0,
+  ];
+
+  $form['unesco_details']['display_title'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Display site title in header'),
+    '#default_value' => theme_get_setting('display_title'),
+  ];
+}
