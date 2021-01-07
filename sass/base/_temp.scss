@@ -1,0 +1,36 @@
+// This file is created to facilitate developpement. Remove it when theming start.
+header {
+  background-color: #0077D4;
+}
+.region-header {
+  display: flex;
+  justify-content: space-between;
+}
+.region-sub-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-toggle {
+  color: white !important;
+}
+
+.menu--main {
+  display: flex;
+}
+
+.menu-level-0 {
+  display: flex;
+}
+
+.menu-item .menu_link_content {
+  display: none;
+}
+.menu-item:hover .menu_link_content {
+  display: flex;
+  background-color: #0077D4;
+  width: 100%;
+  z-index: 1;
+  left: 0;
+  right: 0;
+}
