@@ -1,0 +1,18 @@
+unesco.mobile:
+  label: Mobile
+  mediaQuery: 'all and (max-width: 375px)'
+  weight: 0
+  multipliers:
+    - 1x
+unesco.tablet:
+  label: Tablet
+  mediaQuery: 'all and (min-width: 376px) and (max-width: 767px)'
+  weight: 1
+  multipliers:
+    - 1x
+unesco.wide:
+  label: Wide
+  mediaQuery: 'all and (min-width: 768px)'
+  weight: 2
+  multipliers:
+    - 1x
