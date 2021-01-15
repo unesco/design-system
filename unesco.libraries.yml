@@ -4,6 +4,7 @@ global-styling:
     base:
       assets/stylesheets/unesco_style.css: {}
       assets/stylesheets/unesco_print.css: { media: print }
+      https://fonts.googleapis.com/css2?family=Material+Icons+Sharp: { type: external }
 
   js:
     assets/scripts/app.js: {}
