@@ -30,3 +30,24 @@ function unesco_form_system_theme_settings_alter(&$form, FormStateInterface $for
     '#default_value' => theme_get_setting('display_title'),
   ];
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function unesco_preprocess_node(&$variables) {
+  $variables['unesco_link_content'] = FALSE;
+  $view_mode = $variables['view_mode'];
+
+  $list_view_modes = [
+    'grid',
+    'grid_big_first',
+    'list',
+    'list_small',
+    'teaser',
+  ];
+
+  if (in_array($view_mode, $list_view_modes)) {
+    $variables['unesco_link_content'] = TRUE;
+    $variables['title'] = $variables['node']->label();
+  }
+}
