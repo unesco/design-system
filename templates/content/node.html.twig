@@ -103,12 +103,14 @@
   {% endif %}
 
   {% if unesco_link_content %}
-  <a href="{{ url }}" rel="bookmark" title="{{ title }}" {{ unesco_link_attributes|without('href', 'rel', 'title') }}>
+    <a href="{{ url }}" rel="bookmark" title="{{ title }}" {{ unesco_link_attributes|without('href', 'rel', 'title') }}>
   {% endif %}
+
   <div{{ content_attributes.addClass('node__content') }}>
     {{ content }}
   </div>
+
   {% if unesco_link_content %}
-  </a>
+    </a>
   {% endif %}
 </article>
