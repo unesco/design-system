@@ -50,3 +50,19 @@ function unesco_preprocess_node(&$variables) {
     $variables['title'] = $variables['node']->label();
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function unesco_preprocess_html(&$variables) {
+  $route_match = \Drupal::routeMatch();
+  $route_name = $route_match->getRouteName();
+  if ($route_name === 'entity.node.canonical') {
+    $node = $route_match->getParameter('node');
+    if (!empty($node)) {
+      if ($node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
+        $variables['attributes']['class'][] = 'transparent-header';
+      }
+    }
+  }
+}
