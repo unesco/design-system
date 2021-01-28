@@ -1,9 +1,8 @@
+@import '../base/variables';
+
 // Place for overrides
 // Grid sizes
 // Grid breakpoints
-//
-// Define the minimum dimensions at which your layout will change,
-// adapting to different screen sizes, for use in media queries.
 
 $grid-breakpoints: (
   xs: 0,
@@ -14,8 +13,7 @@ $grid-breakpoints: (
 );
 
 // Grid containers
-//
-// Define the maximum width of `.container` for different screen sizes.
+
 $container-max-widths: (
   sm: 520px,
   md: 700px,
@@ -24,11 +22,39 @@ $container-max-widths: (
 );
 
 // Grid columns
-//
-// Set the number of columns and specify the width of the gutters.
+
 $grid-columns:                12;
 $grid-gutter-width:           32px;
 
 // Typography
 
-$font-family-base: 'Inter';
+$font-family-base: 'Inter', sans-serif;
+
+// Colors
+
+$primary:       $BlueU !default;
+$secondary:     $Blue2 !default;
+
+// Buttons
+
+$btn-padding-y:               .625rem !default;
+$btn-padding-x:               1.25rem !default;
+$btn-font-size:               0.875rem !default;
+$btn-line-height:             1.4 !default;
+
+$btn-padding-y-sm:            .375rem !default;
+$btn-padding-x-sm:            1rem !default;
+$btn-font-size-sm:            $btn-font-size !default;
+$btn-line-height-sm:          $btn-line-height !default;
+
+$btn-padding-y-lg:            .875rem !default;
+$btn-padding-x-lg:            1.5rem !default;
+$btn-font-size-lg:            $btn-font-size !default;
+$btn-line-height-lg:          $btn-line-height !default;
+
+$btn-font-weight:             600;
+
+$btn-border-radius:           1.5rem !default;
+$btn-border-radius-lg:        $btn-border-radius !default;
+$btn-border-radius-sm:        $btn-border-radius!default;
+
