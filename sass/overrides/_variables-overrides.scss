@@ -35,6 +35,20 @@ $font-family-base: 'Inter', sans-serif;
 $primary:       $BlueU !default;
 $secondary:     $Blue2 !default;
 
+$theme-colors: () !default;
+$theme-colors: map-merge(
+    (
+      "primary":    $primary,
+      "secondary":  $secondary,
+      "grey5":      $grey5,
+      "grey4":      $grey4,
+      "grey2":      $grey2,
+      "grey1":      $grey1,
+      "white":      $white,
+    ),
+    $theme-colors
+);
+
 // Buttons
 
 $btn-padding-y:               .625rem !default;
@@ -57,4 +71,15 @@ $btn-font-weight:             600;
 $btn-border-radius:           1.5rem !default;
 $btn-border-radius-lg:        $btn-border-radius !default;
 $btn-border-radius-sm:        $btn-border-radius!default;
+
+// Dropdowns
+
+$dropdown-border-color:      $greyBorder !default;
+$dropdown-border-radius:     1.5rem !default;
+$dropdown-divider-bg:        $greyBorder !default;
+
+$dropdown-color:             $grey4 !default;
+$dropdown-link-color:        $grey4 !default;
+$dropdown-link-hover-color:  $darkGrey !default;
+$dropdown-link-hover-bg:     transparent !default;
 
