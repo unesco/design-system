@@ -8,7 +8,6 @@ $body-color:      $darkGrey !default;
 // Typography
 
 $font-family-base: 'Inter', sans-serif;
-$line-height-base: 1.4 !default;
 
 // Place for overrides
 // Grid sizes
@@ -57,7 +56,7 @@ $theme-colors: map-merge(
 
 // Components
 
-$border-color: $greyBorder;
+$border-color: $grey2;
 $border-radius: 1.5rem;
 
 // Typography
@@ -95,22 +94,24 @@ $small-font-size:             80% !default;
 $btn-padding-y:               .625rem !default;
 $btn-padding-x:               1.25rem !default;
 $btn-font-size:               0.875rem !default;
+$btn-line-height:             1.4 !default;
 
 $btn-padding-y-sm:            .375rem !default;
 $btn-padding-x-sm:            1rem !default;
 $btn-font-size-sm:            $btn-font-size !default;
-$btn-line-height-sm:          $line-height-base !default;
+$btn-line-height-sm:          $btn-line-height !default;
 
 $btn-padding-y-lg:            .875rem !default;
 $btn-padding-x-lg:            1.5rem !default;
 $btn-font-size-lg:            $btn-font-size !default;
-$btn-line-height-lg:          $line-height-base !default;
+$btn-line-height-lg:          $btn-line-height !default;
 
 $btn-font-weight:             600;
 
 $btn-border-radius:           $border-radius !default;
 $btn-border-radius-lg:        $btn-border-radius !default;
 $btn-border-radius-sm:        $btn-border-radius!default;
+
 
 // Dropdowns
 
@@ -146,6 +147,10 @@ $input-border-radius-sm:                $input-border-radius !default;
 
 $custom-select-border-color:        $border-color !default;
 $custom-select-border-radius:       $border-radius !default;
+
+// Custom Checkbox
+
+$custom-checkbox-indicator-border-radius: .125rem !default;
 
 // Form validation
 

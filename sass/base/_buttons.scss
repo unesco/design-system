@@ -1,3 +1,7 @@
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+// Buttons
+
 .btn {
 
   &-outline-primary,
@@ -56,6 +60,84 @@
     &:not(:disabled):not(.disabled).active {
       color: $white;
       border-color: $white;
+    }
+  }
+}
+
+// Tags
+
+.tag {
+  display: inline-block;
+  padding: .375rem .75rem;
+  border: none;
+  border-radius: .25rem;
+  background-color: $BlueU;
+  color: $white;
+  font-size: .875rem;
+  line-height: 1.4;
+  transition: $btn-transition;
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .125rem $LightBlue;
+  }
+
+  &-primary {
+    background-color: $BlueU;
+    &:hover {
+      background-color: $Blue2;
+    }
+    &:active {
+      background-color: $BlueU;
+      color: $LightBlue
+    }
+  }
+
+  &-grey-light {
+    background-color: $grey1;
+    color: $grey5;
+    &:hover {
+      background-color: $grey2;
+    }
+    &:active {
+      background-color: $grey1;
+      color: $grey4;
+    }
+  }
+
+  &-grey {
+    background-color: $grey2;
+    color: $grey5;
+    &:hover {
+      background-color: $grey3;
+    }
+    &:active {
+      background-color: $grey2;
+      color: $grey4;
+    }
+  }
+
+  &-outline-grey {
+    background-color: transparent;
+    color: $grey5;
+    box-shadow: inset 0 0 0 .0625rem $grey2;
+    &:hover {
+      box-shadow: inset 0 0 0 .0625rem $grey5;
+    }
+    &:focus {
+      box-shadow: 0 0 0 .125rem $grey2;
+    }
+    &:active {
+      color: $grey3;
+    }
+  }
+
+  &-outline-white {
+    background-color: transparent;
+    color: $white;
+    box-shadow: inset 0 0 0 .0625rem $white;
+    &:hover {
+      box-shadow: inset 0 0 0 .0625rem $LightBlue;
+      color: $LightBlue;
     }
   }
 }
