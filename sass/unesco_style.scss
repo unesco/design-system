@@ -3,12 +3,16 @@
 //
 // This file gets turned into style.css. This file should really hold nothing except for imports.
 ////////////////////////
+
+@import 'overrides/variables-overrides';
+
+// Includes parent theme with all things Bootstrap for variables override.
+@import "../../../contrib/bootstrap4/scss/style";
+
+// Custom styles
 @import 'base/base';
 @import 'blocks/blocks';
 @import 'fields/fields';
 @import 'entities/entities';
 @import 'pages/pages';
 
-// Includes parent theme with all things Bootstrap for variables override.
-// Must be included last
-@import "../../../contrib/bootstrap4/scss/style";
