@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Default theme implementation to each level of menu.
+ */
+#}
+{% import _self as menu %}
+
+{{ menu.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+  <ul class="menu menu-level-{{ items|first.menu_level }} nav navbar-nav">
+  {% for key, item in items if key|first != '#' %}
+    {% set menu_item_classes = [
+      'menu-item',
+      'nav-item',
+      item.is_expanded ? 'dropdown',
+      item.is_collapsed ? 'dropdown',
+      item.in_active_trail ? 'menu-item--active-trail active',
+    ] %}
+
+    {%
+      set classes_link = [
+      'nav-link',
+      item.in_active_trail ? 'active',
+      item.is_expanded ? 'dropdown-toggle',
+    ]
+    %}
+
+    <li{{ item.attributes.addClass(menu_item_classes) }}>
+      {% if menu_level == 0 and item.below %}
+      {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'dropdown', 'title': ('Expand menu' | t) ~ ' ' ~ item.title }) }}
+      {{ menus.build_menu(item.below, attributes, menu_level + 1) }}
+      {% else %}
+        {{ link(item.title, item.url, { 'class': classes_link }) }}
+      {% endif %}
+      {% set rendered_content = item.content|without('') %}
+      {% if rendered_content|render %}
+        {{ rendered_content }}
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+{% endmacro %}
