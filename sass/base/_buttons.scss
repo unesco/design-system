@@ -64,6 +64,13 @@ $btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, bord
   }
 }
 
+.dropdown-toggle::after {
+  @include icon('expand_more');
+  border: none;
+  vertical-align: middle;
+  margin-left: 0.625rem;
+}
+
 // Tags
 
 .tag {

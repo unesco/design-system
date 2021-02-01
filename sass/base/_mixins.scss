@@ -17,3 +17,12 @@
     @content;
   }
 }
+
+@mixin icon($icon) {
+  content: $icon;
+  font-family: 'Material Icons Sharp';
+  -webkit-font-feature-settings: 'liga';
+  -moz-font-feature-settings: 'liga' 1;
+  font-feature-settings: 'liga' 1;
+  font-weight: 400;
+}
