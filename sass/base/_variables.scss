@@ -33,3 +33,7 @@ $redWarning:       #D8552C;
 $screen-mobile: 320px;
 $screen-tablet: 768px;
 $screen-desktop: 1024px;
+
+// Transitions (bootstrap)
+
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;

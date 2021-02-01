@@ -1,0 +1,83 @@
+$xs : 1.5rem;
+$sm : 2rem;
+$md : 2.5rem;
+$lg : 3rem;
+$xl : 4.5rem;
+
+.round {
+  display: inline-block;
+  width: $sm;
+  height: $sm;
+  line-height: 1rem;
+  border-radius: 50%;
+  background-color: $BlueU;
+  text-decoration: none;
+  text-align: center;
+  transition: $btn-transition;
+  &:hover {
+    text-decoration: none;
+  }
+  &:focus {
+    box-shadow: 0 0 0 .125rem $LightBlue;
+    outline: none;
+  }
+  i {
+    color: $white;
+    font-size: $sm*.5;
+    line-height: $sm;
+    transition: $btn-transition;
+  }
+}
+
+$sizes: ( xs: $xs, sm: $sm, md: $md, lg: $lg, xl: $xl );
+
+@each $sizeType, $size in $sizes {
+  .round-#{$sizeType} {
+    width: $size;
+    height: $size;
+    i {
+      font-size: $size*.5;
+      line-height: $size;
+    }
+  }
+}
+
+
+//Background color / Text color / Background color in hover state / Text color in hover state / Text color in pressed state / Text color in focused state
+
+$colors:
+    (primary, $BlueU, $white, $Blue2, $white, $white, $white),
+    (secondary, $Blue2, $white, $Blue3, $white, $white, $white),
+    (grey1, $grey1, $grey4, $grey1, $darkGrey, $grey3, $grey4),
+    (grey2, $grey2, $grey4, $grey2, $darkGrey, $grey3, $grey4),
+    (grey4, $grey4, $grey2, $grey4, $white, $grey3, $white),
+    (grey5, $grey5, $grey2, $grey5, $white, $grey3, $white),
+    (white, $white, $grey4, $white, $darkGrey, $grey3, $grey4);
+
+@each $colorName, $bgColor, $textColor, $bgColorHover, $textHover, $textPressed, $textFocused in $colors {
+  .round-#{$colorName} {
+    background-color: $bgColor;
+    i {
+      color: $textColor;
+    }
+    &:hover {
+      background-color: $bgColorHover;
+      i {
+        color: $textHover;
+      }
+    }
+    &:focus {
+      i {
+        color: $textFocused;
+      }
+    }
+    &:active {
+      &:hover {
+        background-color: $bgColor;
+      }
+      i {
+        color: $textPressed;
+      }
+    }
+  }
+}
