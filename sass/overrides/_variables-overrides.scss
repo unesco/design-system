@@ -217,3 +217,15 @@ $navbar-light-brand-color:                $navbar-light-active-color !default;
 $navbar-light-brand-hover-color:          $navbar-light-active-color !default;
 $navbar-dark-brand-color:                 $navbar-dark-color;
 $navbar-dark-brand-hover-color:           $navbar-dark-active-color !default;
+
+
+// Cards
+
+$card-spacer-y:             1.5rem !default;
+$card-spacer-x:             1.5rem !default;
+$card-border-width:         0 !default;
+$card-border-radius:        .5rem !default;
+$card-border-color:         transparent !default;
+$card-cap-bg:               $grey1 !default;
+$card-bg:                   $grey1 !default;
+$card-columns-gap:          1rem !default;

@@ -1,0 +1,19 @@
+/* === MEDIAQUERIS === */
+
+@mixin mq($type, $value) {
+  @media only screen and (#{$type}-width: #{$value}) {
+    @content;
+  }
+}
+
+@mixin max-screen($value) {
+  @include mq(max, $value) {
+    @content;
+  }
+}
+
+@mixin min-screen($value) {
+  @include mq(min, $value) {
+    @content;
+  }
+}
