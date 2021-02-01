@@ -31,6 +31,10 @@
     ]
     %}
 
+    {% if item.url.options.attributes.class %}
+      {% set classes_link = classes_link|merge([item.url.options.attributes.class]) %}
+    {% endif %}
+
     <li{{ item.attributes.addClass(menu_item_classes) }}>
       {% if menu_level == 0 and item.below %}
       {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'dropdown', 'title': ('Expand menu' | t) ~ ' ' ~ item.title }) }}
