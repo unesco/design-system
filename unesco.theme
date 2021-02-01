@@ -42,7 +42,7 @@ function unesco_preprocess_node(&$variables) {
     'grid',
     'grid_big_first',
     'normal',
-    'teaser',
+    'short',
   ];
 
   if (in_array($view_mode, $list_view_modes)) {
