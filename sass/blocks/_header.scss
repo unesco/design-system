@@ -1,3 +1,7 @@
+header {
+  padding: 2rem 3.625rem 1.5rem;
+}
+
 .navbar-toggler-icon {
   width: 1.125rem;
   height: 0.75rem;
@@ -12,5 +16,30 @@
 .navbar-light {
   .navbar-toggler {
     background-color: $BlueU;
+  }
+}
+
+.site-name {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 800;
+  color: $navbar-dark-brand-color;
+}
+
+.region-header {
+  justify-content: space-between;
+}
+
+.menu--main {
+  justify-content: flex-end;
+
+  .main-navigation {
+    justify-content: flex-end;
+  }
+}
+
+.btn-link {
+  &.btn-link-white {
+    color: $navbar-dark-color;
   }
 }

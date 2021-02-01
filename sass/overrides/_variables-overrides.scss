@@ -165,7 +165,8 @@ $form-feedback-invalid-color:       $redWarning !default;
 $component-active-color:            $white;
 $component-active-bg:               $BlueU;
 $nav-link-padding-y:                .5rem !default;
-$nav-link-padding-x:                1rem !default;
+$nav-link-padding-x:                1rem;
+$navbar-nav-link-padding-x:         1rem;
 
 $nav-tabs-border-color:             transparent;
 $nav-tabs-border-width:             0 0 1px 0;
@@ -184,8 +185,6 @@ $nav-pills-link-active-bg:          $component-active-bg !default;
 
 $navbar-padding-y:                  0;
 $navbar-padding-x:                  0;
-
-$navbar-nav-link-padding-x:         .5rem !default;
 
 $navbar-brand-font-size:            $font-size-lg;
 
