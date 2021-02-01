@@ -1,0 +1,16 @@
+.navbar-toggler-icon {
+  width: 1.125rem;
+  height: 0.75rem;
+}
+
+.navbar-dark {
+  .navbar-toggler {
+    background-color: $Blue2;
+  }
+}
+
+.navbar-light {
+  .navbar-toggler {
+    background-color: $BlueU;
+  }
+}
