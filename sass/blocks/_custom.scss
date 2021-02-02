@@ -1,0 +1,28 @@
+// Alert
+
+.custom-alert {
+  width: 100%;
+  padding: 1.125rem 1.625rem;
+  background-color: $grey5;
+  color: $white;
+  font-size: .875rem;
+  font-weight: 600;
+
+  i {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: .625rem;
+  }
+
+  @include min-screen($screen-tablet) {
+    padding: 1.25rem 2.25rem;
+    font-size: 1rem;
+    i {
+      margin-right: 1.125rem;
+    }
+  }
+
+  @include min-screen($screen-desktop) {
+   padding: 1.25rem 6rem;
+  }
+}
