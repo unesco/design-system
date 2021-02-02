@@ -82,6 +82,7 @@ $h4-font-size:                $font-size-base * 1.5;
 $h5-font-size:                $font-size-base * 1.125;
 $h6-font-size:                $font-size-base !default;
 
+
 //$headings-margin-bottom:      $spacer / 2 !default;
 $headings-font-family:        null !default;
 $headings-font-weight:        600 !default;
@@ -225,7 +226,7 @@ $card-spacer-x:             1.5rem !default;
 $card-border-width:         0 !default;
 $card-border-radius:        .5rem !default;
 $card-border-color:         transparent !default;
-$card-cap-bg:               $grey1 !default;
+$card-cap-bg:               transparent !default;
 $card-bg:                   $grey1 !default;
 $card-columns-gap:          1rem !default;
 
@@ -233,8 +234,6 @@ $card-columns-gap:          1rem !default;
 
 
 $list-group-border-color:           $grey2 !default;
-$list-group-border-width:           0 !default;
-$list-group-border-radius:          0 !default;
-
+$list-group-border-radius:          .5rem !default;
 $list-group-item-padding-y:         1rem !default;
-$list-group-item-padding-x:         0 !default;
+//$list-group-item-padding-x:         0 !default;

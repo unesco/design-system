@@ -27,12 +27,6 @@
   }
 }
 
-// List Groupe
-
-.list-group-item {
-  border-bottom: .0625rem solid $grey2;
-}
-
 // Cookies
 
 .cookies {
@@ -62,6 +56,30 @@
     padding: 1.5rem 6rem;
     &-actions {
       margin-top: 0;
+      margin-left: 2rem;
     }
   }
+}
+
+// List group flush
+
+.list-group-flush {
+  border-top: .0625rem solid $grey2;
+  .list-group-item {
+    padding: 1rem 0;
+  }
+}
+
+// Icon
+
+.icon-primary {
+  display: inline-block;
+  vertical-align: middle;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem !important;
+  border-radius: 50%;
+  background-color: $grey1;
+  color: $BlueU;
+  text-align: center;
 }
