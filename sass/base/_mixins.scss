@@ -18,6 +18,8 @@
   }
 }
 
+/* === Icon === */
+
 @mixin icon($icon) {
   content: $icon;
   font-family: 'Material Icons Sharp';

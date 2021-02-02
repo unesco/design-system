@@ -1,0 +1,38 @@
+.banner {
+  display: flex;
+  background-color: $grey1;
+  padding: 1.5rem;
+  border-radius: .5rem;
+
+  @include min-screen($screen-desktop) {
+    padding: 2rem;
+  }
+}
+
+.banner-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 3rem;
+  .banner-image {
+    margin-bottom: 1rem;
+  }
+  @include min-screen($screen-desktop) {
+    flex-direction: row;
+    .banner-image {
+      margin-bottom: 0;
+      order: 1;
+      padding-left: 3rem;
+    }
+  }
+}
+
+// Colors
+
+$colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLight, purple: $purpleLight, red: $redLight );
+
+@each $colorName, $color in $colors {
+  .banner-#{$colorName} {
+    background-color: $color;
+  }
+}
