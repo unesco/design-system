@@ -26,3 +26,42 @@
    padding: 1.25rem 6rem;
   }
 }
+
+// List Groupe
+
+.list-group-item {
+  border-bottom: .0625rem solid $grey2;
+}
+
+// Cookies
+
+.cookies {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: $grey1;
+  color: $darkGrey;
+  font-size: 1rem;
+  border-top: .0625rem solid $grey2;
+
+  &-actions {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  @include min-screen($screen-tablet) {
+    padding: 1.5rem 2.125rem;
+  }
+
+  @include min-screen($screen-desktop) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 6rem;
+    &-actions {
+      margin-top: 0;
+    }
+  }
+}
