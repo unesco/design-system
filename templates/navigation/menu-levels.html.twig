@@ -12,7 +12,7 @@
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
-<div class="main-navigation collapse navbar-collapse col-lg-6" id="navbarNav">
+<div class="main-navigation collapse navbar-collapse" id="navbarNav">
   <ul class="menu menu-level-{{ items|first.menu_level }} nav navbar-nav">
   {% for key, item in items if key|first != '#' %}
     {% set menu_item_classes = [
