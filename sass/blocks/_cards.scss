@@ -6,9 +6,12 @@
     max-height: 26.5rem;
   }
   &-title {
+    display: inline-block;
+    vertical-align: top;
     max-width: calc(100% - 2rem);
     max-height: 6rem;
     overflow: hidden;
+    margin-bottom: 0;
   }
   &-text {
     @include min-screen($screen-tablet) {
@@ -20,6 +23,7 @@
 
 
 // Shame
+
 .card-image {
   position: relative;
   background-size: cover;
@@ -51,9 +55,14 @@
   width: 7.5rem;
   height: 7.5rem;
   border-radius: 50%;
-  background-color: $green;
+  background-color: $greenLight;
+  margin-bottom: 1.5rem;
   text-align: center;
-  line-height: 7.5rem;
+  i {
+    font-size: 3.5rem;
+    line-height: 7.5rem;
+    color: $white;
+  }
 }
 
 .card-hero {
@@ -62,3 +71,19 @@
   height: 100%;
   max-height: 9rem;
 }
+
+.card-arrow {
+  display: inline-block;
+  vertical-align: top;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: $darkGrey;
+  text-align: center;
+  i {
+    color: $white;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }
+}
+
