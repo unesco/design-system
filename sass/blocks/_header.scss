@@ -20,6 +20,12 @@ header {
 
   .region-sub-header {
     align-items: center;
+    position: relative;
+
+    .menu--main,
+    .dropdown {
+      position: static;
+    }
   }
 }
 
@@ -62,5 +68,53 @@ header {
 .btn-link {
   &.btn-link-white {
     color: $navbar-dark-color;
+  }
+}
+
+.main-navigation {
+  .dropdown-menu {
+    top: calc(100% + 1.4rem);
+    padding: 3.5rem;
+    border: none;
+    border-radius: 0;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &.show {
+      display: flex;
+    }
+
+    .submenu-wrapper {
+      margin: 0 -2.063rem;
+      width: 100%;
+    }
+
+    .left-wrapper,
+    .right-wrapper {
+      padding: 0 2.063rem;
+    }
+
+    .left-wrapper {
+      max-width: 28.5rem;
+
+      @include max-screen($screen-tablet) {
+        max-width: 100%;
+      }
+
+      .field--name-field-description {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 600;
+        color: $navbar-dark-color;
+        margin-bottom: $spacer * 1.5;
+      }
+    }
+  }
+
+  .menu-links {
+    .menu-link {
+      margin-bottom: 1rem;
+    }
   }
 }
