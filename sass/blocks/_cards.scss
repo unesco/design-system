@@ -8,6 +8,10 @@
   }
 }
 
+.card-body {
+  margin-bottom: 1.5rem;
+}
+
 .card-title {
   width: calc(100% - 2rem);
   font-size: 1.125rem;
@@ -48,7 +52,7 @@
     opacity: .4;
     z-index: 0;
   }
-  .card-body, .card-header {
+  .card-body, .card-header, .card-footer {
     position: relative;
     z-index: 1;
     color: $white;
@@ -77,6 +81,9 @@
 .card-hero {
   display: flex;
   flex-direction: column;
+  .card-content {
+    position: relative;
+  }
 }
 
 .card-img-top {
@@ -86,14 +93,29 @@
   max-height: 9rem;
 }
 
+.card-contact {
+  .card-circle {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: 1rem;
+    i {
+      font-size: 2.5rem;
+      line-height: 4.5rem;
+      color: $white;
+    }
+  }
+}
+
 
 // Col 6 desktop HD
 
 @include min-screen($screen-desktop) {
   .col-lg-6 {
 
-    .card-title {
+    .card:not(.card-contact) {
+      .card-title {
       font-size: 1.75rem;
+    }
     }
 
     .card-body {
@@ -108,6 +130,12 @@
         max-height: none;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
+      }
+      .card-footer {
+        max-width: 25.25rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
       }
     }
 
