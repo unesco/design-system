@@ -51,7 +51,7 @@ p {
   @include responsive(font-size, $text);
 }
 
-ul {
+ul.list {
   @include responsive(font-size, $text);
 
   li {
@@ -63,7 +63,7 @@ ul {
   }
 }
 
-ol {
+ol.list {
   list-style: none;
   margin-left: 0;
   @include responsive(font-size, $text);
@@ -83,6 +83,24 @@ ol {
     &:first-child {
       counter-reset: custom;
     }
+  }
+}
+
+a.link {
+  border-bottom: .0625rem solid $BlueU;
+  transition: $btn-transition;
+  &:hover {
+    color: $Blue2;
+    border-bottom: .0625rem solid $Blue2;
+    text-decoration: none;
+  }
+}
+
+.boxed {
+  border-radius: .5rem;
+  padding: 1.5rem;
+  @include min-screen($screen-desktop) {
+    padding: 2rem;
   }
 }
 // Quote
