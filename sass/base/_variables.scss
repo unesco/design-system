@@ -35,5 +35,50 @@ $screen-tablet: 768px;
 $screen-desktop: 1024px;
 
 // Transitions (bootstrap)
-
 $btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+// BreakPoints
+$r-breakpoints: (
+  medium: $screen-tablet,
+  large: $screen-desktop
+);
+
+// Responsive font size
+// Title
+$page-title: (
+  null: 1.75rem,
+  medium: 2.25rem,
+  large: 3rem
+);
+
+$section-title: (
+  null: 1.5rem,
+  large: 2.25rem
+);
+
+$section-title-small: (
+  null: 1.125rem,
+  large: 1.5rem
+);
+
+$article-title: (
+  null: 1.75rem,
+  large: 3rem
+);
+
+// Text
+$section-text: (
+  null: 1.125rem,
+  large: 1.5rem
+);
+
+$section-text-small: (
+  null: 1rem,
+  large: 1.125rem
+);
+
+// Quote
+$quote-text: (
+  null: 1.5rem,
+  large: 1.75rem
+);
