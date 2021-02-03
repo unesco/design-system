@@ -13,7 +13,7 @@
   <span class="navbar-toggler-icon"></span>
 </button>
 <div class="main-navigation collapse navbar-collapse" id="navbarNav">
-  <ul class="menu menu-level-{{ items|first.menu_level }} nav navbar-nav">
+  <ul {{ attributes.addClass('menu nav navbar-nav').addClass('menu-level-' ~ items|first.menu_level) }}>
   {% for key, item in items if key|first != '#' %}
     {% set menu_item_classes = [
       'menu-item',
