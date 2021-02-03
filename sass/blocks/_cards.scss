@@ -1,30 +1,41 @@
 .card {
+  position: relative;
   overflow: hidden;
   @include min-screen($screen-tablet) {
     min-height: 26.5rem;
     height: 26.5rem;
     max-height: 26.5rem;
   }
-  &-title {
-    display: inline-block;
-    vertical-align: top;
-    max-width: calc(100% - 2rem);
-    max-height: 6rem;
-    overflow: hidden;
-    margin-bottom: 0;
-  }
-  &-text {
-    @include min-screen($screen-tablet) {
-      max-height: 18.5rem;
-      overflow: hidden;
-    }
-  }
 }
 
+.card-title {
+  width: calc(100% - 2rem);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
 
-// Shame
+.card-text {
+  font-size: 1rem;
+  line-height: 1.3;
+}
 
-.card-image {
+.card-number {
+  font-size: 2.75rem;
+  line-height: 3rem;
+  font-weight: 800;
+  margin-bottom: .5rem;
+}
+
+.card-arrow {
+  @extend .arrow-black;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.card-overlay {
   position: relative;
   background-size: cover;
   background-position: center center;
@@ -34,7 +45,7 @@
     width: 100%;
     height: 100%;
     background-color: $darkGrey;
-    opacity: .5;
+    opacity: .4;
     z-index: 0;
   }
   .card-body, .card-header {
@@ -47,10 +58,6 @@
   }
 }
 
-.card-header {
-  margin-bottom: -1.5rem;
-}
-
 .card-circle {
   width: 7.5rem;
   height: 7.5rem;
@@ -58,6 +65,8 @@
   background-color: $greenLight;
   margin-bottom: 1.5rem;
   text-align: center;
+  object-fit: cover;
+  object-position: center center;
   i {
     font-size: 3.5rem;
     line-height: 7.5rem;
@@ -66,6 +75,11 @@
 }
 
 .card-hero {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-top {
   object-fit: cover;
   width: 100%;
   height: 100%;
@@ -73,3 +87,29 @@
 }
 
 
+// Col 6 desktop HD
+
+@include min-screen($screen-desktop) {
+  .col-lg-6 {
+
+    .card-title {
+      font-size: 1.75rem;
+    }
+
+    .card-body {
+      max-width: 25.25rem;
+    }
+
+    .card-hero {
+      flex-direction: row-reverse;
+      align-items: stretch;
+      .card-img-top {
+        width: 45%;
+        max-height: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+  }
+}
