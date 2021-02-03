@@ -1,0 +1,28 @@
+{#
+/**
+ * @file entity-base.html.twig
+ * Default theme implementation to present custom entities data.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see _cens_common_custom_entity_template_preprocess()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+  <div{{ attributes.addClass('banner', 'mb-3') }}>
+    <div class="banner-body">
+      <div class="banner-image">
+        {{- content.unesco_common_cta_icon -}}
+      </div>
+      <div class="banner-text">
+        {{- content|without(['unesco_common_cta_link', 'unesco_common_cta_icon']) -}}
+      </div>
+    </div>
+    {{- content.unesco_common_cta_link -}}
+  </div>
+{% endif %}
