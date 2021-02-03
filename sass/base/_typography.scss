@@ -45,6 +45,46 @@
   line-height: 1.3;
 }
 
+// Rich Text
+
+p {
+  @include responsive(font-size, $text);
+}
+
+ul {
+  @include responsive(font-size, $text);
+
+  li {
+    margin-bottom: 1rem;
+    &::marker {
+      color: $BlueU;
+      font-size: 1.375rem;
+    }
+  }
+}
+
+ol {
+  list-style: none;
+  margin-left: 0;
+  @include responsive(font-size, $text);
+
+  li {
+    position: relative;
+    counter-increment: custom;
+    margin-bottom: 1rem;
+    &::before {
+      content: counter(custom) " ";
+      position: absolute;
+      left: -1.375rem;
+      font-size: 1.125rem;
+      color: $BlueU;
+      font-weight: 600;
+    }
+    &:first-child {
+      counter-reset: custom;
+    }
+  }
+}
 // Quote
 
 .blockquote {
