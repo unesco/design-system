@@ -4,8 +4,18 @@ header {
   .nav-link {
     font-size: 1.125rem;
     line-height: 2rem;
+    display: flex;
+    align-items: center;
     padding-top: 0;
     padding-bottom: 0;
+
+    &.btn {
+      font-size: 0.875rem;
+    }
+  }
+
+  .menu-level-1 a {
+    color: $navbar-dark-color;
   }
 
   .nav-item {
@@ -18,6 +28,14 @@ header {
     }
   }
 
+  .region-header {
+    button,
+    a {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+    }
+  }
+
   .region-sub-header {
     align-items: center;
     position: relative;
@@ -25,6 +43,39 @@ header {
     .menu--main,
     .dropdown {
       position: static;
+    }
+  }
+
+  .menu-level-0 {
+    >.nav-item {
+      >.nav-link {
+        position: relative;
+
+        &:focus,
+        &:hover {
+          color: $navbar-dark-color;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 1rem;
+            bottom: -1.625rem;
+            width: calc(100% - 2rem);
+            height: 0.25rem;
+            background-color: $navbar-dark-color;
+          }
+        }
+      }
+
+      &.show {
+        .nav-link {
+          &:focus::before,
+          &:hover::before {
+            display: none;
+          }
+        }
+      }
     }
   }
 }
@@ -116,5 +167,48 @@ header {
     .menu-link {
       margin-bottom: 1rem;
     }
+  }
+}
+
+.language-switcher-language-url {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+
+    a {
+      font-size: 0.875rem;
+      line-height: 2rem;
+      font-weight: 400;
+      color: $grey4;
+
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        color: $darkGrey;
+      }
+
+      &.is-active {
+        color: $darkGrey;
+      }
+    }
+  }
+}
+
+.block-unesco-commonlanguage-blocklanguage-interface {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0;
+
+  .btn-link {
+    padding: 0;
+  }
+
+  .dropdown-menu {
+    padding: 1rem 1.5rem;
   }
 }

@@ -18,12 +18,16 @@
     {% set menu_item_classes = [
       'menu-item',
       'nav-item',
+      item.is_expanded ? 'dropdown',
+      item.is_collapsed ? 'dropdown',
+      item.in_active_trail ? 'menu-item--active-trail active',
     ] %}
 
     {%
       set classes_link = [
       'nav-link',
       item.in_active_trail ? 'active',
+      item.is_expanded ? 'dropdown-toggle',
     ]
     %}
 
@@ -35,6 +39,8 @@
       {% if menu_level == 0 and item.below %}
       {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'dropdown', 'title': ('Expand menu' | t) ~ ' ' ~ item.title }) }}
       {{ menus.build_menu(item.below, attributes, menu_level + 1) }}
+      {% else %}
+        {{ item.content }}
       {% endif %}
       {% set rendered_content = item.content|without('') %}
       {% if rendered_content|render %}
