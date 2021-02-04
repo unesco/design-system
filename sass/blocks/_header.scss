@@ -222,6 +222,10 @@ header {
 header {
   // Submenus styles
   .big {
+    .nav-link {
+      display: none;
+    }
+    
     .menu-level-1 {
       margin: 0 -1rem;
       display: flex;
@@ -240,6 +244,10 @@ header {
     display: block;
     opacity: 0;
     pointer-events: none;
+
+    .nav-link {
+      display: none;
+    }
 
     &.show {
       opacity: 1;
