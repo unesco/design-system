@@ -279,6 +279,54 @@ header {
       }
     }
   }
+
+  .normal {
+    .right-wrapper >.main-navigation >.menu-level-1 {
+      display: flex;
+      margin: 0 -1rem;
+      justify-content: flex-end;
+
+      >li {
+        padding: 0 1rem;
+        width: 33.33%;
+        max-width: 18.75rem;
+        margin-bottom: 1.5rem;
+
+        > a {
+          font-size: $font-size-base;
+          line-height: 1.5rem;
+          font-weight: 600;
+          margin-bottom: 1.5rem;
+
+          &.dropdown-toggle::after {
+            display: none;
+          }
+        }
+
+        .nav-item {
+          margin-bottom: 1.5rem;
+
+          .nav-link {
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            font-weight: 400;
+          }
+        }
+      }
+
+      .level-1-submenu {
+        >a {
+          display: none;
+        }
+
+        .navbar-nav,
+        .main-navigation {
+          display: block !important;
+          margin: 0;
+        }
+      }
+    }
+  }
 }
 
 .submenu-big {
