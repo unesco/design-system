@@ -24,9 +24,15 @@ Drupal.behaviors.reportMenu = {
 Drupal.behaviors.responsiveMenu = {
   attach: function (context, settings) {
     let menuBurger = $('.navbar-toggler');
+    let parentItem = $('header .menu-level-0 > .nav-item > .dropdown-toggle');
 
     menuBurger.on('click', function() {
       $('body').toggleClass('menu-open');
+      $('body').removeClass('parent-menu-open');
+    });
+
+    parentItem.on('click', function() {
+      $('body').toggleClass('parent-menu-open');
     });
   }
 };
