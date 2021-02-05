@@ -21,4 +21,14 @@ Drupal.behaviors.reportMenu = {
   }
 };
 
+Drupal.behaviors.responsiveMenu = {
+  attach: function (context, settings) {
+    let menuBurger = $('.navbar-toggler');
+
+    menuBurger.on('click', function() {
+      $('body').toggleClass('menu-open');
+    });
+  }
+};
+
 })(jQuery);

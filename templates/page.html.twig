@@ -45,10 +45,13 @@
   (b4_footer_bg_schema != 'none' ? " bg-#{b4_footer_bg_schema}" : ' ')
 %}
 
-<header class="bg-primary">
+<header class="bg-primary navbar navbar-expand-lg navbar-dark bg-primary">
   {% if page.header %}
     <div class="header">
       {{ page.header }}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
   {% endif %}
   {% if page.sub_header %}

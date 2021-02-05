@@ -1,5 +1,37 @@
 header {
-  padding: 2rem 3.625rem 1.5rem;
+  &.navbar {
+    flex-direction: column;
+    padding: 2rem 3.625rem 1.5rem;
+
+    @include max-screen($screen-tablet) {
+      position: relative;
+      padding: 4rem 2.125rem 1.5rem;
+      align-items: flex-start;
+    }
+  
+    @include max-screen($screen-mobile) {
+      padding: 4rem 1.5rem 1rem;
+    }
+  }
+
+  .header {
+    .navbar-toggler {
+      position: absolute;
+      top: 1.5rem;
+      right: 2.125rem;
+
+      @include max-screen($screen-mobile) {
+        top: 1rem;
+        right: 1.5rem;
+      }
+    }
+  }
+
+  .sub-header {
+    @include max-screen($screen-tablet) {
+      order: -1;
+    }
+  }
 
   .nav-link {
     font-size: 1.125rem;
@@ -26,9 +58,35 @@ header {
     p {
       margin: 0;
     }
+
+    @include max-screen($screen-tablet) {
+      display: none;
+    }
+  }
+
+  .block-system-branding-block {
+    @include max-screen($screen-tablet) {
+      position: absolute;
+      top: 1.5rem;
+      left: 2.125rem;
+      padding: 0;
+      width: auto;
+    }
+
+    @include max-screen($screen-mobile) {
+      top: 1rem;
+      left: 1.5rem;
+    }
   }
 
   .region-header {
+    width: 100%;
+
+    @include max-screen($screen-tablet) {
+      margin: 0;
+      padding: 0;
+    }
+
     button,
     a {
       font-size: 0.875rem;
@@ -48,8 +106,22 @@ header {
 
   .menu-level-0 {
     >.nav-item {
+      @include max-screen($screen-tablet) {
+        margin-bottom: 1.5rem;
+      }
+
       >.nav-link {
         position: relative;
+
+        @include max-screen($screen-tablet) {
+          font-size: 1.5rem;
+          line-height: 2rem;
+          font-weight: 400;
+
+          &.dropdown-toggle::after {
+            content: "chevron_right";
+          }
+        }
 
         &:focus,
         &:hover {
@@ -64,6 +136,10 @@ header {
             width: calc(100% - 2rem);
             height: 0.25rem;
             background-color: $navbar-dark-color;
+
+            @include max-screen($screen-tablet) {
+              display: none;
+            }
           }
         }
       }
@@ -89,6 +165,10 @@ header {
   .navbar-toggler {
     background-color: $Blue2;
   }
+
+  .navbar-brand img {
+    filter: none;
+  }
 }
 
 .navbar-light {
@@ -111,8 +191,17 @@ header {
 .menu--main {
   justify-content: flex-end;
 
+  @include max-screen($screen-tablet) {
+    margin-top: 2rem;
+  }
+
   .main-navigation {
     justify-content: flex-end;
+    max-width: 100%;
+  }
+
+  ul.menu {
+    margin-left: 0;
   }
 }
 
@@ -210,6 +299,15 @@ header {
   justify-content: flex-end;
   padding-right: 0;
 
+  @include max-screen($screen-tablet) {
+    justify-content: flex-start;
+    display: none;
+
+    .menu-open & {
+      display: flex;
+    }
+  }
+
   .btn-link {
     padding: 0;
   }
@@ -244,6 +342,14 @@ header {
     display: block;
     opacity: 0;
     pointer-events: none;
+
+    @include max-screen($screen-tablet) {
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
 
     .nav-link {
       display: none;
