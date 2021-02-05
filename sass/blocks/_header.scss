@@ -7,6 +7,7 @@ header {
       position: relative;
       padding: 4rem 2.125rem 1.5rem;
       align-items: flex-start;
+      justify-content: flex-start;
     }
   
     @include max-screen($screen-mobile) {
@@ -14,7 +15,18 @@ header {
     }
   }
 
+  .menu-open & {
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 99;
+  }
+
   .header {
+    width: 100%;
+
     .navbar-toggler {
       position: absolute;
       top: 1.5rem;
@@ -28,6 +40,8 @@ header {
   }
 
   .sub-header {
+    width: 100%;
+
     @include max-screen($screen-tablet) {
       order: -1;
     }
@@ -81,10 +95,12 @@ header {
 
   .region-header {
     width: 100%;
+    align-items: center;
 
     @include max-screen($screen-tablet) {
       margin: 0;
       padding: 0;
+      align-items: flex-start;
     }
 
     button,
@@ -191,13 +207,16 @@ header {
 .menu--main {
   justify-content: flex-end;
 
-  @include max-screen($screen-tablet) {
-    margin-top: 2rem;
-  }
-
   .main-navigation {
     justify-content: flex-end;
     max-width: 100%;
+    transition: all 0.2s ease-in-out;
+
+    &.show {
+      @include max-screen($screen-tablet) {
+        margin-top: 2rem;
+      }
+    }
   }
 
   ul.menu {
@@ -225,9 +244,19 @@ header {
       display: flex;
     }
 
+    @include max-screen($screen-tablet) {
+      position: static;
+      padding: 0;
+      transform: none;
+    }
+
     .submenu-wrapper {
       margin: 0 -2.063rem;
       width: 100%;
+
+      @include max-screen($screen-tablet) {
+        margin: 0 -1rem;
+      }
     }
 
     .left-wrapper,
@@ -238,6 +267,11 @@ header {
     .right-wrapper {
       .menu-level-1 {
         width: 100%;
+
+        @include max-screen($screen-tablet) {
+          flex-direction: row;
+          justify-content: flex-start;
+        }
       }
     }
 
@@ -265,35 +299,6 @@ header {
   }
 }
 
-.language-switcher-language-url {
-  list-style: none;
-  list-style-image: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    margin: 0;
-    padding: 0;
-
-    a {
-      font-size: 0.875rem;
-      line-height: 2rem;
-      font-weight: 400;
-      color: $grey4;
-
-      &:focus,
-      &:hover {
-        text-decoration: none;
-        color: $darkGrey;
-      }
-
-      &.is-active {
-        color: $darkGrey;
-      }
-    }
-  }
-}
-
 .block-unesco-commonlanguage-blocklanguage-interface {
   display: flex;
   justify-content: flex-end;
@@ -302,6 +307,7 @@ header {
   @include max-screen($screen-tablet) {
     justify-content: flex-start;
     display: none;
+    padding: 0;
 
     .menu-open & {
       display: flex;
@@ -310,10 +316,67 @@ header {
 
   .btn-link {
     padding: 0;
+
+    @include max-screen($screen-tablet) {
+      display: block;
+    }
   }
 
   .dropdown-menu {
     padding: 1rem 1.5rem;
+
+    @include max-screen($screen-tablet) {
+      position: static;
+      background-color: inherit;
+      border: none;
+    }
+  }
+
+  .language-switcher-language-url {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+  
+    li {
+      margin: 0;
+      padding: 0;
+
+      @include max-screen($screen-tablet) {
+        margin-bottom: 1rem;
+      }
+  
+      a {
+        font-size: 0.875rem;
+        line-height: 2rem;
+        font-weight: 400;
+        color: $grey4;
+  
+        @include max-screen($screen-tablet) {
+          font-size: 1rem;
+          line-height: 1.5rem;
+          color: rgba($navbar-dark-color, 0.4);
+        }
+  
+        &:focus,
+        &:hover {
+          text-decoration: none;
+          color: $darkGrey;
+
+          @include max-screen($screen-tablet) {
+            color: $navbar-dark-color;
+          }
+        }
+  
+        &.is-active {
+          color: $darkGrey;
+
+          @include max-screen($screen-tablet) {
+            color: $navbar-dark-color;
+          }
+        }
+      }
+    }
   }
 }
 
