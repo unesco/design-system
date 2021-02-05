@@ -1,0 +1,26 @@
+{#
+/**
+ * @file entity-base.html.twig
+ * Default theme implementation to present custom entities data.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see _cens_common_custom_entity_template_preprocess()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+  <div{{ attributes.addClass('card', 'mb-3') }}>
+    {{ content.unesco_common_card_link }}
+    {{ content.unesco_common_card_hero_image }}
+    <div class="card-body">
+      {{ content.unesco_common_card_image }}
+      {{ content.unesco_common_card_body }}
+    </div>
+    {{ content.unesco_common_card_footer }}
+   </div>
+{% endif %}
