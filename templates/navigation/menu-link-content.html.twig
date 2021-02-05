@@ -24,8 +24,19 @@
     elements['#view_mode'] ? 'menu-type-' ~ elements['#view_mode'],
   ] %}
 
-  <div{{ attributes.addClass(menu_dropdown_classes) }}>
-    <div class="row submenu-wrapper">
+   {% if elements['#menu_level'] == 0 %}
+    <div{{ attributes.addClass(menu_dropdown_classes) }}>
+      <div class="row submenu-wrapper">
+        {% if show_item_link %}
+          {{ link(menu_link_content.getTitle(), menu_link_content.getUrlObject()) }}
+        {% endif %}
+        {% if content %}
+          {{ content }}
+        {% endif %}
+      </div>
+    </div>
+    {% else %}
+    <div{{ attributes.addClass('level-1-submenu') }}>
       {% if show_item_link %}
         {{ link(menu_link_content.getTitle(), menu_link_content.getUrlObject()) }}
       {% endif %}
@@ -33,5 +44,5 @@
         {{ content }}
       {% endif %}
     </div>
-  </div>
+   {% endif %}
 {% endmacro %}
