@@ -191,53 +191,56 @@ header {
     }
 
     .parent-menu-open & {
-      width: 100vw;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: $BlueU;
-      z-index: 99;
+      
 
       @include max-screen($screen-tablet) {
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: $BlueU;
+        z-index: 99;
         padding: 1.25rem 2.125rem 1.5rem;
+
+        >.nav-item {
+          display: none;
+  
+          &.show {
+            display: block;
+            max-width: 100%;
+            
+            >.nav-link {
+              display: block;
+              font-size: 1.125rem;
+              line-height: 1.5rem;
+              text-align: center;
+              padding: 0 1.25rem 1.5rem;
+              border-bottom: 1px solid $navbar-dark-color;
+              position: relative;
+              margin-bottom: 2rem;
+  
+              @include max-screen($screen-mobile) {
+                padding: 0 1.25rem 1rem;
+              }
+  
+              &:after {
+                position: absolute;
+                left: 0;
+                top: 0.1rem;
+                margin: 0;
+                transform: rotate(-180deg);
+                font-size: 2rem;
+              }
+            }
+          }
+        }
       }
 
       @include max-screen($screen-mobile) {
         padding: 1rem 1.5rem;
       }
 
-      >.nav-item {
-        display: none;
-
-        &.show {
-          display: block;
-          max-width: 100%;
-          
-          >.nav-link {
-            display: block;
-            font-size: 1.125rem;
-            line-height: 1.5rem;
-            text-align: center;
-            padding: 0 1.25rem 1.5rem;
-            border-bottom: 1px solid $navbar-dark-color;
-            position: relative;
-            margin-bottom: 2rem;
-
-            @include max-screen($screen-mobile) {
-              padding: 0 1.25rem 1rem;
-            }
-
-            &:after {
-              position: absolute;
-              left: 0;
-              top: 0.1rem;
-              margin: 0;
-              transform: rotate(-180deg);
-              font-size: 2rem;
-            }
-          }
-        }
-      }
+      
     }
   }
 }
