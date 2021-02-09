@@ -1,0 +1,85 @@
+//right big-text display-see-more  paragraph--type--text-media-block paragraph--view-mode--default
+//paragraph paragraph--type--text-media-full paragraph--view-mode--default
+
+// Space
+$space-top: (
+  null: 1rem,
+  large: 1.5rem
+);
+
+$space-bottom: (
+  null: 3.5rem,
+  large: 6rem
+);
+
+.border-top {
+  @include responsive(padding-top, $space-top);
+  border-top: .0625rem solid $grey2;
+  @include responsive(padding-bottom, $space-bottom);
+}
+
+.paragraph {
+  position: relative;
+  width: 100%;
+  @extend .border-top;
+
+  &--type--text-media-block {
+    display: flex;
+    flex-direction: column;
+
+    .wrapper-infos {
+      order: 1;
+    }
+
+    .wrapper-image {
+      img, .field--type-image {
+        width: 100%;
+      }
+    }
+
+    @include min-screen($screen-tablet) {
+      flex-direction: row;
+      .wrapper-image, .wrapper-infos {
+        width: calc(50% - 1rem);
+      }
+
+      &.right {
+        .wrapper-image {
+          order: 0;
+          margin-right: 1rem;
+        }
+        .wrapper-infos {
+          order: 1;
+          margin-left: 1rem;
+        }
+      }
+
+      &.left {
+        .wrapper-infos {
+          order: 0;
+          margin-right: 1rem;
+        }
+        .wrapper-image {
+          order: 1;
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    .field--name-field-title {
+      @include responsive(font-size, $section-title);
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .field--type-link {
+      .field__item {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+  }
+
+}
