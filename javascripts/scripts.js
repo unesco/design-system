@@ -3,38 +3,70 @@
  * Theme javascript.
  */
 (function ($) {
-"use strict";
+  "use strict";
 
 // Add your custom scripts here, using Drupal.behaviors
 
-Drupal.behaviors.reportMenu = {
-  attach: function (context, settings) {
-    let menuCarousel = $('header .report .menu-level-1');
+  Drupal.behaviors.reportMenu = {
+    attach: function (context, settings) {
+      let menuCarousel = $('header .report .menu-level-1');
 
-    menuCarousel.slick({
-      speed: 300,
-      slidesToShow: 1,
-      variableWidth: true,
-      arrows: false,
-      infinite: false,
-    });
-  }
-};
+      menuCarousel.slick({
+        speed: 300,
+        slidesToShow: 1,
+        variableWidth: true,
+        arrows: false,
+        infinite: false,
+      });
+    }
+  };
 
-Drupal.behaviors.responsiveMenu = {
-  attach: function (context, settings) {
-    let menuBurger = $('.navbar-toggler');
-    let parentItem = $('header .menu-level-0 > .nav-item > .dropdown-toggle');
+  Drupal.behaviors.responsiveMenu = {
+    attach: function (context, settings) {
+      let menuBurger = $('.navbar-toggler');
+      let parentItem = $('header .menu-level-0 > .nav-item > .dropdown-toggle');
 
-    menuBurger.on('click', function() {
-      $('body').toggleClass('menu-open');
-      $('body').removeClass('parent-menu-open');
-    });
+      menuBurger.on('click', function () {
+        $('body').toggleClass('menu-open');
+        $('body').removeClass('parent-menu-open');
+      });
 
-    parentItem.on('click', function() {
-      $('body').toggleClass('parent-menu-open');
-    });
-  }
-};
+      parentItem.on('click', function () {
+        $('body').toggleClass('parent-menu-open');
+      });
+    }
+  };
+
+  Drupal.behaviors.dropdownFooter = {
+    attach: function (context, settings) {
+
+      function dropdownClick() {
+        let dropdownTitle = $('footer nav .navbar-nav > .nav-item .dropdown-toggle');
+        dropdownTitle.unbind('click').on('click', function () {
+          $(this).toggleClass('is-active');
+          $(this).next('ul').slideToggle();
+        });
+      }
+
+      let tabletWidth = 768;
+      let initialDiff = ($(window).width() > tabletWidth) ? 1:-1;
+
+      if ($(window).width() <= tabletWidth) {
+        dropdownClick();
+      }
+
+      $(window).on('resize', function () {
+        let win = $(window).width();
+        let  currentDiff = win - tabletWidth;
+        if (win <= tabletWidth) {
+          dropdownClick();
+        }
+        if(currentDiff*initialDiff < 0) {
+          initialDiff *= -1;
+          location.reload();
+        }
+      });
+    }
+  };
 
 })(jQuery);

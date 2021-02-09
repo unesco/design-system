@@ -18,17 +18,19 @@ footer {
       margin-left: -1rem;
       width: calc(100% + 2rem);
 
-      a.dropdown-toggle {
+      .dropdown-toggle {
         border-top: 0.0625rem solid $grey2;
         padding: 1.5rem 0;
         font-size: .875rem;
         color: $darkGrey;
         font-weight: 600;
+        cursor: pointer;
         &::after {
           font-size: 1.25rem;
         }
 
-        @include min-screen($screen-desktop) {
+        @include min-screen($screen-tablet) {
+          cursor: default;
           &::after {
             display: none;
           }
@@ -37,13 +39,17 @@ footer {
         & + ul {
           list-style: none;
           padding: 0;
-          margin-bottom: 1.5rem;
+
+          @include max-screen($screen-tablet - 1px) {
+            display: none;
+          }
+
+          @include min-screen($screen-tablet) {
+            display: block !important;
+          }
 
           .nav-item {
             margin-bottom: 1rem;
-            &:last-child {
-              margin-bottom: 0;
-            }
           }
 
           .nav-link {
@@ -51,6 +57,14 @@ footer {
             font-size: .875rem;
             font-weight: 500;
             color: $darkGrey;
+          }
+        }
+
+        @include max-screen($screen-tablet - 1px) {
+          &.is-active {
+            &::after {
+              transform: rotate(180deg);
+            }
           }
         }
       }
