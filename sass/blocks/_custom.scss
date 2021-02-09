@@ -90,3 +90,11 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
     background-color: $color;
   }
 }
+
+.transparent-header.user-logged-in .block-local-tasks-block {
+  z-index: 100;
+  background: white;
+  display: inline-block;
+  margin-top: 89px;
+  border-radius: 10px;
+}
