@@ -1,0 +1,44 @@
+@font-face {
+  font-family: $icons_family;
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$icons_path}/#{$icons_family}.ttf') format('truetype'),
+  url('#{$icons_path}/#{$icons_family}.woff') format('woff'),
+  url('#{$icons_path}/#{$icons_family}.svg') format('svg');
+}
+
+.icon,
+.icon::before {
+  font-family: $icons_family !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$icons: (
+  diamond: '\e900',
+  mountain: '\e907',
+  unesco: '\e906',
+
+  facebook: '\e903',
+  instagram: '\e904',
+  linkedin: '\e905',
+  twitter: '\e901',
+  youtube: '\e902',
+);
+
+@function unicode($str) {
+  @return unquote('\'') + $str + unquote('\'');
+}
+
+@each $icon-name, $icon-value in $icons {
+  .#{$icon_prefix}#{$icon-name}::before {
+    content: unicode($icon-value);
+  }
+}
+
