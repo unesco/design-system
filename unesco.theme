@@ -73,7 +73,11 @@ function unesco_preprocess_html(&$variables) {
   if ($route_name === 'entity.node.canonical') {
     $node = $route_match->getParameter('node');
     if (!empty($node)) {
-      if ($node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
+      $bundles_with_hero = [
+        'homepage',
+        'landing',
+      ];
+      if (in_array($node->bundle(), $bundles_with_hero) && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
         $variables['attributes']['class'][] = 'transparent-header';
       }
     }
@@ -126,5 +130,5 @@ function unesco_preprocess_field(&$variables, $hook) {
     foreach($variables['items'] as $key => $item) {
       $variables['items'][$key]['content']['#options']['attributes']['class'][] = 'btn btn-primary btn-arrow-forward';
     }
-  } 
+  }
 }
