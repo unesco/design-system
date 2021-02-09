@@ -99,3 +99,23 @@ function unesco_theme_suggestions_alter(array &$suggestions, array $variables, $
     $suggestions[] = 'ows_entity_subentity__' . $hook;
   }
 }
+
+/**
+ * Implements template_preprocess_region().
+ */
+function unesco_preprocess_region(&$variables) {
+  if ($variables['region'] == 'footer') {
+    $variables['attributes']['class'][] = 'flex-row';
+    $variables['attributes']['class'][] = 'row';
+  }
+}
+
+/**<
+ * Implements template_preprocess_region().
+ */
+function unesco_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'system_menu_block' && $variables['derivative_plugin_id'] == 'footer') {
+    $variables['attributes']['class'][] = 'col-lg-9';
+    $variables['attributes']['class'][] = 'p-0';
+  }
+}
