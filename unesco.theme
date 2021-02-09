@@ -119,3 +119,12 @@ function unesco_preprocess_block(&$variables) {
     $variables['attributes']['class'][] = 'p-0';
   }
 }
+
+function unesco_preprocess_field(&$variables, $hook) {
+  $element = $variables['element'];
+  if ($element['#field_name'] == 'field_link') {
+    foreach($variables['items'] as $key => $item) {
+      $variables['items'][$key]['content']['#options']['attributes']['class'][] = 'btn btn-primary btn-arrow-forward';
+    }
+  } 
+}

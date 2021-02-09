@@ -1,7 +1,20 @@
 header {
+  .transparent-header & {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+
+    &.bg-primary {
+      background-color: transparent !important;
+    }
+  }
+
   &.navbar {
     flex-direction: column;
     padding: 2rem 3.625rem 1.5rem;
+    width: 100vw;
 
     @include max-screen($screen-tablet) {
       position: relative;
@@ -601,5 +614,9 @@ header {
     font-weight: 600;
     margin-top: $spacer;
   }
+}
+
+.transparent-header {
+  padding-top: 10.188rem;
 }
 

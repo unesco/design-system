@@ -1,0 +1,37 @@
+.header-landing,
+.header-homepage {
+  min-height: 100vh;
+  padding-bottom: 7rem;
+  position: relative;
+  color: $white;
+  margin-top: -10.188rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .field--name-field-ref-image {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 100vw;
+    transform: translateX(-50%);
+    z-index: -1;
+
+    img {
+      min-width: 100%;
+      width: auto;
+      object-fit: cover;
+      min-height: 100vh;
+      max-width: unset;
+    }
+  }
+
+  .article-title {
+    font-size: 3.75rem;
+    line-height: 4.5rem;
+    font-weight: 800;
+    margin: 0 0 3rem;
+    color: $white;
+  }
+
+}
