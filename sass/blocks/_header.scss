@@ -23,15 +23,39 @@ header {
     width: 100vw;
     z-index: 99;
 
+    .header-sticky & {
+      padding: 0.75rem 3.625rem;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      z-index: 99;
+      @extend %animated;
+      @extend %slideInDown;
+      animation-duration: 0.5s;
+
+      @include max-screen($screen-tablet) {
+        padding: 0.75rem 2.125rem 0.75rem;
+        min-height: 3.5rem;
+      }
+
+      @include max-screen($screen-mobile) {
+        padding: 1rem 1.5rem;
+        min-height: 4rem;
+      }
+    }
+
     @include max-screen($screen-tablet) {
       position: relative;
-      padding: 4rem 2.125rem 1.5rem;
+      padding: 1.5rem 2.125rem 1.5rem;
       align-items: flex-start;
       justify-content: flex-start;
+      min-height: 6.5rem;
     }
   
     @include max-screen($screen-mobile) {
-      padding: 4rem 1.5rem 1rem;
+      padding: 1rem 1.5rem;
+      min-height: 4rem;
     }
   }
 
@@ -52,7 +76,18 @@ header {
       top: 1.5rem;
       right: 2.125rem;
 
+      @include max-screen($screen-tablet) {
+        top: 2rem;
+      }
+
+      .header-sticky & {
+        @include max-screen($screen-tablet) {
+          top: 0.75rem;
+        }
+      }
+
       @include max-screen($screen-mobile) {
+        top: 0.75rem;
         right: 1.5rem;
       }
 
@@ -109,6 +144,10 @@ header {
       margin: 0;
     }
 
+    .header-sticky & {
+      display: none;
+    }
+
     @include max-screen($screen-tablet) {
       display: none;
     }
@@ -121,6 +160,12 @@ header {
       left: 2.125rem;
       padding: 0;
       width: auto;
+    }
+
+    .header-sticky & {
+      @include max-screen($screen-tablet) {
+        top: 0.75rem;
+      }
     }
 
     @include max-screen($screen-mobile) {
@@ -169,6 +214,7 @@ header {
           font-size: 1.5rem;
           line-height: 2rem;
           font-weight: 400;
+          display: inline-block;
 
           &.dropdown-toggle {
             white-space: normal;
@@ -211,8 +257,6 @@ header {
     }
 
     .parent-menu-open & {
-      
-
       @include max-screen($screen-tablet) {
         width: 100vw;
         position: fixed;
@@ -275,8 +319,32 @@ header {
     background-color: $Blue2;
   }
 
-  .navbar-brand img {
-    filter: none;
+  .navbar-brand {
+    padding: 0;
+
+    img {
+      filter: none;
+
+      @include max-screen($screen-tablet) {
+        width: 16.375rem;
+        height: auto;
+
+        .menu-open & {
+          width: auto;
+          height: unset;
+        }
+      }
+
+      @include max-screen($screen-mobile) {
+        width: auto;
+        height: 2rem;
+      }
+  
+      .header-sticky & {
+        max-width: 9.313rem;
+        height: auto;
+      }
+    }
   }
 }
 
@@ -307,8 +375,16 @@ header {
 
     &.show {
       @include max-screen($screen-tablet) {
-        margin-top: 2rem;
+        margin-top: 5.375rem;
       }
+    }
+
+    .header-sticky & {
+      display: none !important;
+    }
+
+    .menu-open.header-sticky & {
+      display: block !important;
     }
   }
 
@@ -338,6 +414,10 @@ header {
       @extend %animated;
       @extend %fadeIn;
       animation-duration: 0.5s;
+
+      @include max-screen($screen-tablet) {
+        animation-name: none;
+      }
     }
 
     @include max-screen($screen-tablet) {
@@ -399,6 +479,10 @@ header {
   display: flex;
   justify-content: flex-end;
   padding-right: 0;
+
+  .header-sticky & {
+    display: none;
+  }
 
   @include max-screen($screen-tablet) {
     justify-content: flex-start;
