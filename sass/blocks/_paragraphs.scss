@@ -95,21 +95,41 @@ $space-bottom: (
   }
 
   &--type--text-media-full {
-    width: 100%;
-    background-color: red;
+    @include container-fluid;
 
     .field--name-field-slides {
       position: relative;
-      background-color: blue;
       width: 100%;
       height: 39rem;
+      overflow: hidden;
 
       .wrapper-infos {
         position: absolute;
-        z-index: 1;
+        width: calc(100% - 3rem);
+        bottom: 6rem;
+        max-width: 38rem;
+        left: 1.5rem;
+        z-index: 2;
+        @include min-screen($screen-desktop) {
+          left: 6rem;
+          width: 100%;
+        }
+
+        .field--name-title {
+          @include responsive(font-size, $full-media-title);
+          font-weight: 800;
+          color: $white;
+          line-height: 1.4;
+          margin-bottom: 1rem;
+        }
+
+        .field--name-field-text {
+          color: $white;
+        }
       }
 
       .wrapper-image {
+        position: relative;
         height: 100%;
         .field--type-image {
           width: 100%;
@@ -125,12 +145,55 @@ $space-bottom: (
           height: 100%;
           object-fit: cover;
         }
+        &::after {
+          content: '';
+          position: absolute;
+          z-index: 1;
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.4) 100%);
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
       }
 
       .slick-dots {
         position: absolute;
-        bottom: 20px;
-        z-index: 1;
+        width: calc(100% - 3rem);
+        left: 1.5rem;
+        margin: 0;
+        padding: 0;
+        bottom: 4rem;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+
+        li {
+          width: 100%;
+          max-width: 5rem;
+          margin-right: .5rem;
+          opacity: .5;
+          transition: .3s;
+          &:last-child {
+            margin-right: 0;
+          }
+          &.slick-active {
+            opacity: 1;
+          }
+
+          button {
+            color: transparent;
+            font-size: 0;
+            width: 100%;
+            height: .25rem;
+            background-color: $white;
+            outline: 0;
+            border: 0;
+            border-radius: .25rem;
+          }
+        }
       }
     }
 
