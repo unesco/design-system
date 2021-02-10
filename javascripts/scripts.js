@@ -48,7 +48,7 @@
         });
       }
 
-      let tabletWidth = 768;
+      let tabletWidth = 992;
       let initialDiff = ($(window).width() > tabletWidth) ? 1:-1;
 
       if ($(window).width() <= tabletWidth) {
