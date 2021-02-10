@@ -35,9 +35,9 @@ $icons_path: '../../fonts/icons';
 $icon_prefix: 'icon-';
 
 // Screen size
-$screen-mobile: 375px;
-$screen-tablet: 768px;
-$screen-desktop: 1024px;
+$screen-mobile: 375px; // todo: branka : delete this please :)
+$screen-tablet: 576px;
+$screen-desktop: 992px;
 
 // Transitions (bootstrap)
 $btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
