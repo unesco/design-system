@@ -194,9 +194,9 @@ $navbar-dark-disabled-color:        rgba($white, .25) !default;
 $navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg width='100%25' height='100%25' viewBox='0 0 14 9' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath d='M0,9l13.5,0l0,-1.5l-13.5,0l0,1.5Zm0,-3.75l13.5,0l0,-1.5l-13.5,0l0,1.5Zm0,-5.25l0,1.5l13.5,0l0,-1.5l-13.5,0Z' style='fill:#{$navbar-dark-color};fill-rule:nonzero;'/%3E%3C/svg%3E");
 $navbar-dark-toggler-border-color:  $Blue2;
 
-$navbar-light-color:                rgba($black, .5) !default;
-$navbar-light-hover-color:          rgba($black, .7) !default;
-$navbar-light-active-color:         rgba($black, .9) !default;
+$navbar-light-color:                $primary;
+$navbar-light-hover-color:          $secondary;
+$navbar-light-active-color:         $primary;
 $navbar-light-disabled-color:       rgba($black, .3) !default;
 $navbar-light-toggler-icon-bg:      url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg width='100%25' height='100%25' viewBox='0 0 14 9' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath d='M0,9l13.5,0l0,-1.5l-13.5,0l0,1.5Zm0,-3.75l13.5,0l0,-1.5l-13.5,0l0,1.5Zm0,-5.25l0,1.5l13.5,0l0,-1.5l-13.5,0Z' style='fill:#{$navbar-dark-color};fill-rule:nonzero;'/%3E%3C/svg%3E");
 $navbar-light-toggler-border-color: $BlueU;

@@ -17,6 +17,10 @@ header {
     }
   }
 
+  &.navbar-light {
+    background-color: $white;
+  }
+
   &.navbar {
     flex-direction: column;
     padding: 2rem 3.625rem 1.5rem;
@@ -34,18 +38,18 @@ header {
       @extend %slideInDown;
       animation-duration: 0.5s;
 
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         padding: 0.75rem 2.125rem 0.75rem;
         min-height: 3.5rem;
       }
 
-      @include max-screen($screen-mobile) {
+      @include max-screen($screen-tablet - 1) {
         padding: 1rem 1.5rem;
         min-height: 4rem;
       }
     }
 
-    @include max-screen($screen-tablet) {
+    @include max-screen($screen-desktop - 1) {
       position: relative;
       padding: 1.5rem 2.125rem 1.5rem;
       align-items: flex-start;
@@ -53,7 +57,7 @@ header {
       min-height: 6.5rem;
     }
   
-    @include max-screen($screen-mobile) {
+    @include max-screen($screen-tablet - 1) {
       padding: 1rem 1.5rem;
       min-height: 4rem;
     }
@@ -76,17 +80,17 @@ header {
       top: 1.5rem;
       right: 2.125rem;
 
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         top: 2rem;
       }
 
       .header-sticky & {
-        @include max-screen($screen-tablet) {
+        @include max-screen($screen-desktop - 1) {
           top: 0.75rem;
         }
       }
 
-      @include max-screen($screen-mobile) {
+      @include max-screen($screen-tablet - 1) {
         top: 0.75rem;
         right: 1.5rem;
       }
@@ -113,7 +117,7 @@ header {
   .sub-header {
     width: 100%;
 
-    @include max-screen($screen-tablet) {
+    @include max-screen($screen-desktop - 1) {
       order: -1;
     }
   }
@@ -128,6 +132,7 @@ header {
 
     &.btn {
       font-size: 0.875rem;
+      color: $white;
     }
   }
 
@@ -148,13 +153,13 @@ header {
       display: none;
     }
 
-    @include max-screen($screen-tablet) {
+    @include max-screen($screen-desktop - 1) {
       display: none;
     }
   }
 
   .block-system-branding-block {
-    @include max-screen($screen-tablet) {
+    @include max-screen($screen-desktop - 1) {
       position: absolute;
       top: 1.5rem;
       left: 2.125rem;
@@ -163,12 +168,12 @@ header {
     }
 
     .header-sticky & {
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         top: 0.75rem;
       }
     }
 
-    @include max-screen($screen-mobile) {
+    @include max-screen($screen-tablet - 1) {
       top: 1rem;
       left: 1.5rem;
     }
@@ -178,7 +183,7 @@ header {
     width: 100%;
     align-items: center;
 
-    @include max-screen($screen-tablet) {
+    @include max-screen($screen-desktop - 1) {
       margin: 0;
       padding: 0;
       align-items: flex-start;
@@ -203,14 +208,14 @@ header {
 
   .menu-level-0 {
     >.nav-item {
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         margin-bottom: 1.5rem;
       }
 
       >.nav-link {
         position: relative;
 
-        @include max-screen($screen-tablet) {
+        @include max-screen($screen-desktop - 1) {
           font-size: 1.5rem;
           line-height: 2rem;
           font-weight: 400;
@@ -227,7 +232,6 @@ header {
 
         &:focus,
         &:hover {
-          color: $navbar-dark-color;
 
           &::before {
             content: "";
@@ -239,7 +243,7 @@ header {
             height: 0.25rem;
             background-color: $navbar-dark-color;
 
-            @include max-screen($screen-tablet) {
+            @include max-screen($screen-desktop - 1) {
               display: none;
             }
           }
@@ -257,7 +261,7 @@ header {
     }
 
     .parent-menu-open & {
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         width: 100vw;
         position: fixed;
         top: 0;
@@ -283,7 +287,7 @@ header {
               position: relative;
               margin-bottom: 2rem;
   
-              @include max-screen($screen-mobile) {
+              @include max-screen($screen-tablet - 1) {
                 padding: 0 1.25rem 1rem;
               }
   
@@ -300,11 +304,9 @@ header {
         }
       }
 
-      @include max-screen($screen-mobile) {
+      @include max-screen($screen-tablet - 1) {
         padding: 1rem 1.5rem;
       }
-
-      
     }
   }
 }
@@ -325,17 +327,17 @@ header {
     img {
       filter: none;
 
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         width: 16.375rem;
         height: auto;
 
         .menu-open & {
           width: auto;
-          height: unset;
+          height: 2rem;
         }
       }
 
-      @include max-screen($screen-mobile) {
+      @include max-screen($screen-tablet - 1) {
         width: auto;
         height: 2rem;
       }
@@ -373,8 +375,12 @@ header {
     max-width: 100%;
     transition: all 0.2s ease-in-out;
 
+    @include max-screen($screen-desktop -1) {
+      transition: none;
+    }
+
     &.show {
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         margin-top: 5.375rem;
       }
     }
@@ -415,12 +421,12 @@ header {
       @extend %fadeIn;
       animation-duration: 0.5s;
 
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         animation-name: none;
       }
     }
 
-    @include max-screen($screen-tablet) {
+    @include max-screen($screen-desktop - 1) {
       position: static;
       padding: 0;
       transform: none;
@@ -430,7 +436,7 @@ header {
       margin: 0 -2.063rem;
       width: 100%;
 
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         margin: 0 -1rem;
       }
     }
@@ -444,7 +450,7 @@ header {
       .menu-level-1 {
         width: 100%;
 
-        @include max-screen($screen-tablet) {
+        @include max-screen($screen-desktop - 1) {
           flex-direction: row;
           justify-content: flex-start;
         }
@@ -454,7 +460,7 @@ header {
     .left-wrapper {
       max-width: 28.5rem;
 
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         max-width: 100%;
       }
 
@@ -484,7 +490,7 @@ header {
     display: none;
   }
 
-  @include max-screen($screen-tablet) {
+  @include max-screen($screen-desktop - 1) {
     justify-content: flex-start;
     display: none;
     padding: 0;
@@ -497,7 +503,7 @@ header {
   .btn-link {
     padding: 0;
 
-    @include max-screen($screen-tablet) {
+    @include max-screen($screen-desktop - 1) {
       display: block;
     }
   }
@@ -505,7 +511,7 @@ header {
   .dropdown-menu {
     padding: 1rem 1.5rem;
 
-    @include max-screen($screen-tablet) {
+    @include max-screen($screen-desktop - 1) {
       position: static;
       background-color: inherit;
       border: none;
@@ -522,7 +528,7 @@ header {
       margin: 0;
       padding: 0;
 
-      @include max-screen($screen-tablet) {
+      @include max-screen($screen-desktop - 1) {
         margin-bottom: 1rem;
       }
   
@@ -532,7 +538,7 @@ header {
         font-weight: 400;
         color: $grey4;
   
-        @include max-screen($screen-tablet) {
+        @include max-screen($screen-desktop - 1) {
           font-size: 1rem;
           line-height: 1.5rem;
           color: rgba($navbar-dark-color, 0.4);
@@ -543,7 +549,7 @@ header {
           text-decoration: none;
           color: $darkGrey;
 
-          @include max-screen($screen-tablet) {
+          @include max-screen($screen-desktop - 1) {
             color: $navbar-dark-color;
           }
         }
@@ -551,7 +557,7 @@ header {
         &.is-active {
           color: $darkGrey;
 
-          @include max-screen($screen-tablet) {
+          @include max-screen($screen-desktop - 1) {
             color: $navbar-dark-color;
           }
         }
@@ -574,7 +580,7 @@ header {
       width: 100%;
       justify-content: flex-end;
 
-      @include max-screen($screen-mobile) {
+      @include max-screen($screen-tablet - 1) {
         flex-direction: column;
       }
 
@@ -598,7 +604,7 @@ header {
     opacity: 0;
     pointer-events: none;
 
-    @include max-screen($screen-tablet) {
+    @include max-screen($screen-desktop - 1) {
       display: none;
 
       &.show {
@@ -720,5 +726,13 @@ header {
 
 .transparent-header {
   padding-top: 10.188rem;
+}
+
+.navbar-light {
+  .navbar-nav .nav-link {
+    &.btn {
+      color: $white;
+    }
+  }
 }
 
