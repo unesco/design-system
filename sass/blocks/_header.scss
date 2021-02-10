@@ -8,6 +8,12 @@ header {
 
     &.bg-primary {
       background-color: transparent !important;
+      @include transition;
+      transition-duration: 0.3s;
+
+      &:hover {
+        background-color: $BlueU !important;
+      }
     }
   }
 
@@ -15,6 +21,7 @@ header {
     flex-direction: column;
     padding: 2rem 3.625rem 1.5rem;
     width: 100vw;
+    z-index: 99;
 
     @include max-screen($screen-tablet) {
       position: relative;
@@ -328,6 +335,9 @@ header {
 
     &.show {
       display: flex;
+      @extend %animated;
+      @extend %fadeIn;
+      animation-duration: 0.5s;
     }
 
     @include max-screen($screen-tablet) {
@@ -487,6 +497,14 @@ header {
       li {
         padding: 0 1rem;
         max-width: 25%;
+
+        @include transition;
+        transition-duration: 0.3s;
+
+        &:focus,
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }
