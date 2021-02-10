@@ -241,7 +241,7 @@ $space-bottom: (
     flex-direction: column;
     background-color: $BlueU;
 
-    margin-top: 4rem; // a delete
+    margin-top: 4rem; // todo: a delete
 
     @include min-screen($screen-tablet) {
       flex-direction: row;
@@ -366,5 +366,22 @@ $space-bottom: (
       }
     }
   }
+
+  &.display-see-more {
+
+    .wrapper-infos {
+      .field--name-field-links {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .display_more-wrapper {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: .6s ease;
+    }
+  }
+
+
 
 }
