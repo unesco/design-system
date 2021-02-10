@@ -67,13 +67,15 @@
       border-color: $white;
     }
   }
-}
 
-.dropdown-toggle::after {
-  @include icon('expand_more');
-  border: none;
-  vertical-align: middle;
-  margin-left: 0.625rem;
+  &-arrow-right {
+    &::after {
+      @include icon('arrow_forward');
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: .75rem;
+    }
+  }
 }
 
 // Tags
@@ -170,7 +172,6 @@
 
 // Arrow
 
-
 .arrow-black {
   display: inline-block;
   width: 1.5rem;
@@ -189,4 +190,13 @@
 .arrow-primary {
   @extend .arrow-black;
   background-color: $BlueU;
+}
+
+// Dropdown
+
+.dropdown-toggle::after {
+  @include icon('expand_more');
+  border: none;
+  vertical-align: middle;
+  margin-left: 0.625rem;
 }
