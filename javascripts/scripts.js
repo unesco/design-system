@@ -71,7 +71,6 @@
     }
   };
 
-
   Drupal.behaviors.sliderMediaFull = {
     attach: function (context, settings) {
       let fullMediaSlider = $('.field--name-field-paragraphs .paragraph--type--text-media-full .field--name-field-slides');
@@ -106,6 +105,38 @@
           header.css('top', '');
         }
       });
+    }
+  };
+
+  Drupal.behaviors.displaySeeMore = {
+    attach: function (context, settings) {
+      let displaySeeMore = $('.field--name-field-paragraphs .paragraph.display-see-more');
+
+      displaySeeMore.each(function() {
+        let imageHeight = $(this).find('.field--name-field-media-image').innerHeight() - 56;
+        let content = $(this).children('.wrapper-infos');
+        let contentHeight = content.innerHeight();
+
+        if ( contentHeight > imageHeight) {
+          content.wrapInner( '<div class="display_more-wrapper" style="height:' + imageHeight + 'px;"></div>' );
+          content.append('<button class="btn-display-more">' + Drupal.t('Read more') + '</button>');
+          // content.children().text(function(index, text) {
+          //   return text.replace(/\W*\s(\S)*$/, '...');
+          // });
+
+          content.children('.btn-display-more').on('click', function () {
+            $(this).toggleClass('is-active');
+            if ($(this).hasClass('is-active')) {
+              $(this).prev().height(contentHeight);
+            } else {
+              $(this).prev().height(imageHeight);
+            }
+          });
+
+        }
+      });
+
+
     }
   };
 
