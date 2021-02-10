@@ -101,7 +101,10 @@ $space-bottom: (
       position: relative;
       width: 100%;
       height: 39rem;
-      overflow: hidden;
+
+      .slide {
+        position: relative;
+      }
 
       .wrapper-infos {
         position: absolute;
