@@ -29,7 +29,7 @@ footer {
           font-size: 1.25rem;
         }
 
-        @include min-screen($screen-tablet) {
+        @include min-screen($screen-desktop) {
           cursor: default;
           &::after {
             display: none;
@@ -40,11 +40,11 @@ footer {
           list-style: none;
           padding: 0;
 
-          @include max-screen($screen-tablet - 1px) {
+          @include max-screen($screen-desktop - 1px) {
             display: none;
           }
 
-          @include min-screen($screen-tablet) {
+          @include min-screen($screen-desktop) {
             display: block !important;
           }
 
@@ -60,7 +60,7 @@ footer {
           }
         }
 
-        @include max-screen($screen-tablet - 1px) {
+        @include max-screen($screen-desktop - 1px) {
           &.is-active {
             &::after {
               transform: rotate(180deg);

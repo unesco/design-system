@@ -48,9 +48,15 @@
 }
 
 /* === Container full === */
-
 @mixin container-fluid {
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
+}
+
+/* === image cover === */
+@mixin img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

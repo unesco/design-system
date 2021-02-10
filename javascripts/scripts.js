@@ -48,17 +48,19 @@
         });
       }
 
-      let tabletWidth = 992;
-      let initialDiff = ($(window).width() > tabletWidth) ? 1:-1;
+      let desktopWidth = 992;
+      let initialDiff = ($(window).width() > desktopWidth) ? 1:-1;
 
-      if ($(window).width() <= tabletWidth) {
+      // Responsive
+      if ($(window).width() <= desktopWidth) {
         dropdownClick();
       }
 
+      // Resize responsive & reload page if change breakpoint
       $(window).on('resize', function () {
         let win = $(window).width();
-        let  currentDiff = win - tabletWidth;
-        if (win <= tabletWidth) {
+        let  currentDiff = win - desktopWidth;
+        if (win <= desktopWidth) {
           dropdownClick();
         }
         if(currentDiff*initialDiff < 0) {

@@ -158,9 +158,7 @@ $space-bottom: (
           width: 100%;
         }
         img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+          @include img-cover;
         }
         &::after {
           content: '';
@@ -231,6 +229,139 @@ $space-bottom: (
         height: 44rem;
         .wrapper-image picture {
           height: 44rem;
+        }
+      }
+    }
+  }
+
+  &--type--banner-cta {
+    position: relative;
+    @include container-fluid;
+    display: flex;
+    flex-direction: column;
+    background-color: $BlueU;
+
+    margin-top: 4rem; // a delete
+
+    @include min-screen($screen-tablet) {
+      flex-direction: row;
+      align-items: stretch;
+      min-height: 24.375rem;
+    }
+
+    @include min-screen($screen-desktop) {
+      min-height: 37.125rem;
+    }
+
+    .banner-cta-texts {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 1.5rem;
+      color: $white;
+      &.border {
+        border: .125rem solid $white!important;
+        width: calc(100% - 3rem);
+        margin: 2rem 1.5rem -3rem;
+        padding: 1.5rem 1.5rem 6rem;
+        @include min-screen($screen-tablet) {
+          width: 100%;
+          margin: 2rem -30% 2rem 2rem;
+          padding: 2rem calc(30% + 2rem) 2rem 2rem;
+        }
+        @include min-screen($screen-desktop) {
+          width: 60%;
+          margin: 3rem -5rem 3rem 3rem;
+          padding: 3.5rem 11.5rem 3.5rem 3.5rem;
+        }
+      }
+
+      .banner-cta-title {
+        color: $white;
+        @include responsive(font-size, $full-media-title);
+        max-width: 39rem;
+      }
+
+      .banner-cta-description {
+        max-width: 39rem;
+        margin-bottom: 1.5rem;
+        @include min-screen($screen-desktop) {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+
+    .media--type-image {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+
+      .field--name-field-media-image {
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      @include min-screen($screen-tablet) {
+        width: calc(30% + 5rem);
+        img {
+          @include img-cover;
+        }
+        .field--name-field-media-image {
+          position: absolute;
+          height: 100%;
+        }
+      }
+      @include min-screen($screen-desktop) {
+        width: calc(40% + 2rem);
+      }
+    }
+
+    &.position-full {
+      position: relative;
+      background-color: transparent;
+      .media--type-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          background: rgba($darkGrey, .3);
+          @include min-screen($screen-desktop) {
+            background: linear-gradient(90deg, rgba($darkGrey, .3) 40%, rgba($darkGrey, 0) 85%);
+          }
+        }
+        img {
+          @include img-cover;
+        }
+      }
+      .banner-cta-texts {
+        position: relative;
+        z-index: 2;
+        &.border {
+          border: .125rem solid $white!important;
+          width: calc(100% - 3rem);
+          margin: 2rem 1.5rem 6rem;
+          padding: 1.5rem;
+          @include min-screen($screen-tablet) {
+            width: calc(100% - 4rem);
+            margin: 2rem;
+            padding: 2rem calc(30% + 2rem) 2rem 2rem;
+          }
+          @include min-screen($screen-desktop) {
+            width: 60%;
+            margin: 3rem;
+            padding: 3.5rem 11.5rem 3.5rem 3.5rem;
+          }
         }
       }
     }
