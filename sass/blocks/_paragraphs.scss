@@ -367,11 +367,21 @@ $space-bottom: (
     }
   }
 
-  .display_more-wrapper {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: .6s ease;
-    margin-bottom: 2rem;
+  &.display-see-more {
+
+    .wrapper-infos {
+      .field--name-field-links {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .display_more-wrapper {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: .6s ease;
+    }
   }
+
+
 
 }

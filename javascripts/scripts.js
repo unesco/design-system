@@ -113,7 +113,7 @@
       let displaySeeMore = $('.field--name-field-paragraphs .paragraph.display-see-more');
 
       displaySeeMore.each(function() {
-        let imageHeight = $(this).find('.field--name-field-media-image').innerHeight() - 56;
+        let imageHeight = $(this).find('.field--name-field-media-image').innerHeight() - 32;
         let content = $(this).children('.wrapper-infos');
         let contentHeight = content.innerHeight();
 
