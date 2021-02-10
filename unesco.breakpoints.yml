@@ -1,18 +1,18 @@
 unesco.mobile:
   label: Mobile
-  mediaQuery: 'all and (max-width: 375px)'
+  mediaQuery: 'all and (max-width: 575px)'
   weight: 0
   multipliers:
     - 1x
 unesco.tablet:
   label: Tablet
-  mediaQuery: 'all and (min-width: 376px) and (max-width: 767px)'
+  mediaQuery: 'all and (min-width: 576px) and (max-width: 992px)'
   weight: 1
   multipliers:
     - 1x
 unesco.wide:
   label: Wide
-  mediaQuery: 'all and (min-width: 768px)'
+  mediaQuery: 'all and (min-width: 993px)'
   weight: 2
   multipliers:
     - 1x
