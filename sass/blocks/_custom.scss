@@ -91,10 +91,28 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
   }
 }
 
+.toolbar-tray-open {
+  &.toolbar-horizontal {
+    &.transparent-header {
+      header {
+        top: 79px;
+      }
+    }
+  }
+  &.toolbar-vertical {
+    &.transparent-header {
+      header {
+        top: 39px;
+      }
+    }
+  }
+}
+
 .transparent-header.user-logged-in .block-local-tasks-block {
   z-index: 100;
   background: white;
   display: inline-block;
-  margin-top: 89px;
   border-radius: 10px;
+  position: absolute;
+  top: 240px;
 }
