@@ -426,6 +426,23 @@ $space-bottom: (
     }
   }
 
+  &--type--quote {
+    @extend .border-top;
+    display: flex;
+
+    &.position-right {
+      .rich-text {
+        order: 1;
+      }
+    }
+
+    .rich-text {
+      @include responsive(font-size, $quote-text);
+      line-height: 1.4;
+      font-weight: 400;
+    }
+  }
+
   &.display-see-more {
     align-items: start;
 
@@ -445,14 +462,14 @@ $space-bottom: (
   &--type--datagrid {
     .table-bordered {
       border: none;
-  
+
       th, td {
         border-left: none;
         border-right: none;
         border-width: 1px;
       }
     }
-  
+
     .table-borderless {
       tbody > tr:first-child {
         display: none;
