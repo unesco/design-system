@@ -1,3 +1,7 @@
 .toolbar-horizontal {
-  padding-top: 4.938rem;
+  &.header-sticky {
+    header.navbar {
+      top: 4.938rem;
+    }
+  }
 }

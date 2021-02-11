@@ -90,19 +90,12 @@
     attach: function (context, settings) {
       const header = $('header');
       let headerHeight = header.height();
-      let bodyPadding = parseInt($('body').css('padding-top'));
-
-      let padding =  parseInt(headerHeight + bodyPadding);
-
-      $(window).scroll(function(){
+      
+      $(window).scroll(function() {
         if($(window).scrollTop() > headerHeight) {
           $('body').addClass('header-sticky');
-          $('body').css('padding-top', padding);
-          header.css('top', bodyPadding);
         } else {
           $('body').removeClass('header-sticky');
-          $('body').css('padding-top', '');
-          header.css('top', '');
         }
       });
     }
@@ -132,11 +125,8 @@
               $(this).prev().height(imageHeight);
             }
           });
-
         }
       });
-
-
     }
   };
 

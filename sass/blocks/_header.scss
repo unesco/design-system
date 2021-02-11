@@ -316,7 +316,9 @@ header {
   height: 0.75rem;
 }
 
-.navbar-dark {
+.navbar-dark,
+.navbar-light,
+.bg-primary {
   .navbar-toggler {
     background-color: $Blue2;
   }
@@ -326,6 +328,7 @@ header {
 
     img {
       filter: none;
+      height: 2rem;
 
       @include max-screen($screen-desktop - 1) {
         width: 16.375rem;
@@ -375,14 +378,9 @@ header {
     max-width: 100%;
     transition: all 0.2s ease-in-out;
 
-    @include max-screen($screen-desktop -1) {
+    @include max-screen($screen-desktop - 1) {
       transition: none;
-    }
-
-    &.show {
-      @include max-screen($screen-desktop - 1) {
-        margin-top: 5.375rem;
-      }
+      margin-top: 5.375rem;
     }
 
     .header-sticky & {
@@ -733,6 +731,15 @@ header {
     &.btn {
       color: $white;
     }
+  }
+}
+
+.header-sticky,
+.transparent-header.header-sticky {
+  padding-top: 3.5rem;
+
+  @include max-screen($screen-tablet - 1) {
+    padding-top: 4rem;
   }
 }
 
