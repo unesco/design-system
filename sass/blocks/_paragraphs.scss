@@ -253,6 +253,10 @@ $space-bottom: (
       min-height: 37.125rem;
     }
 
+    @include min-screen($screen-desktop-xxl) {
+      justify-content: space-between;
+    }
+
     .banner-cta-texts {
       position: relative;
       z-index: 2;
@@ -273,6 +277,11 @@ $space-bottom: (
           width: 60%;
           margin: 3rem -5rem 3rem 3rem;
           padding: 3.5rem 11.5rem 3.5rem 3.5rem;
+        }
+        @include min-screen($screen-desktop-xxl) {
+          max-width: 60rem;
+          left: calc(50% - 10rem);
+          transform: translateX(-50%);
         }
       }
 
@@ -362,6 +371,53 @@ $space-bottom: (
             margin: 3rem;
             padding: 3.5rem 11.5rem 3.5rem 3.5rem;
           }
+        }
+      }
+    }
+
+    &.position-picto {
+      min-height: auto;
+      padding: 1.5rem;
+
+      @include min-screen($screen-tablet) {
+        justify-content: center;
+      }
+
+      .banner-cta-circle {
+        display: inline-block;
+        width: 5rem;
+        min-width: 5rem;
+        height: 5rem;
+        min-height: 5rem;
+        border-radius: 2.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        i {
+          color: $white;
+          line-height: 5rem;
+          font-size: 2rem;
+        }
+
+        @include min-screen($screen-tablet) {
+          width: 6.75rem;
+          min-width: 6.75rem;
+          height: 6.75rem;
+          min-height: 6.75rem;
+          border-radius: 4rem;
+          margin-right: 2.5rem;
+          i {
+            line-height: 6.75rem;
+            font-size: 3rem;
+          }
+        }
+      }
+
+      .banner-cta-texts {
+        padding: 0;
+        width: 100%;
+        @include min-screen($screen-tablet) {
+          width: auto;
+          min-width: 60%;
         }
       }
     }
