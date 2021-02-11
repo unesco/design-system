@@ -76,6 +76,20 @@
       margin-left: .75rem;
     }
   }
+
+  &-download {
+    &::after {
+      @include icon('save_alt');
+      display: inline-block;
+      vertical-align: bottom;
+      margin-left: .75rem;
+    }
+  }
+
+}
+
+.link-underline {
+  text-decoration: underline;
 }
 
 // Tags
