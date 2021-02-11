@@ -215,6 +215,37 @@
   margin-left: 0.625rem;
 }
 
+// Bootstrap table buttons override
+
+.bootstrap-table .fixed-table-container .table thead th .both {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  display: inline-block;
+}
+
+.fixed-table-toolbar {
+  button {
+    i {
+      font-style: normal;
+    }
+
+    &[name="paginationSwitch"] i {
+      &::after {
+        @include icon('last_page');
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    &[name="fullscreen"] i {
+      &::after {
+        @include icon('fullscreen');
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
 // btn display more for text media
 
 .btn-display-more {

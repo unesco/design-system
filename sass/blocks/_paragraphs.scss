@@ -441,4 +441,22 @@ $space-bottom: (
       transition: .6s ease;
     }
   }
+
+  &--type--datagrid {
+    .table-bordered {
+      border: none;
+  
+      th, td {
+        border-left: none;
+        border-right: none;
+        border-width: 1px;
+      }
+    }
+  
+    .table-borderless {
+      tbody > tr:first-child {
+        display: none;
+      }
+    }
+  }
 }
