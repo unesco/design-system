@@ -61,6 +61,27 @@
   }
 }
 
+// Override eu_cookie_compliance.
+
+#sliding-popup {
+  h2,
+  div,
+  p {
+    color: $darkGrey;
+  }
+}
+
+.eu-cookie-compliance-default-button {
+  box-shadow: none;
+  text-shadow: none;
+  background-image: unset;
+
+  &:hover {
+    background-image: unset;
+  }
+}
+
+
 // List group flush
 
 .list-group-flush {
