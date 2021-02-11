@@ -10,9 +10,19 @@ $space-bottom: (
 );
 
 .border-top {
+  position: relative;
+  border: none!important;
   @include responsive(padding-top, $space-top);
-  border-top: .0625rem solid $grey2;
   @include responsive(padding-bottom, $space-bottom);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    height: .0625rem;
+    background-color: $grey2;
+  }
 }
 
 .paragraph {
