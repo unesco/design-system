@@ -90,7 +90,7 @@
     attach: function (context, settings) {
       const header = $('header');
       let headerHeight = header.height();
-      
+
       $(window).scroll(function() {
         if($(window).scrollTop() > headerHeight) {
           $('body').addClass('header-sticky');
@@ -106,23 +106,20 @@
       let displaySeeMore = $('.field--name-field-paragraphs .paragraph.display-see-more');
 
       displaySeeMore.each(function() {
-        let imageHeight = $(this).find('.field--name-field-media-image').innerHeight() - 32;
+        let imageHeight = $(this).find('.field--name-field-media-image').outerHeight(true);
         let content = $(this).children('.wrapper-infos');
-        let contentHeight = content.innerHeight();
+        let contentHeight = content.outerHeight(true);
 
-        if ( contentHeight > imageHeight) {
-          content.wrapInner( '<div class="display_more-wrapper" style="height:' + imageHeight + 'px;"></div>' );
+        if ( contentHeight >= imageHeight) {
+          content.wrapInner( '<div class="display_more-wrapper" style="height:' + (imageHeight - 32) + 'px;"></div>' );
           content.append('<button class="btn-display-more">' + Drupal.t('Read more') + '</button>');
-          // content.children().text(function(index, text) {
-          //   return text.replace(/\W*\s(\S)*$/, '...');
-          // });
 
           content.children('.btn-display-more').on('click', function () {
             $(this).toggleClass('is-active');
             if ($(this).hasClass('is-active')) {
               $(this).prev().height(contentHeight);
             } else {
-              $(this).prev().height(imageHeight);
+              $(this).prev().height(imageHeight - 32);
             }
           });
         }
