@@ -1,10 +1,18 @@
+$space-bottom: (
+  null: 1.5rem,
+  large: 3rem
+);
+
+$space-bottom7: (
+  null: 3.5rem,
+  large: 7rem
+);
+
 .header-landing,
 .header-homepage {
   min-height: 100vh;
-  padding-bottom: 7rem;
-  position: relative;
+  @include responsive(padding-bottom, $space-bottom7);
   color: $white;
-  margin-top: -10.188rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -27,11 +35,9 @@
   }
 
   .article-title {
-    font-size: 3.75rem;
-    line-height: 4.5rem;
+    @include responsive(font-size, $hero-title);
+    @include responsive(margin, 0 0 $space-bottom);
     font-weight: 800;
-    margin: 0 0 3rem;
     color: $white;
   }
-
 }

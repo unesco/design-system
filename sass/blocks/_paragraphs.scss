@@ -368,6 +368,7 @@ $space-bottom: (
   }
 
   &.display-see-more {
+    align-items: start;
 
     .wrapper-infos {
       .field--name-field-links {
@@ -381,7 +382,4 @@ $space-bottom: (
       transition: .6s ease;
     }
   }
-
-
-
 }

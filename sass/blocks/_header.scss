@@ -1,10 +1,40 @@
 header {
+  .header,
+  .sub-header {
+    max-width: 83rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.navbar {
+    .path-frontpage &,
+    .page-node-type-landing & {
+      position: absolute;
+      z-index: 99;
+
+      @include max-screen($screen-desktop - 1) {
+        position: absolute;
+      }
+    }
+  }
+
   .transparent-header & {
     position: absolute;
     left: 0;
     top: 0;
     width: 100vw;
     z-index: 1;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: calc(100% - 4.25rem);
+      max-width: 83rem;
+      height: 1px;
+      background-color: $navbar-dark-color;
+    }
 
     &.bg-primary {
       background-color: transparent !important;
@@ -15,6 +45,10 @@ header {
         background-color: $BlueU !important;
       }
     }
+  }
+
+  .header-sticky.transparent-header & {
+    background-color: $BlueU !important;
   }
 
   &.navbar-light {
@@ -180,7 +214,6 @@ header {
   }
 
   .region-header {
-    width: 100%;
     align-items: center;
 
     @include max-screen($screen-desktop - 1) {
@@ -482,7 +515,6 @@ header {
 .block-unesco-commonlanguage-blocklanguage-interface {
   display: flex;
   justify-content: flex-end;
-  padding-right: 0;
 
   .header-sticky & {
     display: none;
@@ -720,10 +752,6 @@ header {
     font-weight: 600;
     margin-top: $spacer;
   }
-}
-
-.transparent-header {
-  padding-top: 10.188rem;
 }
 
 .navbar-light {
