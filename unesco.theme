@@ -114,7 +114,7 @@ function unesco_preprocess_region(&$variables) {
   }
 }
 
-/**<
+/**
  * Implements template_preprocess_region().
  */
 function unesco_preprocess_block(&$variables) {
@@ -124,11 +124,16 @@ function unesco_preprocess_block(&$variables) {
   }
 }
 
+/**
+ * Implements template_preprocess_field().
+ */
 function unesco_preprocess_field(&$variables, $hook) {
   $element = $variables['element'];
   if ($element['#field_name'] == 'field_link') {
     foreach($variables['items'] as $key => $item) {
-      $variables['items'][$key]['content']['#options']['attributes']['class'][] = 'btn btn-primary btn-arrow-forward';
+      if (empty($variables['items'][$key]['content']['#options']['attributes']['class'])) {
+        $variables['items'][$key]['content']['#options']['attributes']['class'][] = 'btn btn-primary btn-arrow-forward';
+      }
     }
   }
 }
