@@ -49,7 +49,7 @@ function unesco_preprocess_node(&$variables) {
   if (in_array($view_mode, $list_view_modes)) {
     $variables['unesco_link_content'] = TRUE;
     $variables['unesco_link_attributes'] = new Attribute();
-    $variables['unesco_link_attributes']->setAttribute('url', $variables['url']);
+    $variables['unesco_link_attributes']->setAttribute('href', $variables['url']);
     $variables['unesco_link_attributes']->setAttribute('title', $variables['node']->label());
   }
 }
