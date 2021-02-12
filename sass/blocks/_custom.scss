@@ -112,6 +112,9 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
   }
 }
 
+
+// Admin toolbar.
+
 .toolbar-tray-open {
   &.toolbar-horizontal {
     &.transparent-header {
@@ -129,6 +132,8 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
   }
 }
 
+// Primary local tasks.
+
 .transparent-header.user-logged-in .block-local-tasks-block {
   z-index: 100;
   background: white;
@@ -136,4 +141,12 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
   border-radius: 10px;
   position: absolute;
   top: 240px;
+}
+
+.page-node-type-landing {
+  &:not(.transparent-header) {
+    #block-unesco-primary-local-tasks {
+      padding-top: 122px;
+    }
+  }
 }
