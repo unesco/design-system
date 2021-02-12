@@ -15,11 +15,7 @@
  *   Calling other methods, such as node.delete(), will result in an exception.
  *   See \Drupal\node\Entity\Node for a full list of public properties and
  *   methods for the node object.
-<<<<<<< HEAD
  * - label: (optional) The title of the node.
-=======
- * - label: The title of the node.
->>>>>>> Link englobing content in specifics view-modes Refs #55563
  * - content: All node items. Use {{ content }} to print them all,
  *   or print a subset such as {{ content.field_example }}. Use
  *   {{ content|without('field_example') }} to temporarily suppress the printing
@@ -27,13 +23,8 @@
  * - author_picture: The node author user entity, rendered using the "compact"
  *   view mode.
  * - metadata: Metadata for this node.
-<<<<<<< HEAD
  * - date: (optional) Themed creation date field.
  * - author_name: (optional) Themed author name field.
-=======
- * - date: Themed creation date field.
- * - author_name: Themed author name field.
->>>>>>> Link englobing content in specifics view-modes Refs #55563
  * - url: Direct URL of the current node.
  * - display_submitted: Whether submission information should be displayed.
  * - attributes: HTML attributes for the containing element.
@@ -103,7 +94,7 @@
   {% endif %}
 
   {% if unesco_link_content %}
-    <a href="{{ url }}" rel="bookmark" title="{{ title }}" {{ unesco_link_attributes|without('href', 'rel', 'title') }}>
+    <a {{ unesco_link_attributes }}>
   {% endif %}
 
   <div{{ content_attributes.addClass('node__content') }}>

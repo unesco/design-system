@@ -5,6 +5,7 @@
  * Bootstrap4 theme file.
  */
 
+use Drupal\Core\Template\Attribute;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -47,7 +48,9 @@ function unesco_preprocess_node(&$variables) {
 
   if (in_array($view_mode, $list_view_modes)) {
     $variables['unesco_link_content'] = TRUE;
-    $variables['title'] = $variables['node']->label();
+    $variables['unesco_link_attributes'] = new Attribute();
+    $variables['unesco_link_attributes']->setAttribute('url', $variables['url']);
+    $variables['unesco_link_attributes']->setAttribute('title', $variables['node']->label());
   }
 }
 
