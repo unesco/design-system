@@ -1,0 +1,38 @@
+// Space
+$space-top: (
+  null: 1rem,
+  large: 1.5rem
+);
+
+$space-bottom: (
+  null: 3.5rem,
+  large: 6rem
+);
+
+.border-top {
+  position: relative;
+  border: none!important;
+  @include responsive(padding-top, $space-top);
+  @include responsive(padding-bottom, $space-bottom);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    height: .0625rem;
+    background-color: $grey2;
+  }
+}
+
+.field--name-field-paragraphs {
+  .field__item {
+    position: relative;
+  }
+}
+
+.paragraph {
+  position: relative;
+  width: 100%;
+
+}

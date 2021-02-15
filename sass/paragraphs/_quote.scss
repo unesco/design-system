@@ -1,0 +1,95 @@
+// Typography
+$quote-text: (
+  null: 1.5rem,
+  large: 2.25rem
+);
+
+$quote-infos: (
+  null: 1rem,
+  large: 1.1rem
+);
+
+.paragraph {
+  &--type--quote {
+    @extend .border-top;
+    display: flex;
+    flex-direction: column;
+
+    @include min-screen($screen-desktop) {
+      flex-direction: row;
+      &.position-right {
+        .rich-text {
+          order: 1;
+        }
+      }
+    }
+
+    .rich-text {
+      @include responsive(font-size, $quote-text);
+      line-height: 1.4;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      @include min-screen($screen-desktop) {
+        margin-bottom: 0;
+      }
+    }
+
+    .quote-people {
+      display: flex;
+      flex-direction: column;
+
+      .quote-shape {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .quote-icon {
+          width: 4rem;
+          min-width: 4rem;
+          height: 4rem;
+          margin-right: -.5rem;
+          text-align: center;
+          border-radius: 2rem;
+          &::after {
+            @include icon('format_quote');
+            line-height: 4rem;
+            color: $white;
+            font-size: 2rem;
+          }
+        }
+
+        .field--name-field-image {
+          width: 4rem;
+          min-width: 4rem;
+          height: 4rem;
+          border-radius: 2rem;
+          overflow: hidden;
+          img {
+            @include img-cover;
+          }
+        }
+      }
+
+      .name,
+      .function {
+        @include responsive(font-size, $quote-infos);
+        line-height: 1.4;
+        font-weight: 400;
+      }
+
+      .name {
+        font-weight: 600;
+      }
+    }
+
+    &.position-center {
+      @include min-screen($screen-desktop) {
+        position: initial;
+        flex-direction: column;
+        .rich-text {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+}
