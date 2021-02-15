@@ -8,73 +8,81 @@ $list-text: (
 
 .paragraph {
 
-  .field--name-field-title {
-    @include responsive(font-size, $section-title);
-    font-weight: 800;
-  }
+  &--type--content-list-custom-landing {
 
-  .field__item {
-
-    article.node--type-landing {
-      border-top: 1px solid $grey2;
-      padding-top: 1.5rem;
-      padding-bottom: 2rem;
-
-      @include min-screen($screen-desktop) {
-        padding-bottom: 3rem;
-      }
-
-      a {
-        text-decoration: none;
-        color: $darkGrey;
-        line-height: 1.4;
-        @include responsive(font-size, $list-text);
-        font-weight: 600;
-
-        .wrapper {
-
-          .content-type-label {
-            @include responsive(font-size, $list-text);
-            color: $BlueU;
-            font-weight: 400;
-          }
-
-          .title {
-            @include responsive(font-size, $list-text);
-            font-weight: 600;
-          }
-
-          .field--name-created {
-            display: inline-block;
-            margin-top: 1rem;
-            font-size: .875rem;
-            font-weight: 400;
-            color: $grey4;
-          }
-        }
-
-        .field--name-field-ref-image {
-
-          .media--type-image,
-          .field--type-image {
-            width: 100%;
-            height: 100%;
-          }
-
-          img {
-            @include img-cover;
-          }
-        }
-      }
+    .field--name-field-title {
+      @include responsive(font-size, $section-title);
+      font-weight: 800;
     }
 
-  }
+    .field__item {
 
-  &--type--content-list-custom-landing {
-    //base
+      article.node--type-landing {
+        border-top: 1px solid $grey2;
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+
+        @include min-screen($screen-desktop) {
+          padding-bottom: 3rem;
+        }
+
+        a {
+          text-decoration: none;
+          color: $darkGrey;
+          line-height: 1.4;
+          @include responsive(font-size, $list-text);
+          font-weight: 600;
+
+          .wrapper {
+
+            .content-type-label {
+              @include responsive(font-size, $list-text);
+              color: $BlueU;
+              font-weight: 400;
+            }
+
+            .title {
+              @include responsive(font-size, $list-text);
+              font-weight: 600;
+            }
+
+            .field--name-created {
+              display: inline-block;
+              margin-top: 1rem;
+              font-size: .875rem;
+              font-weight: 400;
+              color: $grey4;
+            }
+          }
+
+          .field--name-field-ref-image {
+
+            .media--type-image,
+            .field--type-image {
+              width: 100%;
+              height: 100%;
+            }
+
+            img {
+              @include img-cover;
+            }
+          }
+        }
+      }
+
+    }
 
     &.paragraph--view-mode--grid {
-      //view grid 4
+
+      .field__items {
+        @include min-screen($screen-desktop) {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          column-gap: 2rem;
+          justify-items: stretch;
+        }
+      }
+
     }
 
     &.paragraph--view-mode--grid-big-first {
