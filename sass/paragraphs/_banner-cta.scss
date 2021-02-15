@@ -191,6 +191,17 @@
           max-width: 41rem;
         }
       }
+
+      &.bg-grey1 {
+
+        .banner-cta-texts {
+          color: $darkGrey;
+          .banner-cta-title {
+            color: $darkGrey;
+          }
+        }
+
+      }
     }
   }
 }
