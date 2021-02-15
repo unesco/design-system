@@ -109,17 +109,25 @@
         let imageHeight = $(this).find('.field--name-field-media-image').outerHeight(true);
         let content = $(this).children('.wrapper-infos');
         let contentHeight = content.outerHeight(true);
+        let multiLine = ~~(imageHeight / 40);
 
         if ( contentHeight >= imageHeight) {
-          content.wrapInner( '<div class="display_more-wrapper" style="height:' + (imageHeight - 32) + 'px;"></div>' );
+          content.wrapInner( '<div class="display_more-wrapper" style="max-height:' + (imageHeight - 32) + 'px; -webkit-line-clamp:' + multiLine + '"></div>' );
           content.append('<button class="btn-display-more">' + Drupal.t('Read more') + '</button>');
 
           content.children('.btn-display-more').on('click', function () {
             $(this).toggleClass('is-active');
             if ($(this).hasClass('is-active')) {
-              $(this).prev().height(contentHeight);
+              $(this).prev().css({
+                'max-height': contentHeight,
+                '-webkit-line-clamp': 'initial'
+              });
             } else {
-              $(this).prev().height(imageHeight - 32);
+              $(this).prev().css('max-height', (imageHeight - 32));
+              $(this).prev().delay(600).queue(function (next) {
+                $(this).css('-webkit-line-clamp', '' + multiLine + '');
+                next();
+              });
             }
           });
         }

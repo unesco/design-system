@@ -456,6 +456,8 @@ $space-bottom: (
       overflow: hidden;
       text-overflow: ellipsis;
       transition: .6s ease;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
     }
   }
 
