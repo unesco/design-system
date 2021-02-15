@@ -61,6 +61,7 @@ function unesco_preprocess_taxonomy_term__people(&$variables) {
   if (isset($variables['elements']['#view_mode']) && $variables['elements']['#view_mode'] == 'people_detail') {
     $variables['attributes']['class'][] = 'jumbotron';
     $variables['attributes']['class'][] = 'jumbotron--people';
+    $variables['page'] = TRUE;
   }
   if (isset($variables['elements']['#view_mode']) && $variables['elements']['#view_mode'] == 'content') {
     $variables['page'] = TRUE;
