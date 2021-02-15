@@ -43,7 +43,7 @@ $text: (
 );
 
 // Quote
-$quote-text: (
+$blockquote-text: (
   null: 1.5rem,
   large: 1.75rem
 );
@@ -163,7 +163,7 @@ a.link {
 
 .blockquote {
   position: relative;
-  @include responsive(font-size, $quote-text);
+  @include responsive(font-size, $blockquote-text);
   line-height: 1.3;
   padding-left: 1.75rem;
   &::before {

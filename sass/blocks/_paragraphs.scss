@@ -9,6 +9,17 @@ $space-bottom: (
   large: 6rem
 );
 
+// Typography
+$quote-text: (
+  null: 1.5rem,
+  large: 2.25rem
+);
+
+$quote-infos: (
+  null: 1rem,
+  large: 1.1rem
+);
+
 .border-top {
   position: relative;
   border: none!important;
@@ -22,6 +33,12 @@ $space-bottom: (
     width: calc(100% - 2rem);
     height: .0625rem;
     background-color: $grey2;
+  }
+}
+
+.field--name-field-paragraphs {
+  .field__item {
+    position: relative;
   }
 }
 
@@ -386,6 +403,10 @@ $space-bottom: (
         justify-content: center;
       }
 
+      @include min-screen($screen-desktop) {
+        padding: 2.375rem;
+      }
+
       .banner-cta-circle {
         display: inline-block;
         width: 5rem;
@@ -419,8 +440,10 @@ $space-bottom: (
         padding: 0;
         width: 100%;
         @include min-screen($screen-tablet) {
-          width: auto;
-          min-width: 60%;
+          max-width: 20rem;
+        }
+        @include min-screen($screen-desktop) {
+          max-width: 41rem;
         }
       }
     }
@@ -429,10 +452,14 @@ $space-bottom: (
   &--type--quote {
     @extend .border-top;
     display: flex;
+    flex-direction: column;
 
-    &.position-right {
-      .rich-text {
-        order: 1;
+    @include min-screen($screen-desktop) {
+      flex-direction: row;
+      &.position-right {
+        .rich-text {
+          order: 1;
+        }
       }
     }
 
@@ -440,6 +467,68 @@ $space-bottom: (
       @include responsive(font-size, $quote-text);
       line-height: 1.4;
       font-weight: 400;
+      margin-bottom: 1.5rem;
+      @include min-screen($screen-desktop) {
+        margin-bottom: 0;
+      }
+    }
+
+    .quote-people {
+      display: flex;
+      flex-direction: column;
+
+      .quote-shape {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .quote-icon {
+          width: 4rem;
+          min-width: 4rem;
+          height: 4rem;
+          margin-right: -.5rem;
+          text-align: center;
+          border-radius: 2rem;
+          &::after {
+            @include icon('format_quote');
+            line-height: 4rem;
+            color: $white;
+            font-size: 2rem;
+          }
+        }
+
+        .field--name-field-image {
+          width: 4rem;
+          min-width: 4rem;
+          height: 4rem;
+          border-radius: 2rem;
+          overflow: hidden;
+          img {
+            @include img-cover;
+          }
+        }
+      }
+
+      .name,
+      .function {
+        @include responsive(font-size, $quote-infos);
+        line-height: 1.4;
+        font-weight: 400;
+      }
+
+      .name {
+        font-weight: 600;
+      }
+    }
+
+    &.position-center {
+      @include min-screen($screen-desktop) {
+        position: initial;
+        flex-direction: column;
+        .rich-text {
+          margin-bottom: 1.5rem;
+        }
+      }
     }
   }
 
