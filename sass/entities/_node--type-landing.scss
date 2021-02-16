@@ -10,12 +10,13 @@ $space-bottom7: (
 
 .header-landing,
 .header-homepage {
-  min-height: 100vh;
+  height: 100vh;
   @include responsive(padding-bottom, $space-bottom7);
   color: $white;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  overflow: hidden;
 
   .field--name-field-ref-image {
     position: absolute;
