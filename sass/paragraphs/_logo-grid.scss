@@ -1,0 +1,44 @@
+$padding-grid: (
+  null: 1rem,
+  large: 1.5rem
+);
+
+.paragraph {
+  &--type--logo-grid {
+    @include responsive(padding-top, $padding-grid);
+    @extend .border-top;
+    margin-top: 3.5rem;
+
+    @include min-screen($screen-desktop) {
+      margin-top: 0 0 1.5rem;
+    }
+
+    .field--name-field-title {
+      font-weight: 800;
+      @include responsive(font-size, $section-title);
+      margin: 0 0 1rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 1.5rem;
+      }
+    }
+    .field--name-field-description {
+      @include responsive(font-size, $section-title-small);
+      margin: 0 0 2rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 3rem;
+      }
+    }
+
+    .logo {
+      @extend .border-top;
+      text-align: center;
+      padding: 1rem 0;
+
+      a {
+        display: block;
+      }
+    }
+  }
+}
