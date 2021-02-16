@@ -141,3 +141,35 @@
 
   }
 }
+
+.field--name-field-ref-sdg-targets {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem;
+
+  .field__item {
+    padding: 0 1rem;
+  }
+}
+
+.vocabulary-sdgs-targets {
+  .icon::before {
+    font-size: 4rem;
+  }
+
+  a {
+    display: block;
+    background-color: $white;
+    width: 5rem;
+    height: 5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid $white;
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      border-color: $grey3;
+    }
+  }
+}

@@ -50,6 +50,26 @@ $icons: (
   sdg-17: '\e918',
 );
 
+$icon-color: (
+  sdg-1: #e5243b,
+  sdg-2: #dda63a,
+  sdg-3: #4c9f38,
+  sdg-4: #c5192d,
+  sdg-5: #ff3a21,
+  sdg-6: #26bde2,
+  sdg-7: #fcc30b,
+  sdg-8: #a21942,
+  sdg-9: #fd6925,
+  sdg-10: #dd1367,
+  sdg-11: #fd9d24,
+  sdg-12: #bf8b2e,
+  sdg-13: #3f7e44,
+  sdg-14: #0a97d9,
+  sdg-15: #56c02b,
+  sdg-16: #00689d,
+  sdg-17: #19486a,
+);
+
 @function unicode($str) {
   @return unquote('\'') + $str + unquote('\'');
 }
@@ -57,6 +77,12 @@ $icons: (
 @each $icon-name, $icon-value in $icons {
   .#{$icon_prefix}#{$icon-name}::before {
     content: unicode($icon-value);
+  }
+}
+
+@each $icon-name, $icon-value in $icon-color {
+  .#{$icon_prefix}#{$icon-name}::before {
+    color: $icon-value;
   }
 }
 
