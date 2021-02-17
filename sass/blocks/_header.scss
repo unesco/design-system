@@ -1,7 +1,7 @@
 header {
   .header,
   .sub-header {
-    max-width: 83rem;
+    max-width: 78.25rem;
     margin-left: auto;
     margin-right: auto;
   }
@@ -803,6 +803,7 @@ header.header-mini-light {
   .block-system-branding-block {
     flex: unset;
     width: auto;
+    padding-left: 0;
   }
 
   .site-name {
