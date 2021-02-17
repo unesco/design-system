@@ -33,6 +33,7 @@
 {%
   set classes = [
     'view',
+    'view-taxonomy-term-people',
     'view-' ~ id|clean_class,
     'view-id-' ~ id,
     'view-display-id-' ~ display_id,
@@ -62,8 +63,8 @@
   {% endif %}
 
   {% if rows %}
-    <h2>Latest</h2>
-    <div class="view-content">
+    <h2 class="section-title-border">{{ 'Latest'|t }}</h2>
+    <div class="list-grid-view">
       {{ rows }}
     </div>
   {% elseif empty %}

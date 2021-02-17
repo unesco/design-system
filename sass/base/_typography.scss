@@ -42,6 +42,11 @@ $text: (
   medium: 1.125rem
 );
 
+$small-text: (
+  null: .875rem,
+  medium: 1rem
+);
+
 // Quote
 $blockquote-text: (
   null: 1.5rem,
@@ -63,7 +68,15 @@ $full-media-title: (
 
 .section-title {
   @include responsive(font-size, $section-title);
-  font-weight: 600;
+  font-weight: 800;
+
+  &-border {
+    border-top: .0625rem solid $grey2;
+    padding-top: 1rem;
+    @include min-screen($screen-tablet) {
+      padding-top: 1.5rem;
+    }
+  }
 
   &-featured {
     i {

@@ -1,0 +1,196 @@
+// Header Name
+$taxonomy-header-name: (
+  null: 1.25rem,
+  medium: 1.875rem
+);
+
+.view-taxonomy-term-people {
+
+  .view-header {
+    @include fullWidthBackground($grey1);
+    padding: 2rem 0;
+    margin-bottom: 3.5rem;
+    @include min-screen($screen-tablet) {
+      padding-bottom: 5rem;
+      margin-bottom: 6rem;
+    }
+
+    .content {
+
+      max-width: 40rem;
+
+      .wrap {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .field--name-field-image {
+          width: 5rem;
+          min-width: 5rem;
+          height: 5rem;
+          border-radius: 2.5rem;
+          margin-right: 1.5rem;
+          overflow: hidden;
+
+          img {
+            @include img-cover;
+          }
+        }
+
+        .text-wrapper {
+          width: 100%;
+
+          .field--name-field-full-name {
+            @include responsive(font-size, $taxonomy-header-name);
+            font-weight: 800;
+            line-height: 1.2;
+          }
+
+          .field--name-field-function {
+            @include responsive(font-size, $small-text);
+            line-height: 1.4;
+          }
+        }
+
+      }
+
+      .rich-text {
+        width: 100%;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+
+        p {
+          @include responsive(font-size, $small-text);
+          color: $grey4;
+          line-height: 1.4;
+        }
+
+        @include min-screen($screen-tablet) {
+          -webkit-line-clamp: 2;
+        }
+      }
+
+      .buttons {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+
+        .field--name-field-email {
+          margin-right: .5rem;
+        }
+
+        .field--name-field-social-networks {
+          display: flex;
+          align-items: center;
+
+          .field__item {
+            margin-right: .5rem;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+  .list-grid-view {
+
+    @include min-screen($screen-desktop) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      column-gap: 2rem;
+      justify-items: stretch;
+    }
+
+    .views-row {
+      border-top: .0625rem solid $grey2;
+      padding-top: 1.5rem;
+      padding-bottom: 2rem;
+
+      a {
+        text-decoration: none;
+        color: $darkGrey;
+        line-height: 1.4;
+        @include responsive(font-size, $list-text);
+        font-weight: 600;
+
+        .node__content {
+          display: flex;
+          align-items: start;
+
+          @include min-screen($screen-desktop) {
+            flex-direction: column;
+          }
+        }
+
+        .wrapper {
+          width: 100%;
+
+          @include min-screen($screen-desktop) {
+            order: 1;
+          }
+
+          .content-type-label,
+          .section-text {
+            @include responsive(font-size, $list-text);
+            color: $BlueU;
+            font-weight: 400;
+            margin-bottom: 0;
+          }
+
+          .title {
+            @include responsive(font-size, $list-text);
+            font-weight: 600;
+          }
+
+          .field--name-created {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: .875rem;
+            font-weight: 400;
+            color: $grey4;
+          }
+        }
+
+        .field--name-field-ref-image {
+          width: 5rem;
+          min-width: 5rem;
+          height: 5rem;
+          margin-left: 1.5rem;
+
+          @include min-screen($screen-tablet) {
+            width: 11.5rem;
+            min-width: 11.5rem;
+            height: 7.5rem;
+            margin-left: 2rem;
+          }
+
+          @include min-screen($screen-desktop) {
+            margin-left: 0;
+            width: 100%;
+            height: 12rem;
+            margin-bottom: 1.5rem;
+          }
+
+          .media--type-image,
+          .field--type-image {
+            width: 100%;
+            height: 100%;
+          }
+
+          img {
+            @include img-cover;
+          }
+        }
+      }
+    }
+  }
+}
+
