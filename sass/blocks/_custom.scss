@@ -122,11 +122,26 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
 
 // Primary local tasks.
 
+.user-logged-in .block-local-tasks-block {
+  background: $grey1;
+  display: inline-block;
+  border-radius: 10px;
+  margin-top: 1rem;
+
+  a {
+    color: $darkGrey;
+  }
+  
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    border: none;
+    background-color: transparent;
+    font-weight: 800;
+  }
+}
+
 .transparent-header.user-logged-in .block-local-tasks-block {
   z-index: 100;
   background: white;
-  display: inline-block;
-  border-radius: 10px;
   position: absolute;
   top: 240px;
 }

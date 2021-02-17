@@ -1,84 +1,18 @@
-$margin24: (
-  null: 1rem,
-  large: 1.5rem
+$paddingTop: (
+  null: 2.5rem,
+  large: 3.5rem
 );
 
-.node--view-mode-full {
-  .article-title {
-    margin-top: 0;
-    @include responsive(margin-bottom, $margin24);
-  }
-
-  .addthis_toolbox {
-    margin-bottom: 2rem;
-
-    @include min-screen($screen-desktop) {
-      margin-bottom: 3rem;
-    }
-  }
-
-  h3 {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    margin: 0 0 1rem;
-  }
-
-  .media-wrapper {
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
-  
-    @include min-screen($screen-desktop) {
-      margin-bottom: 3rem;
-    }
-  
-    .media-legend {
-      color: $grey5;
-    }
-    .media-copyright {
-      color: $grey4;
-    }
-  }
-  
-  .last-update {
-    margin-bottom: 2rem;
-  
-    @include min-screen($screen-desktop) {
-      margin-bottom: 3rem;
-    }
-  }
-  
-  .content-tags {
-    margin-bottom: 2rem;
-  
-    @include min-screen($screen-desktop) {
-      margin-bottom: 3rem;
-    }
-  
-    .item-list {
-      ul {
-        @include noneListStyle;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 -0.25rem -1rem;
-  
-        li {
-          padding: 0 0.25rem 1rem;
-        }
-      }
-    }
-  }
-}
-
-.node--type-page,
-.node--type-sequenced-page {
+.node--type-page {
   &.node--view-mode-full {
+    padding-top: 2.5rem;
+    @include responsive(padding-top, $paddingTop);
 
     .node__content {
       display: flex;
 
       .main-node-content {
         max-width: 51.5rem;
-        margin: 0 auto;
       }
 
       .content-narrow {
@@ -86,13 +20,8 @@ $margin24: (
       }
 
       aside {
-        display: none;
         margin-right: 6.125rem;
         width: 15.063rem;
-
-        @include min-screen($screen-desktop) {
-          display: block;
-        }
 
         h3 {
           font-size: 0.875rem;
