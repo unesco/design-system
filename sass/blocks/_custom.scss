@@ -112,23 +112,11 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
   }
 }
 
+// Primary local tasks.
 
-// Admin toolbar.
-
-.toolbar-tray-open {
-  &.toolbar-horizontal {
-    &.transparent-header {
-      header {
-        top: 79px;
-      }
-    }
-  }
-  &.toolbar-vertical {
-    &.transparent-header {
-      header {
-        top: 39px;
-      }
-    }
+.gin--vertical-toolbar.toolbar-horizontal.header-sticky {
+  .navbar {
+    top: 0;
   }
 }
 
