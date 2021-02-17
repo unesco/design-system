@@ -87,6 +87,9 @@ function unesco_preprocess_html(&$variables) {
       }
     }
   }
+  elseif ($route_name === 'unesco_common.homepage') {
+    $variables['attributes']['class'][] = 'transparent-header';
+  }
 }
 
 /**
