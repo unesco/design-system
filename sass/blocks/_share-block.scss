@@ -2,21 +2,49 @@
   display: flex;
   flex-wrap: nowrap;
 
-  a {
-    padding: 0 0.5rem !important;
-    border-radius: 0.5rem;
-    display: flex;
-    margin: 0;
-    font-size: 1rem;
-    @include transition;
+  >a {
+    @extend .icon;
+    @extend .round; 
+    @extend .round-md; 
+    @extend .round-grey1;
+    transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    line-height: 2.5rem;
+    color: $grey4;
+    margin-right: 1rem;
+    width: 2.5rem !important;
+    height: 2.5rem;
 
-    &:focus,
-    &:hover {
-      transform: scale(1.1);
+    &::before {
+      line-height: 2.5rem !important;
     }
-  }
 
-  .at-icon-wrapper {
-    border-radius: 0.25rem;
+    &.addthis_button_facebook {
+      @extend .icon-facebook;
+    }
+
+    &.addthis_button_linkedin {
+      @extend .icon-linkedln;
+    }
+
+    &.addthis_button_twitter {
+      @extend .icon-twitter;
+    }
+
+    &.addthis_button_messenger {
+      @extend .icon-messenger;
+    }
+
+    &.addthis_button_whatsapp {
+      @extend .icon-whatsapp;
+    }
+
+    &.addthis_button_more {
+      @extend .icon-whatsapp;
+      content: "+";
+    }
+
+    .at-icon-wrapper {
+      display: none;
+    }
   }
 }

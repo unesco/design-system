@@ -17,6 +17,11 @@ $space-bottom7: (
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
+  margin-bottom: 3.5rem;
+
+  @include min-screen($screen-desktop) {
+    margin-bottom: 6rem;
+  }
 
   .field--name-field-ref-image {
     position: absolute;
@@ -25,6 +30,7 @@ $space-bottom7: (
     width: 100vw;
     transform: translateX(-50%);
     z-index: -1;
+    overflow: hidden;
 
     img {
       min-width: 100%;
@@ -40,5 +46,14 @@ $space-bottom7: (
     @include responsive(margin, 0 0 $space-bottom);
     font-weight: 800;
     color: $white;
+  }
+
+  .field--name-field-link {
+    margin-top: 3rem;
+  }
+
+  .field--name-field-description {
+    @include responsive(font-size, $section-text-small);
+    font-weight: 400;
   }
 }

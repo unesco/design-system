@@ -90,3 +90,15 @@
     }
   }
 }
+
+@mixin noneListStyle {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-image: url("../images/empty.gif"); // IE 11 fix
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}

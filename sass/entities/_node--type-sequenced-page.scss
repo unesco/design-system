@@ -1,0 +1,13 @@
+$paddingTop: (
+  null: 2.5rem,
+  large: 6rem
+);
+
+.node--type-sequenced-page {
+  &.node--view-mode-full {
+    padding-top: 2.5rem;
+    @include responsive(padding-top, $paddingTop);
+
+
+  }
+}
