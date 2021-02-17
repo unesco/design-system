@@ -135,4 +135,15 @@
     }
   };
 
+  Drupal.behaviors.stickyShare = {
+    attach: function (context, settings) {
+      const shareButton = $('.sticky-share');
+
+      shareButton.on('click', function(e) {
+        e.preventDefault();
+        $(this).closest('.content-menu-sticky').toggleClass('open-share');
+      });
+    }
+  };
+
 })(jQuery);

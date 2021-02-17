@@ -141,3 +141,21 @@ function unesco_preprocess_field(&$variables, $hook) {
     }
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function unesco_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  $bundles = [
+    'page',
+    'sequenced_page',
+  ];
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if (in_array($node->bundle(), $bundles)) {
+      $suggestions[] = 'page__navbar_light';
+      $suggestions[] = 'page__' . $node->bundle();
+    }
+  }
+}
+
