@@ -774,10 +774,67 @@ header {
   }
 }
 
-// White header
+// White header on sticky
 header.header-mini-light {
+  .content-menu-sticky {
+    display: none;
+  }
+}
+
+.header-sticky header.header-mini-light {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  background-color: $white !important;
+  flex-direction: row;
+  max-width: 85.5rem;
+  width: 100%;
+  left: 50%;
+  @extend %slideInDownWhite;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 4rem;
+    width: 100vw;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    background-color: $white;
+    z-index: -1;
+
+    @include min-screen($screen-tablet) {
+      height: 3.5rem;
+    }
+  }
+
+  .header,
+  .sub-header {
+    width: 100%;
+    margin: 0;
+  }
+
+  .header {
+    @include min-screen($screen-desktop) {
+      max-width: 10.33rem;
+    }
+    
+
+    .region-header {
+      margin: 0;
+    }
+  }
+
+  .sub-header {
+    max-width: calc(100% - 10.33rem);
+    margin-left: auto;
+
+    .region-sub-header {
+      @include max-screen($screen-tablet) {
+        margin: 0;
+      }
+    }
+  }
 
   @include min-screen($screen-desktop) {
     padding-top: 0.75rem;
@@ -809,94 +866,99 @@ header.header-mini-light {
   .site-name {
     color: $navbar-light-color;
   }
-}
 
-.content-menu-sticky {
-  margin-left: auto;
-
-  @include min-screen($screen-desktop) {
-    margin-right: 2rem;
-  }
-
-  a {
-    font-size: 0;
-    
+  .content-menu-sticky {
+    margin-left: auto;
+    display: block;
+  
     @include min-screen($screen-desktop) {
-      font-size: 0.875rem;
-      line-height: 1.5rem;
-      font-weight: 600;
+      margin-right: 2rem;
     }
-  }
-
-  .field--name-field-header-cta {
-    display: none;
-
-    @include min-screen($screen-desktop) {
-      display: flex;
-      margin: 0 -1rem;
-    }
-
-    >div {
-      padding: 0 1rem;
-    }
-  }
-
-  >div,
-  >div >div {
-    display: flex;
-    align-items: center;
-  }
-
-  .sticky-share {
-    font-size: 1rem;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-
-    span {
+  
+    a {
       font-size: 0;
-
+      
       @include min-screen($screen-desktop) {
         font-size: 0.875rem;
+        line-height: 1.5rem;
+        font-weight: 600;
       }
     }
-
-    i {
-      font-size: 0;
-
-      &::before {
-        display: inline-block;
-        color: inherit;
-        font-size: 1rem;
-
+  
+    .field--name-field-header-cta {
+      display: none;
+  
+      @include min-screen($screen-desktop) {
+        display: flex;
+        margin: 0 -1rem;
+      }
+  
+      >div {
+        padding: 0 1rem;
+      }
+    }
+  
+    >div,
+    >div >div {
+      display: flex;
+      align-items: center;
+    }
+  
+    .sticky-share {
+      font-size: 1rem;
+      position: relative;
+      z-index: 1;
+      text-decoration: none;
+  
+      span {
+        font-size: 0;
+  
         @include min-screen($screen-desktop) {
-          margin-right: 2rem;
-          font-size: 0.625rem;
-          line-height: 1.5rem;
-          margin-left: 0.5rem;
+          font-size: 0.875rem;
+        }
+      }
+  
+      i {
+        font-size: 0;
+  
+        &::before {
+          display: inline-block;
+          color: inherit;
+          font-size: 1rem;
+  
+          @include min-screen($screen-desktop) {
+            margin-right: 2rem;
+            font-size: 0.625rem;
+            line-height: 1.5rem;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+    }
+  
+    .addthis_toolbox {
+      max-width: 0;
+      overflow: hidden;
+      @include transition;
+      transition-duration: 0.5s;
+    }
+  
+    &.open-share {
+      .addthis_toolbox {
+        max-width: 19rem;
+        margin-right: 2rem;
+      }
+  
+      .sticky-share {
+        .icon-share::before {
+          @include icon('clear');
+          font-family: 'Material Icons Sharp' !important;
         }
       }
     }
   }
 
-  .addthis_toolbox {
-    max-width: 0;
-    overflow: hidden;
-    @include transition;
-    transition-duration: 0.5s;
-  }
-
-  &.open-share {
-    .addthis_toolbox {
-      max-width: 19rem;
-      margin-right: 2rem;
-    }
-
-    .sticky-share {
-      .icon-share::before {
-        @include icon('clear');
-        font-family: 'Material Icons Sharp' !important;
-      }
-    }
+  .navbar-toggler {
+    display: none;
   }
 }

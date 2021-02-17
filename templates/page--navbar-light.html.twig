@@ -45,12 +45,18 @@
   (b4_footer_bg_schema != 'none' ? " bg-#{b4_footer_bg_schema}" : ' ')
 %}
 
-<header class="navbar navbar-expand-lg navbar-light header-mini-light">
+<header class="navbar navbar-expand-lg bg-primary header-mini-light navbar-dark">
   {% if page.header %}
     <div class="header">
-      {{ page.header.sitebranding }}
-      {{ page.sub_header.unescositename }}
-      {{ page.sub_header.unescocontentmenustickyheader }}
+      {{ page.header }}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  {% endif %}
+  {% if page.sub_header %}
+    <div class="sub-header">
+      {{ page.sub_header }}
     </div>
   {% endif %}
 </header>

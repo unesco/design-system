@@ -65,3 +65,34 @@
   -webkit-animation-name: slideInDown;
   animation-name: slideInDown;
 }
+
+@-webkit-keyframes slideInDownWhite {
+  from {
+    -webkit-transform: translate3d(-50%, -100%, 0);
+    transform: translate3d(-50%, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes slideInDownWhite {
+  from {
+    -webkit-transform: translate3d(-50%, -100%, 0);
+    transform: translate3d(-50%, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+%slideInDownWhite {
+  -webkit-animation-name: slideInDownWhite;
+  animation-name: slideInDownWhite;
+}
