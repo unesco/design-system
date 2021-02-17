@@ -42,6 +42,7 @@ function unesco_preprocess_node(&$variables) {
   $list_view_modes = [
     'grid',
     'grid_big_first',
+    'grid_big_other',
     'normal',
     'short',
   ];
