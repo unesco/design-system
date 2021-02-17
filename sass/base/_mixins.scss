@@ -60,3 +60,33 @@
   height: 100%;
   object-fit: cover;
 }
+
+// Mixin for full width background
+@mixin fullWidthBackground($background, $direction: both) {
+  position: relative;
+  background: $background;
+
+  @if ($direction=="left") or ($direction=="both") {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 100%;
+      width: 9999px;
+      height: 100%;
+      background: $background;
+    }
+  }
+
+  @if ($direction=="right") or ($direction=="both") {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 9999px;
+      height: 100%;
+      background: $background;
+    }
+  }
+}

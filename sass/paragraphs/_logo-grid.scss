@@ -1,19 +1,16 @@
+$padding-grid: (
+  null: 1rem,
+  large: 1.5rem
+);
+
 .paragraph {
-  &--type--datagrid {
-    .table-bordered {
-      border: none;
+  &--type--logo-grid {
+    @include responsive(padding-top, $padding-grid);
+    @extend .border-top;
+    margin-top: 3.5rem;
 
-      th, td {
-        border-left: none;
-        border-right: none;
-        border-width: 1px;
-      }
-    }
-
-    .table-borderless {
-      tbody > tr:first-child {
-        display: none;
-      }
+    @include min-screen($screen-desktop) {
+      margin-top: 0 0 1.5rem;
     }
 
     .field--name-field-title {
@@ -31,6 +28,16 @@
 
       @include min-screen($screen-desktop) {
         margin: 0 0 3rem;
+      }
+    }
+
+    .logo {
+      @extend .border-top;
+      text-align: center;
+      padding: 1rem 0;
+
+      a {
+        display: block;
       }
     }
   }

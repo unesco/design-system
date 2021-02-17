@@ -1,10 +1,14 @@
 footer {
   padding: 2rem 1.5rem;
+
   @include min-screen($screen-tablet) {
     padding: 2rem;
   }
   @include min-screen($screen-desktop) {
     padding: 3rem 5.875rem;
+    max-width: 90rem;
+    margin: 0 auto;
+    @include fullWidthBackground(inherit);
   }
 
   .footer-top {
@@ -15,8 +19,8 @@ footer {
 
     .region-footer {
       padding: 0;
-      margin-left: -1rem;
-      width: calc(100% + 2rem);
+      margin-left: 0;
+      margin-right: 0;
 
       .dropdown-toggle {
         border-top: 0.0625rem solid $grey2;
@@ -61,7 +65,7 @@ footer {
         }
 
         @include max-screen($screen-desktop - 1px) {
-          &.is-active {
+          &.active-item {
             &::after {
               transform: rotate(180deg);
             }

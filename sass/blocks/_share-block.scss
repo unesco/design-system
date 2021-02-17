@@ -1,0 +1,22 @@
+.addthis_toolbox {
+  display: flex;
+  flex-wrap: nowrap;
+
+  a {
+    padding: 0 0.5rem !important;
+    border-radius: 0.5rem;
+    display: flex;
+    margin: 0;
+    font-size: 1rem;
+    @include transition;
+
+    &:focus,
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .at-icon-wrapper {
+    border-radius: 0.25rem;
+  }
+}

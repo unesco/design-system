@@ -42,8 +42,9 @@
 
       function dropdownClick() {
         let dropdownTitle = $('footer nav .navbar-nav > .nav-item .dropdown-toggle');
-        dropdownTitle.unbind('click').on('click', function () {
-          $(this).toggleClass('is-active');
+        dropdownTitle.unbind('click').on('click', function (e) {
+          e.preventDefault();
+          $(this).toggleClass('active-item');
           $(this).next('ul').slideToggle();
         });
       }
@@ -131,6 +132,17 @@
             }
           });
         }
+      });
+    }
+  };
+
+  Drupal.behaviors.stickyShare = {
+    attach: function (context, settings) {
+      const shareButton = $('.sticky-share');
+
+      shareButton.on('click', function(e) {
+        e.preventDefault();
+        $(this).closest('.content-menu-sticky').toggleClass('open-share');
       });
     }
   };
