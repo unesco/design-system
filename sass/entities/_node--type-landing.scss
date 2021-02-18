@@ -31,6 +31,7 @@ $space-bottom7: (
     transform: translateX(-50%);
     z-index: -1;
     overflow: hidden;
+    background-color: $darkGrey;
 
     img {
       min-width: 100%;
@@ -38,6 +39,7 @@ $space-bottom7: (
       object-fit: cover;
       min-height: 100vh;
       max-width: unset;
+      opacity: 0.6;
     }
   }
 
