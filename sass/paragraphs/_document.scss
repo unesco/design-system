@@ -1,7 +1,13 @@
 
 .paragraph {
 
-  &--type--documents {
+  &--type--document {
+
+    @extend .border-top;
+    padding-bottom: 2rem;
+    @include min-screen($screen-desktop) {
+      padding-bottom: 3rem;
+    }
 
     .document-wrapper {
       display: flex;
@@ -84,6 +90,46 @@
 
       }
 
+      .document-image {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        border-radius: .5rem;
+        background-color: $grey1;
+        overflow: hidden;
+        margin-bottom: 1rem;
+
+        @include min-screen($screen-tablet) {
+          width: 13.25rem;
+          height: 13.25rem;
+          padding-bottom: 0;
+          margin-bottom: 1.5rem;
+        }
+
+        @include min-screen($screen-desktop) {
+          width: 11.375rem;
+          min-width: 11.375rem;
+          height: 11.375rem;
+          margin-right: 2rem;
+          margin-bottom: 0;
+        }
+
+        .field--name-field-media-image {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 60%;
+
+          img {
+            width: 100%;
+          }
+
+        }
+
+      }
+
       .document-actions {
         order: 2;
         margin-top: 1.5rem;
@@ -94,113 +140,90 @@
       }
     }
 
-    &:not(.display-big) {
+  }
 
-      .field--name-field-documents {
-        & > .field__item {
-          @extend .border-top;
-          padding-bottom: 2rem;
-          @include min-screen($screen-desktop) {
-            padding-bottom: 3rem;
-          }
+  &--type--documents {
+
+    &.display-big {
+
+      .field--name-field-documents > .field__item {
+        margin-bottom: 1.5rem;
+        @include min-screen($screen-tablet) {
+          margin-bottom: 2rem;
         }
       }
 
-      .document-wrapper {
+      .paragraph--type--document {
+        padding: 0;
 
-        .document-image {
-          position: relative;
-          width: 100%;
-          height: 0;
-          padding-bottom: 100%;
-          border-radius: .5rem;
+        &::before {
+          display: none;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+
+        .document-wrapper {
           background-color: $grey1;
-          overflow: hidden;
-          margin-bottom: 1rem;
-
+          padding: 1.5rem 1.5rem 2rem;
+          border-radius: .5rem;
           @include min-screen($screen-tablet) {
-            width: 13.25rem;
-            height: 13.25rem;
-            padding-bottom: 0;
-            margin-bottom: 1.5rem;
+            padding: 3rem;
           }
-
           @include min-screen($screen-desktop) {
-            width: 11.375rem;
-            min-width: 11.375rem;
-            height: 11.375rem;
-            margin-right: 2rem;
-            margin-bottom: 0;
+            padding: 3.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-gap: 2rem;
+            grid-auto-flow: row dense;
+            align-items: start;
           }
 
-          .field--name-field-media-image {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
 
-            img {
-              width: 100%;
+          .document-image {
+            width: auto;
+            height: auto;
+            padding-bottom: 0;
+            border-radius: 0;
+            background-color: transparent;
+            overflow: initial;
+            margin-bottom: 1.5rem;
+            margin-right: 0;
+            @include min-screen($screen-tablet) {
+              margin-bottom: 2rem;
+            }
+            @include min-screen($screen-desktop) {
+              margin-bottom: 0;
+              grid-column-start: 2;
+              grid-row: 1 / span 2;
+            }
+
+            .field--name-field-media-image {
+              position: relative;
+              top: 0;
+              left: 0;
+              transform: translate(0, 0);
+              width: initial;
+
+              img {
+                width: auto;
+              }
+
             }
 
           }
 
-        }
-
-      }
-
-    }
-
-    &.display-big {
-
-      .field--name-field-documents {
-        & > .field__item {
-          margin-bottom: 1.5rem;
-          @include min-screen($screen-tablet) {
-            margin-bottom: 2rem;
+          .document-actions {
+            @include min-screen($screen-desktop) {
+              margin-left: 0;
+            }
           }
-          &:last-child {
-            margin-bottom: 0;
-          }
+
         }
       }
 
-      .document-wrapper {
-        background-color: $grey1;
-        padding: 1.5rem 1.5rem 2rem;
-        border-radius: .5rem;
-        @include min-screen($screen-tablet) {
-          padding: 3rem;
-        }
-        @include min-screen($screen-desktop) {
-          padding: 3.5rem;
-          display: grid;
-          grid-template-columns: 1fr auto;
-          grid-gap: 2rem;
-          grid-auto-flow: row dense;
-          align-items: start;
-        }
-
-        .document-image {
-          margin-bottom: 1.5rem;
-          @include min-screen($screen-tablet) {
-            margin-bottom: 2rem;
-          }
-          @include min-screen($screen-desktop) {
-            margin-bottom: 0;
-            grid-column-start: 2;
-            grid-row: 1 / span 2;
-          }
-        }
-
-        .document-actions {
-          @include min-screen($screen-desktop) {
-            margin-left: 0;
-          }
-        }
-
-      }
 
     }
 
