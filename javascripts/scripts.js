@@ -107,9 +107,15 @@
       let displaySeeMore = $('.field--name-field-paragraphs .paragraph.display-see-more');
 
       displaySeeMore.each(function() {
-        let imageHeight = $(this).find('.field--name-field-media-image').outerHeight(true);
+        let image = $(this).find('.wrapper-image');
+        let imageHeight = 300;
         let content = $(this).children('.wrapper-infos');
         let contentHeight = content.outerHeight(true);
+
+        if ( image.length > 0 ) {
+          imageHeight = $(this).find('.field--name-field-media-image').outerHeight(true);
+        }
+
         let multiLine = ~~(imageHeight / 40);
 
         if ( contentHeight >= imageHeight) {

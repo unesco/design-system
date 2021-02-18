@@ -42,11 +42,12 @@
       flex-direction: row;
 
       &.right {
+        flex-direction: row-reverse;
         .wrapper-image {
-          order: 0;
+          order: 1;
         }
         .wrapper-infos {
-          order: 1;
+          order: 0;
         }
       }
 
