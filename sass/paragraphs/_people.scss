@@ -47,15 +47,31 @@
     }
 
     .field--name-field {
-      &-first-name {}
-      &-last-name {}
-      &-function {}
+
+      &-first-name,
+      &-last-name {
+        display: inline-block;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+
+      &-function {
+        font-size: 1rem;
+      }
 
       &-image {
         width: 4rem;
         height: 4rem;
         border-radius: 50%;
         overflow: hidden;
+      }
+
+      &-text {
+        color: $grey4;
+        
+        p {
+          font-size: 0.875rem;
+        }
       }
     }
   }
