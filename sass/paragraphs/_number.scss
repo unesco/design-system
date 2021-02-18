@@ -1,0 +1,52 @@
+.paragraph {
+  &--type--number {
+    .field--name-field-title {
+      font-weight: 800;
+      @include responsive(font-size, $section-title);
+      margin: 0 0 1rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 1.5rem;
+      }
+    }
+
+    .field--name-field-description {
+      @include responsive(font-size, $section-title-small);
+      margin: 0 0 2rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 3rem;
+      }
+    }
+
+    .field--name-field-number {
+      font-size: 3rem;
+
+      @include min-screen($screen-tablet) {
+        font-size: 4.5rem;
+      }
+    }
+
+    .rich-text {
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .field--name-field-link {
+      a {
+        color: $grey4;
+        text-decoration: underline;
+
+        &:hover{
+          color: $darkGrey;
+        }
+      }
+
+      .field__label {
+        font-weight: normal;
+        color: $grey4;
+      }
+    }
+  }
+}
