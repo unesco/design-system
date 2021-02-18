@@ -1,0 +1,63 @@
+.paragraph {
+  &--type--faq {
+    .field--name-field-title {
+      font-weight: 800;
+      @include responsive(font-size, $section-title);
+      margin: 0 0 1rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 1.5rem;
+      }
+    }
+
+    .field--name-field-description {
+      @include responsive(font-size, $section-title-small);
+      margin: 0 0 2rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 3rem;
+      }
+    }
+
+    .field--name-field-ref-faqs {
+      border-radius: .5rem;
+      padding: 1.5rem;
+      @include min-screen($screen-desktop) {
+        padding: 2rem;
+      }
+
+      details {
+        border: none;
+
+        .details-wrapper {
+          padding: 0.5em 0;
+        }
+
+        &[open] {
+          summary {
+            &::after {
+              @include icon('expand_less');
+            }
+          }
+        }
+      }
+
+      summary {
+        padding: 0 25px 0 0;
+        font-weight: 600;
+
+        &::-webkit-details-marker {
+          display:none;
+        }
+
+        &::after {
+          @include icon('expand_more');
+          position: absolute;
+          font-size: 1.5em;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+}
