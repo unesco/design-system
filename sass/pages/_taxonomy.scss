@@ -191,3 +191,69 @@ $taxonomy-header-name: (
   }
 }
 
+// People detail and content view mode
+
+.paragraph,
+.field--name-field-ref-people {
+  .vocabulary-people {
+    .field--name-field-social-networks {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -0.25rem;
+
+      >.field__item {
+        padding: 0 0.25rem;
+      }
+    }
+
+    .buttons {
+      display: flex;
+
+      .field--name-field-email {
+        margin-right: 0.5rem;
+      }
+    }
+
+    .wrap {
+      display: flex;
+      align-items: center;
+      margin: 0 -0.75rem 1rem;
+
+      >div {
+        padding: 0 0.75rem;
+      }
+    }
+
+    .field--name-field {
+      &-first-name,
+      &-last-name {
+        display: inline-block;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+
+      &-function {
+        font-size: 1rem;
+      }
+
+      &-image {
+        display: flex;
+        align-items: center;
+        width: 5.5rem;
+        height: 5.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      &-text {
+        color: $grey4;
+
+        p {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+}
+
+
