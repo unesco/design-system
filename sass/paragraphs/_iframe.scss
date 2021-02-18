@@ -1,0 +1,40 @@
+.paragraph {
+  &--type--iframe {
+    .field--name-field-title {
+      font-weight: 800;
+      @include responsive(font-size, $section-title);
+      margin: 0 0 1rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 1.5rem;
+      }
+    }
+
+    .field--name-field-description {
+      @include responsive(font-size, $section-title-small);
+      margin: 0 0 2rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 3rem;
+      }
+    }
+
+    .field--name-field-iframe {
+      position: relative;
+      padding-top: 100%;
+      
+      @include min-screen($screen-desktop) {
+        padding-top: 66.61%;
+      }
+    }
+
+    iframe {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+}

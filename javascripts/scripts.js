@@ -153,4 +153,20 @@
     }
   };
 
+  Drupal.behaviors.iframeCustomHeight = {
+    attach: function (context, settings) {
+      let iframeParagraph = $('.paragraph--type--iframe');
+
+      iframeParagraph.each(function() {
+        let desktop = $(this).attr('data-height') ? $(this).attr('data-height') : 0;
+        let mobile = $(this).attr('data-height-mobile') ? $(this).attr('data-height-mobile') : 0;
+        let tablet = $(this).attr('data-height-tablet') ? $(this).attr('data-height-tablet') : 0 ;
+        let eq = $(this).parent().index();
+        $(this).addClass('iframe' + eq);
+
+        $('head').append('<style>.iframe' + eq + ' .field--name-field-iframe { height:' + mobile + 'px;} @media only screen and (min-width: 576px) {.iframe' + eq + ' .field--name-field-iframe { height:'+ tablet + 'px; }} @media only screen and (min-width: 992px) {.iframe' + eq +' .field--name-field-iframe {height:' + desktop + 'px; }}</style>');
+      });
+    }
+  };
+
 })(jQuery);
