@@ -143,6 +143,7 @@
     &.position-picto {
       min-height: auto;
       padding: 1.5rem;
+      text-align: center;
 
       @include min-screen($screen-tablet) {
         justify-content: center;
@@ -155,6 +156,15 @@
       .banner-cta-link {
         display: flex;
         text-decoration: none;
+        flex-direction: column;
+        text-align: left;
+        @include min-screen($screen-tablet) {
+          max-width: 30rem;
+          flex-direction: row;
+        }
+        @include min-screen($screen-desktop) {
+          max-width: 50rem;
+        }
       }
 
       .banner-cta-circle {
@@ -189,12 +199,6 @@
       .banner-cta-texts {
         padding: 0;
         width: 100%;
-        @include min-screen($screen-tablet) {
-          max-width: 20rem;
-        }
-        @include min-screen($screen-desktop) {
-          max-width: 41rem;
-        }
       }
 
       &.bg-grey1 {
