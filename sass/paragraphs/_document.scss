@@ -3,18 +3,6 @@
 
   &--type--documents {
 
-    .field--name-field-documents {
-
-      & > .field__item {
-        @extend .border-top;
-        padding-bottom: 2rem;
-        @include min-screen($screen-desktop) {
-          padding-bottom: 3rem;
-        }
-      }
-
-    }
-
     .document-wrapper {
       display: flex;
       flex-direction: column;
@@ -23,52 +11,13 @@
         flex-direction: row;
       }
 
-      .document-image {
-        position: relative;
-        width: 100%;
-        height: 0;
-        padding-bottom: 100%;
-        border-radius: .5rem;
-        background-color: $grey1;
-        overflow: hidden;
-        margin-bottom: 1rem;
-
-        @include min-screen($screen-tablet) {
-          width: 13.25rem;
-          height: 13.25rem;
-          padding-bottom: 0;
-          margin-bottom: 1.5rem;
-        }
-
-        @include min-screen($screen-desktop) {
-          width: 11.375rem;
-          min-width: 11.375rem;
-          height: 11.375rem;
-          margin-right: 2rem;
-          margin-bottom: 0;
-        }
-
-        .field--name-field-media-image {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
-          width: 60%;
-
-          img {
-            width: 100%;
-          }
-
-        }
-
-      }
-
       .document-infos {
         order: 1;
         width: 100%;
         max-width: 42rem;
 
-        .field--name-field-title {
+        .field--name-field-title,
+        .data-title {
           font-size: 1.5rem;
           font-weight: 800;
           line-height: 1.4;
@@ -88,12 +37,14 @@
             display: inline-block;
             font-size: 1rem;
             font-weight: 400;
+
             &::after {
               content: '•';
               display: inline-block;
               margin-left: .375rem;
               margin-right: .125rem;
             }
+
             &:last-child {
               &::after {
                 display: none;
@@ -109,11 +60,13 @@
           .field--name-field-text-authors {
             .field__item {
               display: inline-block;
+
               &::after {
                 content: ',';
                 display: inline-block;
                 margin-right: .125rem;
               }
+
               &:last-child {
                 &::after {
                   display: none;
@@ -143,9 +96,115 @@
       }
     }
 
-  }
+    &:not(.display-big) {
 
-  &--view-mode--default {
+      .field--name-field-documents {
+        & > .field__item {
+          @extend .border-top;
+          padding-bottom: 2rem;
+          @include min-screen($screen-desktop) {
+            padding-bottom: 3rem;
+          }
+        }
+      }
+
+      .document-wrapper {
+
+        .document-image {
+          position: relative;
+          width: 100%;
+          height: 0;
+          padding-bottom: 100%;
+          border-radius: .5rem;
+          background-color: $grey1;
+          overflow: hidden;
+          margin-bottom: 1rem;
+
+          @include min-screen($screen-tablet) {
+            width: 13.25rem;
+            height: 13.25rem;
+            padding-bottom: 0;
+            margin-bottom: 1.5rem;
+          }
+
+          @include min-screen($screen-desktop) {
+            width: 11.375rem;
+            min-width: 11.375rem;
+            height: 11.375rem;
+            margin-right: 2rem;
+            margin-bottom: 0;
+          }
+
+          .field--name-field-media-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+
+            img {
+              width: 100%;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+    &.display-big {
+
+      .field--name-field-documents {
+        & > .field__item {
+          margin-bottom: 1.5rem;
+          @include min-screen($screen-tablet) {
+            margin-bottom: 2rem;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .document-wrapper {
+        background-color: $grey1;
+        padding: 1.5rem 1.5rem 2rem;
+        border-radius: .5rem;
+        @include min-screen($screen-tablet) {
+          padding: 3rem;
+        }
+        @include min-screen($screen-desktop) {
+          padding: 3.5rem;
+          display: grid;
+          grid-template-columns: 1fr auto;
+          grid-gap: 2rem;
+          grid-auto-flow: row dense;
+          align-items: start;
+        }
+
+        .document-image {
+          margin-bottom: 1.5rem;
+          @include min-screen($screen-tablet) {
+            margin-bottom: 2rem;
+          }
+          @include min-screen($screen-desktop) {
+            margin-bottom: 0;
+            grid-column-start: 2;
+            grid-row: 1 / span 2;
+          }
+        }
+
+        .document-actions {
+          @include min-screen($screen-desktop) {
+            margin-left: 0;
+          }
+        }
+
+      }
+
+    }
 
   }
 
