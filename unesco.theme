@@ -85,6 +85,10 @@ function unesco_preprocess_html(&$variables) {
       if (in_array($node->bundle(), $bundles_with_hero) && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
         $variables['attributes']['class'][] = 'transparent-header';
       }
+
+      if ($node->hasField('field_ref_image') && $node->get('field_ref_image')->isEmpty()) {
+        $variables['attributes']['class'][] = 'no-header-image';
+      }
     }
   }
   elseif ($route_name === 'unesco_common.homepage') {

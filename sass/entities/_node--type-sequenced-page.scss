@@ -7,7 +7,5 @@ $paddingTop: (
   &.node--view-mode-full {
     padding-top: 2.5rem;
     @include responsive(padding-top, $paddingTop);
-
-
   }
 }
