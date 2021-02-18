@@ -1,6 +1,7 @@
 .addthis_toolbox {
   display: flex;
   flex-wrap: nowrap;
+  padding: 0.125rem;
 
   >a {
     @extend .icon;
@@ -13,6 +14,13 @@
     margin-right: 1rem;
     width: 2.5rem !important;
     height: 2.5rem;
+
+    &:focus,
+    &:hover {
+      &::before {
+        color: $darkGrey;
+      }
+    }
 
     &::before {
       line-height: 2.5rem !important;
