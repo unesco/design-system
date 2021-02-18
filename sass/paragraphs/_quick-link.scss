@@ -14,11 +14,7 @@
       @include responsive(font-size, $section-title-small);
       color: $BlueU;
       font-weight: 600;
-      margin: 0 0 2rem;
-
-      @include min-screen($screen-desktop) {
-        margin: 0 0 3rem;
-      }
+      margin: 0 0 1rem;
     }
 
     .link-wrapper {
