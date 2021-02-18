@@ -772,6 +772,10 @@ header {
   @include max-screen($screen-tablet - 1) {
     padding-top: 4rem;
   }
+
+  header::after {
+    display: none;
+  }
 }
 
 // White header on sticky
