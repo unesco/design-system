@@ -26,11 +26,11 @@ $margin24: (
   .media-wrapper {
     font-size: 0.875rem;
     margin-bottom: 2rem;
-  
+
     @include min-screen($screen-desktop) {
       margin-bottom: 3rem;
     }
-  
+
     .media-legend {
       color: $grey5;
     }
@@ -38,29 +38,29 @@ $margin24: (
       color: $grey4;
     }
   }
-  
+
   .last-update {
     margin-bottom: 2rem;
-  
+
     @include min-screen($screen-desktop) {
       margin-bottom: 3rem;
     }
   }
-  
+
   .content-tags {
     margin-bottom: 2rem;
-  
+
     @include min-screen($screen-desktop) {
       margin-bottom: 3rem;
     }
-  
+
     .item-list {
       ul {
         @include noneListStyle;
         display: flex;
         flex-wrap: wrap;
         margin: 0 -0.25rem -1rem;
-  
+
         li {
           padding: 0 0.25rem 1rem;
         }
@@ -116,7 +116,7 @@ $margin24: (
               color: inherit;
               text-decoration: none;
             }
-      
+
             &::before {
               content: "";
               display: inline-block;
@@ -149,5 +149,16 @@ $margin24: (
         }
       }
     }
+  }
+}
+
+main .node--unpublished {
+  background-color: $unpublished;
+
+  div,
+  span,
+  p,
+  .title {
+    color: $body-color;
   }
 }

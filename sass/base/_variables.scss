@@ -29,6 +29,9 @@ $orange:           #E4A429;
 // Alerts
 $redWarning:       #D8552C;
 
+// Node status
+$unpublished:       #DEADCC;
+
 // Icons
 $icons_family: 'unesco';
 $icons_path: '../../fonts/icons';
@@ -47,8 +50,3 @@ $r-breakpoints: (
   medium: $screen-tablet,
   large: $screen-desktop
 );
-
-
-
-
-
