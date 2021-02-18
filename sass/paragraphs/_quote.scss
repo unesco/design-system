@@ -26,7 +26,6 @@ $quote-infos: (
 
     .rich-text {
       @include responsive(font-size, $quote-text);
-      line-height: 1.4;
       font-weight: 400;
       margin-bottom: 1.5rem;
       @include min-screen($screen-desktop) {
@@ -73,7 +72,6 @@ $quote-infos: (
       .name,
       .function {
         @include responsive(font-size, $quote-infos);
-        line-height: 1.4;
         font-weight: 400;
       }
 

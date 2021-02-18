@@ -25,7 +25,6 @@
       .media--legend,
       .media--copyright {
         font-size: .875rem;
-        line-height: 1.4;
         font-weight: 400;
       }
 
@@ -64,7 +63,6 @@
     .field--name-field-title {
       @include responsive(font-size, $section-title);
       font-weight: 800;
-      line-height: 1.4;
       margin-bottom: 1rem;
     }
 
@@ -108,7 +106,6 @@
           @include responsive(font-size, $full-media-title);
           font-weight: 800;
           color: $white;
-          line-height: 1.4;
           margin-bottom: 1rem;
         }
 

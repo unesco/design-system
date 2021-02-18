@@ -48,7 +48,6 @@ $taxonomy-header-name: (
 
           .field--name-field-function {
             @include responsive(font-size, $small-text);
-            line-height: 1.4;
           }
         }
 
@@ -64,7 +63,6 @@ $taxonomy-header-name: (
         p {
           @include responsive(font-size, $small-text);
           color: $grey4;
-          line-height: 1.4;
         }
 
         @include min-screen($screen-tablet) {
@@ -117,7 +115,6 @@ $taxonomy-header-name: (
       a {
         text-decoration: none;
         color: $darkGrey;
-        line-height: 1.4;
         @include responsive(font-size, $list-text);
         font-weight: 600;
 
