@@ -52,5 +52,46 @@
         color: $grey4;
       }
     }
+
+    .field--name-field-media-oembed-video {
+      position: relative;
+      padding-top: 56.26%;
+      width: 100%;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .slider-nav {
+      display: flex;
+      align-items: center;
+
+      .count {
+        font-size: 0.75;
+        margin-right: 0.5rem;
+        color: $grey5;
+        font-weight: 500;
+      }
+
+      .carousel-button {
+        font-size: 0;
+      }
+
+      .next {
+        margin-left: 0.5rem;
+      }
+    }
+
+    .slider-medias {
+      .field--name-field-media-image,
+      img {
+        width: 100%;
+      }
+    }
   }
 }
