@@ -1,18 +1,24 @@
 .paragraph {
   &--type--media {
-    max-width: 38.125rem;
-    width: 100vw;
     margin: 0 auto;
     @include responsive(margin-bottom, $space-bottom);
 
-    &.display-big {
-      max-width: 64.875rem;
+    @include min-screen($screen-desktop) {
+      max-width: 38.125rem;
       width: 100vw;
+    }
+
+    &.display-big {
       margin: 0 auto;
       position: relative;
       left: 50%;
       transform: translateX(-50%);
       @include responsive(margin-bottom, $space-bottom);
+
+      @include min-screen($screen-desktop) {
+        max-width: 64.875rem;
+        width: 100vw;
+      }
     }
 
     .field--name-field-title {
@@ -68,18 +74,31 @@
     }
 
     .slider-nav {
-      display: flex;
+      display: inline-flex;
       align-items: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-top: 66.67%;
+      background-color: $white;
+      z-index: 1;
+
+      @include min-screen($screen-tablet) {
+        left: auto;
+        right: 0;
+      }
 
       .count {
         font-size: 0.75;
         margin-right: 0.5rem;
+        margin-top: 1rem;
         color: $grey5;
         font-weight: 500;
       }
 
       .carousel-button {
         font-size: 0;
+        margin-top: 1rem;
       }
 
       .next {
@@ -87,10 +106,33 @@
       }
     }
 
+    .wrapper-medias {
+      position: relative;
+    }
+
     .slider-medias {
       .field--name-field-media-image,
       img {
         width: 100%;
+      }
+
+      .field--name-field-ref-media {
+        padding-bottom: 4rem;
+
+        @include min-screen($screen-tablet) {
+          padding-bottom: 0;
+        }
+      }
+
+      .field--name-field-override,
+      .field--name-field-legende {
+        @include min-screen($screen-tablet) {
+          padding-right: 12.75rem;
+        }
+
+        @include min-screen($screen-desktop) {
+          padding-right: 12.2rem;
+        }
       }
     }
   }
