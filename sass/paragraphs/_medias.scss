@@ -99,6 +99,10 @@
       .carousel-button {
         font-size: 0;
         margin-top: 1rem;
+
+        &.slick-disabled {
+          opacity: 0.5;
+        }
       }
 
       .next {

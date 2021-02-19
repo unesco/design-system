@@ -177,36 +177,26 @@
         const next = $(this).parent().find('.next');
         const prev = $(this).parent().find('.previous');
         const $countSpan = $(this).parent().find('.slider-nav .count');
+        let $slideNum = $(this).find('>.field__item').length;
 
         $('.carousel-button').on('click', function(e) {
           e.preventDefault();
         });
-
-        next.on('click', function () {
-          slider.slick('slickNext');
-        });
-  
-        prev.on('click', function () {
-          slider.slick('slickPrev');
-        });
   
         $(slider).on('init', function(event, slick) {
-          let slideCount = slick.slideCount;
-          if (slick.slideCount == null) {
-            slideCount = $(slider).length;
-          }
-            let $count = (1) + '/' + (slideCount);
+            let $count = (1) + '/' + ($slideNum);
             $countSpan.text($count);
         });
   
-        slider.slick({
+        $(this).slick({
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false,
+          prevArrow: prev,
+          nextArrow: next,
           infinite: false,
         });
   
-        $(slider).on("afterChange", function (event, slick, currentSlide) {
+        $(this).on("afterChange", function (event, slick, currentSlide) {
           let $count = (slick.currentSlide + 1) + '/' + (slick.slideCount);
           $countSpan.text($count);
         });
