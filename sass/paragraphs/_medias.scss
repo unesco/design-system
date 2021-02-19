@@ -1,0 +1,41 @@
+.paragraph {
+  &--type--media {
+    .field--name-field-title {
+      font-weight: 800;
+      @include responsive(font-size, $section-title);
+      margin: 0 0 1rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 1.5rem;
+      }
+    }
+
+    .field--name-field-description {
+      @include responsive(font-size, $section-title-small);
+      margin: 0 0 2rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 3rem;
+      }
+    }
+
+    .field--name-field {
+      &-ref-media {
+        margin-bottom: 1rem;
+      }
+      
+      &-legende,
+      &-override {
+        font-size: 0.875rem;
+      }
+
+      &-legende {
+        color: $grey5;
+      }
+
+      &-override {
+        color: $grey4;
+      }
+    }
+  }
+}
