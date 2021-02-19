@@ -78,11 +78,20 @@ $margin24: (
 
       .main-node-content {
         max-width: 51.5rem;
+        width: 100%;
         margin: 0 auto;
+
+        >.field--name-field-ref-image {
+          .field--name-field-media-image,
+          img {
+            width: 100%;
+          }
+        }
       }
 
       .content-narrow {
         max-width: 38.125rem;
+        margin: 0 auto;
       }
 
       aside {

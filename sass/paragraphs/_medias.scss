@@ -1,5 +1,20 @@
 .paragraph {
   &--type--media {
+    max-width: 38.125rem;
+    width: 100vw;
+    margin: 0 auto;
+    @include responsive(margin-bottom, $space-bottom);
+
+    &.display-big {
+      max-width: 64.875rem;
+      width: 100vw;
+      margin: 0 auto;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      @include responsive(margin-bottom, $space-bottom);
+    }
+
     .field--name-field-title {
       font-weight: 800;
       @include responsive(font-size, $section-title);
@@ -23,7 +38,7 @@
       &-ref-media {
         margin-bottom: 1rem;
       }
-      
+
       &-legende,
       &-override {
         font-size: 0.875rem;
