@@ -6,6 +6,7 @@ $list-text: (
 
 .paragraph {
 
+  &--type--content-list-custom-article,
   &--type--content-list-custom-landing {
 
     .field--name-field-title {
@@ -13,9 +14,18 @@ $list-text: (
       font-weight: 800;
     }
 
+    .field--name-field-description {
+      @include responsive(font-size, $section-title-small);
+      margin: 0 0 2rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 3rem;
+      }
+    }
+
     .field__item {
 
-      article.node--type-landing {
+      article.node {
         width: 100%;
         border-top: 1px solid $grey2;
         padding-top: 1.5rem;
@@ -203,10 +213,6 @@ $list-text: (
           max-width: 51.5rem;
         }
       }
-    }
-
-    &.paragraph--view-mode--short {
-
     }
   }
 }
