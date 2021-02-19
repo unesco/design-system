@@ -1,0 +1,70 @@
+$title: (
+  null: 1rem,
+  medium: 1.25rem
+);
+
+.paragraph {
+  &--type--cta {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    @include responsive(margin-bottom, $space-bottom);
+
+    @include min-screen($screen-tablet) {
+      padding: 2rem;
+      flex-direction: row
+    }
+
+    .field--name-field-title {
+      @include responsive(font-size, $title);
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+    }
+
+
+    .cta-media-wrapper {
+      width: 100%;
+      max-width: 7.5rem;
+      margin-bottom: 1.5rem;
+
+      @include min-screen($screen-tablet) {
+        order: 2;
+        max-width: 9rem;
+        margin-left: 1.5rem;
+        margin-bottom: 0;
+      }
+
+      i {
+        font-size: 7.5rem;
+        color: $white;
+
+        @include min-screen($screen-tablet) {
+          font-size: 9rem;
+        }
+      }
+    }
+
+    .field--name-field-media-image {
+      width: 7.5rem;
+      height: 7.5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include min-screen($screen-tablet) {
+        width: 9rem;
+        height: 9rem;
+      }
+
+      img {
+        height: 100%;
+        width: auto;
+        max-width: unset;
+      }
+    }
+  }
+}
