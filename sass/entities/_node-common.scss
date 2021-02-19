@@ -40,9 +40,11 @@ $margin24: (
   }
 
   .last-update {
+    margin-top: 2rem;
     margin-bottom: 2rem;
 
     @include min-screen($screen-desktop) {
+      margin-top: 3rem;
       margin-bottom: 3rem;
     }
   }
@@ -65,6 +67,14 @@ $margin24: (
           padding: 0 0.25rem 1rem;
         }
       }
+    }
+  }
+
+  .content-sdg {
+    margin-bottom: 2rem;
+
+    @include min-screen($screen-desktop) {
+      margin-bottom: 3rem;
     }
   }
 }
@@ -155,6 +165,19 @@ $margin24: (
               display: none;
             }
           }
+        }
+      }
+
+      .field--name-field-ref-cta {
+        .banner-image {
+          .material-icons-sharp {
+            font-size: 6rem;
+            color: white;
+          }
+        }
+
+        .banner-text {
+          font-weight: 600;
         }
       }
     }
