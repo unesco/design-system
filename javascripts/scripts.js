@@ -176,7 +176,7 @@
       slider.each(function() {
         const next = $(this).parent().find('.next');
         const prev = $(this).parent().find('.previous');
-        const $countSpan =$(this).parent().find('.slider-nav .count');
+        const $countSpan = $(this).parent().find('.slider-nav .count');
 
         $('.carousel-button').on('click', function(e) {
           e.preventDefault();
@@ -191,9 +191,12 @@
         });
   
         $(slider).on('init', function(event, slick) {
-          var $count = (1) + '/' + (slick.slideCount);
-          $countSpan.text($count);
-          $('.carousel-button-left').hide();
+          let slideCount = slick.slideCount;
+          if (slick.slideCount == null) {
+            slideCount = $(slider).length;
+          }
+            let $count = (1) + '/' + (slideCount);
+            $countSpan.text($count);
         });
   
         slider.slick({
@@ -206,10 +209,6 @@
         $(slider).on("afterChange", function (event, slick, currentSlide) {
           let $count = (slick.currentSlide + 1) + '/' + (slick.slideCount);
           $countSpan.text($count);
-  
-          return (slick.currentSlide + 1) == (slick.slideCount) ? $('.carousel-button-right').hide() :
-            (slick.currentSlide + 1) == 1 ? $('.carousel-button-left').hide() :
-            $('.carousel-button-right, .carousel-button-left').show();
         });
       });
     }
