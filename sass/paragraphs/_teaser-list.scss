@@ -107,7 +107,7 @@ $list-text: (
           justify-items: stretch;
         }
 
-        article.node--type-landing {
+        article.node {
 
           a {
 
@@ -148,7 +148,7 @@ $list-text: (
           grid-template-columns: 1fr 1fr 1fr 1fr;
         }
 
-        article.node--type-landing {
+        article.node {
 
           a {
 
@@ -179,7 +179,7 @@ $list-text: (
       .field__item:first-child {
         grid-column-end: span 2;
 
-        article.node--type-landing {
+        article.node {
           a {
 
             .node__content {
@@ -209,7 +209,7 @@ $list-text: (
 
       .field__item {
 
-        article.node--type-landing {
+        article.node {
           max-width: 51.5rem;
         }
       }
