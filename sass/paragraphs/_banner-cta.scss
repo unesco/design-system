@@ -51,6 +51,7 @@
       }
 
       .banner-cta-title {
+        text-transform: none;
         color: $white;
         @include responsive(font-size, $full-media-title);
         max-width: 39rem;

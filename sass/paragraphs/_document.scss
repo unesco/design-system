@@ -26,8 +26,10 @@
         .field--name-field-title,
         .data-title {
           font-size: 1.5rem;
+          line-height: 2rem;
           font-weight: 800;
           margin-bottom: .5rem;
+
           @include min-screen($screen-tablet) {
             margin-bottom: 1rem;
           }
