@@ -8,23 +8,32 @@ $space-bottom7: (
   large: 7rem
 );
 
+$padding-top: (
+  null: 17.625rem,
+  large: 21.875
+);
+
 .header-landing,
 .header-homepage {
-  height: 100vh;
+  @include responsive(padding-top, $padding-top);
   @include responsive(padding-bottom, $space-bottom7);
   color: $white;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  overflow: hidden;
+  position: relative;
   margin-bottom: 3.5rem;
+  min-height: 39rem;
+
 
   @include min-screen($screen-desktop) {
     margin-bottom: 6rem;
+    min-height: 46.625rem;
   }
 
   .media--view-mode-banner {
     justify-content: center;
+    height: 100%;
   }
 
   .field--name-field-ref-image {
@@ -32,7 +41,7 @@ $space-bottom7: (
     left: 50%;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     transform: translateX(-50%);
     z-index: 0;
     overflow: hidden;
@@ -46,16 +55,21 @@ $space-bottom7: (
       left: 50%;
       top: 0;
       width: 100vw;
-      height: 100vh;
+      height: 100%;
       transform: translateX(-50%);
       z-index: 0;
+    }
+
+    .field--name-field-media-image {
+      height: 100%;
+      width: 100%;
     }
 
     img {
       min-width: 100%;
       width: auto;
       object-fit: cover;
-      min-height: 100vh;
+      min-height: 100%;
       max-width: unset;
       position: relative;
       z-index: -1;
@@ -87,7 +101,7 @@ $space-bottom7: (
       &.btn-primary {
         &:hover,
         &:focus {
-          margin: 0.2rem;
+          margin: 0 0 0 0.2rem;
         }
       }
     }
@@ -100,7 +114,10 @@ $space-bottom7: (
 
   .article-title,
   .field--name-field-description {
-    max-width: 65rem;
+    @include min-screen($screen-desktop) {
+      flex: 0 0 83.33333%;
+      max-width: 83.33333%;
+    }
   }
 
   .article-title,
