@@ -281,6 +281,13 @@ header {
             }
           }
         }
+
+        &.btn {
+          &:focus::before,
+          &:hover::before {
+            display: none;
+          }
+        }
       }
 
       &.show {
