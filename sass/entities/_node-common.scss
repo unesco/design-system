@@ -3,6 +3,10 @@ $margin24: (
   large: 1.5rem
 );
 
+.region-content {
+  padding: 0;
+}
+
 .node--view-mode-full {
   .article-title {
     margin-top: 0;
@@ -95,19 +99,28 @@ $margin24: (
           .field--name-field-media-image,
           img {
             width: 100%;
+            max-width: unset;
+          }
+
+          .field--name-field-media-image {
+            width: 100%;
           }
         }
       }
 
+      aside + .main-node-content {
+        margin: 0 auto 0 0;
+      }
+
       .content-narrow {
         max-width: 38.125rem;
-        margin: 0 auto;
+        margin: 0 auto 0 0;
       }
 
       aside {
         display: none;
         margin-right: 6.125rem;
-        width: 15.063rem;
+        width: 14.063rem;
 
         @include min-screen($screen-desktop) {
           display: block;
@@ -169,6 +182,8 @@ $margin24: (
       }
 
       .field--name-field-ref-cta {
+        width: 100%;
+
         .banner-image {
           .material-icons-sharp {
             font-size: 6rem;
