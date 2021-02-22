@@ -780,12 +780,14 @@ header {
 
 // White header on sticky
 header.header-mini-light {
+  display: block;
   .content-menu-sticky {
     display: none;
   }
 }
 
 .header-sticky header.header-mini-light {
+  display: flex;
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: $white !important;

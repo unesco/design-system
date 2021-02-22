@@ -221,6 +221,20 @@
   display: inline-block;
 }
 
+.bootstrap-table .fixed-table-container .table thead th {
+  font-weight: 600;
+}
+
+.table-hover tbody tr:hover {
+  background-color: $grey3;
+}
+
+.bootstrap-table .fixed-table-container .table thead th .th-inner,
+.bootstrap-table .fixed-table-container .table th, 
+.bootstrap-table .fixed-table-container .table td {
+  padding: 1rem 0;
+}
+
 .fixed-table-toolbar {
   button {
     i {
