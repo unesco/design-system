@@ -53,6 +53,8 @@ $space-bottom7: (
       object-fit: cover;
       min-height: 100vh;
       max-width: unset;
+      position: relative;
+      z-index: -1;
     }
   }
 
