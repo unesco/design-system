@@ -30,7 +30,7 @@ $space-bottom7: (
     width: 100vw;
     height: 100vh;
     transform: translateX(-50%);
-    z-index: -1;
+    z-index: 0;
     overflow: hidden;
 
     &::before {
@@ -70,6 +70,13 @@ $space-bottom7: (
   .field--name-field-description {
     @include responsive(font-size, $section-text-small);
     font-weight: 400;
+  }
+
+  .article-title,
+  .field--name-field-description,
+  .field--name-field-link {
+    position: relative;
+    z-index: 1;
   }
 
   .no-header-image & {
