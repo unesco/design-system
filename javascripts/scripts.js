@@ -104,7 +104,8 @@
 
   Drupal.behaviors.displaySeeMore = {
     attach: function (context, settings) {
-      let displaySeeMore = $('.field--name-field-paragraphs .paragraph.display-see-more');
+      $(window).on('load', function() {
+        let displaySeeMore = $('.field--name-field-paragraphs .paragraph.display-see-more');
 
       displaySeeMore.each(function() {
         let image = $(this).find('.wrapper-image');
@@ -129,15 +130,18 @@
                 'max-height': contentHeight,
                 '-webkit-line-clamp': 'initial'
               });
+              $(this).text(Drupal.t('Read less'));
             } else {
               $(this).prev().css('max-height', (imageHeight - 32));
               $(this).prev().delay(600).queue(function (next) {
                 $(this).css('-webkit-line-clamp', '' + multiLine + '');
                 next();
               });
+              $(this).text(Drupal.t('Read more'));
             }
           });
         }
+      });
       });
     }
   };
