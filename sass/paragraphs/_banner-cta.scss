@@ -39,12 +39,12 @@
           padding: 2rem calc(30% + 2rem) 2rem 2rem;
         }
         @include min-screen($screen-desktop) {
-          width: 60%;
+          width: 60vw;
           margin: 3rem -5rem 3rem 3rem;
           padding: 3.5rem 11.5rem 3.5rem 3.5rem;
         }
         @include min-screen($screen-desktop-xxl) {
-          max-width: 60rem;
+          max-width: 60vw;
           left: calc(50% - 10rem);
           transform: translateX(-50%);
         }
@@ -91,7 +91,7 @@
         }
       }
       @include min-screen($screen-desktop) {
-        width: calc(40% + 2rem);
+        width: 41.667vw;
       }
     }
 
