@@ -93,15 +93,13 @@
 
       .wrapper-infos {
         position: absolute;
-        width: calc(100% - 3rem);
+        width: 100%;
+        max-width: 80.25rem;
+        padding: 0 1rem;
         bottom: 6rem;
-        max-width: 38rem;
-        left: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: 3;
-        @include min-screen($screen-desktop) {
-          left: 6rem;
-          width: 100%;
-        }
 
         .field--name-title {
           @include responsive(font-size, $full-media-title);
@@ -112,6 +110,11 @@
 
         .field--name-field-text {
           color: $white;
+        }
+
+        .field--name-title,
+        .field--name-field-text {
+          max-width: 38.125rem;
         }
       }
 
@@ -144,7 +147,7 @@
 
         .media--copyright {
           position: absolute;
-          right: 1.5rem;
+          right: 2.5rem;
           bottom: 1.5rem;
           z-index: 2;
           font-size: .75rem;
