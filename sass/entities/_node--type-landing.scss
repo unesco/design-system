@@ -23,6 +23,10 @@ $space-bottom7: (
     margin-bottom: 6rem;
   }
 
+  .media--view-mode-banner {
+    justify-content: center;
+  }
+
   .field--name-field-ref-image {
     position: absolute;
     left: 50%;
@@ -67,11 +71,36 @@ $space-bottom7: (
 
   .field--name-field-link {
     margin-top: 3rem;
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+
+      &::after {
+        @include icon('arrow_forward');
+        color: $white;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        margin-left: 0.875rem;
+      }
+
+      &.btn-primary {
+        &:hover,
+        &:focus {
+          margin: 0.2rem;
+        }
+      }
+    }
   }
 
   .field--name-field-description {
     @include responsive(font-size, $section-text-small);
     font-weight: 400;
+  }
+
+  .article-title,
+  .field--name-field-description {
+    max-width: 65rem;
   }
 
   .article-title,
