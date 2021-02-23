@@ -31,7 +31,7 @@
 div#sliding-popup, 
 div#sliding-popup .eu-cookie-withdraw-banner, 
 .eu-cookie-withdraw-tab {
-  background: $grey1;
+  background: transparent;
   margin: 0;
 
   >div {
@@ -52,6 +52,12 @@ div#sliding-popup .eu-cookie-withdraw-banner,
   margin: 0 auto;
   @include fullWidthBackground($grey1);
 
+  &::before,
+  &:after {
+    border-top: .0625rem solid $grey2;
+    top: -1px;
+  }
+
   &-actions {
     margin-top: 1rem;
     display: flex;
@@ -62,6 +68,7 @@ div#sliding-popup .eu-cookie-withdraw-banner,
   @include min-screen($screen-desktop) {
     flex-direction: row;
     justify-content: space-between;
+    padding: 1.5rem;
 
     &-actions {
       margin-top: 0;
