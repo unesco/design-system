@@ -103,13 +103,38 @@
 
         .field--name-title {
           @include responsive(font-size, $full-media-title);
+          line-height: 2.25rem;
           font-weight: 800;
           color: $white;
           margin-bottom: 1rem;
+
+          @include min-screen($screen-desktop) {
+            line-height: 3rem;
+          }
         }
 
         .field--name-field-text {
           color: $white;
+
+          p {
+            line-height: 1.375rem;
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+            
+            @include min-screen($screen-desktop) {
+              line-height: 1.75rem;
+            }
+          }
+        }
+
+        .field--name-field-links {
+          margin-top: 2.125rem;
+          
+          @include min-screen($screen-desktop) {
+           margin-top: 3rem;
+          }
         }
 
         .field--name-title,
