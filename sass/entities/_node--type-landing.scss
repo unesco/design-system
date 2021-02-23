@@ -87,17 +87,6 @@ $padding-top: (
     margin-top: 3rem;
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-
-      &::after {
-        @include icon('arrow_forward');
-        color: $white;
-        font-size: 1rem;
-        line-height: 1.5rem;
-        margin-left: 0.875rem;
-      }
-
       &.btn-primary {
         &:hover,
         &:focus {
