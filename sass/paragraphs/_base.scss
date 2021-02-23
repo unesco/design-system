@@ -9,7 +9,7 @@ $space-bottom: (
   large: 6rem
 );
 
-.border-top {
+@mixin border-top {
   position: relative;
   border: none!important;
   @include responsive(padding-top, $space-top);
@@ -23,6 +23,10 @@ $space-bottom: (
     height: .0625rem;
     background-color: $grey2;
   }
+}
+
+.border-top {
+  @include border-top;
 }
 
 .field--name-field-paragraphs {

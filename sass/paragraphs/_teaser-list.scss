@@ -8,7 +8,8 @@ $list-text: (
 
   &--type--content-list-custom-article,
   &--type--content-list-custom-landing {
-
+    @include border-top;
+    
     .field--name-field-title {
       @include responsive(font-size, $section-title);
       font-weight: 800;

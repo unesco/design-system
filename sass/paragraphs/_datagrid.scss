@@ -1,5 +1,7 @@
 .paragraph {
   &--type--datagrid {
+    @include border-top;
+    
     .table-bordered {
       border: none;
 
