@@ -28,16 +28,29 @@
 }
 
 // Cookies
+div#sliding-popup, 
+div#sliding-popup .eu-cookie-withdraw-banner, 
+.eu-cookie-withdraw-tab {
+  background: $grey1;
+  margin: 0;
+
+  >div {
+    margin: 0;
+  }
+}
 
 .cookies {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 1.5rem;
-  background-color: $grey1;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   color: $darkGrey;
   font-size: 1rem;
   border-top: .0625rem solid $grey2;
+  @extend .container;
+  margin: 0 auto;
+  @include fullWidthBackground($grey1);
 
   &-actions {
     margin-top: 1rem;
@@ -46,14 +59,10 @@
     flex-wrap: nowrap;
   }
 
-  @include min-screen($screen-tablet) {
-    padding: 1.5rem 2.125rem;
-  }
-
   @include min-screen($screen-desktop) {
     flex-direction: row;
     justify-content: space-between;
-    padding: 1.5rem 6rem;
+
     &-actions {
       margin-top: 0;
       margin-left: 2rem;
@@ -67,7 +76,31 @@
   h2,
   div,
   p {
+    font-size: 1rem;
     color: $darkGrey;
+    font-weight: 400;
+  }
+
+  h2, p {
+    display: inline;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  h2:after {
+    content: ".";
+  }
+}
+
+.eu-cookie-compliance-content {
+  max-width: 100%;
+}
+
+.eu-cookie-compliance-message {
+  max-width: 39.75rem;
+
+  @include min-screen($screen-desktop) {
+    max-width: 60%;
   }
 }
 
@@ -75,10 +108,17 @@
   box-shadow: none;
   text-shadow: none;
   background-image: unset;
+  margin-top: 0;
+  margin-bottom: 0;
 
   &:hover {
     background-image: unset;
   }
+}
+
+#popup-buttons {
+  margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 
