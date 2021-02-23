@@ -54,15 +54,18 @@
         text-transform: none;
         color: $white;
         @include responsive(font-size, $full-media-title);
+        line-height: 2rem;
         max-width: 39rem;
+        margin: 0;
+
+        @include min-screen($screen-desktop) {
+          line-height: 3rem;
+        }
       }
 
       .banner-cta-description {
         max-width: 39rem;
-        margin-bottom: 1.5rem;
-        @include min-screen($screen-desktop) {
-          margin-bottom: 2rem;
-        }
+        margin-bottom: 0.5rem;
       }
     }
 
