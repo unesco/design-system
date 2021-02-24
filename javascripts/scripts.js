@@ -176,7 +176,7 @@
   Drupal.behaviors.mediaSlider = {
     attach: function (context, settings) {
       const slider = $('.slider-medias', context);
-      
+
       slider.each(function() {
         const next = $(this).parent().find('.next');
         const prev = $(this).parent().find('.previous');
@@ -186,12 +186,12 @@
         $('.carousel-button').on('click', function(e) {
           e.preventDefault();
         });
-  
+
         $(slider).on('init', function(event, slick) {
             let $count = (1) + '/' + ($slideNum);
             $countSpan.text($count);
         });
-  
+
         $(this).slick({
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -199,10 +199,28 @@
           nextArrow: next,
           infinite: false,
         });
-  
+
         $(this).on("afterChange", function (event, slick, currentSlide) {
           let $count = (slick.currentSlide + 1) + '/' + (slick.slideCount);
           $countSpan.text($count);
+        });
+      });
+    }
+  };
+
+  Drupal.behaviors.dropdownParagraph = {
+    attach: function (context, settings) {
+      let dropdown = $('.paragraph--type--dropdown');
+
+      dropdown.each(function () {
+        $(this).append('<button class="btn btn-sm btn-primary">' + Drupal.t('Read more') + '<i class="material-icons-sharp">expand_more</button>');
+
+        let dropdownBtn = $(this).find('.btn-primary');
+
+        dropdownBtn.unbind('click').on('click', function (e) {
+          e.preventDefault();
+          $(this).toggleClass('active');
+          $(this).prev().slideToggle();
         });
       });
     }

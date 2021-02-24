@@ -1,5 +1,39 @@
 .paragraph {
   &--type--dropdown {
     background-color: $grey1;
+    padding: 1.5rem 1.5rem 2rem;
+    border-radius: .5rem;
+
+    @include min-screen($screen-desktop) {
+      padding: 2rem 2rem 2.5rem;
+    }
+
+    .field--name-field-context {
+      font-size: .875rem;
+      font-weight: 600;
+      color: $BlueU;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+
+    .field--name-field-title {
+      @include responsive(font-size, $section-title-small);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .rich-text {
+      display: none;
+    }
+
+    .btn-primary {
+      margin-top: .5rem;
+      &.active {
+        i {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
   }
 }
