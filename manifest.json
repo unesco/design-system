@@ -1,0 +1,7 @@
+{
+  "name": "Unesco",
+  "icons": [
+    { "src": "/themes/custom/unesco/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/themes/custom/unesco/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
