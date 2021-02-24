@@ -203,4 +203,3 @@ function unesco_theme_suggestions_page_alter(array &$suggestions, array $variabl
     }
   }
 }
-
