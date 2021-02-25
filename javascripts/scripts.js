@@ -250,4 +250,30 @@
     }
   };
 
+  Drupal.behaviors.backToTop = {
+    attach: function (context, settings) {
+      const backToTopTrigger = $("#back-top", context);
+
+      // Fade in and out #back-top.
+      $(window).scroll(function () {
+        backToTopTrigger.toggleClass(
+          "fade-back-top",
+          $(this).scrollTop() > 400
+        );
+      });
+
+      // Scroll body to 0px on click.
+      backToTopTrigger.on("click", "a", function (e) {
+        e.preventDefault();
+        $("body,html").animate(
+          {
+            scrollTop: 0
+          },
+          800
+        );
+        $(":focus").blur();
+      });
+    }
+  };
+
 })(jQuery);
