@@ -23,7 +23,8 @@
       }
 
       .media--legend,
-      .media--copyright {
+      .media--copyright,
+      .copyright-sigle {
         font-size: .875rem;
         font-weight: 400;
       }
@@ -34,7 +35,13 @@
       }
 
       .media--copyright {
+        display: inline-block;
         color: $grey4;
+      }
+      .copyright-sigle {
+        color: $grey4;
+        display: inline-block;
+        padding-right: 2px;
       }
     }
 
