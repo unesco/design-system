@@ -9,3 +9,11 @@ $paddingTop: (
     @include responsive(padding-top, $paddingTop);
   }
 }
+
+.field--name-field-copyright,
+.media-copyright {
+  &::before {
+    content: '\00A9';
+    margin-right: .25rem;
+  }
+}

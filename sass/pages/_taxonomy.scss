@@ -10,6 +10,14 @@ $taxonomy-header-name: (
   .wrapper-right {
     width: 100%;
     max-width: calc(40rem - 5rem);
+
+    a {
+      color: $darkGrey;
+      &:hover {
+        color: $darkGrey;
+        text-decoration: none;
+      }
+    }
   }
 
   .wrap {
