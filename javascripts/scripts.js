@@ -327,4 +327,21 @@
     }
   };
 
+  Drupal.behaviors.teaserListBorder = {
+    attach: function (context, settings) {
+      let teaserListContainerLanding = $(".paragraph--type--content-list-custom-landing");
+      let teaserListContainerArticle = $(".paragraph--type--content-list-custom-article");
+      let teaserListContainer = teaserListContainerArticle && teaserListContainerLanding;
+
+      teaserListContainer.each(function(){
+        if (
+          ($(this).children('.field--name-field-title').length === 0) &&
+          ($(this).children('.field--name-field-description').length === 0)) {
+            $(this).addClass('no-border');
+          }
+      });
+
+    }
+  };
+
 })(jQuery);

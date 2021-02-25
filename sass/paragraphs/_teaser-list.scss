@@ -218,5 +218,12 @@ $list-text: (
         }
       }
     }
+
+    &.no-border {
+      padding-top: 0;
+      &::before {
+        display: none;
+      }
+    }
   }
 }
