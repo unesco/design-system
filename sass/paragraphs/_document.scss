@@ -107,6 +107,12 @@
           margin-top: 0;
           margin-left: 2rem;
         }
+
+        .btn {
+          @include max-screen($screen-tablet - 1px) {
+            padding: $btn-padding-y-sm $btn-padding-x-sm;
+          }
+        }
       }
     }
 
@@ -128,7 +134,7 @@
 
       .paragraph--type--document {
 
-        .document-wrapper  {
+        .document-wrapper {
           .document-image {
             position: relative;
             width: 100%;
@@ -275,9 +281,11 @@
 
         .document-image {
           margin-bottom: 1.5rem;
+
           img {
             max-width: 6.25rem;
           }
+
           @include min-screen($screen-tablet) {
             margin-bottom: 0;
           }
@@ -288,4 +296,60 @@
 
   }
 
+}
+
+
+// only page sequenced
+
+.page-node-type-sequenced-page {
+
+  .paragraph {
+
+    &--type--document {
+
+      .document-wrapper {
+        background-color: $grey1;
+        padding: 1.5rem 1.5rem 2rem;
+        border-radius: .5rem;
+        margin-bottom: 2rem;
+        @include min-screen($screen-tablet) {
+          padding: 2rem 2rem 2.5rem;
+          margin-bottom: 3.5rem;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+
+        .document-infos {
+          flex-direction: column;
+          @include min-screen($screen-tablet) {
+            order: 0;
+          }
+        }
+
+        .document-actions {
+          margin-left: 0;
+          margin-top: 1.5rem;
+
+          .btn {
+            padding: $btn-padding-y-sm $btn-padding-x-sm;
+          }
+        }
+      }
+
+      .document-image {
+        margin-bottom: 1.5rem;
+        @include min-screen($screen-tablet) {
+          margin-bottom: 0;
+          img {
+            max-width: 6.25rem;
+          }
+        }
+      }
+
+      .document-actions {
+      }
+    }
+
+  }
 }

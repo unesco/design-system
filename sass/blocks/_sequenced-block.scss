@@ -12,7 +12,7 @@ $sequenced-link: (
   padding: 1.5rem 1.5rem 2rem;
   border-radius: .5rem;
   margin-bottom: 2rem;
-  @include min-screen($screen-desktop) {
+  @include min-screen($screen-tablet) {
     padding: 2rem 2rem 2.5rem;
     margin-bottom: 3.5rem;
   }
