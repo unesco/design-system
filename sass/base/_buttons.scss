@@ -186,6 +186,10 @@
   }
 }
 
+.js-trigger-see-more {
+  cursor: pointer;
+}
+
 // Arrow
 
 .arrow-black {
@@ -233,7 +237,7 @@
 }
 
 .bootstrap-table .fixed-table-container .table thead th .th-inner,
-.bootstrap-table .fixed-table-container .table th, 
+.bootstrap-table .fixed-table-container .table th,
 .bootstrap-table .fixed-table-container .table td {
   padding: 1rem 0;
 }
