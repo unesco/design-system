@@ -302,4 +302,29 @@
     }
   };
 
+  Drupal.behaviors.authorReadMore = {
+    attach: function (context, settings) {
+      let maxLength = 150;
+      let authorText = $(".vocabulary-people .rich-text p");
+
+      authorText.each(function(){
+        let myStr = $(this).text();
+
+        if($.trim(myStr).length > maxLength){
+          let newStr = myStr.substring(0, maxLength);
+          let removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+          $(this).empty().html(newStr);
+          $(this).append('<span class="btn-read-more">' + Drupal.t('Read more') + '</span>');
+          $(this).append('<span class="more-text">' + removedStr + '</span>');
+        }
+      });
+
+      $(".btn-read-more").click(function(){
+        $(this).siblings(".more-text").contents().unwrap();
+        $(this).remove();
+      });
+
+    }
+  };
+
 })(jQuery);

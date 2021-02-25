@@ -63,6 +63,10 @@ $taxonomy-header-name: (
     p {
       font-size: .875rem;
       color: $grey4;
+
+      .more-text {
+        display: none;
+      }
     }
   }
 
@@ -87,6 +91,18 @@ $taxonomy-header-name: (
       }
     }
 
+  }
+
+  .btn-read-more {
+    position: relative;
+    border-bottom: .0625rem solid $grey3;
+    cursor: pointer;
+    margin-left: 1rem;
+    &::before {
+      content: '...';
+      position: absolute;
+      left: -1rem;
+    }
   }
 }
 
