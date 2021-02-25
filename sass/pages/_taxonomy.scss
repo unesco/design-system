@@ -4,6 +4,92 @@ $taxonomy-header-name: (
   medium: 1.875rem
 );
 
+.vocabulary-people {
+  margin-bottom: 2rem;
+
+  .wrapper-right {
+    width: 100%;
+    max-width: calc(40rem - 5rem);
+  }
+
+  .wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .field--name-field-image {
+      width: 4rem;
+      min-width: 4rem;
+      height: 4rem;
+      border-radius: 2rem;
+      margin-right: 1.5rem;
+      overflow: hidden;
+
+      img {
+        @include img-cover;
+      }
+    }
+
+    .text-wrapper {
+      width: 100%;
+    }
+
+    .field--name-field-first-name,
+    .field--name-field-last-name,
+    .field--name-field-full-name {
+      font-weight: 800;
+      line-height: 1.2;
+      font-size: 1.125rem;
+    }
+
+    .field--name-field-first-name,
+    .field--name-field-last-name {
+      display: inline;
+    }
+
+    .field--name-field-function {
+      font-size: 1rem;
+    }
+
+  }
+
+  .rich-text {
+    width: 100%;
+    max-width: 40rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    p {
+      font-size: .875rem;
+      color: $grey4;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+
+    .field--name-field-email {
+      margin-right: .5rem;
+    }
+
+    .field--name-field-social-networks {
+      display: flex;
+      align-items: center;
+
+      .field__item {
+        margin-right: .5rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+  }
+}
+
 .view-taxonomy-term-people {
 
   .view-header {
@@ -15,85 +101,41 @@ $taxonomy-header-name: (
       margin-bottom: 6rem;
     }
 
-    .content {
+    .vocabulary-people {
+      margin-bottom: 0;
+    }
 
+    .content {
       max-width: 40rem;
 
-      .wrap {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
+      .field--name-field-image {
+        width: 5rem;
+        min-width: 5rem;
+        height: 5rem;
+        border-radius: 2.5rem;
+      }
 
-        .field--name-field-image {
-          width: 5rem;
-          min-width: 5rem;
-          height: 5rem;
-          border-radius: 2.5rem;
-          margin-right: 1.5rem;
-          overflow: hidden;
+      .field--name-field-full-name {
+        @include responsive(font-size, $taxonomy-header-name);
+      }
 
-          img {
-            @include img-cover;
-          }
-        }
-
-        .text-wrapper {
-          width: 100%;
-
-          .field--name-field-full-name {
-            @include responsive(font-size, $taxonomy-header-name);
-            font-weight: 800;
-            line-height: 1.2;
-          }
-
-          .field--name-field-function {
-            @include responsive(font-size, $small-text);
-          }
-        }
-
+      .field--name-field-function {
+        @include responsive(font-size, $small-text);
       }
 
       .rich-text {
-        width: 100%;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-
         p {
           @include responsive(font-size, $small-text);
-          color: $grey4;
-        }
-
-        @include min-screen($screen-tablet) {
-          -webkit-line-clamp: 2;
         }
       }
 
       .buttons {
-        margin-top: 1rem;
-        display: flex;
-        align-items: center;
 
-        .field--name-field-email {
-          margin-right: .5rem;
-        }
-
-        .field--name-field-social-networks {
-          display: flex;
-          align-items: center;
-
-          .field__item {
-            margin-right: .5rem;
-
-            &:last-child {
-              margin-right: 0;
-            }
-          }
+        .round-grey1 {
+          background-color: $white;
         }
 
       }
-
     }
 
   }
@@ -191,71 +233,3 @@ $taxonomy-header-name: (
   }
 }
 
-// People detail and content view mode
-
-.paragraph,
-.field--name-field-ref-people {
-  .vocabulary-people {
-    .field--name-field-social-networks {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 -0.25rem;
-
-      >.field__item {
-        padding: 0 0.25rem;
-      }
-    }
-
-    .buttons {
-      display: flex;
-
-      .field--name-field-email {
-        margin-right: 0.5rem;
-      }
-    }
-
-    .wrap {
-      display: flex;
-      align-items: center;
-      margin: 0 -0.75rem 1rem;
-
-      >div {
-        padding: 0 0.75rem;
-      }
-    }
-
-    .field--name-field {
-      &-first-name,
-      &-last-name {
-        display: inline-block;
-        font-size: 1.125rem;
-        font-weight: 600;
-      }
-
-      &-function {
-        font-size: 1rem;
-      }
-
-      &-image {
-        display: flex;
-        align-items: center;
-        width: 5.5rem;
-        height: 5.5rem;
-        border-radius: 50%;
-        overflow: hidden;
-      }
-
-      &-text {
-        color: $grey4;
-
-        p {
-          font-size: 0.875rem;
-        }
-      }
-    }
-
-    .people-link-name {
-      color: $darkGrey;
-    }
-  }
-}
