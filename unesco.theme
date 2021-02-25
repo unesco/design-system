@@ -77,6 +77,12 @@ function unesco_preprocess_html(&$variables) {
   $route_match = \Drupal::routeMatch();
   $route_name = $route_match->getRouteName();
 
+  // Class for 403/403 pages.
+  if (preg_match('/^unesco_common.page_/', $route_name)) {
+    $variables['attributes']['class'][] = 'page-error';
+    $variables['attributes']['class'][] = str_replace('unesco_common.page_', 'page-', $route_name);
+  }
+
   if ($route_name === 'entity.node.canonical') {
     $node = $route_match->getParameter('node');
     if (!empty($node)) {
