@@ -9,7 +9,7 @@ $list-text: (
   &--type--content-list-custom-article,
   &--type--content-list-custom-landing {
     @include border-top;
-    
+
     .field--name-field-title {
       @include responsive(font-size, $section-title);
       font-weight: 800;
@@ -17,10 +17,13 @@ $list-text: (
 
     .field--name-field-description {
       @include responsive(font-size, $section-title-small);
-      margin: 0 0 2rem;
+      margin: 0;
+    }
 
-      @include min-screen($screen-desktop) {
-        margin: 0 0 3rem;
+    .field--name-field-ref-contents {
+      margin-top: 2rem;
+      @include min-screen($screen-tablet) {
+        margin-top: 3rem;
       }
     }
 
