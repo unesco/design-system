@@ -1,4 +1,4 @@
-$title: (
+$cta-title: (
   null: 1rem,
   medium: 1.25rem
 );
@@ -14,15 +14,15 @@ $title: (
 
     @include min-screen($screen-tablet) {
       padding: 2rem;
-      flex-direction: row
+      flex-direction: row;
+      justify-content: space-between;
     }
 
     .field--name-field-title {
-      @include responsive(font-size, $title);
+      @include responsive(font-size, $cta-title);
       font-weight: 600;
       margin: 0 0 0.5rem;
     }
-
 
     .cta-media-wrapper {
       width: 100%;
@@ -64,6 +64,20 @@ $title: (
         height: 100%;
         width: auto;
         max-width: unset;
+      }
+    }
+
+    .field--name-field-link {
+      margin-top: 1rem;
+      @include min-screen($screen-tablet) {
+        margin-top: 1.5rem;
+      }
+
+      .btn {
+        padding: $btn-padding-y-sm $btn-padding-x-sm;
+        @include min-screen($screen-tablet) {
+          padding: $btn-padding-y-lg $btn-padding-x-lg;
+        }
       }
     }
   }
