@@ -226,4 +226,28 @@
     }
   };
 
+  Drupal.behaviors.sequencedBlock = {
+    attach: function (context, settings) {
+      let sequencedContainer = $('.sequenced-block');
+      let sequencedLink = sequencedContainer.find('li');
+      let limit = 4;
+      let more = 0;
+
+      sequencedLink.each(function(index) {
+        if(index >= limit){
+          $(this).hide();
+          more++;
+        }
+      });
+
+      sequencedContainer.find('.btn-primary').on('click', function () {
+        sequencedLink.each(function() {
+          $(this).show();
+        });
+        $(this).hide();
+      });
+
+    }
+  };
+
 })(jQuery);
