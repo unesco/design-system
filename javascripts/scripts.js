@@ -50,7 +50,7 @@
       }
 
       let desktopWidth = 992;
-      let initialDiff = ($(window).width() > desktopWidth) ? 1:-1;
+      let initialDiff = ($(window).width() > desktopWidth) ? 1 : -1;
 
       // Responsive
       if ($(window).width() <= desktopWidth) {
@@ -64,7 +64,7 @@
         if (win <= desktopWidth) {
           dropdownClick();
         }
-        if(currentDiff*initialDiff < 0) {
+        if(currentDiff * initialDiff < 0) {
           initialDiff *= -1;
           location.reload();
         }
@@ -92,7 +92,7 @@
       const header = $('header');
       let headerHeight = header.height();
 
-      $(window).scroll(function() {
+      $(window).scroll(function () {
         if($(window).scrollTop() > headerHeight) {
           $('body').addClass('header-sticky');
         } else {
@@ -104,10 +104,10 @@
 
   Drupal.behaviors.displaySeeMore = {
     attach: function (context, settings) {
-      $(window).on('load', function() {
+      $(window).on('load', function () {
         let displaySeeMore = $('.field--name-field-paragraphs .paragraph.display-see-more');
 
-      displaySeeMore.each(function() {
+      displaySeeMore.each(function () {
         let image = $(this).find('.wrapper-image');
         let imageHeight = 300;
         let content = $(this).children('.wrapper-infos');
@@ -150,7 +150,7 @@
     attach: function (context, settings) {
       const shareButton = $('.sticky-share');
 
-      shareButton.on('click', function(e) {
+      shareButton.on('click', function (e) {
         e.preventDefault();
         $(this).closest('.content-menu-sticky').toggleClass('open-share');
       });
@@ -161,14 +161,14 @@
     attach: function (context, settings) {
       let iframeParagraph = $('.paragraph--type--iframe');
 
-      iframeParagraph.each(function() {
+      iframeParagraph.each(function () {
         let desktop = $(this).attr('data-height') ? $(this).attr('data-height') : 0;
         let mobile = $(this).attr('data-height-mobile') ? $(this).attr('data-height-mobile') : 0;
-        let tablet = $(this).attr('data-height-tablet') ? $(this).attr('data-height-tablet') : 0 ;
+        let tablet = $(this).attr('data-height-tablet') ? $(this).attr('data-height-tablet') : 0;
         let eq = $(this).parent().index();
         $(this).addClass('iframe' + eq);
 
-        $('head').append('<style>.iframe' + eq + ' .field--name-field-iframe { height:' + mobile + 'px;} @media only screen and (min-width: 576px) {.iframe' + eq + ' .field--name-field-iframe { height:'+ tablet + 'px; }} @media only screen and (min-width: 992px) {.iframe' + eq +' .field--name-field-iframe {height:' + desktop + 'px; }}</style>');
+        $('head').append('<style>.iframe' + eq + ' .field--name-field-iframe { height:' + mobile + 'px;} @media only screen and (min-width: 576px) {.iframe' + eq + ' .field--name-field-iframe { height:' + tablet + 'px; }} @media only screen and (min-width: 992px) {.iframe' + eq + ' .field--name-field-iframe {height:' + desktop + 'px; }}</style>');
       });
     }
   };
@@ -177,17 +177,17 @@
     attach: function (context, settings) {
       const slider = $('.slider-medias', context);
 
-      slider.each(function() {
+      slider.each(function () {
         const next = $(this).parent().find('.next');
         const prev = $(this).parent().find('.previous');
         const $countSpan = $(this).parent().find('.slider-nav .count');
         let $slideNum = $(this).find('>.field__item').length;
 
-        $('.carousel-button').on('click', function(e) {
+        $('.carousel-button').on('click', function (e) {
           e.preventDefault();
         });
 
-        $(slider).on('init', function(event, slick) {
+        $(slider).on('init', function (event, slick) {
             let $count = (1) + '/' + ($slideNum);
             $countSpan.text($count);
         });
@@ -233,7 +233,7 @@
       let limit = 4;
       let more = 0;
 
-      sequencedLink.each(function(index) {
+      sequencedLink.each(function (index) {
         if(index >= limit){
           $(this).hide();
           more++;
@@ -241,7 +241,33 @@
       });
 
       sequencedContainer.find('.btn-primary').on('click', function () {
-        sequencedLink.each(function() {
+        sequencedLink.each(function () {
+          $(this).show();
+        });
+        $(this).hide();
+      });
+
+    }
+  };
+
+  Drupal.behaviors.relatedItemsBlock = {
+    attach: function (context, settings) {
+      let relatedItemsContainer = $('.content-tags');
+      let relatedLink = relatedItemsContainer.find('li');
+      let limit = 4;
+      let more = 0;
+
+      relatedLink.each(function (index) {
+        if (index >= limit) {
+          $(this).hide();
+          more++;
+        }
+      });
+
+      relatedItemsContainer.find('.js-trigger-see-more').parent('li').show();
+
+      relatedItemsContainer.find('.js-trigger-see-more').on('click', function () {
+        relatedLink.each(function () {
           $(this).show();
         });
         $(this).hide();
