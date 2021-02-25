@@ -38,16 +38,21 @@ $margin24: (
     .media-legend {
       color: $grey5;
     }
-    .media-copyright {
+
+    .media-copyright,
+    .media-license {
       color: $grey4;
       display: inline-block;
       padding-left: 2px;
     }
-    .copyright-sigle {
-      color: $grey4;
+
+    .media-copyright + .media-license {
+      &::before {
+        content: '. ';
+      }
+      margin-left: -4px;
     }
   }
-
   .last-update {
     margin-top: 2rem;
     margin-bottom: 2rem;
