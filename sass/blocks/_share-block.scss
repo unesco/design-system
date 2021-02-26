@@ -5,8 +5,8 @@
 
   >a {
     @extend .icon;
-    @extend .round; 
-    @extend .round-md; 
+    @extend .round;
+    @extend .round-md;
     @extend .round-grey1;
     transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
     line-height: 2.5rem;
@@ -49,6 +49,13 @@
     &.addthis_button_more {
       @extend .icon-whatsapp;
       content: "+";
+
+      &:before {
+        content: "+";
+        font-weight: 800;
+        font-size: 1.6em;
+        line-height: 2.4rem !important;
+      }
     }
 
     .at-icon-wrapper {
