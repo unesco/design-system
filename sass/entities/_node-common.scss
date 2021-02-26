@@ -209,13 +209,16 @@ $margin24: (
   }
 }
 
-main .node--unpublished {
+.page-unpublished {
   background-color: $unpublished;
+
+  .node--view-mode-full {
+    background-color: $white;
+  }
 
   div,
   span,
-  p,
-  .title {
+  p {
     color: $body-color;
   }
 }
