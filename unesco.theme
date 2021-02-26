@@ -5,6 +5,7 @@
  * Bootstrap4 theme file.
  */
 
+use Drupal\node\NodeInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -200,7 +201,8 @@ function unesco_theme_suggestions_page_alter(array &$suggestions, array $variabl
     'sequenced_page',
   ];
 
-  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface) {
     if (in_array($node->bundle(), $bundles)) {
       $suggestions[] = 'page__navbar_light';
       $suggestions[] = 'page__' . $node->bundle();
