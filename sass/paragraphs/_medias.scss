@@ -46,7 +46,7 @@
       }
 
       &-legende,
-      &-override {
+      &-copyright {
         font-size: 0.875rem;
       }
 
@@ -54,7 +54,7 @@
         color: $grey5;
       }
 
-      &-override {
+      &-copyright {
         color: $grey4;
       }
     }
@@ -128,7 +128,7 @@
         }
       }
 
-      .field--name-field-override,
+      .field--name-field-copyright,
       .field--name-field-legende {
         @include min-screen($screen-tablet) {
           padding-right: 12.75rem;
