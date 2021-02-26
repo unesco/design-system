@@ -97,9 +97,18 @@ function unesco_preprocess_html(&$variables) {
         $variables['attributes']['class'][] = 'no-header-image';
       }
     }
+
+    if (!$node->isPublished()) {
+      $variables['attributes']['class'][] = 'page-unpublished';
+    }
   }
   elseif ($route_name === 'unesco_common.homepage') {
     $variables['attributes']['class'][] = 'transparent-header';
+
+    $node = \Drupal::entityTypeManager()->getStorage('node')->getHomepage();
+    if (!$node->isPublished()) {
+      $variables['attributes']['class'][] = 'page-unpublished';
+    }
   }
 
   $favicon_meta = [
