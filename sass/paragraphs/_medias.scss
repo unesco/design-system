@@ -46,7 +46,7 @@
       }
 
       &-legende,
-      &-override {
+      &-copyright {
         font-size: 0.875rem;
       }
 
@@ -54,8 +54,11 @@
         color: $grey5;
       }
 
-      &-override {
+      &-copyright {
         color: $grey4;
+        .field__item {
+          display: inline-block;
+        }
       }
     }
 
