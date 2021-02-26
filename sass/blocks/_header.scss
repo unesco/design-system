@@ -983,3 +983,11 @@ header.header-mini-light {
     display: none;
   }
 }
+
+header {
+  .menu--secondary {
+    .header-sticky & {
+      display: none;
+    }
+  }
+}
