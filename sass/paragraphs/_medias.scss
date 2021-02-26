@@ -56,6 +56,9 @@
 
       &-copyright {
         color: $grey4;
+        .field__item {
+          display: inline-block;
+        }
       }
     }
 
