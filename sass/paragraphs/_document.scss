@@ -116,6 +116,14 @@
       }
     }
 
+    ul {
+      list-style: none;
+
+      a {
+        color: $darkGrey;
+        text-decoration: none;
+      }
+    }
   }
 
   &--type--documents {

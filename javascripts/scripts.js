@@ -228,6 +228,16 @@
     }
   };
 
+  Drupal.behaviors.dropdownDocument = {
+    attach: function (context, settings) {
+
+    let dropdownDocument = $('.paragraph--type--document .dropdown-toggle');
+      dropdownDocument.on('click', function () {
+        $(this).parents('.dropdown').find('.dropdown-menu').slideToggle();
+      });
+    }
+  };
+
   Drupal.behaviors.sequencedBlock = {
     attach: function (context, settings) {
       let sequencedContainer = $('.sequenced-block');
