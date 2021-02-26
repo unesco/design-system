@@ -74,15 +74,17 @@
 
   Drupal.behaviors.sliderMediaFull = {
     attach: function (context, settings) {
-      let fullMediaSlider = $('.field--name-field-paragraphs .paragraph--type--text-media-full .field--name-field-slides');
-
-      fullMediaSlider.slick({
-        speed: 300,
-        slidesToShow: 1,
-        dots: true,
-        arrows: false,
-        infinite: true,
-        adaptiveHeight: false,
+      $('.paragraph--type--text-media-full .field--name-field-slides').each(function () {
+        if ($(this).children().length > 1) {
+          $(this).slick({
+            speed: 300,
+            slidesToShow: 1,
+            dots: true,
+            arrows: false,
+            infinite: true,
+            adaptiveHeight: false,
+          });
+        }
       });
     }
   };
