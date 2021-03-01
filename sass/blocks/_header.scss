@@ -339,6 +339,10 @@ header {
         }
 
         &.btn {
+          @include min-screen($screen-tablet) {
+            margin-left: 1rem;
+          }
+
           &:focus::before,
           &:hover::before {
             display: none;
@@ -609,6 +613,12 @@ header {
   justify-content: flex-end;
   padding-right: 0;
 
+  .dropdown-toggle {
+    &::after {
+      font-size: 1.5rem;
+    }
+  }
+
   @include min-screen($screen-desktop) {
     padding-right: 0;
     flex: unset;
@@ -754,7 +764,8 @@ header {
     }
 
     .submenu-wrapper {
-      margin: 0 !important;
+      max-width: 83rem;
+      margin: 0 auto !important;
       overflow: hidden;
 
       .right-wrapper {
