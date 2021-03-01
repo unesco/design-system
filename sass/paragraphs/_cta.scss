@@ -10,6 +10,7 @@ $cta-title: (
     flex-direction: column;
     padding: 1.5rem;
     border-radius: 0.5rem;
+    background-color: $grey1;
     @include responsive(margin-bottom, $space-bottom);
 
     @include min-screen($screen-tablet) {
