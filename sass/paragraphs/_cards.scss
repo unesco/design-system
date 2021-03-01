@@ -42,4 +42,27 @@
       }
     }
   }
+
+  &--type--cards-article {
+
+    .field--name-field-title {
+      font-weight: 800;
+      @include responsive(font-size, $section-title-small);
+      margin-bottom: 1rem;
+    }
+
+    .field--name-field-description {
+      @include responsive(font-size, $section-text-small);
+    }
+
+    .row {
+      display: grid;
+      grid-gap: 2rem;
+      margin: 1.5rem 0 2rem;
+      @include min-screen($screen-tablet) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
 }
+
