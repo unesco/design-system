@@ -43,7 +43,17 @@ header {
 
       &:hover {
         background-color: $BlueU !important;
+
+        .btn-secondary {
+          background-color: $Blue2;
+          border-color: $Blue2;
+        }
       }
+    }
+
+    .btn-secondary {
+      background-color: $BlueU;
+      border-color: $BlueU;
     }
   }
 
@@ -269,6 +279,11 @@ header {
               content: "chevron_right";
             }
           }
+
+          &.btn-small {
+            font-size: 0.875rem;
+            margin-left: 1rem;
+          } 
         }
 
         &:focus,
@@ -448,6 +463,27 @@ header {
   }
 }
 
+.menu--secondary {
+  @include max-screen($screen-desktop - 1) {
+    display: none;
+
+    li {
+      .nav-link {
+        padding: 0;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  .menu-open & {
+    @include max-screen($screen-desktop - 1) {
+      display: block;
+    }
+  }
+}
+
 .btn-link {
   &.btn-link-white {
     color: $navbar-dark-color;
@@ -533,6 +569,13 @@ header {
 .block-unesco-commonlanguage-blocklanguage-interface {
   display: flex;
   justify-content: flex-end;
+  padding-right: 0;
+
+  @include min-screen($screen-desktop) {
+    padding-right: 0;
+    flex: unset;
+    width: unset;
+  }
 
   .header-sticky & {
     display: none;
@@ -553,6 +596,8 @@ header {
 
     @include max-screen($screen-desktop - 1) {
       display: block;
+      font-size: 1rem;
+      line-height: 1.5rem;
     }
   }
 
@@ -791,6 +836,10 @@ header {
   header::after {
     display: none;
   }
+}
+
+.transparent-header.menu-open header.bg-primary {
+  background-color: $BlueU !important;
 }
 
 // White header on sticky
