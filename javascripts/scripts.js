@@ -356,4 +356,29 @@
     }
   };
 
+  Drupal.behaviors.commonExternalLink = {
+    attach: function (context, settings) {
+      const host = window.location.host.replace(/\./g, "\\.");
+      const match = new RegExp("^http(s)?:\\/\\/(?!" + host + ")");
+
+      $("a", context)
+        .on("click", function (event) {
+            // The content that had the event listener attached.
+            const target = event.currentTarget;
+            const href = target.href;
+            if (href === "#") {
+              return;
+            }
+
+            if (match.test(href) || target.rel === "external") {
+              event.stopPropagation();
+
+              window.open(href, target);
+              return false;
+            }
+          }
+        );
+    }
+  };
+
 })(jQuery);
