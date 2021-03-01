@@ -102,3 +102,11 @@
     padding: 0;
   }
 }
+
+
+@mixin mb-block {
+  margin-bottom: 2rem;
+  @include min-screen($screen-tablet) {
+    margin-bottom: 3.5rem;
+  }
+}

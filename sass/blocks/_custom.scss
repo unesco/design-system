@@ -28,8 +28,8 @@
 }
 
 // Cookies
-div#sliding-popup, 
-div#sliding-popup .eu-cookie-withdraw-banner, 
+div#sliding-popup,
+div#sliding-popup .eu-cookie-withdraw-banner,
 .eu-cookie-withdraw-tab {
   background: transparent;
   margin: 0;
@@ -157,6 +157,17 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
   .bg-#{$colorName} {
     background-color: $color;
   }
+
+  .page-node-type-sequenced-page,
+  .node--type-page {
+    .paragraph--type--quote {
+      &.border-#{$colorName} {
+        &::before {
+          background-color: $color;
+        }
+      }
+    }
+  }
 }
 
 // Primary local tasks.
@@ -178,7 +189,7 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
   a {
     color: $darkGrey;
   }
-  
+
   .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
     border: none;
     background-color: transparent;
