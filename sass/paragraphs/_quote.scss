@@ -94,13 +94,14 @@ $quote-article-text: (
         }
       }
     }
+
   }
 }
 
 
 // Article page surcharge
 
-.page-node-type-sequenced-page,
+.node--type-sequenced-page,
 .node--type-page {
 
   .paragraph {
