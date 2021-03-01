@@ -165,13 +165,6 @@ a.link {
   }
 }
 
-.boxed {
-  border-radius: .5rem;
-  padding: 1.5rem;
-  @include min-screen($screen-desktop) {
-    padding: 2rem;
-  }
-}
 // Quote
 
 .blockquote {
