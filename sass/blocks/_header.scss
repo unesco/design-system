@@ -161,6 +161,14 @@ header {
   .sub-header {
     width: 100%;
 
+    .site-name-wrapper {
+      padding-left: 0;
+
+      .header-sticky & {
+        display: none;
+      }
+    }
+
     @include max-screen($screen-desktop - 1) {
       order: -1;
     }
@@ -196,8 +204,7 @@ header {
   }
 
   .site-name {
-
-    p {
+    &, &p {
       margin: 0;
     }
 
@@ -210,7 +217,7 @@ header {
     }
   }
 
-  .block-system-branding-block {
+  .block-unesco-common-site-branding {
     @include max-screen($screen-desktop - 1) {
       position: absolute;
       top: 1.5rem;
@@ -219,9 +226,31 @@ header {
       width: auto;
     }
 
+    .site-logo {
+      max-width: 9.375rem;
+    }
+
+    .site-name {
+      display: none;
+    }
+
     .header-sticky & {
+      >a {
+        display: flex;
+        align-items: center;
+      }
+
+      img {
+        margin-right: 1rem;
+      }
+
       @include max-screen($screen-desktop - 1) {
         top: 0.75rem;
+      }
+
+      .site-name {
+        display: block;
+        font-size: 0.875rem;
       }
     }
 
@@ -430,6 +459,7 @@ header {
   line-height: 1.5rem;
   font-weight: 800;
   color: $navbar-dark-brand-color;
+  margin-bottom: 0;
 }
 
 .region-header {
@@ -464,8 +494,12 @@ header {
 }
 
 .menu--secondary {
+  margin-left: auto;
+
   @include max-screen($screen-desktop - 1) {
     display: none;
+    margin-left: 0;
+
 
     li {
       .nav-link {
@@ -885,18 +919,12 @@ header.header-mini-light {
   }
 
   .header {
-    @include min-screen($screen-desktop) {
-      max-width: 10.33rem;
-    }
-
-
     .region-header {
       margin: 0;
     }
   }
 
   .sub-header {
-    max-width: calc(100% - 10.33rem);
     margin-left: auto;
 
     .region-sub-header {
@@ -911,14 +939,20 @@ header.header-mini-light {
     padding-bottom: 0.75rem;
   }
 
-  .site-logo {
+  .site-name-wrapper a {
+    &::before {
+      display: inline-block;
+      content: "";
+      width: 9.375rem;
+      height: 2rem;
+      background-image: url('../images/logo-blue.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 1rem;
+    }
+
     img {
       display: none;
-
-      &.logo-dark {
-        display: block;
-        margin: 0;
-      }
     }
   }
 
@@ -927,7 +961,7 @@ header.header-mini-light {
     align-items: center;
   }
 
-  .block-system-branding-block {
+  .block-unesco-common-site-branding {
     flex: unset;
     width: auto;
     padding-left: 0;
