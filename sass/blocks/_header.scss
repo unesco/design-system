@@ -1082,6 +1082,13 @@ header.header-mini-light {
   }
 }
 
+.navbar-toggler {
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 header {
   .menu--secondary {
     .header-sticky & {
