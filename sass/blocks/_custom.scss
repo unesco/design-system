@@ -211,3 +211,11 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
     }
   }
 }
+
+li.icon-external a,
+a.icon-external {
+  &::after {
+    @include icon('open_in_new');
+    margin-left: 4px;
+  }
+}

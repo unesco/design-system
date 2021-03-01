@@ -28,5 +28,12 @@
         padding: 2rem;
       }
     }
+
+    a[href*="//"] {
+      &::after {
+        @include icon('open_in_new');
+        margin-left: 4px;
+      }
+    }
   }
 }
