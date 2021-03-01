@@ -251,6 +251,10 @@ header {
       .site-name {
         display: block;
         font-size: 0.875rem;
+
+        @include max-screen($screen-tablet -1) {
+          display: none;
+        }
       }
     }
 
