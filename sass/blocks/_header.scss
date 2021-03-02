@@ -173,6 +173,7 @@ header {
 
         &::after {
           @include icon('clear');
+          font-size: 1.2rem;
           vertical-align: middle;
         }
       }
@@ -1174,6 +1175,7 @@ header.header-mini-light {
 }
 
 .navbar-toggler {
+  width: 2.5rem;
   height: 2.5rem;
   display: flex;
   justify-content: center;
