@@ -34,6 +34,10 @@ header {
       max-width: 83rem;
       height: 1px;
       background-color: $navbar-dark-color;
+
+      @include max-screen($screen-tablet - 1) {
+        width: calc(100% - 3rem);
+      }
     }
 
     &.bg-primary {
