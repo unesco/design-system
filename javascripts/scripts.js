@@ -323,12 +323,7 @@
       // Scroll body to 0px on click.
       backToTopTrigger.on("click", "a", function (e) {
         e.preventDefault();
-        $("body,html").animate(
-          {
-            scrollTop: 0
-          },
-          800
-        );
+        $("body,html").animate({scrollTop: 0}, 0);
         $(":focus").blur();
       });
     }
