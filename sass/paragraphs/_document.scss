@@ -1,34 +1,37 @@
 .paragraph {
 
   &--type--document {
+    background-color: $grey1;
+    border-radius: .5rem;
+    @include mb-block;
+    padding: 1.5rem;
+    @include min-screen($screen-tablet) {
+      padding: 3rem;
+    }
+    @include min-screen($screen-desktop) {
+      padding: 3.5rem;
+    }
 
     .document-wrapper {
       display: flex;
       flex-direction: column;
-
       @include min-screen($screen-desktop) {
         flex-direction: row;
+        justify-content: space-between;
       }
 
       .document-infos {
         order: 1;
-
         @include min-screen($screen-desktop) {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-          .document-texts {
-            max-width: 42rem;
-          }
+          order: 0;
         }
 
         .field--name-field-title,
         .data-title {
+          display: block;
           font-size: 1.5rem;
-          line-height: 2rem;
           font-weight: 800;
           margin-bottom: .5rem;
-
           @include min-screen($screen-tablet) {
             margin-bottom: 1rem;
           }
@@ -90,58 +93,80 @@
           margin-bottom: 0;
         }
 
+        .field--name-field-title,
+        .data-title,
+        .document-infos--subtitle,
+        .rich-text p {
+          &:empty {
+            display: none;
+          }
+        }
+
+        .document-texts {
+          margin-bottom: 1.5rem;
+          max-width: 45rem;
+          @include min-screen($screen-tablet) {
+            margin-bottom: 2rem;
+          }
+        }
+
+        .document-actions {
+          margin-bottom: .5rem;
+          display: flex;
+          align-items: flex-start;
+          flex-wrap: wrap;
+
+          .btn {
+            margin-right: 1rem;
+            @include max-screen($screen-tablet - 1px) {
+              padding: $btn-padding-y-sm $btn-padding-x-sm;
+            }
+          }
+        }
+
       }
 
       .document-image {
-        img {
-          border-radius: .25rem;
+        margin-bottom: 1.5rem;
+        min-width: fit-content;
+        @include min-screen($screen-desktop) {
+          margin-left: 2rem;
+          margin-bottom: 0;
+        }
+
+        .field--name-field-media-image {
+          display: inline-block;
+          border-radius: .5rem;
           overflow: hidden;
         }
       }
 
-      .document-actions {
-        order: 2;
-        margin-top: 1.5rem;
-        @include min-screen($screen-desktop) {
-          margin-top: 0;
-          margin-left: 2rem;
-        }
-
-        .btn {
-          @include max-screen($screen-tablet - 1px) {
-            padding: $btn-padding-y-sm $btn-padding-x-sm;
-          }
-        }
-      }
-    }
-
-    ul {
-      list-style: none;
-
-      a {
-        color: $darkGrey;
-        text-decoration: none;
-      }
     }
   }
 
   &--type--documents {
 
-    &:not(.display-big) {
+    .display-line {
 
-      .field--name-field-documents {
-        & > .field__item {
-          @extend .border-top;
-          padding-bottom: 2rem;
-          @include min-screen($screen-desktop) {
-            padding-bottom: 3rem;
-          }
-        }
-      }
-
-      .paragraph--type--document {
+      &.paragraph--type--document {
+        border-top: 0.0625rem solid $grey2;
+        background-color: transparent;
+        border-radius: 0;
+        padding: 1.5rem 0 0;
 
         .document-wrapper {
+          justify-content: flex-start;
+
+          .document-infos {
+            @include min-screen($screen-desktop) {
+              order: 1;
+              display: flex;
+              width: 100%;
+              flex-direction: row;
+              justify-content: space-between;
+            }
+          }
+
           .document-image {
             position: relative;
             width: 100%;
@@ -163,8 +188,7 @@
               width: 11.375rem;
               min-width: 11.375rem;
               height: 11.375rem;
-              margin-right: 2rem;
-              margin-bottom: 0;
+              margin: 0 2rem 0 0;
             }
 
             .field--name-field-media-image {
@@ -181,72 +205,19 @@
             }
 
           }
-        }
-      }
-
-    }
-
-    &.display-big {
-
-      .field--name-field-documents > .field__item {
-        margin-bottom: 1.5rem;
-        @include min-screen($screen-tablet) {
-          margin-bottom: 2rem;
-        }
-      }
-
-      .paragraph--type--document {
-        padding: 0;
-
-        &::before {
-          display: none;
-        }
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-
-        .document-wrapper {
-          background-color: $grey1;
-          padding: 1.5rem 1.5rem 2rem;
-          border-radius: .5rem;
-          @include min-screen($screen-tablet) {
-            padding: 3rem;
-          }
-          @include min-screen($screen-desktop) {
-            padding: 3.5rem;
-            align-items: flex-start;
-          }
-
-          .document-infos {
-            flex-direction: column;
-            @include min-screen($screen-desktop) {
-              order: 0;
-            }
-          }
-
-          .document-image {
-            width: auto;
-            height: auto;
-            margin-bottom: 1.5rem;
-            @include min-screen($screen-tablet) {
-              margin-bottom: 2rem;
-            }
-            @include min-screen($screen-desktop) {
-              margin-bottom: 0;
-              margin-left: 2rem;
-            }
-          }
 
           .document-actions {
             @include min-screen($screen-desktop) {
-              margin-left: 0;
-              margin-top: 2rem;
+              flex-wrap: nowrap;
+              .btn {
+                margin-right: 0;
+                margin-left: 1rem;
+              }
             }
           }
 
         }
+
       }
 
     }
@@ -255,108 +226,61 @@
 
 }
 
-// Only page static
+// Article page surcharge
 
-.page-node-type-page {
+.node--type-sequenced-page,
+.node--type-page {
 
-  .paragraph {
-
-    &--type--document {
-
-      .document-wrapper {
-        padding: 1.5rem;
-        background-color: $grey1;
-        border-radius: .5rem;
-        align-items: flex-start;
-        @include min-screen($screen-tablet) {
-          padding: 2rem;
-          .document-infos {
-            order: 0;
-            flex-direction: column;
-
-            .document-actions {
-              margin-left: 0;
-              margin-top: 1.5rem;
-            }
-
-          }
-        }
-
-        .document-infos {
-          width: 100%;
-        }
-
-        .document-image {
-          margin-bottom: 1.5rem;
-
-          img {
-            max-width: 6.25rem;
-          }
-
-          @include min-screen($screen-tablet) {
-            margin-bottom: 0;
-          }
-        }
-      }
-
+  .paragraph--type--document {
+    @include min-screen($screen-tablet) {
+      padding: 2rem;
     }
 
-  }
+    .document-wrapper {
+      @include min-screen($screen-tablet) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
 
-}
-
-
-// only page sequenced
-
-.page-node-type-sequenced-page {
-
-  .paragraph {
-
-    &--type--document {
-
-      .document-wrapper {
-        background-color: $grey1;
-        padding: 1.5rem 1.5rem 2rem;
-        border-radius: .5rem;
-        margin-bottom: 2rem;
+      .document-infos {
         @include min-screen($screen-tablet) {
-          padding: 2rem 2rem 2.5rem;
-          margin-bottom: 3.5rem;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: flex-start;
+          order: 0;
         }
 
-        .document-infos {
-          flex-direction: column;
+        .field--name-field-title,
+        .data-title {
+          font-size: 1.25rem;
           @include min-screen($screen-tablet) {
-            order: 0;
+            margin-bottom: .5rem;
           }
         }
 
-        .document-actions {
-          margin-left: 0;
-          margin-top: 1.5rem;
+        .rich-text p {
+          font-size: 1.125rem;
+        }
 
-          .btn {
-            padding: $btn-padding-y-sm $btn-padding-x-sm;
+        .document-texts {
+          @include min-screen($screen-tablet) {
+            margin-bottom: 1.5rem;
           }
         }
+
       }
 
       .document-image {
-        margin-bottom: 1.5rem;
         @include min-screen($screen-tablet) {
-          margin-bottom: 0;
-          img {
-            max-width: 6.25rem;
-          }
+          margin-bottom: .5rem;
+          margin-left: 2rem;
         }
       }
 
       .document-actions {
+
+        .btn {
+          padding: $btn-padding-y-sm $btn-padding-x-sm;
+        }
       }
     }
-
   }
 }
+
