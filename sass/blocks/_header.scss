@@ -34,6 +34,10 @@ header {
       max-width: 83rem;
       height: 1px;
       background-color: $navbar-dark-color;
+
+      @include max-screen($screen-tablet - 1) {
+        width: calc(100% - 3rem);
+      }
     }
 
     &.bg-primary {
@@ -43,6 +47,11 @@ header {
 
       &:hover {
         background-color: $BlueU !important;
+
+        .navbar-toggler {
+          background-color: $Blue2;
+          border-color: $Blue2;
+        }
 
         .btn-secondary {
           background-color: $Blue2;
@@ -123,6 +132,16 @@ header {
       position: absolute;
       top: 1.5rem;
       right: 2.125rem;
+
+      .transparent-header & {
+        background-color: $BlueU;
+        border-color: $BlueU;
+      }
+
+      .transparent-header.header-sticky & {
+        background-color: $Blue2;
+        border-color: $Blue2;
+      }
 
       @include max-screen($screen-desktop - 1) {
         top: 2rem;
@@ -252,7 +271,7 @@ header {
         display: block;
         font-size: 0.875rem;
 
-        @include max-screen($screen-tablet -1) {
+        @include max-screen($screen-tablet - 1) {
           display: none;
         }
       }
