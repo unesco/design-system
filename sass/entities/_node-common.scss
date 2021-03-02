@@ -29,10 +29,14 @@ $margin24: (
 
   .media-wrapper {
     font-size: 0.875rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 
     @include min-screen($screen-desktop) {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .field--name-field-ref-image {
+      margin-bottom: 1rem;
     }
 
     .media-legend {
