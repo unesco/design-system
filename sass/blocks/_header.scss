@@ -527,6 +527,15 @@ header {
 .menu--secondary {
   margin-left: auto;
 
+  .nav-link {
+    @include min-screen($screen-desktop) {
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   @include max-screen($screen-desktop - 1) {
     display: none;
     margin-left: 0;
