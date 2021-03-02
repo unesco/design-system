@@ -66,7 +66,8 @@ header {
     }
   }
 
-  .header-sticky.transparent-header & {
+  .header-sticky.transparent-header &,
+  .parent-menu-open.transparent-header & {
     background-color: $BlueU !important;
   }
 
@@ -806,6 +807,10 @@ header {
 
       .right-wrapper {
         padding: 0;
+
+        @include min-screen($screen-desktop) {
+          margin-left: auto;
+        }
       }
     }
 

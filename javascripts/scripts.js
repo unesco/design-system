@@ -13,8 +13,7 @@
 
       menuCarousel.slick({
         speed: 300,
-        slidesToShow: 1,
-        variableWidth: true,
+        slidesToShow: 4,
         arrows: false,
         infinite: false,
       });
