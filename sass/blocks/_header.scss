@@ -635,6 +635,10 @@ header {
   .dropdown-toggle {
     &::after {
       font-size: 1.5rem;
+
+      @include min-screen($screen-desktop) {
+        margin-right: -0.313rem;
+      }
     }
   }
 
