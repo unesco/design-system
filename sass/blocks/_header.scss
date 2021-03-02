@@ -987,6 +987,9 @@ header.header-mini-light {
   width: 100%;
   left: 50%;
   @extend %slideInDownWhite;
+  @include min-screen($screen-tablet) {
+    height: 3.5rem;
+  }
 
   &::after {
     content: "";
@@ -999,6 +1002,7 @@ header.header-mini-light {
     transform: translateX(-50%);
     background-color: $white;
     z-index: -1;
+    border-bottom: 1px solid $grey2;
 
     @include min-screen($screen-tablet) {
       height: 3.5rem;
