@@ -80,11 +80,11 @@
       // Resize responsive & reload page if change breakpoint
       $(window).on('resize', function () {
         let win = $(window).width();
-        let  currentDiff = win - desktopWidth;
+        let currentDiff = win - desktopWidth;
         if (win <= desktopWidth) {
           dropdownClick();
         }
-        if(currentDiff * initialDiff < 0) {
+        if (currentDiff * initialDiff < 0) {
           initialDiff *= -1;
           location.reload();
         }
@@ -115,7 +115,7 @@
       let headerHeight = header.height();
 
       $(window).scroll(function () {
-        if($(window).scrollTop() > headerHeight) {
+        if ($(window).scrollTop() > headerHeight) {
           $('body').addClass('header-sticky');
         } else {
           $('body').removeClass('header-sticky');
@@ -129,41 +129,41 @@
       $(window).on('load', function () {
         let displaySeeMore = $('.field--name-field-paragraphs .paragraph.display-see-more');
 
-      displaySeeMore.each(function () {
-        let image = $(this).find('.wrapper-image');
-        let imageHeight = 300;
-        let content = $(this).children('.wrapper-infos');
-        let contentHeight = content.outerHeight(true);
+        displaySeeMore.each(function () {
+          let image = $(this).find('.wrapper-image');
+          let imageHeight = 300;
+          let content = $(this).children('.wrapper-infos');
+          let contentHeight = content.outerHeight(true);
 
-        if ( image.length > 0 ) {
-          imageHeight = $(this).find('.field--name-field-media-image').outerHeight(true);
-        }
+          if (image.length > 0) {
+            imageHeight = $(this).find('.field--name-field-media-image').outerHeight(true);
+          }
 
-        let multiLine = ~~(imageHeight / 40);
+          let multiLine = ~~(imageHeight / 40);
 
-        if ( contentHeight >= imageHeight) {
-          content.wrapInner( '<div class="display_more-wrapper" style="max-height:' + (imageHeight - 32) + 'px; -webkit-line-clamp:' + multiLine + '"></div>' );
-          content.append('<button class="btn-display-more">' + Drupal.t('Read more') + '</button>');
+          if (contentHeight >= imageHeight) {
+            content.wrapInner('<div class="display_more-wrapper" style="max-height:' + (imageHeight - 32) + 'px; -webkit-line-clamp:' + multiLine + '"></div>');
+            content.append('<button class="btn-display-more">' + Drupal.t('Read more') + '</button>');
 
-          content.children('.btn-display-more').on('click', function () {
-            $(this).toggleClass('is-active');
-            if ($(this).hasClass('is-active')) {
-              $(this).prev().css({
-                'max-height': contentHeight,
-                '-webkit-line-clamp': 'initial'
-              });
-              $(this).text(Drupal.t('Read less'));
-            } else {
-              $(this).prev().css('max-height', (imageHeight - 32));
-              $(this).prev().delay(600).queue(function (next) {
-                $(this).css('-webkit-line-clamp', '' + multiLine + '');
-                next();
-              });
-              $(this).text(Drupal.t('Read more'));
-            }
-          });
-        }
-      });
+            content.children('.btn-display-more').on('click', function () {
+              $(this).toggleClass('is-active');
+              if ($(this).hasClass('is-active')) {
+                $(this).prev().css({
+                  'max-height': contentHeight,
+                  '-webkit-line-clamp': 'initial'
+                });
+                $(this).text(Drupal.t('Read less'));
+              } else {
+                $(this).prev().css('max-height', (imageHeight - 32));
+                $(this).prev().delay(600).queue(function (next) {
+                  $(this).css('-webkit-line-clamp', '' + multiLine + '');
+                  next();
+                });
+                $(this).text(Drupal.t('Read more'));
+              }
+            });
+          }
+        });
       });
     }
   };
@@ -210,8 +210,8 @@
         });
 
         $(slider).on('init', function (event, slick) {
-            let $count = (1) + '/' + ($slideNum);
-            $countSpan.text($count);
+          let $count = (1) + '/' + ($slideNum);
+          $countSpan.text($count);
         });
 
         $(this).slick({
@@ -251,7 +251,7 @@
   Drupal.behaviors.dropdownDocument = {
     attach: function (context, settings) {
 
-    let dropdownDocument = $('.paragraph--type--document .dropdown-toggle');
+      let dropdownDocument = $('.paragraph--type--document .dropdown-toggle');
       dropdownDocument.on('click', function () {
         $(this).parents('.dropdown').find('.dropdown-menu').slideToggle();
       });
@@ -266,7 +266,7 @@
       let more = 0;
 
       sequencedLink.each(function (index) {
-        if(index >= limit){
+        if (index >= limit) {
           $(this).hide();
           more++;
         }
@@ -339,10 +339,10 @@
       let maxLength = 150;
       let authorText = $(".vocabulary-people .rich-text p");
 
-      authorText.each(function(){
+      authorText.each(function () {
         let myStr = $(this).text();
 
-        if($.trim(myStr).length > maxLength){
+        if ($.trim(myStr).length > maxLength) {
           let newStr = myStr.substring(0, maxLength);
           let removedStr = myStr.substring(maxLength, $.trim(myStr).length);
           $(this).empty().html(newStr);
@@ -351,7 +351,7 @@
         }
       });
 
-      $(".btn-read-more").click(function(){
+      $(".btn-read-more").click(function () {
         $(this).siblings(".more-text").contents().unwrap();
         $(this).remove();
       });
@@ -365,12 +365,12 @@
       let teaserListContainerArticle = $(".paragraph--type--content-list-custom-article");
       let teaserListContainer = teaserListContainerArticle && teaserListContainerLanding;
 
-      teaserListContainer.each(function(){
+      teaserListContainer.each(function () {
         if (
           ($(this).children('.field--name-field-title').length === 0) &&
           ($(this).children('.field--name-field-description').length === 0)) {
-            $(this).addClass('no-border');
-          }
+          $(this).addClass('no-border');
+        }
       });
 
     }
@@ -401,4 +401,25 @@
     }
   };
 
-})(jQuery);
+  Drupal.behaviors.summaryMobile = {
+    attach: function (context, settings) {
+
+      function summaryClick() {
+        let summaryTitle = $('.main-node-content .content-summary .item-list h3');
+        summaryTitle.unbind('click').on('click', function (e) {
+          e.preventDefault();
+          $(this).toggleClass('active-item');
+          $(this).next('ul').slideToggle();
+        });
+      }
+
+      let desktopWidth = 992;
+      if ($(window).width() <= desktopWidth) {
+        summaryClick();
+      }
+
+    }
+  };
+
+})
+(jQuery);

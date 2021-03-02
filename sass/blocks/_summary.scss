@@ -1,124 +1,110 @@
-.content-summary {
-  position: absolute;
-  left: -6rem;
-  width: 15rem;
+.main-node-content {
+  .content-summary {
+    position: relative;
+    margin-bottom: 2rem;
 
-  h3 {
-    font-size: 0.875rem;
-    text-transform: none;
-    margin: 0 0 1rem;
-  }
+    @include min-screen($screen-desktop) {
+      position: absolute;
+      left: -2rem;
+      width: 10rem;
+    }
 
-  ul {
-    margin: 0rem;
-    padding: 0;
-    list-style: none;
+    @include min-screen($screen-desktop-xl) {
+      left: 0;
+      width: 15rem;
+    }
 
-    li {
-      font-size: 0.875rem;
-      padding-left: 1rem;
-      margin-bottom: 1rem;
-      margin-left: 0;
-      position: relative;
+    .item-list {
 
-      a {
-        color: inherit;
-        text-decoration: none;
+      h3 {
+        position: relative;
+        font-size: .875rem;
       }
 
-      &::before {
-        content: "";
-        display: inline-block;
-        width: 0.313rem;
-        height: 0.313rem;
-        position: absolute;
-        left: 0;
-        top: 0.25rem;
-        line-height: inherit;
-        vertical-align: middle;
-        border-radius: 50%;
-        background-color: $grey3;
+      ul {
+        padding: 0;
+        list-style: none;
+
+        .summary-item {
+          font-size: 0.875rem;
+          padding-left: 1rem;
+          margin-bottom: 1rem;
+          margin-left: 0;
+          position: relative;
+
+          a {
+            color: inherit;
+            text-decoration: none;
+          }
+
+          &::before {
+            content: "";
+            display: inline-block;
+            width: .313rem;
+            height: .313rem;
+            position: absolute;
+            left: 0;
+            top: .5rem;
+            line-height: inherit;
+            vertical-align: middle;
+            border-radius: 50%;
+            background-color: $grey3;
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: .1rem;
+            top: 1.125rem;
+            width: .125rem;
+            height: 100%;
+            background-color: $grey1;
+          }
+
+          &:last-child::after {
+            display: none;
+          }
+        }
       }
 
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0.063rem;
-        top: 0.625rem;
-        width: 2px;
-        height: 100%;
-        background-color: $grey1;
+      @include max-screen($screen-desktop - 1px) {
+        width: 100%;
+        padding: .875rem 1.5rem;
+        border: .0625rem solid $grey2;
+        background-color: $white;
+        border-radius: 1.5rem;
+        min-height: 3rem;
+
+        h3 {
+          position: relative;
+          margin: 0;
+          cursor: pointer;
+
+          &::after {
+            @include icon('expand_more');
+            position: absolute;
+            right: 0;
+            top: -.125rem;
+            text-transform: none;
+            font-size: 1.25rem;
+            color: $grey3;
+          }
+
+          &.active-item {
+            &::after {
+              transform: rotate(-180deg);
+            }
+          }
+        }
+
+        ul {
+          margin-top: 1.5rem;
+          display: none;
+        }
+
       }
 
-      &:last-child::after {
-        display: none;
-      }
     }
   }
 }
-
-//
-//aside {
-//  display: none;
-//  margin-right: 6.125rem;
-//  width: 14.063rem;
-//
-//  @include min-screen($screen-desktop) {
-//    display: block;
-//  }
-//
-//  h3 {
-//    font-size: 0.875rem;
-//    text-transform: none;
-//    margin: 0 0 1rem;
-//  }
-//
-//  ul {
-//    margin: 0rem;
-//    padding: 0;
-//    list-style: none;
-//
-//    li {
-//      font-size: 0.875rem;
-//      padding-left: 1rem;
-//      margin-bottom: 1rem;
-//      margin-left: 0;
-//      position: relative;
-//
-//      a {
-//        color: inherit;
-//        text-decoration: none;
-//      }
-//
-//      &::before {
-//        content: "";
-//        display: inline-block;
-//        width: 0.313rem;
-//        height: 0.313rem;
-//        position: absolute;
-//        left: 0;
-//        top: 0.25rem;
-//        line-height: inherit;
-//        vertical-align: middle;
-//        border-radius: 50%;
-//        background-color: $grey3;
-//      }
-//
-//      &::after {
-//        content: "";
-//        display: block;
-//        position: absolute;
-//        left: 0.063rem;
-//        top: 0.625rem;
-//        width: 2px;
-//        height: 100%;
-//        background-color: $grey1;
-//      }
-//
-//      &:last-child::after {
-//        display: none;
-//      }
-//    }
-//  }
-//}

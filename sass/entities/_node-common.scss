@@ -101,9 +101,15 @@ $margin24: (
       display: flex;
 
       .main-node-content {
-        max-width: 51.5rem;
         width: 100%;
+        max-width: 38.125rem;
         margin: 0 auto;
+
+        .main-node-header {
+          @include min-screen($screen-desktop) {
+            width: 51.5rem;
+          }
+        }
 
         >.field--name-field-ref-image {
           .field--name-field-media-image,
@@ -118,13 +124,10 @@ $margin24: (
         }
       }
 
-      aside + .main-node-content {
-        margin: 0 auto 0 0;
-      }
-
-      .content-narrow {
-        max-width: 38.125rem;
-        margin: 0 auto 0 0;
+      .content-header {
+        @include min-screen($screen-desktop-xl) {
+          width: 51.5rem;
+        }
       }
 
 
