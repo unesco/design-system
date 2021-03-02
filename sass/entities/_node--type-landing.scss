@@ -147,3 +147,19 @@ $padding-top: (
     }
   }
 }
+
+.media-small {
+
+  .header-landing,
+  .header-homepage {
+    min-height: 22rem;
+    padding-bottom: 4rem;
+    padding-top: 11.625rem;
+
+    .field--name-field-description,
+    .field--name-field-link {
+      display: none;
+    }
+  }
+
+}
