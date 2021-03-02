@@ -24,6 +24,7 @@
 
     &::before {
       line-height: 2.5rem !important;
+      font-size: 1rem;
     }
 
     &.addthis_button_facebook {
@@ -53,7 +54,7 @@
       &:before {
         content: "+";
         font-weight: 800;
-        font-size: 1.6em;
+        font-size: 1.6rem;
         line-height: 2.4rem !important;
       }
     }

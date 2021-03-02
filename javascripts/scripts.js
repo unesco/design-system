@@ -14,8 +14,29 @@
       menuCarousel.slick({
         speed: 300,
         slidesToShow: 4,
+        swipeToSlide: true,
         arrows: false,
         infinite: false,
+        responsive: [
+          {
+            breakpoint: 951,
+            settings: {
+              slidesToShow: 3,
+            }
+          },
+          {
+            breakpoint: 520,
+            settings: {
+              slidesToShow: 2,
+              vertical: true,
+              verticalSwiping: true,
+            }
+          },
+        ]
+      });
+
+      $('.nav-link.dropdown-toggle').on('click', function() {
+        menuCarousel.slick('resize');
       });
     }
   };
