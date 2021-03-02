@@ -127,69 +127,6 @@ $margin24: (
         margin: 0 auto 0 0;
       }
 
-      aside {
-        display: none;
-        margin-right: 6.125rem;
-        width: 14.063rem;
-
-        @include min-screen($screen-desktop) {
-          display: block;
-        }
-
-        h3 {
-          font-size: 0.875rem;
-          text-transform: none;
-          margin: 0 0 1rem;
-        }
-
-        ul {
-          margin: 0rem;
-          padding: 0;
-          list-style: none;
-
-          li {
-            font-size: 0.875rem;
-            padding-left: 1rem;
-            margin-bottom: 1rem;
-            margin-left: 0;
-            position: relative;
-
-            a {
-              color: inherit;
-              text-decoration: none;
-            }
-
-            &::before {
-              content: "";
-              display: inline-block;
-              width: 0.313rem;
-              height: 0.313rem;
-              position: absolute;
-              left: 0;
-              top: 0.25rem;
-              line-height: inherit;
-              vertical-align: middle;
-              border-radius: 50%;
-              background-color: $grey3;
-            }
-
-            &::after {
-              content: "";
-              display: block;
-              position: absolute;
-              left: 0.063rem;
-              top: 0.625rem;
-              width: 2px;
-              height: 100%;
-              background-color: $grey1;
-            }
-
-            &:last-child::after {
-              display: none;
-            }
-          }
-        }
-      }
 
       .field--name-field-ref-cta {
         width: 100%;
