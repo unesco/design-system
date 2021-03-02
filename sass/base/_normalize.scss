@@ -8,14 +8,15 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
- html {
+html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   overflow-x: hidden;
-   scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3.5rem; // Navbar height
 }
 
 /* Sections
