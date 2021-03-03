@@ -1,0 +1,42 @@
+$error-title: (
+  null: .875rem,
+  medium: 1.125rem
+);
+
+$error-text: (
+  null: 1.75rem,
+  medium: 2.25rem
+);
+
+.page-error {
+
+  .error-wrapper {
+    padding: 3.5rem 0;
+    @include min-screen($screen-desktop) {
+      padding: 6rem 0;
+    }
+
+    .error-title {
+      @include responsive(font-size, $error-title);
+      color: $BlueU;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    .error-text {
+      @include responsive(font-size, $error-text);
+      font-weight: 400;
+    }
+
+    .btn {
+      margin-top: 5rem;
+      @include max-screen($screen-desktop - 1px) {
+        padding: $btn-padding-y-sm $btn-padding-x-sm;
+      }
+      @include min-screen($screen-desktop) {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+}
