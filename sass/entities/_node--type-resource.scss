@@ -1,0 +1,54 @@
+.node--type-resources {
+
+  .resource-group {
+
+    &-wrapper {
+    }
+
+    &-item {
+
+      a {
+        text-decoration: none;
+
+        article.media {
+          border-top: .0625rem solid $grey2;
+          flex-direction: column;
+          padding: 1.5rem 0;
+          @include min-screen($screen-desktop) {
+            padding: 1.5rem 0 2.5rem;
+          }
+
+          .field--name-field-media-image {
+            width: 100%;
+            margin-bottom: 1.5rem;
+
+            img {
+              width: 100%;
+            }
+          }
+
+
+          .field--name-field-legende,
+          .field--name-field-copyright {
+            font-size: .875rem;
+            font-weight: 400;
+            margin-bottom: .5rem;
+          }
+
+          .field--name-field-legende {
+            color: $grey5;
+          }
+
+          .field--name-field-copyright {
+            color: $grey4;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
