@@ -419,21 +419,36 @@
   Drupal.behaviors.ressourceModal = {
     attach: function (context, settings) {
       let resourceModal = $('.js-resource-modal');
-      let initialSlide = resourceModal.attr('current-delta');
+      $('body').removeClass('is-fixed');
 
-      resourceModal.parent().prepend(
-        '<div class="resource-modal-actions"><button class="modal-previous"></button><button class="modal-next"></button><button class="modal-close" onclick="jQuery(\'.ui-icon-closethick\').trigger(\'click\');"></button></div>'
-      );
+      resourceModal.each(function () {
+        let initialSlide = $(this).attr('current-delta');
 
-      resourceModal.slick({
-        speed: 300,
-        slidesToShow: 1,
-        dots: false,
-        infinite: true,
-        adaptiveHeight: false,
-        initialSlide: initialSlide,
-        prevArrow: $('.modal-previous'),
-        nextArrow: $('.modal-next'),
+        $('body').addClass('is-fixed');
+
+        $(this).parent().prepend(
+          '<div class="resource-modal-actions"><button class="modal-previous"></button><button class="modal-next"></button><button class="modal-close"></button></div>'
+        );
+
+        $(this).slick({
+          speed: 300,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+          infinite: true,
+          adaptiveHeight: false,
+          initialSlide: parseInt(initialSlide),
+          prevArrow: $('.modal-previous'),
+          nextArrow: $('.modal-next'),
+          fade: true,
+          cssEase: 'linear'
+        });
+
+        $('.modal-close').on('click', function () {
+          $('.ui-icon-closethick').trigger('click');
+          $('body').removeClass('is-fixed');
+        });
+
       });
 
     }
