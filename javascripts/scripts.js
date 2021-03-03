@@ -35,7 +35,7 @@
         ]
       });
 
-      $('.nav-link.dropdown-toggle').on('click', function() {
+      $('.nav-link.dropdown-toggle').on('click', function () {
         menuCarousel.slick('resize');
       });
     }
@@ -412,6 +412,29 @@
       if ($(window).width() <= desktopWidth) {
         summaryClick();
       }
+
+    }
+  };
+
+  Drupal.behaviors.ressourceModal = {
+    attach: function (context, settings) {
+      let resourceModal = $('.js-resource-modal');
+      let initialSlide = resourceModal.attr('current-delta');
+
+      resourceModal.parent().prepend(
+        '<div class="resource-modal-actions"><button class="modal-previous"></button><button class="modal-next"></button><button class="modal-close" onclick="jQuery(\'.ui-icon-closethick\').trigger(\'click\');"></button></div>'
+      );
+
+      resourceModal.slick({
+        speed: 300,
+        slidesToShow: 1,
+        dots: false,
+        infinite: true,
+        adaptiveHeight: false,
+        initialSlide: initialSlide,
+        prevArrow: $('.modal-previous'),
+        nextArrow: $('.modal-next'),
+      });
 
     }
   };
