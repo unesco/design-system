@@ -141,6 +141,26 @@
         }
       }
 
+      .document-menu {
+        width: 110%;
+
+        ul {
+          list-style: none;
+        }
+
+        li {
+          padding-bottom: 0.5rem;
+        }
+
+        a {
+          color: $grey4;
+          text-decoration: none;
+
+          &:hover {
+            color: $darkGrey;
+          }
+        }
+      }
     }
   }
 
