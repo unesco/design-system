@@ -1098,6 +1098,12 @@ header.header-mini-light {
       >div {
         padding: 0 1rem;
       }
+
+      a {
+        text-decoration: none;
+        position: relative;
+        display: flex;
+      }
     }
 
     >div,
