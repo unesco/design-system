@@ -9,6 +9,10 @@ $paddingTop: (
     padding-top: 2.5rem;
     @include responsive(padding-top, $paddingTop);
   }
+
+  .field--name-field-paragraphs {
+    @include mb-block;
+  }
 }
 
 .field--name-field-copyright,
