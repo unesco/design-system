@@ -103,7 +103,7 @@ $full-media-title: (
 
 .section-text {
   @include responsive(font-size, $section-text);
-  line-height: 1.3;
+  line-height: 1.33;
   i {
     vertical-align: middle;
   }

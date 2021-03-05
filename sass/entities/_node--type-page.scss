@@ -12,5 +12,13 @@ $paddingTop: (
     .node__content {
       display: flex;
     }
+
+    .rich-text p {
+      line-height: 1.75;
+
+      @include min-screen($screen-desktop) {
+        line-height: 1.67;
+      }
+    }
   }
 }
