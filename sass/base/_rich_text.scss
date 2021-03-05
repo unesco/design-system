@@ -47,4 +47,13 @@
       text-decoration: none;
     }
   }
+
+  strong {
+    font-weight: 600;
+  }
+
+  u {
+    border-bottom: 0.0625rem solid $darkGrey;
+    text-decoration: none;
+  }
 }
