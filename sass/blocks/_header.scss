@@ -853,6 +853,10 @@ header {
 
       .slick-list {
         margin: 0 -#{$spacer};
+
+        @include min-screen($screen-desktop) {
+          padding-right: 10% !important;
+        }
       }
 
       li {

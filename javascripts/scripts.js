@@ -12,11 +12,13 @@
       let menuCarousel = $('header .report .menu-level-1');
 
       menuCarousel.slick({
-        speed: 300,
         slidesToShow: 4,
         swipeToSlide: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
         arrows: false,
-        infinite: false,
+        infinite: true,
+        speed: 1500,
         responsive: [
           {
             breakpoint: 951,
