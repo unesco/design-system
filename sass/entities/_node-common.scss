@@ -60,6 +60,7 @@ $margin24: (
   .last-update {
     margin-top: 2rem;
     margin-bottom: 2rem;
+    font-size: 0.875rem;
 
     @include min-screen($screen-desktop) {
       margin-top: 3rem;
