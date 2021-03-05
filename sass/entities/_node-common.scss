@@ -91,6 +91,14 @@ $margin24: (
   .content-sdg {
     margin-bottom: 2rem;
 
+    >div {
+      padding: 0;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
+
     @include min-screen($screen-desktop) {
       margin-bottom: 3rem;
     }
