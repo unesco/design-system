@@ -121,6 +121,14 @@
             @include max-screen($screen-tablet - 1px) {
               padding: $btn-padding-y-sm $btn-padding-x-sm;
             }
+
+            & ~.btn {
+              margin-top: 1rem;
+            }
+          }
+
+          .dropdown-menu {
+            top: 2.1rem;
           }
         }
 
