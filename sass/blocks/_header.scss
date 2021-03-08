@@ -808,6 +808,10 @@ header {
       margin: 0 auto !important;
       overflow: hidden;
 
+      @include max-screen($screen-desktop - 1) {
+        display: block;
+      }
+
       @include min-screen($screen-desktop) {
         flex-wrap: nowrap;
       }

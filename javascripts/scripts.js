@@ -32,13 +32,15 @@
               slidesToShow: 2,
               vertical: true,
               verticalSwiping: true,
+              autoplay: false,
+              infinite: false
             }
           },
         ]
       });
 
-      $('.nav-link.dropdown-toggle').on('click', function () {
-        menuCarousel.slick('resize');
+      $('.nav-link.dropdown-toggle').once().on('click', function () {
+        menuCarousel.slick('refresh');
       });
     }
   };
