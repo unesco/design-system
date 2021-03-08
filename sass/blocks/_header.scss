@@ -244,12 +244,17 @@ header {
   }
 
   .block-unesco-common-site-branding {
+    >a {
+      display: block;
+    }
+
     @include max-screen($screen-desktop - 1) {
       position: absolute;
       top: 1.5rem;
       left: 2.125rem;
       padding: 0;
       width: auto;
+      z-index: 3;
     }
 
     .site-logo {
