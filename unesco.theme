@@ -106,7 +106,7 @@ function unesco_preprocess_html(&$variables) {
     $variables['attributes']['class'][] = 'transparent-header';
 
     $node = \Drupal::entityTypeManager()->getStorage('node')->getHomepage();
-    if (!$node->isPublished()) {
+    if (!empty($node) && !$node->isPublished()) {
       $variables['attributes']['class'][] = 'page-unpublished';
     }
   }
