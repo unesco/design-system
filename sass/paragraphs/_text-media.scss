@@ -2,8 +2,11 @@
 
   &--type--text-media-block {
     @extend .border-top;
-    display: flex;
-    flex-direction: column;
+
+    .row {
+      display: flex;
+      flex-direction: column;
+    }
 
     .wrapper-infos {
       order: 1;
@@ -47,10 +50,15 @@
     }
 
     @include min-screen($screen-desktop) {
-      flex-direction: row;
+
+      .row {
+        flex-direction: row;
+      }
 
       &.right {
-        flex-direction: row-reverse;
+        .row {
+          flex-direction: row-reverse;
+        }
 
         .wrapper-image {
           order: 1;
