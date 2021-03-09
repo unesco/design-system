@@ -31,7 +31,7 @@
 
     <li{{ item.attributes.addClass(menu_item_classes) }}>
       {% if menu_level == 0 and item.below %}
-      {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'dropdown', 'title': ('Expand menu' | t) ~ ' ' ~ item.title }) }}
+      {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'dropdown-menu', 'title': ('Expand menu' | t) ~ ' ' ~ item.title }) }}
       {{ menus.build_menu(item.below, attributes, menu_level + 1) }}
        {% elseif menu_level == 0 and item.is_expanded == false %}
         {{ link(item.title, item.url, { 'class': classes_link} ) }}

@@ -16,14 +16,15 @@
         swipeToSlide: true,
         autoplay: true,
         autoplaySpeed: 2000,
-        arrows: false,
-        infinite: true,
+        arrows: true,
+        infinite: false,
         speed: 1500,
         responsive: [
           {
             breakpoint: 951,
             settings: {
               slidesToShow: 3,
+              arrows: false,
             }
           },
           {
@@ -33,7 +34,8 @@
               vertical: true,
               verticalSwiping: true,
               autoplay: false,
-              infinite: false
+              infinite: false,
+              arrows: false,
             }
           },
         ]
@@ -57,6 +59,27 @@
 
       parentItem.on('click', function () {
         $('body').toggleClass('parent-menu-open');
+      });
+    }
+  };
+
+  Drupal.behaviors.dropdownMenu = {
+    attach: function (context, settings) {
+      let dropdownLink = $('.navbar .dropdown-toggle');
+
+      dropdownLink.on('click', function(e) {
+        e.preventDefault();
+        dropdownLink.not(this).parent().removeClass('show');
+        dropdownLink.not(this).parent().find('.dropdown-menu').removeClass('show');
+        $(this).parent().toggleClass('show');
+        $(this).parent().find('.dropdown-menu').toggleClass('show');
+      });
+
+      $('body').on('click', function (e) {
+        if (!dropdownLink.is(e.target) && dropdownLink.parent().has(e.target).length === 0  && dropdownLink.parent().find('.dropdown-menu').has(e.target).length === 0) {
+          $('.dropdown-menu').parent().removeClass('show');
+          dropdownLink.parent().find('.dropdown-menu').removeClass('show');
+        }
       });
     }
   };
