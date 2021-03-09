@@ -279,9 +279,16 @@
     attach: function (context, settings) {
 
       let dropdownDocument = $('.paragraph--type--document .dropdown-toggle');
-      dropdownDocument.on('click', function () {
-        $(this).parents('.dropdown').find('.dropdown-menu').slideToggle();
+
+      $(document).click(function(){
+        dropdownDocument.next('.dropdown-menu').removeClass('show');
       });
+
+      dropdownDocument.on('click', function (e) {
+        e.stopPropagation();
+        $(this).next('.dropdown-menu').addClass('show');
+      });
+
     }
   };
 
@@ -478,6 +485,36 @@
 
       });
 
+    }
+  };
+
+  Drupal.behaviors.carouselCards = {
+    attach: function (context, settings) {
+      $('.paragraph--type--cards-landing.carousel').each(function () {
+
+        $(this).children('.row').slick({
+          speed: 300,
+          slidesToShow: 4,
+          dots: false,
+          arrows: true,
+          infinite: false,
+          adaptiveHeight: false,
+          responsive: [
+            {
+              breakpoint: 992, // tablet breakpoint
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 576, // mobile breakpoint
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+      });
     }
   };
 

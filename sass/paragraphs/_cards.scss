@@ -1,4 +1,5 @@
 .paragraph {
+
   &--type--cards-landing {
     @include border-top;
 
@@ -11,6 +12,7 @@
         margin: 0 0 1.5rem;
       }
     }
+
     .field--name-field-description {
       @include responsive(font-size, $section-title-small);
       margin: 0 0 2rem;
@@ -29,7 +31,7 @@
       flex-wrap: wrap;
       margin: 0 -0.25rem;
 
-      >.field__item {
+      > .field__item {
         padding: 0 0.25rem;
       }
     }
@@ -40,6 +42,72 @@
       .field--name-field-email {
         margin-right: 0.5rem;
       }
+    }
+
+    &.carousel {
+
+      .slick-slider {
+
+        .slick-list {
+          margin-left: -1.5rem;
+          padding: 1.5rem 3.5rem 1.5rem 1.5rem;
+
+          .slick-slide {
+            margin-left: 1.5rem;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+
+        .slick-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 3;
+          width: 3rem;
+          height: 3rem;
+          font-size: 0;
+          outline: none;
+          border: none;
+          border-radius: 50%;
+          background-color: $grey4;
+          transition: .3s;
+          &::after {
+            font-size: 1.5rem;
+            color: $white;
+          }
+
+          &.slick-prev {
+            left: 2rem;
+
+            &::after {
+              @include icon('chevron_left')
+            }
+          }
+
+          &.slick-next {
+            right: 2rem;
+
+            &::after {
+              @include icon('chevron_right')
+            }
+          }
+
+          &.slick-disabled {
+            opacity: 0;
+          }
+        }
+      }
+
+
+      .card-height-fixed {
+        min-height: 26.5rem;
+        height: 26.5rem;
+        max-height: 26.5rem;
+      }
+
     }
   }
 
