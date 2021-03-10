@@ -12,7 +12,12 @@ footer {
   }
 
   .footer-top {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+
+    @include min-screen($screen-desktop) {
+      margin-bottom: 3rem;
+    }
+
   }
 
   .footer {
