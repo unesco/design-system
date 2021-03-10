@@ -14,8 +14,7 @@
       menuCarousel.slick({
         slidesToShow: 4,
         swipeToSlide: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
+        autoplay: false,
         arrows: true,
         infinite: false,
         speed: 1500,
