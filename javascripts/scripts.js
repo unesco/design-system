@@ -278,9 +278,16 @@
     attach: function (context, settings) {
 
       let dropdownDocument = $('.paragraph--type--document .dropdown-toggle');
-      dropdownDocument.on('click', function () {
-        $(this).parents('.dropdown').find('.dropdown-menu').slideToggle();
+
+      $(document).click(function(){
+        dropdownDocument.next('.dropdown-menu').removeClass('show');
       });
+
+      dropdownDocument.on('click', function (e) {
+        e.stopPropagation();
+        $(this).next('.dropdown-menu').addClass('show');
+      });
+
     }
   };
 
@@ -288,7 +295,7 @@
     attach: function (context, settings) {
       let sequencedContainer = $('.sequenced-block');
       let sequencedLink = sequencedContainer.find('li');
-      let limit = 4;
+      let limit = 5;
       let more = 0;
 
       sequencedLink.each(function (index) {
@@ -477,6 +484,39 @@
 
       });
 
+    }
+  };
+
+  Drupal.behaviors.carouselCards = {
+    attach: function (context, settings) {
+      $('.paragraph--type--cards-landing.carousel').each(function () {
+
+        $(this).children('.row').slick({
+          speed: 300,
+          slidesToShow: 4,
+          dots: false,
+          arrows: true,
+          infinite: true,
+          adaptiveHeight: false,
+          variableWidth: true,
+          responsive: [
+            {
+              breakpoint: 992, // tablet breakpoint
+              settings: {
+                slidesToShow: 2,
+                variableWidth: true
+              }
+            },
+            {
+              breakpoint: 576, // mobile breakpoint
+              settings: {
+                slidesToShow: 1,
+                variableWidth: false
+              }
+            }
+          ]
+        });
+      });
     }
   };
 

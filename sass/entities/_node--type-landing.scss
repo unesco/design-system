@@ -96,15 +96,6 @@ $padding-top: (
 
   .field--name-field-link {
     margin-top: 3rem;
-
-    .btn {
-      &.btn-primary {
-        &:hover,
-        &:focus {
-          margin: 0 0 0 0.2rem;
-        }
-      }
-    }
   }
 
   .field--name-field-description {

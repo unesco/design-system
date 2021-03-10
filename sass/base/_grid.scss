@@ -1,3 +1,8 @@
+.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 // Boostrap add padding with col-lg on mobile ipad
 
 @include max-screen($screen-desktop - 1px) {

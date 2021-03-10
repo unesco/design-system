@@ -14,6 +14,9 @@
  */
 #}
 {% if content %}
+  {% if unesco_link_content %}
+    <a {{ unesco_link_attributes }}>
+  {% endif %}
   <div{{ attributes.addClass('banner', 'mb-3') }}>
     <div class="banner-body">
       <div class="banner-image">
@@ -25,4 +28,7 @@
     </div>
     {{- content.unesco_common_cta_link -}}
   </div>
+  {% if unesco_link_content %}
+    </a>
+  {% endif %}
 {% endif %}

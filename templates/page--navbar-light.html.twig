@@ -69,8 +69,9 @@
 </main>
 
 {% if page.footer or page.footer_top or page.footer_bottom %}
-  <footer id="footer" class="bg-grey mt-3">
-    <div class="row">
+  <footer id="footer" class="bg-grey">
+    <div class="footer-wrapper">
+      <div class="row">
       {% if page.footer_top %}
         <div class="col-lg-12">
           <div class="footer-top">
@@ -92,6 +93,7 @@
           </div>
         </div>
       {% endif %}
+    </div>
     </div>
   </footer>
 {% endif %}

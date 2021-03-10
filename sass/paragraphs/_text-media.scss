@@ -2,8 +2,11 @@
 
   &--type--text-media-block {
     @extend .border-top;
-    display: flex;
-    flex-direction: column;
+
+    .row {
+      display: flex;
+      flex-direction: column;
+    }
 
     .wrapper-infos {
       order: 1;
@@ -38,6 +41,7 @@
         display: inline-block;
         color: $grey4;
       }
+
       .copyright-sigle {
         color: $grey4;
         display: inline-block;
@@ -46,13 +50,20 @@
     }
 
     @include min-screen($screen-desktop) {
-      flex-direction: row;
+
+      .row {
+        flex-direction: row;
+      }
 
       &.right {
-        flex-direction: row-reverse;
+        .row {
+          flex-direction: row-reverse;
+        }
+
         .wrapper-image {
           order: 1;
         }
+
         .wrapper-infos {
           order: 0;
         }
@@ -62,6 +73,7 @@
         .wrapper-infos {
           order: 0;
         }
+
         .wrapper-image {
           order: 1;
         }
@@ -74,11 +86,20 @@
       margin-bottom: 1rem;
     }
 
+    .field--name-field-links {
+      margin-top: 1.5rem;
+      @include min-screen($screen-desktop) {
+        margin-top: 2rem;
+      }
+    }
+
     .field--type-link {
+
       .field__item {
         display: inline-block;
         vertical-align: middle;
         margin-right: .5rem;
+
         &:last-child {
           margin-right: 0;
         }
@@ -94,6 +115,12 @@
         position: absolute;
         width: 100%;
         height: 100%;
+      }
+    }
+
+    .rich-text {
+      p:last-child {
+        margin-bottom: 0;
       }
     }
   }
@@ -152,7 +179,7 @@
           margin-top: 2.125rem;
 
           @include min-screen($screen-desktop) {
-           margin-top: 3rem;
+            margin-top: 3rem;
           }
         }
 
@@ -170,14 +197,17 @@
           width: 100%;
           height: 100%;
         }
+
         picture {
           display: block;
           height: 39rem;
           width: 100%;
         }
+
         img {
           @include img-cover;
         }
+
         &::after {
           content: '';
           position: absolute;
@@ -220,9 +250,11 @@
           margin-right: .5rem;
           opacity: .5;
           transition: .3s;
+
           &:last-child {
             margin-right: 0;
           }
+
           &.slick-active {
             opacity: 1;
           }
@@ -245,6 +277,7 @@
     @include min-screen($screen-desktop) {
       .field--name-field-slides {
         height: 44rem;
+
         .wrapper-image picture {
           height: 44rem;
         }
@@ -258,7 +291,6 @@
     .wrapper-infos {
       .field--name-field-links {
         margin-bottom: 1rem;
-        margin-top: 1.5rem;
       }
     }
 
