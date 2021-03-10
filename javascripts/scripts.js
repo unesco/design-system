@@ -296,7 +296,7 @@
     attach: function (context, settings) {
       let sequencedContainer = $('.sequenced-block');
       let sequencedLink = sequencedContainer.find('li');
-      let limit = 4;
+      let limit = 5;
       let more = 0;
 
       sequencedLink.each(function (index) {
