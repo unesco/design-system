@@ -1,13 +1,15 @@
 footer {
+  margin-top: 5rem;
   padding: 2rem 1.5rem;
 
   @include min-screen($screen-tablet) {
+    margin-top: 1.5rem;
     padding: 2rem;
   }
   @include min-screen($screen-desktop) {
     padding: 3rem 5.875rem;
     max-width: 90rem;
-    margin: 0 auto;
+    margin: 1.5rem auto 0;
     @include fullWidthBackground(inherit);
   }
 
@@ -16,6 +18,16 @@ footer {
 
     @include min-screen($screen-desktop) {
       margin-bottom: 3rem;
+    }
+
+    .region-footer-top {
+
+      .field--name-field-logo {
+        img {
+          max-width: 11.75rem;
+        }
+      }
+
     }
 
   }
