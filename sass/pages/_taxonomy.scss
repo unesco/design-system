@@ -163,6 +163,13 @@ $taxonomy-header-name: (
       }
     }
 
+    & + .section-title-border {
+      margin-bottom: 2rem;
+      @include min-screen($screen-desktop) {
+        margin-bottom: 3rem;
+      }
+    }
+
   }
 
   .list-grid-view {
