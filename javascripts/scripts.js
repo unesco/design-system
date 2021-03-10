@@ -497,19 +497,22 @@
           slidesToShow: 4,
           dots: false,
           arrows: true,
-          infinite: false,
+          infinite: true,
           adaptiveHeight: false,
+          variableWidth: true,
           responsive: [
             {
               breakpoint: 992, // tablet breakpoint
               settings: {
-                slidesToShow: 2
+                slidesToShow: 2,
+                variableWidth: true
               }
             },
             {
               breakpoint: 576, // mobile breakpoint
               settings: {
-                slidesToShow: 1
+                slidesToShow: 1,
+                variableWidth: false
               }
             }
           ]
