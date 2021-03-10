@@ -120,7 +120,7 @@
           }
 
           &.slick-prev {
-            left: 1rem;
+            left: .5rem;
 
             @include min-screen($screen-tablet) {
               left: -3rem;
@@ -140,7 +140,7 @@
           }
 
           &.slick-next {
-            right: 1rem;
+            right: .5rem;
 
             @include min-screen($screen-tablet) {
               right: -2rem;
