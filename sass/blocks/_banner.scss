@@ -9,6 +9,15 @@
   }
 }
 
+.banner-link {
+  color: $darkGrey;
+
+  &:hover {
+    text-decoration: none;
+    color: $darkGrey;
+  }
+}
+
 .banner-body {
   display: flex;
   flex-direction: column;
