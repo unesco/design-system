@@ -842,10 +842,15 @@ header {
 
         .main-navigation {
           @include max-screen($screen-tablet - 1) {
-            margin-top: 2rem;
+            margin-top: 0;
 
             li {
               margin-bottom: 1.5rem;
+              padding: 0;
+
+              img {
+                display: none;
+              }
             }
           }
         }
@@ -996,6 +1001,12 @@ header {
     line-height: 1.33;
     font-weight: 600;
     margin-top: $spacer;
+
+    @include max-screen($screen-tablet - 1) {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      font-weight: 400;
+    }
   }
 }
 
@@ -1258,8 +1269,10 @@ header {
 }
 
 .menu-open {
-  @include max-screen($screen-desktop - 1) {
-    height: 100vh;
-    overflow: hidden;
+  &, body {
+      @include max-screen($screen-desktop - 1) {
+      height: 100vh;
+      overflow: hidden;
+    }
   }
 }
