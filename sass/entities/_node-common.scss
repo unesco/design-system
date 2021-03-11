@@ -37,6 +37,20 @@ $margin24: (
 
     .field--name-field-ref-image {
       margin-bottom: 1rem;
+
+      .field--name-field-media-image {
+        width: 100%;
+        height: 13.625rem;
+
+        @include min-screen($screen-desktop) {
+          height: 25.375rem;
+        }
+
+        img {
+          @include img-cover;
+        }
+      }
+
     }
 
     .media-legend {
@@ -138,6 +152,10 @@ $margin24: (
       }
 
       .content-header {
+        margin-bottom: 2.5rem;
+        @include min-screen($screen-desktop) {
+          margin-bottom: 4rem;
+        }
         @include min-screen($screen-desktop-xl) {
           width: 51.5rem;
         }
