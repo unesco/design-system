@@ -47,7 +47,6 @@ $sequenced-link: (
   }
 
   .sequenced-link {
-    margin-top: 1rem;
     @include responsive(font-size, $sequenced-link);
     font-weight: 400;
     text-decoration: none;
@@ -57,6 +56,10 @@ $sequenced-link: (
       color: $BlueU;
     }
 
+  }
+
+  button.sequenced-see-more {
+    margin-top: 1rem;
   }
 
 }
