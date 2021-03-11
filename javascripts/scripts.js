@@ -7,6 +7,10 @@
 
 // Add your custom scripts here, using Drupal.behaviors
 
+function isMobile () {
+  return window.innerWidth <= 520;
+}
+
   Drupal.behaviors.reportMenu = {
     attach: function (context, settings) {
       let menuCarousel = $('header .report .menu-level-1');
@@ -28,21 +32,16 @@
           },
           {
             breakpoint: 520,
-            settings: {
-              slidesToShow: 2,
-              vertical: true,
-              verticalSwiping: true,
-              autoplay: false,
-              infinite: false,
-              arrows: false,
-            }
+            settings: 'unslick',
           },
         ]
       });
 
-      $('.nav-link.dropdown-toggle').once().on('click', function () {
-        menuCarousel.slick('refresh');
-      });
+      if (!isMobile()) {
+        $('.nav-link.dropdown-toggle').once().on('click', function () {
+          menuCarousel.slick('refresh');
+        });
+      }
     }
   };
 
@@ -52,7 +51,7 @@
       let parentItem = $('header .menu-level-0 > .nav-item > .dropdown-toggle');
 
       menuBurger.on('click', function () {
-        $('body').toggleClass('menu-open');
+        $('html').toggleClass('menu-open');
         $('body').removeClass('parent-menu-open');
       });
 
