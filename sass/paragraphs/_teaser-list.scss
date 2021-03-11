@@ -226,4 +226,19 @@ $list-text: (
       }
     }
   }
+
+  &--type--content-list-custom-article {
+    padding-bottom: 0;
+
+    .field--name-field-title {
+      @include responsive(font-size, $section-title-small);
+      font-weight: 600;
+    }
+
+    .field--name-field-description {
+      @include responsive(font-size, $section-text-small);
+      margin: 0;
+      line-height: 1.6;
+    }
+  }
 }

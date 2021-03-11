@@ -32,7 +32,14 @@ $taxonomy-header-name: (
       border-radius: 2rem;
       margin-right: 1.5rem;
       overflow: hidden;
-
+      &.field--empty {
+        &::after {
+          @include icon('person');
+          display: inline-block;
+          vertical-align: middle;
+          font-size: 64px;
+        }
+      }
       img {
         @include img-cover;
       }

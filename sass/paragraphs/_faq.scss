@@ -1,5 +1,12 @@
+$faq-text: (
+  null: 1rem,
+  medium: 1.125rem
+);
+
 .paragraph {
   &--type--faq {
+    @include mb-block;
+
     .field--name-field-title {
       font-weight: 800;
       @include responsive(font-size, $section-title);
@@ -21,16 +28,24 @@
 
     .field--name-field-ref-faqs {
       border-radius: .5rem;
-      padding: 1.5rem;
+      padding: .5rem 1.5rem;
+      @include responsive(font-size, $faq-text);
       @include min-screen($screen-desktop) {
-        padding: 2rem;
+        padding: 1rem 2rem;
       }
 
       details {
         border: none;
+        display: inline-block;
+        width: 100%;
 
         .details-wrapper {
-          padding: 0.5em 0;
+          margin: 1rem 0 0 0;
+          padding: 0;
+
+          p:last-child {
+            margin-bottom: 0;
+          }
         }
 
         &[open] {
@@ -43,8 +58,14 @@
       }
 
       summary {
-        padding: 0 25px 0 0;
+        position: relative;
         font-weight: 600;
+        padding: 0 2rem 0 0;
+        outline: 0;
+
+        &:focus {
+          outline: 0;
+        }
 
         &::-webkit-details-marker {
           display:none;
@@ -53,9 +74,9 @@
         &::after {
           @include icon('expand_more');
           position: absolute;
-          font-size: 1.5em;
           right: 0;
-          top: 0;
+          font-size: 1.5rem;
+          line-height: 1;
         }
       }
     }

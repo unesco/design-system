@@ -3,7 +3,7 @@
   background-color: $grey1;
   padding: 1.5rem;
   border-radius: .5rem;
-  @include mb-block;
+  @include mb-block-big;
 
   @include min-screen($screen-desktop) {
     padding: 2rem;
