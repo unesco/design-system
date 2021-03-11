@@ -9,6 +9,20 @@ $paddingTop: (
     padding-top: 2.5rem;
     @include responsive(padding-top, $paddingTop);
   }
+
+  .paragraph {
+
+    .field--name-field-title {
+      @include responsive(font-size, $section-title-small);
+      font-weight: 600;
+      margin-bottom: .5rem;
+      @include min-screen($screen-tablet) {
+        margin-bottom: 1rem;
+      }
+    }
+
+  }
+
 }
 
 .field--name-field-copyright,
