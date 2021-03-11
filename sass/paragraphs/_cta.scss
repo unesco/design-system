@@ -11,7 +11,7 @@ $cta-title: (
     padding: 1.5rem;
     border-radius: 0.5rem;
     background-color: $grey1;
-    @include responsive(margin-bottom, $space-bottom);
+    @include mb-block;
 
     @include min-screen($screen-tablet) {
       padding: 2rem;

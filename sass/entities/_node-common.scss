@@ -14,11 +14,7 @@ $margin24: (
   }
 
   .addthis_toolbox {
-    margin-bottom: 2rem;
-
-    @include min-screen($screen-desktop) {
-      margin-bottom: 3rem;
-    }
+    @include mb-block;
   }
 
   h3 {
