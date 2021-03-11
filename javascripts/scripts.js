@@ -137,7 +137,8 @@ function isMobile () {
   Drupal.behaviors.stickyHeader = {
     attach: function (context, settings) {
       const header = $('header');
-      let headerHeight = header.height();
+      let toolbarHeight = header.offset().top;
+      let headerHeight = header.height() + toolbarHeight;
 
       $(window).scroll(function () {
         if ($(window).scrollTop() > headerHeight) {

@@ -3,10 +3,31 @@
     header.navbar {
       top: 4.938rem;
     }
+
+    @include min-screen($screen-desktop) {
+      padding-top: 7.625rem !important;
+    }
   }
 
   &.path-frontpage header.navbar, 
   &.page-node-type-landing header.navbar {
     top: 4.938rem;
+  }
+}
+
+.toolbar-vertical {
+  &.header-sticky {
+    header.navbar {
+      top: 2.438rem;
+    }
+
+    @include min-screen($screen-desktop) {
+      padding-top: 7.625rem !important;
+    }
+  }
+
+  &.path-frontpage header.navbar, 
+  &.page-node-type-landing header.navbar {
+    top: 2.438rem;
   }
 }
