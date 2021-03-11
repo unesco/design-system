@@ -3,6 +3,7 @@
   background-color: $grey1;
   padding: 1.5rem;
   border-radius: .5rem;
+  @include mb-block;
 
   @include min-screen($screen-desktop) {
     padding: 2rem;
@@ -15,17 +16,39 @@
   &:hover {
     text-decoration: none;
     color: $darkGrey;
+
+    .banner-arrow {
+      animation: arrow-slide-right .4s both;
+    }
+
   }
 }
+
+@keyframes arrow-slide-right {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(.5rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 
 .banner-body {
   display: flex;
   flex-direction: column;
   width: 100%;
   padding-right: 3rem;
+
   .banner-image {
     margin-bottom: 1rem;
   }
+
   @include min-screen($screen-desktop) {
     flex-direction: row;
     .banner-image {
@@ -38,7 +61,7 @@
 
 // Colors
 
-$colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLight, purple: $purpleLight, red: $redLight );
+$colors: (grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLight, purple: $purpleLight, red: $redLight);
 
 @each $colorName, $color in $colors {
   .banner-#{$colorName} {

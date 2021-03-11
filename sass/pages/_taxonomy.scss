@@ -5,7 +5,7 @@ $taxonomy-header-name: (
 );
 
 .vocabulary-people {
-  margin-bottom: 2rem;
+  @include mb-block;
 
   .wrapper-right {
     width: 100%;
