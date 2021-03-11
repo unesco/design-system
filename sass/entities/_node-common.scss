@@ -138,6 +138,10 @@ $margin24: (
       }
 
       .content-header {
+        margin-bottom: 2.5rem;
+        @include min-screen($screen-desktop) {
+          margin-bottom: 4rem;
+        }
         @include min-screen($screen-desktop-xl) {
           width: 51.5rem;
         }
