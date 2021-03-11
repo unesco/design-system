@@ -191,7 +191,8 @@
     .row {
       display: grid;
       grid-gap: 2rem;
-      margin: 1.5rem 0 2rem;
+      margin: 1.5rem 0 0;
+      @include mb-block;
       @include min-screen($screen-tablet) {
         grid-template-columns: 1fr 1fr;
       }

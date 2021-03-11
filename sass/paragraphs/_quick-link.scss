@@ -1,5 +1,7 @@
 .paragraph {
   &--type--quick-link {
+    @include mb-block;
+
     .field--name-field-title {
       font-weight: 800;
       @include responsive(font-size, $section-title);
@@ -11,24 +13,45 @@
     }
 
     .field--name-field-description {
-      @include responsive(font-size, $section-title-small);
+      font-size: .875rem;
       color: $BlueU;
       font-weight: 600;
-      margin: 0 0 1rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .field--name-field-links {
+      a {
+        display: inline-block;
+        &:hover {
+          text-decoration: none;
+          .arrow-primary {
+            left: .25rem;
+          }
+          .link-title {
+            color: $BlueU;
+          }
+        }
+      }
     }
 
     .link-wrapper {
-      display: inline-block;
+      display: flex;
+      align-content: center;
       color: $black;
-      margin: 0 0 1rem;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    .arrow-primary {
+      position: relative;
+      margin-right: 1rem;
+      transition: .3s;
+      left: 0;
     }
 
     .link-title {
-      margin: 0 0 0 1rem;
-
-      &:hover {
-        text-decoration: underline;
-      }
+      font-size: 1.125rem;
     }
   }
 }
