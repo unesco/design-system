@@ -158,7 +158,7 @@ function isMobile () {
         displaySeeMore.each(function () {
           let image = $(this).find('.wrapper-image');
           let imageHeight = 300;
-          let content = $(this).children('.wrapper-infos');
+          let content = $(this).find('.wrapper-infos');
           let contentHeight = content.outerHeight(true);
 
           if (image.length > 0) {
