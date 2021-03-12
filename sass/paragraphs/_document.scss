@@ -102,6 +102,10 @@
           }
         }
 
+        .field-license {
+          color: $darkGrey;
+        }
+
         .document-texts {
           margin-bottom: 1.5rem;
           max-width: 45rem;
@@ -304,6 +308,10 @@
           @include min-screen($screen-tablet) {
             margin-bottom: 1.5rem;
           }
+        }
+
+        .field-license {
+          color: $darkGrey;
         }
 
       }
