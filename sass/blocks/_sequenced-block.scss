@@ -51,8 +51,10 @@ $sequenced-link: (
     font-weight: 400;
     text-decoration: none;
     color: $darkGrey;
+    transition: .3s;
 
-    &.active {
+    &.active,
+    &:hover {
       color: $BlueU;
     }
 
