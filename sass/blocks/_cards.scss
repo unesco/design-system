@@ -78,6 +78,9 @@
     line-height: 7.5rem;
     color: $white;
   }
+  &.no-bg {
+    background-color: transparent;
+  }
 }
 
 .card-hero {
