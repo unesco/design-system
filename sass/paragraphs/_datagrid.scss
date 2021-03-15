@@ -1,7 +1,6 @@
 .paragraph {
   &--type--datagrid {
-    @include border-top;
-    
+
     .table-bordered {
       border: none;
 
@@ -32,7 +31,7 @@
       p {
         @include responsive(font-size, $section-title-small);
       }
-      
+
       margin: 0 0 2rem;
 
       @include min-screen($screen-desktop) {
@@ -48,4 +47,27 @@
       }
     }
   }
+}
+
+// Homepage/ landing override
+
+.node--type-homepage,
+.node--type-landing {
+
+  .paragraph--type--datagrid {
+    @include border-top;
+  }
+
+}
+
+
+// Article page override
+
+.node--type-sequenced-page,
+.node--type-page {
+
+  .paragraph--type--datagrid {
+    @include mb-block;
+  }
+
 }

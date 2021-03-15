@@ -25,21 +25,6 @@ header {
     width: 100vw;
     z-index: 1;
 
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      bottom: 0;
-      width: calc(100% - 4.25rem);
-      max-width: 83rem;
-      height: 1px;
-      background-color: $navbar-dark-color;
-
-      @include max-screen($screen-tablet - 1) {
-        width: calc(100% - 3rem);
-      }
-    }
-
     &.bg-primary {
       background-color: transparent !important;
       @include transition;
@@ -63,6 +48,26 @@ header {
     .btn-secondary {
       background-color: $BlueU;
       border-color: $BlueU;
+    }
+  }
+
+  .parent-menu-open &,
+  .transparent-header & {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 4.25rem);
+      max-width: 83rem;
+      height: 1px;
+      background-color: $navbar-dark-color;
+
+      @include max-screen($screen-tablet - 1) {
+        width: calc(100% - 3rem);
+      }
     }
   }
 

@@ -127,6 +127,7 @@
 
   &--type--text-media-full {
     @include container-fluid;
+    @include mb-block;
 
     .field--name-field-slides {
       position: relative;
@@ -300,9 +301,13 @@
       transition: .6s ease;
       display: -webkit-box;
       -webkit-box-orient: vertical;
+    }
+  }
 
-      .field--name-field-text {
-        overflow: hidden;
+  &.big-text {
+    .rich-text {
+      p, ul, ol {
+        @include responsive(font-size, $big-text);
       }
     }
   }

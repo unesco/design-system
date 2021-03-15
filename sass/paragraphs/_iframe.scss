@@ -1,5 +1,7 @@
 .paragraph {
   &--type--iframe {
+    @include mb-block;
+
     .field--name-field-title {
       font-weight: 800;
       @include responsive(font-size, $section-title);
@@ -22,7 +24,7 @@
     .field--name-field-iframe {
       position: relative;
       padding-top: 100%;
-      
+
       @include min-screen($screen-desktop) {
         padding-top: 66.61%;
       }

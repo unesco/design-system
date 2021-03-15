@@ -1,17 +1,5 @@
-$padding-grid: (
-  null: 1rem,
-  large: 1.5rem
-);
-
 .paragraph {
   &--type--logo-grid {
-    @include responsive(padding-top, $padding-grid);
-    @extend .border-top;
-    margin-top: 3.5rem;
-
-    @include min-screen($screen-desktop) {
-      margin-top: 0 0 1.5rem;
-    }
 
     .field--name-field-title {
       font-weight: 800;
@@ -41,4 +29,27 @@ $padding-grid: (
       }
     }
   }
+}
+
+// Homepage/ landing override
+
+.node--type-homepage,
+.node--type-landing {
+
+  .paragraph--type--logo-grid {
+    @extend .border-top;
+  }
+
+}
+
+
+// Article page override
+
+.node--type-sequenced-page,
+.node--type-page {
+
+  .paragraph--type--logo-grid {
+    @include mb-block;
+  }
+
 }
