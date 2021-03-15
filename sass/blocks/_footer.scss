@@ -1,18 +1,19 @@
 footer {
   margin-top: .5rem;
+  padding: 0;
   @include min-screen($screen-desktop) {
     margin-top: 1.5rem;
   }
 
   .footer-wrapper {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem 3rem;
 
     @include min-screen($screen-tablet) {
       margin-top: 1.5rem;
-      padding: 2rem;
+      padding: 2rem 2rem 3rem;
     }
     @include min-screen($screen-desktop) {
-      padding: 3rem 5.875rem;
+      padding: 3rem 5.875rem 4rem;
       max-width: 90rem;
       margin: 0 auto;
     }

@@ -17,7 +17,9 @@ $margin24: (
     @include mb-block;
   }
 
-  h3 {
+  .share-title,
+  .about-author-title,
+  .content-tags .item-list h3 {
     font-size: 0.75rem;
     text-transform: uppercase;
     margin: 0 0 1rem;
@@ -64,9 +66,11 @@ $margin24: (
       &::before {
         content: '. ';
       }
+
       margin-left: -4px;
     }
   }
+
   .last-update {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -102,7 +106,7 @@ $margin24: (
   .content-sdg {
     margin-bottom: 2rem;
 
-    >div {
+    > div {
       padding: 0;
     }
 
@@ -134,7 +138,7 @@ $margin24: (
           }
         }
 
-        >.field--name-field-ref-image {
+        > .field--name-field-ref-image {
           .field--name-field-media-image,
           img {
             width: 100%;
