@@ -115,6 +115,21 @@
   }
 }
 
+.card-link-wrapper {
+  text-decoration: none;
+  color: $darkGrey;
+
+  &:hover {
+    text-decoration: none;
+    color: $darkGrey;
+
+    .card-arrow {
+      animation: arrow-slide-right .4s both;
+    }
+
+  }
+}
+
 
 // Col 6 desktop HD
 
