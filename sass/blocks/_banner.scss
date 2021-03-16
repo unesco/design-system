@@ -45,6 +45,12 @@
   width: 100%;
   padding-right: 3rem;
 
+  .banner-text {
+    @include min-screen($screen-tablet) {
+      width: 100%;
+    }
+  }
+
   .banner-image {
     margin-bottom: 1rem;
   }
