@@ -85,6 +85,9 @@ header {
   }
 
   &.navbar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     padding: 2rem 3.625rem 1.5rem;
     width: 100vw;
@@ -123,12 +126,13 @@ header {
     @include max-screen($screen-tablet - 1) {
       padding: 1rem 1.5rem;
       min-height: 6.75rem;
+      flex-wrap: wrap;
     }
   }
 
   .menu-open & {
     min-height: 100vh;
-    height: 100%;
+    height: auto;
     position: fixed;
     top: 0;
     left: 0;
@@ -202,6 +206,8 @@ header {
     }
 
     @include max-screen($screen-desktop - 1) {
+      -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
       order: -1;
     }
   }
