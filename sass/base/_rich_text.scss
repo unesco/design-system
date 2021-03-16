@@ -1,6 +1,7 @@
 .rich-text {
   p {
     @include responsive(font-size, $text);
+    line-height: 1.6;
   }
 
   ul {
