@@ -491,6 +491,13 @@ function isMobile () {
           variableWidth: true,
           responsive: [
             {
+              breakpoint: 1400, // desktop
+              settings: {
+                slidesToShow: 3,
+                variableWidth: true
+              }
+            },
+            {
               breakpoint: 992, // tablet breakpoint
               settings: {
                 slidesToShow: 2,
