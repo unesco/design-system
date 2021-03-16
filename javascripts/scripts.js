@@ -52,6 +52,7 @@ function isMobile () {
 
       menuBurger.on('click', function () {
         $('html').toggleClass('menu-open');
+        $('body').toggleClass('menu-open');
         $('body').removeClass('parent-menu-open');
       });
 

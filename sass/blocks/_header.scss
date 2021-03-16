@@ -67,6 +67,10 @@ header {
 
       @include max-screen($screen-tablet - 1) {
         width: calc(100% - 3rem);
+
+        .menu-open & {
+          top: 6.75rem;
+        }
       }
     }
   }
@@ -118,12 +122,13 @@ header {
 
     @include max-screen($screen-tablet - 1) {
       padding: 1rem 1.5rem;
-      min-height: 4rem;
+      min-height: 6.75rem;
     }
   }
 
   .menu-open & {
     min-height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -323,6 +328,25 @@ header {
     .menu--main,
     .dropdown {
       position: static;
+    }
+
+    .site-name {
+      @include max-screen($screen-desktop - 1) {
+        position: absolute;
+        top: 2.5rem;
+        left: 1rem;
+        display: block;
+
+        .header-sticky & {
+          display: none;
+        }
+      }
+
+      @include max-screen($screen-tablet - 1) {
+        max-width: 50%;
+        font-size: 0.875rem;
+        line-height: 1.125rem;
+      }
     }
   }
 
@@ -531,6 +555,10 @@ header {
     @include max-screen($screen-desktop - 1) {
       transition: none;
       margin-top: 5.375rem;
+    }
+
+    @include max-screen($screen-tablet - 1) {
+      margin-top: 6.75rem;
     }
 
     .header-sticky & {
