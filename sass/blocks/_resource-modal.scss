@@ -13,6 +13,7 @@ body.is-fixed {
   z-index: 999!important;
   background-color: $darkGrey!important;
   border-radius: 0!important;
+  font-family: $font-family-base;
 
   .ui-dialog-titlebar {
     display: none;
@@ -165,31 +166,42 @@ body.is-fixed {
         position: relative;
         width: 2.5rem;
         height: 2.5rem;
+        line-height: 2.5rem;
         border-radius: 50%;
         margin-right: .5rem;
         border: 0;
         outline: 0;
         background-color: $grey5;
         &::after {
+          display: inline-block;
           color: $white;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
         &:last-child {
           margin-right: 0;
         }
 
         &.modal-previous {
+          font-size: 1.25rem;
            &::after {
              @include icon('chevron_left');
+             line-height: .6;
            }
          }
 
         &.modal-next {
+          font-size: 1.25rem;
           &::after {
             @include icon('chevron_right');
+            line-height: .6;
           }
         }
 
         &.modal-close {
+          font-size: 1.125rem;
           &::after {
             @include icon('close');
           }
