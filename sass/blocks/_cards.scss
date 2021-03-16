@@ -115,6 +115,20 @@
   }
 }
 
+.card-footer {
+  .round-grey1 {
+    background-color: $white;
+  }
+
+  .field--name-field-social-networks .field__item:first-child {
+    padding-left: 0;
+  }
+
+  a + .field--name-field-social-networks {
+    margin-left: .5rem;
+  }
+}
+
 .card-link-wrapper {
   text-decoration: none;
   color: $darkGrey;
