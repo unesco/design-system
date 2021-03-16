@@ -20,6 +20,13 @@ $list-text: (
       margin: 0;
     }
 
+    .field--name-field-title + .field--name-field-description {
+      margin-top: 1rem;
+      @include min-screen($screen-desktop) {
+        margin-top: 1.5rem;
+      }
+    }
+
     .field--name-field-ref-contents {
       margin-top: 2rem;
       @include min-screen($screen-tablet) {
