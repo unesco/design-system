@@ -142,8 +142,7 @@ $margin24: (
       }
 
       .media-legend,
-      .media-copyright,
-      .media-license {
+      .media-copyright {
         margin-left: 1.5rem;
         @include min-screen($screen-tablet) {
           margin-left: 2rem;
