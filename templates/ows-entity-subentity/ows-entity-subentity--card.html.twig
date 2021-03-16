@@ -15,10 +15,11 @@
 #}
 {% if content %}
   {% if unesco_link_content %}
-    <a {{ unesco_link_attributes }}>
+    <a {{ attributes.addClass('card') }}>
+  {% else %}
+    <div{{ attributes.addClass('card') }}>
   {% endif %}
 
-  <div{{ attributes.addClass('card') }}>
     {{ content.unesco_common_card_link }}
     {{ content.unesco_common_card_hero_image }}
     <div class="card-body">
@@ -26,9 +27,10 @@
       {{ content.unesco_common_card_body }}
     </div>
     {{ content.unesco_common_card_footer }}
-   </div>
 
   {% if unesco_link_content %}
     </a>
+  {% else %}
+   </div>
   {% endif %}
 {% endif %}
