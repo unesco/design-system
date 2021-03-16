@@ -38,8 +38,13 @@
       }
 
       .media--copyright {
+        margin-top: .875rem;
         display: inline-block;
         color: $grey4;
+      }
+
+      .media--legend + .media--copyright {
+        margin-top: 0;
       }
 
       .copyright-sigle {
