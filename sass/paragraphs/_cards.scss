@@ -2,6 +2,7 @@
 
   &--type--cards-landing {
     @include border-top;
+    margin-bottom: -2rem;
 
     .field--name-field-title {
       font-weight: 800;
