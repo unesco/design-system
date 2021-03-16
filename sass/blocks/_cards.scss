@@ -122,8 +122,19 @@
       color: $white;
     }
   }
-}
+  .card-title {
+    margin-bottom: .5rem;
+  }
 
+  .card-body {
+    margin-bottom: 0;
+  }
+
+  .card-footer {
+    padding-top: 0;
+  }
+
+}
 
 .card-footer {
   display: flex;
