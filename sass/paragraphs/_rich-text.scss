@@ -1,5 +1,6 @@
 .paragraph {
   &--type--rich-text {
+    @include border-top;
     @include mb-block;
     .field--name-field-title {
       font-weight: 800;
