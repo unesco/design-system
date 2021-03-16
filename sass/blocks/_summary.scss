@@ -40,11 +40,11 @@
           &::before {
             content: "";
             display: inline-block;
-            width: .313rem;
-            height: .313rem;
+            width: .375rem;
+            height: .375rem;
             position: absolute;
             left: 0;
-            top: .5rem;
+            top: .45rem;
             line-height: inherit;
             vertical-align: middle;
             border-radius: 50%;
@@ -55,7 +55,7 @@
             content: "";
             display: block;
             position: absolute;
-            left: .1rem;
+            left: .125rem;
             top: 1.125rem;
             width: .125rem;
             height: 100%;
