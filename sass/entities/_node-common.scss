@@ -119,6 +119,42 @@ $margin24: (
       margin-bottom: 3rem;
     }
   }
+
+  &.media-large {
+    .media-wrapper {
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .field--name-field-ref-image {
+        .field--name-field-media-image {
+          height: 23.5rem;
+
+          @include min-screen($screen-tablet) {
+            height: 32rem;
+          }
+
+          @include min-screen($screen-desktop) {
+            height: 44rem;
+          }
+        }
+      }
+
+      .media-legend,
+      .media-copyright,
+      .media-license {
+        margin-left: 1.5rem;
+        @include min-screen($screen-tablet) {
+          margin-left: 2rem;
+        }
+
+        @include min-screen($screen-desktop) {
+          margin-left: 6rem;
+        }
+      }
+    }
+  }
 }
 
 .node--type-page,
