@@ -134,7 +134,7 @@ $taxonomy-header-name: (
     padding: 2rem 0;
     margin-bottom: 3.5rem;
     @include min-screen($screen-tablet) {
-      padding-bottom: 5rem;
+      padding: 5rem 0;
       margin-bottom: 6rem;
     }
 
