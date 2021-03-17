@@ -243,8 +243,7 @@
   .content {
     position: relative;
 
-    &:focus,
-    &:hover {
+    &:focus {
       .sdg-tooltip {
         display: block;
       }
@@ -264,8 +263,12 @@
     border-radius: 0.5rem;
     border: 1px solid $white;
 
-    &:focus,
     &:hover {
+      text-decoration: none;
+      border-color: $grey3;
+    }
+
+    &:focus {
       text-decoration: none;
       border-color: $grey3;
 
