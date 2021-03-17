@@ -2,6 +2,7 @@
 
   &--type--cards-landing {
     @include border-top;
+    margin-bottom: -2rem;
 
     .field--name-field-title {
       font-weight: 800;
@@ -24,16 +25,6 @@
 
     .card {
       margin-bottom: 2rem;
-    }
-
-    .field--name-field-social-networks {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 -0.25rem;
-
-      > .field__item {
-        padding: 0 0.25rem;
-      }
     }
 
     .card-footer {

@@ -1,7 +1,8 @@
 .card {
   position: relative;
   overflow: hidden;
-  &-height-fixed  {
+
+  &-height-fixed {
     @include min-screen($screen-tablet) {
       min-height: 26.5rem;
       height: 26.5rem;
@@ -25,6 +26,7 @@
 .card-text {
   font-size: 1rem;
   line-height: 1.3;
+
   p {
     font-size: 1rem;
     line-height: 1.3;
@@ -49,6 +51,7 @@
   position: relative;
   background-size: cover;
   background-position: center center;
+
   &::before {
     content: '';
     position: absolute;
@@ -58,10 +61,12 @@
     opacity: .4;
     z-index: 0;
   }
+
   .card-body, .card-header, .card-footer {
     position: relative;
     z-index: 1;
     color: $white;
+
     .card-title {
       color: $white;
     }
@@ -77,11 +82,13 @@
   text-align: center;
   object-fit: cover;
   object-position: center center;
+
   i {
     font-size: 3.5rem;
     line-height: 7.5rem;
     color: $white;
   }
+
   &.no-bg {
     background-color: transparent;
   }
@@ -90,6 +97,7 @@
 .card-hero {
   display: flex;
   flex-direction: column;
+
   .card-content {
     position: relative;
   }
@@ -107,11 +115,65 @@
     width: 4.5rem;
     height: 4.5rem;
     margin-bottom: 1rem;
+
     i {
       font-size: 2.5rem;
       line-height: 4.5rem;
       color: $white;
     }
+  }
+  .card-title {
+    margin-bottom: .5rem;
+  }
+
+  .card-body {
+    margin-bottom: 0;
+  }
+
+  .card-footer {
+    padding-top: 0;
+  }
+
+}
+
+.card-footer {
+  display: flex;
+
+  .round-grey1 {
+    background-color: $white;
+  }
+
+  .field--name-field-social-networks {
+    display: flex;
+    flex-wrap: wrap;
+
+    > .field__item {
+      padding: 0 0.25rem;
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+
+  a + .field--name-field-social-networks,
+  .field--name-field-email + .field--name-field-social-networks{
+    margin-left: .5rem;
+  }
+}
+
+.card-link-wrapper {
+  text-decoration: none;
+  color: $darkGrey;
+
+  &:hover {
+    text-decoration: none;
+    color: $darkGrey;
+
+    .card-arrow {
+      animation: arrow-slide-right .4s both;
+    }
+
   }
 }
 
@@ -123,8 +185,8 @@
 
     .card:not(.card-contact) {
       .card-title {
-      font-size: 1.75rem;
-    }
+        font-size: 1.75rem;
+      }
     }
 
     .card-body {
@@ -134,12 +196,14 @@
     .card-hero {
       flex-direction: row-reverse;
       align-items: stretch;
+
       .card-img-top {
         width: 45%;
         max-height: none;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
       }
+
       .card-footer {
         max-width: 25.25rem;
         position: absolute;
@@ -156,7 +220,7 @@
   flex-wrap: wrap;
   margin: 0 -0.5rem -1rem;
 
-  >.field__item {
+  > .field__item {
     padding: 0 0.5rem 1rem;
 
     &:nth-of-type(4n),
@@ -179,8 +243,7 @@
   .content {
     position: relative;
 
-    &:focus,
-    &:hover {
+    &:focus {
       .sdg-tooltip {
         display: block;
       }
@@ -200,12 +263,16 @@
     border-radius: 0.5rem;
     border: 1px solid $white;
 
-    &:focus,
     &:hover {
       text-decoration: none;
       border-color: $grey3;
+    }
 
-      &+.sdg-tooltip {
+    &:focus {
+      text-decoration: none;
+      border-color: $grey3;
+
+      & + .sdg-tooltip {
         display: block;
       }
     }

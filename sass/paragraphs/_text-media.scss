@@ -182,10 +182,16 @@
         }
 
         .field--name-field-links {
-          margin-top: 2.125rem;
+          display: flex;
+          flex-wrap: wrap;
+          margin: 2rem -.25rem 0;
+
+          .field__item {
+            margin: .25rem;
+          }
 
           @include min-screen($screen-desktop) {
-            margin-top: 3rem;
+            margin: 3rem -.25rem 0;
           }
         }
 

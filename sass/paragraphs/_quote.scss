@@ -58,7 +58,7 @@ $quote-article-text: (
             @include icon('format_quote');
             line-height: 4rem;
             color: $white;
-            font-size: 2rem;
+            font-size: 2.5rem;
           }
         }
 
@@ -74,6 +74,11 @@ $quote-article-text: (
         }
       }
 
+      .quote-person-text {
+        display: flex;
+        flex-direction: column;
+      }
+
       .name,
       .function {
         @include responsive(font-size, $quote-infos);
@@ -86,10 +91,6 @@ $quote-article-text: (
     }
 
     &.position-center {
-
-      .row {
-        margin: 1rem 0 3.5rem 0;
-      }
 
       @include min-screen($screen-desktop) {
         position: initial;
@@ -172,11 +173,14 @@ $quote-article-text: (
           }
 
         }
+      }
 
-        .quote-person-text {
-          display: flex;
-          flex-direction: column;
+      &.position-center {
+
+        .row {
+          margin: 1rem 0 3.5rem 0;
         }
+
       }
     }
   }

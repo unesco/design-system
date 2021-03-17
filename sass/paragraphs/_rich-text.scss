@@ -1,7 +1,5 @@
 .paragraph {
   &--type--rich-text {
-    @include border-top;
-    @include mb-block;
     .field--name-field-title {
       font-weight: 800;
       @include responsive(font-size, $section-title);
@@ -37,4 +35,28 @@
       }
     }
   }
+}
+
+
+// Homepage/ landing override
+
+.node--type-homepage,
+.node--type-landing {
+
+  .paragraph--type--rich-text {
+    @include border-top;
+  }
+
+}
+
+
+// Article page override
+
+.node--type-sequenced-page,
+.node--type-page {
+
+  .paragraph--type--rich-text {
+    @include mb-block;
+  }
+
 }
