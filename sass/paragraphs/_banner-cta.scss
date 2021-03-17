@@ -242,5 +242,18 @@
 
       }
     }
+
+    &.bg-grey1 {
+
+      .banner-cta-texts,
+      .banner-cta-texts .banner-cta-title {
+        color:  $darkGrey;
+      }
+
+      .btn.btn-secondary {
+        @extend .btn-primary;
+      }
+
+    }
   }
 }
