@@ -75,6 +75,7 @@ function unesco_preprocess_html(&$variables) {
   $theme_path = drupal_get_path('theme', 'unesco');
   $route_match = \Drupal::routeMatch();
   $route_name = $route_match->getRouteName();
+  $settings = \Drupal::service('settings');
 
   // Class for 403/403 pages.
   if (preg_match('/^unesco_common.page_/', $route_name)) {
@@ -138,6 +139,10 @@ function unesco_preprocess_html(&$variables) {
     ];
 
     $variables['page']['#attached']['html_head'][] = [$meta, $meta_data['rel']];
+  }
+
+  if (!empty($settings) && !empty($settings->get('site_satellite')) && $settings->get('site_satellite')) {
+    $variables['attributes']['class'][] = 'site-satellite';
   }
 }
 
