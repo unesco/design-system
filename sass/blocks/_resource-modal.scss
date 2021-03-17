@@ -13,6 +13,7 @@ body.is-fixed {
   z-index: 999!important;
   background-color: $darkGrey!important;
   border-radius: 0!important;
+  border: none!important;
   font-family: $font-family-base;
 
   .ui-dialog-titlebar {
