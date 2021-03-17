@@ -1156,12 +1156,17 @@ header.header-mini-light {
       height: 2rem;
       background-image: url('../images/logo-blue.svg');
       background-size: contain;
+      background-position: center center;
       background-repeat: no-repeat;
       margin-right: 1rem;
     }
 
     img {
       display: none;
+    }
+
+    .site-name {
+      width: 100%;
     }
   }
 
