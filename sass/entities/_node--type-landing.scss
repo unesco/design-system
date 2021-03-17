@@ -154,3 +154,19 @@ $padding-top: (
   }
 
 }
+
+.node--type-homepage,
+.node--type-landing {
+
+  .field--name-field-paragraphs {
+
+    .field--name-field-title,
+    .field--name-field-description {
+      max-width: 51.5rem;
+    }
+
+  }
+
+}
+
+
