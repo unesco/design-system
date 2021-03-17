@@ -74,6 +74,11 @@ $quote-article-text: (
         }
       }
 
+      .quote-person-text {
+        display: flex;
+        flex-direction: column;
+      }
+
       .name,
       .function {
         @include responsive(font-size, $quote-infos);
@@ -167,11 +172,6 @@ $quote-article-text: (
             display: none;
           }
 
-        }
-
-        .quote-person-text {
-          display: flex;
-          flex-direction: column;
         }
       }
 
