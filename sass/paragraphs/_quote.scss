@@ -29,6 +29,12 @@ $quote-article-text: (
       }
     }
 
+    >.row {
+      @include max-screen($screen-tablet - 1) {
+        margin: 0
+      }
+    }
+
     .rich-text {
       @include responsive(font-size, $quote-text);
       font-weight: 400;
