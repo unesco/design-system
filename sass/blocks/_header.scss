@@ -1362,6 +1362,7 @@ header {
           position: absolute;
           left: 0;
           top: 0;
+          z-index: 1;
 
           .site-logo {
             max-width: 16.375rem;
@@ -1408,6 +1409,12 @@ header {
           .menu-level-0 > .nav-item.show .nav-link::before {
             bottom: 0;
             height: 1px;
+          }
+
+          .dropdown-toggle {
+            &::before {
+              width: calc(100% - 3.625rem);
+            }
           }
         }
       }
