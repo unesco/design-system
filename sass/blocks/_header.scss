@@ -148,12 +148,18 @@ header {
 
   .menu-open & {
     min-height: 100vh;
-    height: auto;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     z-index: 99;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+
+    .block-unesco-commonlanguage-blocklanguage-interface {
+      padding-bottom: 2rem;
+    }
   }
 
   .header {
