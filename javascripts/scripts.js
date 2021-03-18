@@ -486,7 +486,7 @@ function isMobile () {
           slidesToShow: 4,
           dots: false,
           arrows: true,
-          infinite: true,
+          infinite: false,
           adaptiveHeight: false,
           variableWidth: true,
           responsive: [
