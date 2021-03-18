@@ -1,9 +1,15 @@
 header {
   .header,
   .sub-header {
-    max-width: 78.25rem;
+    max-width: 83rem;
     margin-left: auto;
     margin-right: auto;
+
+    @include min-screen($screen-desktop-xxl) {
+      >.row {
+        margin: 0;
+      }
+    }
   }
 
   &.navbar {
@@ -1350,11 +1356,17 @@ header {
 .site-satellite:not(.header-sticky) {
   @include min-screen($screen-desktop) {
     header {
-      .block-unesco-common-site-branding .site-logo {
-        max-width: 16.375rem;
-        position: absolute;
-        left: 0;
-        top: 0;
+      .block-unesco-common-site-branding {
+        a {
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+
+          .site-logo {
+            max-width: 16.375rem;
+          }
+        }
       }
 
       .region-header {
@@ -1383,7 +1395,8 @@ header {
         & +.menu--main {
           .menu-level-0 > .nav-item > .nav-link:focus::before,
           .menu-level-0 > .nav-item > .nav-link:hover::before {
-            bottom: -3.75rem;
+            bottom: 0;
+            height: 1px;
           }
         }
       }
