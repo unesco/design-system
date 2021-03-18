@@ -1383,7 +1383,7 @@ header {
           order: 2;
         }
 
-        >.menu--main .main-navigation {
+        >.menu--main >.main-navigation {
           max-width: calc(100% - 16.375rem);
           margin-top: 0.25rem;
           margin-bottom: -0.25rem;
