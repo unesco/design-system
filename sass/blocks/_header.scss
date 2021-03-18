@@ -18,6 +18,14 @@ header {
     }
   }
 
+  .btn-secondary .bg-primary {
+    &:hover,
+    &:focus {
+      background-color: $Blue3;
+      border-color: $Blue3;
+    }
+  }
+
   .transparent-header & {
     position: absolute;
     left: 0;
@@ -42,6 +50,14 @@ header {
           background-color: $Blue2;
           border-color: $Blue2;
         }
+      }
+
+      .btn-secondary {
+        &:focus,
+        &:hover {
+          background-color: $Blue3;
+          border-color: $Blue3;
+        } 
       }
     }
 
