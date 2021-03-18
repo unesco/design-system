@@ -215,6 +215,7 @@ header {
 
     .site-name-wrapper {
       padding-left: 0;
+      position: static;
 
       .header-sticky & {
         display: none;
