@@ -1382,6 +1382,16 @@ header {
           margin-top: 0.8rem;
           order: 2;
         }
+
+        >.menu--main .main-navigation {
+          max-width: calc(100% - 16.375rem);
+          margin-top: 0.25rem;
+          margin-bottom: -0.25rem;
+  
+          >ul.menu {
+            justify-content: flex-end;
+          }
+        }
       }
 
       .menu--main {
@@ -1398,16 +1408,6 @@ header {
             bottom: 0;
             height: 1px;
           }
-        }
-      }
-
-      .menu--main .main-navigation {
-        max-width: calc(100% - 16.375rem);
-        margin-top: 0.25rem;
-        margin-bottom: -0.25rem;
-
-        >ul.menu {
-          justify-content: flex-end;
         }
       }
     }
