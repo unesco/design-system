@@ -1404,7 +1404,8 @@ header {
       .site-name-wrapper {
         & +.menu--main {
           .menu-level-0 > .nav-item > .nav-link:focus::before,
-          .menu-level-0 > .nav-item > .nav-link:hover::before {
+          .menu-level-0 > .nav-item > .nav-link:hover::before,
+          .menu-level-0 > .nav-item.show .nav-link::before {
             bottom: 0;
             height: 1px;
           }
