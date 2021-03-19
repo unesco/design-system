@@ -190,6 +190,12 @@
   }
 
   &--type--documents {
+    @extend .border-top;
+
+    @include min-screen($screen-desktop) {
+      padding-bottom: 2.5rem;
+    }
+
     > .field--name-field-title {
       font-weight: 800;
       @include responsive(font-size, $section-title);
