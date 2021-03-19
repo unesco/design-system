@@ -246,6 +246,17 @@ $list-text: (
     }
   }
 
+  &--type--content-list-custom-landing {
+    &.hide-date {
+      // This line is only necessary to prevent using !important.
+      .field__item article.node a .wrapper {
+        .field--name-created {
+          display: none;
+        }
+      }
+    }
+  }
+
   &--type--content-list-custom-article {
     padding-bottom: 0;
 
