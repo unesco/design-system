@@ -136,7 +136,7 @@ $margin24: (
           }
 
           @include min-screen($screen-desktop) {
-            height: 44rem;
+            height: auto;
           }
         }
       }
