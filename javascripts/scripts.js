@@ -7,9 +7,9 @@
 
 // Add your custom scripts here, using Drupal.behaviors
 
-function isMobile () {
-  return window.innerWidth <= 520;
-}
+  function isMobile() {
+    return window.innerWidth <= 520;
+  }
 
   Drupal.behaviors.reportMenu = {
     attach: function (context, settings) {
@@ -66,7 +66,7 @@ function isMobile () {
     attach: function (context, settings) {
       let dropdownLink = $('.navbar .dropdown-toggle');
 
-      dropdownLink.on('click', function(e) {
+      dropdownLink.on('click', function (e) {
         e.preventDefault();
         dropdownLink.not(this).parent().removeClass('show');
         dropdownLink.not(this).parent().find('.dropdown-menu').removeClass('show');
@@ -75,7 +75,7 @@ function isMobile () {
       });
 
       $('body').on('click', function (e) {
-        if (!dropdownLink.is(e.target) && dropdownLink.parent().has(e.target).length === 0  && dropdownLink.parent().find('.dropdown-menu').has(e.target).length === 0) {
+        if (!dropdownLink.is(e.target) && dropdownLink.parent().has(e.target).length === 0 && dropdownLink.parent().find('.dropdown-menu').has(e.target).length === 0) {
           $('.dropdown-menu').parent().removeClass('show');
           dropdownLink.parent().find('.dropdown-menu').removeClass('show');
         }
@@ -269,7 +269,7 @@ function isMobile () {
 
       let dropdownDocument = $('.paragraph--type--document .dropdown-toggle');
 
-      $(document).click(function(){
+      $(document).click(function () {
         dropdownDocument.next('.dropdown-menu').removeClass('show');
       });
 
@@ -514,6 +514,23 @@ function isMobile () {
           ]
         });
       });
+    }
+  };
+
+  Drupal.behaviors.dropdownFAQ = {
+    attach: function (context, settings) {
+      let dropdownFAQTitle = $('.faq-wrapper .faq-title');
+
+      dropdownFAQTitle.each(function () {
+
+        $(this).unbind('click').on('click', function (e) {
+          e.preventDefault();
+          $(this).toggleClass('active-item');
+          $(this).next('.faq-text').slideToggle();
+        });
+
+      });
+
     }
   };
 
