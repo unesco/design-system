@@ -17,7 +17,7 @@
 <body class="unesco-style-guide">
 <header>
 
-  <a href="#introduction" class="header_logo" >
+  <a href="#introduction" class="header_logo">
     <img src="../assets/images/logo-blue.svg" width="200px" alt="unesco logo">
   </a>
 
@@ -30,6 +30,10 @@
       <li><a href="#buttons">Buttons</a></li>
       <li><a href="#tags">Tags / Round / Arrow</a></li>
       <li><a href="#cards">Cards</a></li>
+      <li><a href="#cta">Cta banner</a></li>
+      <li><a href="#alert">Alert / Cookies</a></li>
+      <li><a href="#list">List</a></li>
+      <li><a href="#text">Text</a></li>
     </ul>
   </nav>
 
@@ -77,43 +81,91 @@
   <section id="typography" class="bs-docs-section">
     <h2 class="mb-4">Typography</h2>
 
-    <div class="typo_section">
-      <div class="row">
-        <div class="col-4">
-          <h1>Title H1</h1>
-          <h2>Title H2</h2>
-          <h3>Title H3</h3>
-          <h4>Title H4</h4>
-          <h5>Title H5</h5>
-          <h6>Title H6</h6>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="bs-component">
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
+          <br/>
+          <h3>
+            Heading
+            <small class="text-muted">with muted text</small>
+          </h3>
+          <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
         </div>
-
-        <div class="col-4">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus orci gravida, egestas quam sit amet,
-            venenatis turpis. Morbi bibendum ex non ullamcorper lobortis. Integer at ornare lacus, sed tristique metus.
-            Vivamus ac dolor quis leo finibus sodales a nec metus. Nulla non bibendum neque, quis pharetra nulla. Donec
-            consequat lectus nulla. Quisque id diam massa.
-          </p>
-        </div>
-
-        <div class="col-2">
-          <ul>
-            <li>list 01</li>
-            <li>list 02</li>
-            <li>list 03</li>
-            <li>list 04</li>
-            <li>list 05</li>
+      </div>
+      <div class="col-lg-4">
+        <div class="bs-component">
+          <h2>Example body text</h2>
+          <p>Nullam quis risus eget vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes,
+            nascetur
+            ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+          <p><small>This line of text is meant to be treated as fine print.</small></p>
+          <p>The following is <strong>rendered as bold text</strong>.</p>
+          <p>The following is <span class="font-weight-bolder">rendered font-weight-bolder</span>.</p>
+          <p>The following is <span class="font-weight-lighter">rendered font-weight-lighter</span>.</p>
+          <p>The following is <a href="#">a link</a>.</p>
+          <p>The following is <a href="#" class="text-decoration-none">link with text-decoration-none</a>.</p>
+          <p>The following is <em>rendered as italicized text</em>.</p>
+          <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+          <h3>Unstyled list</h3>
+          <ul class="list-unstyled">
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing elit</li>
+            <li>Integer molestie lorem at massa</li>
+            <li>Facilisis in pretium nisl aliquet</li>
+            <li>Nulla volutpat aliquam velit
+              <ul>
+                <li>Phasellus iaculis neque</li>
+                <li>Purus sodales ultricies</li>
+                <li>Vestibulum laoreet porttitor sem</li>
+                <li>Ac tristique libero volutpat at</li>
+              </ul>
+            </li>
+            <li>Faucibus porta lacus fringilla vel</li>
+            <li>Aenean sit amet erat nunc</li>
+            <li>Eget porttitor lorem</li>
           </ul>
+          <h3>Inline list</h3>
+          <ul class="list-inline">
+            <li class="list-inline-item">Lorem ipsum</li>
+            <li class="list-inline-item">Phasellus iaculis</li>
+            <li class="list-inline-item">Nulla volutpat</li>
+          </ul>
+          <h3>Code</h3>
+          <p>
+            For example, <code>&lt;section&gt;</code> should be wrapped as inline.
+          </p>
+          <h4>Code block</h4>
+          <pre>
+      <code tabindex="0">
+      &lt;p&gt;Sample text here...&lt;/p&gt;
+      &lt;p&gt;And another line of sample text here...&lt;/p&gt;
+      </code>
+    </pre>
+          <h4>Variables</h4>
+          <p><var>y</var> = <var>m</var><var>x</var> + <var>b</var></p>
+          <h4>Keyboard</h4>
+          <p>To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+            To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd></p>
+          <h4>Sample</h4>
+          <p><samp>This text is meant to be treated as sample output from a computer program.</samp></p>
         </div>
-
-        <div class="col-2">
-          <ol>
-            <li>list 01</li>
-            <li>list 02</li>
-            <li>list 03</li>
-            <li>list 04</li>
-            <li>list 05</li>
-          </ol>
+      </div>
+      <div class="col-lg-4">
+        <div class="bs-component">
+          <h2>Emphasis classes</h2>
+          <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+          <p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p class="text-secondary">Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+          <p class="bg-dark text-warning py-3">Etiam porta sem malesuada magna mollis euismod.</p>
+          <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+          <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
       </div>
     </div>
@@ -371,11 +423,9 @@
 
   <section id="cards" class="bs-docs-section">
     <h2 class="mb-4">Cards</h2>
-
-
     <div class="row mb-4">
       <div class="col-lg-3 bs-component">
-        <div class="card mb-3">
+        <div class="card card-height-fixed mb-3">
           <div class="card-body">
             <div class="card-title">
               Unesdoc global knowledge library
@@ -388,7 +438,7 @@
         </div>
       </div>
       <div class="col-lg-3 bs-component">
-        <div class="card mb-3">
+        <div class="card card-height-fixed mb-3">
           <div class="card-body">
             <div class="card-circle">
               <i class="material-icons-sharp">folder</i>
@@ -403,7 +453,7 @@
         </div>
       </div>
       <div class="col-lg-3 bs-component">
-        <div class="card mb-3">
+        <div class="card card-height-fixed mb-3">
           <div class="card-body">
             <img class="card-circle"
                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Pano_bora-bora-07.jpg/750px-Pano_bora-bora-07.jpg"
@@ -418,7 +468,7 @@
         </div>
       </div>
       <div class="col-lg-3 bs-component">
-        <div class="card card-hero mb-3">
+        <div class="card card-height-fixed card-hero mb-3">
           <img
             src="https://images.pexels.com/photos/5484908/pexels-photo-5484908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             alt="" class="card-img-top">
@@ -431,7 +481,7 @@
         </div>
       </div>
       <div class="col-lg-3 bs-component">
-        <div class="card card-overlay mb-3"
+        <div class="card card-height-fixed card-overlay mb-3"
              style="background-image: url('https://images.pexels.com/photos/5484908/pexels-photo-5484908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
           <div class="card-body">
             <div class="card-title">
@@ -448,7 +498,7 @@
     </div>
     <div class="row mb-4">
       <div class="col-lg-6 bs-component">
-        <div class="card mb-3">
+        <div class="card card-height-fixed mb-3">
           <div class="card-body">
             <div class="card-title">
               Unesdoc global knowledge library
@@ -461,7 +511,7 @@
         </div>
       </div>
       <div class="col-lg-6 bs-component">
-        <div class="card mb-3">
+        <div class="card card-height-fixed mb-3">
           <div class="card-body">
             <div class="card-circle">
               <i class="material-icons-sharp">folder</i>
@@ -476,7 +526,7 @@
         </div>
       </div>
       <div class="col-lg-6 bs-component">
-        <div class="card mb-3">
+        <div class="card card-height-fixed mb-3">
           <div class="card-body">
             <img class="card-circle"
                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Pano_bora-bora-07.jpg/750px-Pano_bora-bora-07.jpg"
@@ -491,7 +541,7 @@
         </div>
       </div>
       <div class="col-lg-6 bs-component">
-        <div class="card card-hero mb-3">
+        <div class="card card-height-fixed card-hero mb-3">
           <img
             src="https://images.pexels.com/photos/5484908/pexels-photo-5484908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             alt="" class="card-img-top">
@@ -504,7 +554,7 @@
         </div>
       </div>
       <div class="col-lg-6 bs-component">
-        <div class="card card-overlay mb-3"
+        <div class="card card-height-fixed card-overlay mb-3"
              style="background-image: url('https://images.pexels.com/photos/5484908/pexels-photo-5484908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
           <div class="card-body">
             <div class="card-title">
@@ -520,7 +570,7 @@
     </div>
     <div class="row mb-4">
       <div class="col-lg-3 bs-component">
-        <div class="card mb-3">
+        <div class="card card-height-fixed mb-3">
           <div class="card-arrow"></div>
           <div class="card-body">
             <div class="card-title">
@@ -534,7 +584,7 @@
         </div>
       </div>
       <div class="col-lg-3 bs-component">
-        <div class="card mb-3">
+        <div class="card card-height-fixed mb-3">
           <div class="card-arrow"></div>
           <div class="card-body">
             <div class="card-circle">
@@ -550,7 +600,7 @@
         </div>
       </div>
       <div class="col-lg-3 bs-component">
-        <div class="card mb-3">
+        <div class="card card-height-fixed mb-3">
           <div class="card-arrow"></div>
           <div class="card-body">
             <img class="card-circle"
@@ -566,7 +616,7 @@
         </div>
       </div>
       <div class="col-lg-3 bs-component">
-        <div class="card card-hero mb-3">
+        <div class="card card-height-fixed card-hero mb-3">
           <div class="card-arrow"></div>
           <img
             src="https://images.pexels.com/photos/5484908/pexels-photo-5484908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -580,7 +630,7 @@
         </div>
       </div>
       <div class="col-lg-3 bs-component">
-        <div class="card card-overlay mb-3"
+        <div class="card card-height-fixed card-overlay mb-3"
              style="background-image: url('https://images.pexels.com/photos/5484908/pexels-photo-5484908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
           <div class="card-arrow"></div>
           <div class="card-body">
@@ -595,83 +645,6 @@
         </div>
       </div>
 
-    </div>
-    <div class="row mb-4">
-      <div class="col-lg-6 bs-component">
-        <div class="card mb-3">
-          <div class="card-arrow"></div>
-          <div class="card-body">
-            <div class="card-title">
-              Unesdoc global knowledge library
-            </div>
-            <p class="card-text">
-              UNESDOC is a key tool for enabling UNESCO’s mission.
-            </p>
-            <button class="btn btn-primary">Dolor sit</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 bs-component">
-        <div class="card mb-3">
-          <div class="card-arrow"></div>
-          <div class="card-body">
-            <div class="card-circle">
-              <i class="material-icons-sharp">folder</i>
-            </div>
-            <div class="card-title">
-              Unesdoc global knowledge library
-            </div>
-            <p class="card-text">
-              UNESDOC is a key tool for enabling UNESCO’s mission.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 bs-component">
-        <div class="card mb-3">
-          <div class="card-arrow"></div>
-          <div class="card-body">
-            <img class="card-circle"
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Pano_bora-bora-07.jpg/750px-Pano_bora-bora-07.jpg"
-                 alt="">
-            <div class="card-title">
-              Unesdoc global knowledge library
-            </div>
-            <p class="card-text">
-              UNESDOC is a key tool for enabling UNESCO’s mission.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 bs-component">
-        <div class="card card-hero mb-3">
-          <div class="card-arrow"></div>
-          <img
-            src="https://images.pexels.com/photos/5484908/pexels-photo-5484908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-            alt="" class="card-img-top">
-          <div class="card-body">
-            <div class="card-title">Unesdoc global knowledge library</div>
-            <p class="card-text">
-              UNESDOC is a key tool for enabling UNESCO’s mission.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 bs-component">
-        <div class="card card-overlay mb-3"
-             style="background-image: url('https://images.pexels.com/photos/5484908/pexels-photo-5484908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
-          <div class="card-arrow"></div>
-          <div class="card-body">
-            <div class="card-title">
-              Unesdoc global knowledge library
-            </div>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum tum. Quisque at velit nulla. In
-              elementum et sem vitae finibus.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="row mb-4">
       <div class="col-lg-3 bs-component">
@@ -1104,415 +1077,345 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="cta" class="bs-docs-section">
+    <h2 class="mb-4">CTA Banner</h2>
+
+    <div class="row">
+      <div class="col-lg-12 bs-component">
+        <div class="banner banner-grey mb-3">
+          <div class="banner-body">
+            <div class="banner-text">
+              <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
+            </div>
+          </div>
+          <div class="banner-arrow">
+            <div class="arrow-black"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 bs-component">
+        <div class="banner banner-green mb-3">
+          <div class="banner-body">
+            <div class="banner-image">
+              <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
+                      fill="white"/>
+              </svg>
+            </div>
+            <div class="banner-text">
+              <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
+            </div>
+          </div>
+          <div class="banner-arrow">
+            <div class="arrow-black"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 bs-component">
+        <div class="banner banner-blue mb-3">
+          <div class="banner-body">
+            <div class="banner-image">
+              <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
+                      fill="white"/>
+              </svg>
+            </div>
+            <div class="banner-text">
+              <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
+            </div>
+          </div>
+          <div class="banner-arrow">
+            <div class="arrow-black"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 bs-component">
+        <div class="banner banner-red mb-3">
+          <div class="banner-body">
+            <div class="banner-image">
+              <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
+                      fill="white"/>
+              </svg>
+            </div>
+            <div class="banner-text">
+              <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
+            </div>
+          </div>
+          <div class="banner-arrow">
+            <div class="arrow-black"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 bs-component">
+        <div class="banner banner-orange mb-3">
+          <div class="banner-body">
+            <div class="banner-image">
+              <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
+                      fill="white"/>
+              </svg>
+            </div>
+            <div class="banner-text">
+              <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
+            </div>
+          </div>
+          <div class="banner-arrow">
+            <div class="arrow-black"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 bs-component">
+        <div class="banner banner-purple mb-3">
+          <div class="banner-body">
+            <div class="banner-image">
+              <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
+                      fill="white"/>
+              </svg>
+            </div>
+            <div class="banner-text">
+              <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
+            </div>
+          </div>
+          <div class="banner-arrow">
+            <div class="arrow-black"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 bs-component">
+        <div class="banner banner-grey mb-3">
+          <div class="banner-body">
+            <div class="banner-image">
+              <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
+                      fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
+                      fill="white"/>
+              </svg>
+            </div>
+            <div class="banner-text">
+              <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
+            </div>
+          </div>
+          <div class="banner-arrow">
+            <div class="arrow-black"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </section>
 
+  <section id="alert" class="bs-docs-section">
+    <h2 class="mb-4">Alert / Cookies</h2>
 
-  <!-- CTA Banner
-      ================================================= -->
-
-  <div class="row">
-    <div class="col-lg-12">
-      <h1>CTA Banner</h1>
-    </div>
-  </div>
-
-  <br/>
-  <br/>
-
-  <div class="row">
-    <div class="col-lg-12 bs-component">
-      <div class="banner banner-grey mb-3">
-        <div class="banner-body">
-          <div class="banner-text">
-            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
-          </div>
-        </div>
-        <div class="banner-arrow">
-          <div class="arrow-black"></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-8 bs-component">
-      <div class="banner banner-green mb-3">
-        <div class="banner-body">
-          <div class="banner-image">
-            <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
-                    fill="white"/>
-            </svg>
-          </div>
-          <div class="banner-text">
-            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
-          </div>
-        </div>
-        <div class="banner-arrow">
-          <div class="arrow-black"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-6 bs-component">
-      <div class="banner banner-blue mb-3">
-        <div class="banner-body">
-          <div class="banner-image">
-            <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
-                    fill="white"/>
-            </svg>
-          </div>
-          <div class="banner-text">
-            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
-          </div>
-        </div>
-        <div class="banner-arrow">
-          <div class="arrow-black"></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 bs-component">
-      <div class="banner banner-red mb-3">
-        <div class="banner-body">
-          <div class="banner-image">
-            <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
-                    fill="white"/>
-            </svg>
-          </div>
-          <div class="banner-text">
-            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
-          </div>
-        </div>
-        <div class="banner-arrow">
-          <div class="arrow-black"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 bs-component">
-      <div class="banner banner-orange mb-3">
-        <div class="banner-body">
-          <div class="banner-image">
-            <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
-                    fill="white"/>
-            </svg>
-          </div>
-          <div class="banner-text">
-            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
-          </div>
-        </div>
-        <div class="banner-arrow">
-          <div class="arrow-black"></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 bs-component">
-      <div class="banner banner-purple mb-3">
-        <div class="banner-body">
-          <div class="banner-image">
-            <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
-                    fill="white"/>
-            </svg>
-          </div>
-          <div class="banner-text">
-            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
-          </div>
-        </div>
-        <div class="banner-arrow">
-          <div class="arrow-black"></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 bs-component">
-      <div class="banner banner-grey mb-3">
-        <div class="banner-body">
-          <div class="banner-image">
-            <svg width="70" height="81" viewBox="0 0 70 81" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M10.2461 1.74609L68.4123 0.879171L69.4453 70.1836L65.1206 70.2481L65.0837 67.7729L66.9332 67.7454L65.9741 3.39122L12.7581 4.18436L12.8789 12.287L10.4037 12.3239L10.2461 1.74609Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M0.75 12.084L58.4891 4.99452L66.9361 73.79L9.19703 80.8795L0.75 12.084ZM3.50866 14.2393L11.3523 78.1208L64.1774 71.6347L56.3338 7.75318L3.50866 14.2393Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M64.0486 60.428L8.76652 67.2158L8.46484 64.7588L63.7469 57.971L64.0486 60.428Z" fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M46.4886 16.4436C44.6228 16.6727 43.2959 18.371 43.525 20.2368C43.7541 22.1026 45.4524 23.4294 47.3182 23.2003C49.184 22.9712 50.5108 21.273 50.2817 19.4072C50.0526 17.5413 48.3544 16.2145 46.4886 16.4436ZM41.0681 20.5385C40.6723 17.3157 42.9641 14.3823 46.1869 13.9866C49.4097 13.5909 52.343 15.8827 52.7387 19.1055C53.1344 22.3282 50.8426 25.2616 47.6199 25.6573C44.3971 26.053 41.4638 23.7612 41.0681 20.5385Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M31.7932 26.2435L45.8806 30.3359L45.19 32.713L43.1131 32.1097L44.6621 44.7253L46.5049 44.499L46.8065 46.956L22.2367 49.9728L21.935 47.5158L23.7778 47.2895L22.2288 34.674L20.3595 35.7618L19.1144 33.6223L31.7932 26.2435ZM24.5565 33.3193L26.2348 46.9879L29.9202 46.5353L28.048 31.2873L24.5565 33.3193ZM30.3757 29.9326L32.3772 46.2337L36.0627 45.7811L34.0612 29.4801L32.1215 28.9166L30.3757 29.9326ZM36.6474 30.2314L38.5197 45.4795L42.2051 45.0269L40.5268 31.3584L36.6474 30.2314Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M25.1947 40.8344C17.6025 44.0001 12.0044 49.7384 8.51849 56.7111L6.30434 55.6042C10.0247 48.1626 16.0405 41.9694 24.242 38.5496L25.1947 40.8344Z"
-                    fill="white"/>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M41.734 38.805C49.8666 40.04 56.6866 44.2535 61.7558 50.1758L63.6364 48.5661C58.2263 42.2456 50.8908 37.6917 42.1056 36.3576L41.734 38.805Z"
-                    fill="white"/>
-            </svg>
-          </div>
-          <div class="banner-text">
-            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo convallis leo arcu.</h6>
-          </div>
-        </div>
-        <div class="banner-arrow">
-          <div class="arrow-black"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <br/>
-  <br/>
-
-
-  <!-- Info bar
-      ================================================= -->
-
-  <div class="row">
-    <div class="col-lg-12">
-      <h1>Alert / Info Bar</h1>
-    </div>
-  </div>
-
-  <br/>
-  <br/>
-
-  <div class="row">
-    <div class="col-lg-12 bs-component">
-      <div class="alert alert-dark" role="alert">
-        <i class="material-icons-sharp">error_outline</i>
-        This is Bootstrap alert
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-12 bs-component">
-      <div class="custom-alert" role="alert">
-        <i class="material-icons-sharp">error_outline</i>
-        This is Custom Infos alert for responsive
-      </div>
-    </div>
-  </div>
-
-  <br/>
-  <br/>
-  <br/>
-
-  <!-- Info bar
-      ================================================= -->
-
-  <div class="row">
-    <div class="col-lg-12">
-      <h1>Cookies</h1>
-    </div>
-  </div>
-
-  <br/>
-  <br/>
-
-  <div class="row">
-    <div class="col-lg-12 bs-component">
-      <div class="cookies" role="alert">
-        <div class="cookies-content">
-          En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour permettre d’établir
-          des statistiques de visites.
-          <a href="#">En savoir plus</a>
-        </div>
-        <div class="cookies-actions">
-          <button class="btn btn-primary mr-3">J'accepte</button>
-          <button class="btn btn-outline-primary">Je refuse</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <br/>
-  <br/>
-  <br/>
-
-
-  <!-- List
-     ================================================= -->
-
-  <div class="row">
-    <div class="col-lg-12">
-      <h1>List Group</h1>
-    </div>
-  </div>
-
-  <br/>
-  <br/>
-
-  <div class="row">
-    <div class="col-lg-3 bs-component">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-    </div>
-    <div class="col-lg-3 bs-component">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <i class="material-icons-sharp icon-business mr-3">add_task</i>
-          Cras justo odio
-        </li>
-        <li class="list-group-item">
-          <i class="material-icons-sharp icon-business mr-3">emoji_objects</i>
-          Dapibus ac facilisis in
-        </li>
-        <li class="list-group-item">
-          <i class="material-icons-sharp icon-business mr-3">build</i>
-          Morbi leo risus
-        </li>
-        <li class="list-group-item">
-          <i class="material-icons-sharp icon-business mr-3">people</i>
-          Porta ac consectetur ac
-        </li>
-        <li class="list-group-item">
-          <i class="material-icons-sharp icon-business mr-3">list</i>
-          Vestibulum at eros
-        </li>
-      </ul>
-    </div>
-    <div class="col-lg-3 bs-component">
-      <ul class="list-group">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-    </div>
-    <div class="col-lg-3 bs-component">
-      <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action active">
-          Cras justo odio
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <br/>
-  <br/>
-  <br/>
-
-
-  <!-- Typography
-      ================================================== -->
-  <div class="bs-docs-section">
     <div class="row">
-      <div class="col-lg-12">
-        <div class="page-header">
-          <h1 id="typography">Typography</h1>
+      <div class="col-lg-12 bs-component mb-4">
+        <div class="alert alert-dark" role="alert">
+          <i class="material-icons-sharp">error_outline</i>
+          This is Bootstrap alert
+        </div>
+      </div>
+      <div class="col-lg-12 bs-component mb-4">
+        <div class="custom-alert" role="alert">
+          <i class="material-icons-sharp">error_outline</i>
+          This is Custom Infos alert for responsive
+        </div>
+      </div>
+      <div class="col-lg-12 bs-component mb-4">
+        <div class="cookies" role="alert">
+          <div class="cookies-content">
+            En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour permettre d’établir
+            des statistiques de visites.
+            <a href="#">En savoir plus</a>
+          </div>
+          <div class="cookies-actions">
+            <button class="btn btn-primary mr-3">J'accepte</button>
+            <button class="btn btn-outline-primary">Je refuse</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Headings -->
-    <br/>
-    <br/>
+  </section>
+
+  <section id="list" class="bs-docs-section">
+    <h2 class="mb-4">List</h2>
+
     <div class="row">
-      <div class="col-lg-12 bs-component">
+      <div class="col-lg-3 bs-component mb-4">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 bs-component mb-4">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <i class="material-icons-sharp icon-business mr-3">add_task</i>
+            Cras justo odio
+          </li>
+          <li class="list-group-item">
+            <i class="material-icons-sharp icon-business mr-3">emoji_objects</i>
+            Dapibus ac facilisis in
+          </li>
+          <li class="list-group-item">
+            <i class="material-icons-sharp icon-business mr-3">build</i>
+            Morbi leo risus
+          </li>
+          <li class="list-group-item">
+            <i class="material-icons-sharp icon-business mr-3">people</i>
+            Porta ac consectetur ac
+          </li>
+          <li class="list-group-item">
+            <i class="material-icons-sharp icon-business mr-3">list</i>
+            Vestibulum at eros
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 bs-component mb-4">
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 bs-component mb-4">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active">
+            Cras justo odio
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">Morbi leo risus
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="text" class="bs-docs-section">
+    <h2 class="mb-4">Text</h2>
+
+    <div class="row">
+      <div class="col-lg-12 mb-4 bs-component">
         <div class="page-title mb-1">
           Page Title responsive
         </div>
@@ -1546,7 +1449,7 @@
           Start reading <i class="material-icons-sharp">arrow_forward</i>
         </button>
       </div>
-      <div class="col-lg-6 bs-component">
+      <div class="col-lg-6 mb-4 bs-component">
         <h3 class="section-title section-title-featured mb-3">
           <i class="material-icons-sharp">grade</i>
           Featured
@@ -1559,12 +1462,7 @@
           Start reading <i class="material-icons-sharp">arrow_forward</i>
         </button>
       </div>
-    </div>
-    <br/>
-    <hr>
-    <br/>
-    <div class="row">
-      <div class="col-lg-8 bs-component mb-4">
+      <div class="col-lg-8 bs-component mt-4 mb-4">
         <p class="section-text text-primary">
           News
           <i class="material-icons-sharp">chevron_right</i>
@@ -1592,285 +1490,66 @@
           </a>
         </div>
       </div>
-    </div>
-    <br/>
-    <hr>
-    <br/>
-    <div class="row">
-      <div class="col-lg-6 bs-component mb-4">
+      <div class="col-lg-6 bs-component mt-4 mb-4">
         <blockquote class="blockquote">
           <p class="mb-0">"Since wars begin in the minds of men and women, it is in the minds of men and women that
             the defences of peace must beconstructed"</p>
           <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
         </blockquote>
       </div>
-    </div>
-    <br/>
-    <hr>
-    <br/>
-
-    <div class="bs-docs-section">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="page-header">
-            <h1 id="richtext">Rich Text</h1>
-          </div>
-        </div>
+      <div class="col-lg-8 mb-4 mt-4 bs-component">
+        <h4> < p > </h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum volutpat fringilla.
+          Vestibulum libero metus, <b>ullamcorper</b> non dolor vehicula, cursus lobortis dui.<b>
+          <a href="" class="link">Aliquam
+            fermentum</a></b> Curabitur malesuada. 
+          Quisque porta justo non lobortis pulvinar. Aenean in rutrum ante. <b>Aliquam sollicitudin fringilla dui
+          nec</b> dapibus.
+          Donec ac consequat nulla, at sagittis justo. metus id aliquet eleifend, purus sem
+          porttitor enim,
+          <a href="#" class="link">elem entugm lorem arcupolMag</a> ligula ac sapien.
+          Aenean hendrerit non metus ut accumsan.
+        </p>
       </div>
-
-      <br/>
-      <br/>
-
-      <div class="row">
-        <div class="col-lg-8 mb-4 bs-component">
-          <h4> < p > </h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum volutpat fringilla.
-            Vestibulum libero metus, <b>ullamcorper</b> non dolor vehicula, cursus lobortis dui.<b>
-            <a href="" class="link">Aliquam
-              fermentum</a></b> Curabitur malesuada. 
-            Quisque porta justo non lobortis pulvinar. Aenean in rutrum ante. <b>Aliquam sollicitudin fringilla dui
-            nec</b> dapibus.
-            Donec ac consequat nulla, at sagittis justo. metus id aliquet eleifend, purus sem
-            porttitor enim,
-            <a href="#" class="link">elem entugm lorem arcupolMag</a> ligula ac sapien.
-            Aenean hendrerit non metus ut accumsan.
-          </p>
-        </div>
-        <br/>
-        <div class="col-lg-8 mb-4 bs-component">
-          <h4> Bullet-points </h4>
-          <ul class="list">
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
-              sed vulputate orci vulputate nec.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
-              sed vulputate orci vulputate nec.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
-              sed vulputate orci vulputate nec.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
-              sed vulputate orci vulputate nec.
-            </li>
-          </ul>
-        </div>
-        <br/>
-        <div class="col-lg-8 mb-4 bs-component">
-          <h4> Number-list </h4>
-          <ol class="list">
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
-              sed vulputate orci vulputate nec.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
-              sed vulputate orci vulputate nec.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
-              sed vulputate orci vulputate nec.
-            </li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
-              sed vulputate orci vulputate nec.
-            </li>
-          </ol>
-        </div>
-        <br/>
-        <div class="col-lg-6 mb-4 bs-component">
-          <h4> Boxed text </h4>
-          <div class="boxed bg-grey1 mb-3">
-            <h4>International Day of Girl Child</h4>
-            <p>The upcoming workshop focusses upon training relevant stakeholders on ‘nomination’,
-              providing insights on preparing nomination files for the Urgent Safeguarding List and Representative
-              List. Through combining theoretical and hands-on sessions, UNESCO-accredited facilitators, Ms Noriko
-              Aikawa and Ms Suzanne Ogge, will guide the workshop and in addition provide an opportunity for
-              participants to understand the inter-linked process of nomination and safeguarding.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-6 mb-4 bs-component">
-          <h4> Boxed text bg primary </h4>
-          <div class="boxed bg-primary text-white mb-3">
-            <h4 class="text-white">International Day of Girl Child</h4>
-            <p>The upcoming workshop focusses upon training relevant stakeholders on ‘nomination’,
-              providing insights on preparing nomination files for the Urgent Safeguarding List and Representative
-              List. Through combining theoretical and hands-on sessions, UNESCO-accredited facilitators, Ms Noriko
-              Aikawa and Ms Suzanne Ogge, will guide the workshop and in addition provide an opportunity for
-            </p>
-          </div>
-        </div>
+      <div class="col-lg-8 mb-4 mt-4 bs-component">
+        <h4> Bullet-points </h4>
+        <ul class="list">
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
+            sed vulputate orci vulputate nec.
+          </li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
+            sed vulputate orci vulputate nec.
+          </li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
+            sed vulputate orci vulputate nec.
+          </li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
+            sed vulputate orci vulputate nec.
+          </li>
+        </ul>
       </div>
-
-      <br/>
-      <br/>
-      <hr>
-      <br/>
-      <br/>
-
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="bs-component">
-            <h1>Heading 1</h1>
-            <h2>Heading 2</h2>
-            <h3>Heading 3</h3>
-            <h4>Heading 4</h4>
-            <h5>Heading 5</h5>
-            <h6>Heading 6</h6>
-            <br/>
-            <h3>
-              Heading
-              <small class="text-muted">with muted text</small>
-            </h3>
-            <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="bs-component">
-            <h2>Example body text</h2>
-            <p>Nullam quis risus eget vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes,
-              nascetur
-              ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-            <p><small>This line of text is meant to be treated as fine print.</small></p>
-            <p>The following is <strong>rendered as bold text</strong>.</p>
-            <p>The following is <span class="font-weight-bolder">rendered font-weight-bolder</span>.</p>
-            <p>The following is <span class="font-weight-lighter">rendered font-weight-lighter</span>.</p>
-            <p>The following is <a href="#">a link</a>.</p>
-            <p>The following is <a href="#" class="text-decoration-none">link with text-decoration-none</a>.</p>
-            <p>The following is <em>rendered as italicized text</em>.</p>
-            <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
-            <h3>Unstyled list</h3>
-            <ul class="list-unstyled">
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Consectetur adipiscing elit</li>
-              <li>Integer molestie lorem at massa</li>
-              <li>Facilisis in pretium nisl aliquet</li>
-              <li>Nulla volutpat aliquam velit
-                <ul>
-                  <li>Phasellus iaculis neque</li>
-                  <li>Purus sodales ultricies</li>
-                  <li>Vestibulum laoreet porttitor sem</li>
-                  <li>Ac tristique libero volutpat at</li>
-                </ul>
-              </li>
-              <li>Faucibus porta lacus fringilla vel</li>
-              <li>Aenean sit amet erat nunc</li>
-              <li>Eget porttitor lorem</li>
-            </ul>
-            <h3>Inline list</h3>
-            <ul class="list-inline">
-              <li class="list-inline-item">Lorem ipsum</li>
-              <li class="list-inline-item">Phasellus iaculis</li>
-              <li class="list-inline-item">Nulla volutpat</li>
-            </ul>
-            <h3>Code</h3>
-            <p>
-              For example, <code>&lt;section&gt;</code> should be wrapped as inline.
-            </p>
-            <h4>Code block</h4>
-            <pre>
-      <code tabindex="0">
-      &lt;p&gt;Sample text here...&lt;/p&gt;
-      &lt;p&gt;And another line of sample text here...&lt;/p&gt;
-      </code>
-    </pre>
-            <h4>Variables</h4>
-            <p><var>y</var> = <var>m</var><var>x</var> + <var>b</var></p>
-            <h4>Keyboard</h4>
-            <p>To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
-              To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd></p>
-            <h4>Sample</h4>
-            <p><samp>This text is meant to be treated as sample output from a computer program.</samp></p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="bs-component">
-            <h2>Emphasis classes</h2>
-            <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-            <p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p class="text-secondary">Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-            <p class="bg-dark text-warning py-3">Etiam porta sem malesuada magna mollis euismod.</p>
-            <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-            <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blockquotes -->
-
-      <div class="row">
-        <div class="col-lg-12">
-          <h2 id="type-blockquotes">Blockquotes</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="bs-component">
-            <blockquote class="blockquote">
-              <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
-                ante.</p>
-              <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="bs-component">
-            <blockquote class="blockquote text-center">
-              <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
-                ante.</p>
-              <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="bs-component">
-            <blockquote class="blockquote text-right">
-              <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a
-                ante.</p>
-              <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
+      <div class="col-lg-8 mb-4 mt-4 bs-component">
+        <h4> Number-list </h4>
+        <ol class="list">
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
+            sed vulputate orci vulputate nec.
+          </li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
+            sed vulputate orci vulputate nec.
+          </li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
+            sed vulputate orci vulputate nec.
+          </li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet malesuada laoreet metus,
+            sed vulputate orci vulputate nec.
+          </li>
+        </ol>
       </div>
     </div>
 
-    <!-- Images
-        ================================================== -->
-    <div class="bs-docs-section">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="page-header">
-            <h1 id="images">Images</h1>
-          </div>
+  </section>
 
-          <div class="bs-component">
-            <h2>Responsive images</h2>
-            <div>
-              <img
-                src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%221003%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201003%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16986e5da70%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A50pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16986e5da70%22%3E%3Crect%20width%3D%221003%22%20height%3D%22250%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22355.0703125%22%20y%3D%22148.1%22%3E1003x250%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                class="img-fluid" alt="Responsive image">
-            </div>
-            <h2>Thumbnail</h2>
-            <div>
-              <img
-                src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16986e2d2ab%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16986e2d2ab%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.65%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                alt="..." class="img-thumbnail">
-            </div>
-            <h2>Figure</h2>
-            <div>
-              <figure class="figure">
-                <img
-                  src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22300%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20300%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16986eb6059%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A20pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16986eb6059%22%3E%3Crect%20width%3D%22400%22%20height%3D%22300%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22148.8515625%22%20y%3D%22159.15%22%3E400x300%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-                  class="figure-img img-fluid rounded"
-                  alt="A generic square placeholder image with rounded corners in a figure.">
-                <figcaption class="figure-caption">A caption for the above image.</figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Collapse
         ================================================== -->
