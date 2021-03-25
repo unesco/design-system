@@ -3,6 +3,7 @@ global-styling:
   css:
     base:
       assets/stylesheets/unesco_style.css: {}
+      assets/stylesheets/unesco_drupal.css: {}
       assets/stylesheets/unesco_print.css: { media: print }
       https://fonts.googleapis.com/css2?family=Material+Icons+Sharp: { type: external }
 
