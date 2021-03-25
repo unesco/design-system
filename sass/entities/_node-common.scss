@@ -52,6 +52,17 @@ $margin24: (
 
     }
 
+    .media-footer {
+      margin-left: 1.5rem;
+      @include min-screen($screen-tablet) {
+        margin-left: 2rem;
+      }
+
+      @include min-screen($screen-desktop) {
+        margin-left: 6rem;
+      }
+    }
+
     .media-legend {
       color: $grey5;
     }
@@ -60,7 +71,7 @@ $margin24: (
     .media-license {
       color: $grey4;
       display: inline-block;
-      padding-left: 2px;
+      padding-left: .125rem;
     }
 
     .media-copyright + .media-license {
@@ -68,7 +79,7 @@ $margin24: (
         content: '. ';
       }
 
-      margin-left: -4px;
+      margin-left: -.25rem;
     }
   }
 
@@ -138,18 +149,6 @@ $margin24: (
           @include min-screen($screen-desktop) {
             height: auto;
           }
-        }
-      }
-
-      .media-legend,
-      .media-copyright {
-        margin-left: 1.5rem;
-        @include min-screen($screen-tablet) {
-          margin-left: 2rem;
-        }
-
-        @include min-screen($screen-desktop) {
-          margin-left: 6rem;
         }
       }
     }
