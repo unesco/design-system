@@ -75,11 +75,12 @@ $margin24: (
     }
 
     .media-copyright + .media-license {
+      display: inline;
+      margin-left: -.25rem;
       &::before {
         content: '. ';
       }
 
-      margin-left: -.25rem;
     }
   }
 
