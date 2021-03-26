@@ -1,5 +1,10 @@
 // Alert
 
+.alert {
+  display: flex;
+  align-items: center;
+}
+
 .custom-alert {
   width: 100%;
   padding: 1.125rem 1.625rem;
@@ -218,4 +223,8 @@ a.icon-external {
     @include icon('open_in_new');
     margin-left: 4px;
   }
+}
+
+.bg-none {
+  background-color: transparent;
 }

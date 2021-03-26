@@ -94,6 +94,18 @@
   }
 }
 
+
+.card-circle-sm {
+  @extend .card-circle;
+  width: 4.5rem;
+  height: 4.5rem;
+
+  i {
+    font-size: 2.5rem;
+    line-height: 4.5rem;
+  }
+}
+
 .card-hero {
   display: flex;
   flex-direction: column;
@@ -122,6 +134,7 @@
       color: $white;
     }
   }
+
   .card-title {
     margin-bottom: .5rem;
   }
@@ -157,7 +170,7 @@
   }
 
   a + .field--name-field-social-networks,
-  .field--name-field-email + .field--name-field-social-networks{
+  .field--name-field-email + .field--name-field-social-networks {
     margin-left: .5rem;
   }
 }
