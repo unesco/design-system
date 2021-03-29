@@ -43,6 +43,10 @@ footer {
     .region-footer {
       padding: 0;
 
+      .nav-item {
+        list-style: none;
+      }
+
       .dropdown-toggle {
         border-top: 0.0625rem solid $grey2;
         padding: 1.5rem 0;
