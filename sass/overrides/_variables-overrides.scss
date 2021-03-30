@@ -28,6 +28,7 @@ $grid-gutter-width:           2rem;
 
 $primary:       $BlueU !default;
 $secondary:     $Blue2 !default;
+$dark:          $darkGrey !default;
 
 $theme-colors: () !default;
 $theme-colors: map-merge(
@@ -39,6 +40,7 @@ $theme-colors: map-merge(
       "grey2":      $grey2,
       "grey1":      $grey1,
       "white":      $white,
+      "warning":      $warning,
     ),
     $theme-colors
 );
@@ -69,6 +71,8 @@ $h3-font-size:                $font-size-base * 1.75;
 $h4-font-size:                $font-size-base * 1.5;
 $h5-font-size:                $font-size-base * 1.125;
 $h6-font-size:                $font-size-base !default;
+
+$yiq-text-dark:               $darkGrey !default;
 
 
 //$headings-margin-bottom:      $spacer / 2 !default;
@@ -147,7 +151,7 @@ $custom-checkbox-indicator-border-radius: .125rem !default;
 $form-feedback-margin-top:          .5rem !default;
 $form-feedback-font-size:           .875rem !default;
 $form-feedback-valid-color:         $green !default;
-$form-feedback-invalid-color:       $redWarning !default;
+$form-feedback-invalid-color:       $warning !default;
 
 // Navigation
 
@@ -157,13 +161,7 @@ $nav-link-padding-y:                .5rem !default;
 $nav-link-padding-x:                1rem;
 $navbar-nav-link-padding-x:         1rem;
 
-$nav-tabs-border-color:             transparent;
-$nav-tabs-border-width:             0 0 1px 0;
-$nav-tabs-border-radius:            0;
-$nav-tabs-link-hover-border-color:  $BlueU;
-$nav-tabs-link-active-color:        $darkGrey;
-$nav-tabs-link-active-bg:           $body-bg !default;
-$nav-tabs-link-active-border-color: $BlueU;
+$nav-tabs-border-radius:            .5rem;
 
 $nav-pills-border-radius:           $border-radius;
 $nav-pills-link-active-color:       $component-active-color !default;
@@ -243,3 +241,7 @@ $table-active-bg:             $table-hover-bg !default;
 
 $table-border-width:          1px;
 $table-border-color:          $border-color !default;
+
+// Tolltips
+
+$tooltip-border-radius:       .5rem !default;
