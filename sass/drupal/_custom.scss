@@ -1,3 +1,109 @@
+
+// Cookies
+div#sliding-popup,
+div#sliding-popup .eu-cookie-withdraw-banner,
+.eu-cookie-withdraw-tab {
+  background: transparent;
+  margin: 0;
+
+  >div {
+    margin: 0;
+  }
+}
+
+// Override eu_cookie_compliance.
+
+#sliding-popup {
+  h2,
+  div,
+  p {
+    font-size: 1rem;
+    color: $darkGrey;
+    font-weight: 400;
+  }
+
+  h2, p {
+    display: inline;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  h2:after {
+    content: ".";
+  }
+}
+
+.eu-cookie-compliance-content {
+  max-width: 100%;
+}
+
+.eu-cookie-compliance-message {
+  max-width: 39.75rem;
+
+  @include min-screen($screen-desktop) {
+    max-width: 60%;
+  }
+}
+
+.eu-cookie-compliance-default-button {
+  box-shadow: none;
+  text-shadow: none;
+  background-image: unset;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  &:hover {
+    background-image: unset;
+  }
+}
+
+#popup-buttons {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+// Primary local tasks.
+
+.gin--vertical-toolbar.toolbar-horizontal.header-sticky {
+  .navbar {
+    top: 0;
+  }
+}
+
+// Primary local tasks.
+
+.user-logged-in .block-local-tasks-block {
+  background: $grey1;
+  display: inline-block;
+  border-radius: 10px;
+  margin-top: 1rem;
+
+  a {
+    color: $darkGrey;
+  }
+
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    border: none;
+    background-color: transparent;
+    font-weight: 800;
+  }
+}
+
+.transparent-header.user-logged-in .block-local-tasks-block {
+  z-index: 100;
+  background: white;
+  position: absolute;
+  top: 240px;
+}
+
+.page-node-type-landing {
+  &:not(.transparent-header) {
+    #block-unesco-primary-local-tasks {
+      padding-top: 122px;
+    }
+  }
+}
+
 .toolbar-horizontal {
   &.header-sticky {
     header.navbar {
@@ -26,7 +132,7 @@
     }
   }
 
-  &.path-frontpage header.navbar, 
+  &.path-frontpage header.navbar,
   &.page-node-type-landing header.navbar {
     top: 2.438rem;
   }
@@ -46,4 +152,19 @@
   mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath d='M12 4.92c.6.696 1.272 1.344 1.92 1.992 2.4 2.4 4.56 4.56 4.56 7.776V15.096c-.096 3.528-3 6.384-6.528 6.384h-.12c-1.728-.048-3.384-.744-4.56-1.992-1.176-1.296-1.824-2.952-1.776-4.728v-.048c0-3.216 2.256-5.4 4.56-7.776A49.835 49.835 0 0012 4.92zM12 0c-.48 1.824-2.088 3.432-3.792 5.04-2.472 2.52-5.328 5.4-5.328 9.648-.12 5.04 3.912 9.216 8.904 9.312H12c4.92 0 9-3.96 9.12-8.904v-.384c0-4.296-2.88-7.128-5.352-9.648C14.088 3.432 12.48 1.824 12 0z'/%3e%3c/svg%3e");
   -webkit-mask-position: center center;
   mask-position: center center;
+}
+
+
+$colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLight, purple: $purpleLight, red: $redLight, yellow: $orangeLight );
+@each $colorName, $color in $colors {
+  .page-node-type-sequenced-page,
+  .node--type-page {
+    .paragraph--type--quote {
+      &.border-#{$colorName} {
+        &::before {
+          background-color: $color;
+        }
+      }
+    }
+  }
 }

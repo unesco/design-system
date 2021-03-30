@@ -33,16 +33,6 @@
 }
 
 // Cookies
-div#sliding-popup,
-div#sliding-popup .eu-cookie-withdraw-banner,
-.eu-cookie-withdraw-tab {
-  background: transparent;
-  margin: 0;
-
-  >div {
-    margin: 0;
-  }
-}
 
 .cookies {
   display: flex;
@@ -82,58 +72,6 @@ div#sliding-popup .eu-cookie-withdraw-banner,
   }
 }
 
-// Override eu_cookie_compliance.
-
-#sliding-popup {
-  h2,
-  div,
-  p {
-    font-size: 1rem;
-    color: $darkGrey;
-    font-weight: 400;
-  }
-
-  h2, p {
-    display: inline;
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-  }
-
-  h2:after {
-    content: ".";
-  }
-}
-
-.eu-cookie-compliance-content {
-  max-width: 100%;
-}
-
-.eu-cookie-compliance-message {
-  max-width: 39.75rem;
-
-  @include min-screen($screen-desktop) {
-    max-width: 60%;
-  }
-}
-
-.eu-cookie-compliance-default-button {
-  box-shadow: none;
-  text-shadow: none;
-  background-image: unset;
-  margin-top: 0;
-  margin-bottom: 0;
-
-  &:hover {
-    background-image: unset;
-  }
-}
-
-#popup-buttons {
-  margin-top: 1rem;
-  margin-bottom: 0;
-}
-
-
 // List group flush
 
 .list-group-flush {
@@ -157,65 +95,15 @@ div#sliding-popup .eu-cookie-withdraw-banner,
   text-align: center;
 }
 
+// Background custom color
+
 $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLight, purple: $purpleLight, red: $redLight, yellow: $orangeLight );
 @each $colorName, $color in $colors {
   .bg-#{$colorName} {
     background-color: $color;
   }
-
-  .page-node-type-sequenced-page,
-  .node--type-page {
-    .paragraph--type--quote {
-      &.border-#{$colorName} {
-        &::before {
-          background-color: $color;
-        }
-      }
-    }
-  }
 }
 
-// Primary local tasks.
-
-.gin--vertical-toolbar.toolbar-horizontal.header-sticky {
-  .navbar {
-    top: 0;
-  }
-}
-
-// Primary local tasks.
-
-.user-logged-in .block-local-tasks-block {
-  background: $grey1;
-  display: inline-block;
-  border-radius: 10px;
-  margin-top: 1rem;
-
-  a {
-    color: $darkGrey;
-  }
-
-  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-    border: none;
-    background-color: transparent;
-    font-weight: 800;
-  }
-}
-
-.transparent-header.user-logged-in .block-local-tasks-block {
-  z-index: 100;
-  background: white;
-  position: absolute;
-  top: 240px;
-}
-
-.page-node-type-landing {
-  &:not(.transparent-header) {
-    #block-unesco-primary-local-tasks {
-      padding-top: 122px;
-    }
-  }
-}
 
 li.icon-external a,
 a.icon-external {
