@@ -534,5 +534,22 @@
     }
   };
 
+  Drupal.behaviors.imageMap = {
+    attach: function (context, settings) {
+      let point = $('.image-map .circle');
+
+      point.on('click', function() {
+        point.not(this).parent().removeClass('show-popup');
+        $(this).parent().toggleClass('show-popup');
+      });
+
+      $('body').on('click', function(e) {
+        if (!point.is(e.target) && point.parent().has(e.target).length === 0 && point.parent().find('.popup').has(e.target).length === 0) {
+          point.parent().removeClass('show-popup');
+        }
+      });
+    }
+  };
+
 })
 (jQuery);

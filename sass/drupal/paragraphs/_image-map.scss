@@ -1,0 +1,105 @@
+.paragraph--type--image-map {
+  .image-map {
+    position: relative;
+    margin-top: 2rem;
+    padding-top: 100%;
+    overflow: scroll;
+
+    img {
+      max-width: unset;
+
+      @include min-screen($screen-desktop) {
+        max-width: 100%;
+      }
+    }
+
+    @include min-screen($screen-tablet) {
+      padding-top: 66.57%;
+    }
+
+    @include min-screen($screen-desktop) {
+      margin-top: 3rem;
+      padding-top: 0;
+      overflow: unset;
+    }
+
+    .wrapper {
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      @include min-screen($screen-desktop) {
+        margin-top: 3rem;
+        position: static;
+      }
+    }
+
+    .point {
+      position: absolute;
+
+      &.show-popup {
+        >.popup,
+        >a {
+          display: block;
+        }
+      }
+
+      >.popup,
+      >a {
+        position: absolute;
+        top: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 1.5rem;
+        background-color: $white;
+        border: 0.063rem solid $grey2;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        width: 18rem;
+        display: none;
+      }
+    }
+
+    .circle {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: $BlueU;
+      border: 0.063rem solid $white;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+    }
+
+    .show-popup .circle,
+    .circle :hover {
+      border-width: 0.25rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      left: -0.125rem;
+      top: -0.125rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      color: $darkGrey;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .field--name-field-title {
+    font-weight: 800;
+    @include responsive(font-size, $section-title);
+    margin: 0 0 1rem;
+
+    @include min-screen($screen-desktop) {
+      margin: 0 0 1.5rem;
+    }
+  }
+}
