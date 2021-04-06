@@ -157,6 +157,7 @@ div#sliding-popup .eu-cookie-withdraw-banner,
 
 $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLight, purple: $purpleLight, red: $redLight, yellow: $orangeLight );
 @each $colorName, $color in $colors {
+  .page-node-type-article,
   .page-node-type-sequenced-page,
   .node--type-page {
     .paragraph--type--quote {
