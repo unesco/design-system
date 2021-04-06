@@ -153,16 +153,9 @@ function unesco_theme_suggestions_alter(array &$suggestions, array $variables, $
   $sub_entities = [
     'card',
     'cta',
-    'faq',
-    'logo',
-    'publication',
-    'resource_group',
-    'slide',
-    'social_network',
-    'submedia',
   ];
   if (in_array($hook, $sub_entities)) {
-    $suggestions[] = 'ows_entity_subentity__' . $hook;
+    $suggestions[] = 'subentity__' . $hook;
   }
 }
 

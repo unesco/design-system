@@ -156,6 +156,7 @@ $margin24: (
   }
 }
 
+.node--type-article,
 .node--type-page,
 .node--type-sequenced-page {
   &.node--view-mode-full {
@@ -196,7 +197,6 @@ $margin24: (
           width: 51.5rem;
         }
       }
-
 
       .field--name-field-ref-cta {
         width: 100%;
