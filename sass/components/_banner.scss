@@ -52,9 +52,15 @@
 }
 
 // Colors
-
-$colors: (grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLight, purple: $purpleLight, red: $redLight);
-
+$colors: (
+  grey: $grey1,
+  red: $redLight,
+  blue: $blueLight,
+  green: $greenLight,
+  orange: $orangeLight,
+  purple: $purpleLight,
+  yellow: $orangeLight,
+);
 @each $colorName, $color in $colors {
   .banner-#{$colorName} {
     background-color: $color;
