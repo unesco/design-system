@@ -27,7 +27,7 @@ $grid-gutter-width:           2rem;
 // Colors
 
 $primary:       $BlueU !default;
-$secondary:     $Blue2 !default;
+$secondary:     $grey4 !default;
 $dark:          $darkGrey !default;
 
 $theme-colors: () !default;
@@ -40,7 +40,12 @@ $theme-colors: map-merge(
       "grey2":      $grey2,
       "grey1":      $grey1,
       "white":      $white,
-      "warning":      $warning,
+      "warning":    $warning,
+      "success":    $success,
+      "info":       $info,
+      "danger":     $danger,
+      "light":      $grey1,
+      "dark":       $dark,
     ),
     $theme-colors
 );
@@ -162,6 +167,10 @@ $nav-link-padding-x:                1rem;
 $navbar-nav-link-padding-x:         1rem;
 
 $nav-tabs-border-radius:            .5rem;
+$nav-tabs-border-color:             $grey2 !default;
+$nav-tabs-link-hover-border-color:  $grey2 !default;
+$nav-tabs-link-active-bg:           $grey2 !default;
+$nav-tabs-link-active-border-color: $grey2 !default;
 
 $nav-pills-border-radius:           $border-radius;
 $nav-pills-link-active-color:       $component-active-color !default;
@@ -211,7 +220,7 @@ $card-spacer-y:             1.5rem !default;
 $card-spacer-x:             1.5rem !default;
 $card-border-width:         0 !default;
 $card-border-radius:        .5rem !default;
-$card-border-color:         transparent !default;
+//$card-border-color:         transparent !default;
 $card-cap-bg:               transparent !default;
 $card-bg:                   $grey1 !default;
 $card-columns-gap:          1rem !default;
@@ -245,3 +254,14 @@ $table-border-color:          $border-color !default;
 // Tolltips
 
 $tooltip-border-radius:       .5rem !default;
+
+// Popovers
+
+$popover-border-color:              $grey2 !default;
+$popover-border-radius:             .5rem;
+$popover-box-shadow:                0 .25rem .5rem $grey2 !default;
+$popover-header-bg:                 $grey1 !default;
+
+// Alerts
+
+$alert-border-radius: .25rem !default;

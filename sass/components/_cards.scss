@@ -9,6 +9,16 @@
       max-height: 26.5rem;
     }
   }
+
+  &[class*="border"] {
+    border-width: .0625rem;
+  }
+}
+
+.card-header {
+  border-bottom-width: .0625rem;
+  font-weight: 600;
+  font-size: 1.125rem;
 }
 
 .card-body {
@@ -93,7 +103,6 @@
     background-color: transparent;
   }
 }
-
 
 .card-circle-sm {
   @extend .card-circle;
