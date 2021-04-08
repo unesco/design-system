@@ -39,6 +39,23 @@ $paddingTop: (
 
     .header-node-content {
 
+      .section-text {
+
+        &.is-arrow {
+          span::after {
+            @include icon('chevron_right');
+            display: inline;
+            vertical-align: bottom;
+            margin-left: .5rem;
+
+            @include min-screen($screen-desktop) {
+              margin-left: 1rem;
+            }
+          }
+        }
+
+      }
+
       .content-authors-wrapper {
 
         .authors-image-wrapper {
@@ -68,7 +85,7 @@ $paddingTop: (
               font-weight: 600;
               &::after {
                 content: ',';
-                margin-left: -.125rem;
+                margin-left: -.25rem;
               }
               &:last-child {
                 &:after {
@@ -96,11 +113,11 @@ $paddingTop: (
       @include fullWidthBackground($BlueU);
       width: 100%;
       max-width: 38.125rem;
-      margin: -2.5rem auto 0;
+      margin: -2.5rem auto 2.5rem;
       color: $white;
       @include min-screen($screen-desktop) {
         padding: 6rem 0;
-        margin: -3.5rem auto 0;
+        margin: -3.5rem auto 3.5rem;
       }
 
       &::before,
