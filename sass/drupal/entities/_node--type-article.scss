@@ -4,15 +4,6 @@ $paddingTop: (
 );
 
 .node--type-article {
-  &.node--view-mode-news,
-  &.node--view-mode-event,
-  &.node--view-mode-article,
-  &.node--view-mode-report,
-  &.node--view-mode-project,
-  &.node--view-mode-idea,
-  &.node--view-mode-press-release,
-  &.node--view-mode-story,
-  &.node--view-mode-video,
   &.node--view-mode-full {
     position: relative;
     padding-top: 2.5rem;
