@@ -206,7 +206,7 @@ $taxonomy-header-name: (
 
         .node__content {
           display: flex;
-          align-items: start;
+          align-items: flex-start;
 
           @include min-screen($screen-desktop) {
             flex-direction: column;
