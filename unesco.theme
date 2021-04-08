@@ -202,6 +202,14 @@ function unesco_preprocess_field(&$variables, $hook) {
       }
     }
   }
+
+  if ($element['#field_name'] == 'field_register') {
+    $variables['items'][0]['content']['#options']['attributes']['class'][] = 'btn btn-sm btn-primary';
+  }
+
+  if ($element['#field_name'] == 'field_learn_more') {
+    $variables['items'][0]['content']['#options']['attributes']['class'][] = 'btn btn-sm btn-outline-primary';
+  }
 }
 
 /**
