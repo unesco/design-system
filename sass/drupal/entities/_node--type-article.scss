@@ -70,19 +70,25 @@ $paddingTop: (
         }
 
         .authors-text-wrapper {
-          div {
+          a, div {
             display: inline;
 
-            &.people-link-name {
+            &:hover {
+              text-decoration: none;
+            }
+
+            .people-link-name {
+              color: $white;
               font-weight: 600;
               &::after {
                 content: ',';
                 margin-left: -.25rem;
               }
-              &:last-child {
-                &:after {
-                  content: '';
-                }
+            }
+
+            &:last-child {
+              .people-link-name:after {
+                content: '';
               }
             }
           }
