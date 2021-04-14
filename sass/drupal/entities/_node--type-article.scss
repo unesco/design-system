@@ -31,6 +31,7 @@ $paddingTop: (
     .header-node-content {
 
       .section-text {
+        position: relative;
 
         &.is-arrow {
           span::after {
@@ -127,4 +128,79 @@ $paddingTop: (
     }
 
   }
+
+
+  &.node--view-mode-story {
+
+    .header-node-content {
+      position: relative;
+      min-height: 100vh;
+      margin: -9.25rem auto 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 6rem;
+      @include min-screen($screen-desktop) {
+        margin: -3.5rem auto 3.5rem;
+        padding-top: 14rem;
+      }
+
+      .field--name-field-ref-image {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 100vw;
+        height: 100%;
+        transform: translateX(-50%);
+        z-index: 0;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          display: block;
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.4) 100%);
+          mix-blend-mode: normal;
+          position: absolute;
+          left: 50%;
+          top: 0;
+          width: 100vw;
+          height: 100%;
+          transform: translateX(-50%);
+          z-index: 0;
+        }
+
+
+        .media {
+          display: block;
+          height: 100%;
+          width: 100%;
+        }
+
+        .field--name-field-media-image {
+          height: 100%;
+          width: 100%;
+        }
+
+        img {
+          @include img-cover;
+          position: relative;
+          z-index: -1;
+        }
+      }
+
+      .article-title {
+        position: relative;
+        @include responsive(font-size, $page-title);
+        font-weight: 800;
+        color: $white;
+      }
+
+      .section-text {
+        color: $white;
+      }
+
+    }
+
+  }
 }
+
