@@ -332,3 +332,59 @@ $margin24: (
     }
   }
 }
+
+.content-infos-wrapper {
+  font-size: .875rem;
+  margin-bottom: 2rem;
+  @include min-screen($screen-desktop) {
+    margin-bottom: 3rem;
+  }
+
+  .content-authors-wrapper {
+    a, div {
+      display: inline;
+      color:  $darkGrey;
+
+      &:hover {
+        text-decoration: none;
+        color:  $darkGrey;
+      }
+
+      .people-link-name {
+        font-weight: 600;
+        &::after {
+          content: ',';
+          margin-left: -.25rem;
+        }
+      }
+    }
+
+    a .people-link-name {
+      position: relative;
+      &::before {
+        content: '';
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        width: calc(100% - .25rem);
+        height: .0625rem;
+        background-color: $darkGrey;
+      }
+    }
+  }
+
+  .content-date-wrapper {
+    display: flex;
+
+    .created-time {
+      font-weight: 600;
+    }
+
+    .updated-time {
+      margin-left: .25rem;
+      &::before {
+        content: '- ';
+      }
+    }
+  }
+}
