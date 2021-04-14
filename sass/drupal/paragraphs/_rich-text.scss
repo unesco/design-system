@@ -1,5 +1,7 @@
 .paragraph {
   &--type--rich-text {
+    @include mb-block;
+
     .field--name-field-title {
       font-weight: 800;
       @include responsive(font-size, $section-title);
@@ -45,18 +47,9 @@
 
   .paragraph--type--rich-text {
     @include border-top;
+    margin-bottom: 0;
   }
 
 }
 
 
-// Article page override
-
-.node--type-sequenced-page,
-.node--type-page {
-
-  .paragraph--type--rich-text {
-    @include mb-block;
-  }
-
-}

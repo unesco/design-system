@@ -1,5 +1,6 @@
 .paragraph {
   &--type--datagrid {
+    @include mb-block;
 
     .table-bordered {
       border: none;
@@ -56,18 +57,7 @@
 
   .paragraph--type--datagrid {
     @include border-top;
-  }
-
-}
-
-
-// Article page override
-
-.node--type-sequenced-page,
-.node--type-page {
-
-  .paragraph--type--datagrid {
-    @include mb-block;
+    margin-bottom: 0;
   }
 
 }

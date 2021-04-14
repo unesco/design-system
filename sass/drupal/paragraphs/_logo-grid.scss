@@ -1,5 +1,6 @@
 .paragraph {
   &--type--logo-grid {
+    @include mb-block;
 
     .field--name-field-title {
       font-weight: 800;
@@ -38,18 +39,9 @@
 
   .paragraph--type--logo-grid {
     @extend .border-top;
+    margin-bottom: 0;
   }
 
 }
 
 
-// Article page override
-
-.node--type-sequenced-page,
-.node--type-page {
-
-  .paragraph--type--logo-grid {
-    @include mb-block;
-  }
-
-}
