@@ -135,7 +135,6 @@ $paddingTop: (
 
   }
 
-
   &.node--view-mode-story {
 
     .header-node-content {
@@ -207,6 +206,31 @@ $paddingTop: (
 
     }
 
+  }
+
+  &.node--view-mode-video {
+
+    .field--name-field-video {
+      @include mb-block;
+
+      .media--type-oembed-video {
+        width: 100%;
+      }
+
+      .field--name-field-media-oembed-video {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 */
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
   }
 }
 
