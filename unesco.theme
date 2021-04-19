@@ -8,6 +8,7 @@
 use Drupal\node\NodeInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\unesco_node\Services\HubManager;
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -161,6 +162,13 @@ function unesco_theme_suggestions_alter(array &$suggestions, array $variables, $
   ];
   if (in_array($hook, $sub_entities)) {
     $suggestions[] = 'subentity__' . $hook;
+  }
+
+  if ($hook === 'menu') {
+    $menu_name = $variables['menu_name'];
+    if (strpos($variables['menu_name'], HubManager::PREFIX_MENU_HEADER) !== FALSE) {
+      $suggestions[] = $hook . '__hub_header';
+    }
   }
 }
 
