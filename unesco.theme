@@ -7,6 +7,7 @@
 
 use Drupal\node\NodeInterface;
 use Drupal\Core\Template\Attribute;
+use Drupal\unesco_node\Entity\Article;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\unesco_node\Services\HubManager;
 
@@ -170,6 +171,11 @@ function unesco_theme_suggestions_alter(array &$suggestions, array $variables, $
       $suggestions[] = $hook . '__hub_header';
     }
   }
+
+  if ($hook === 'node' && in_array($variables['elements']['#view_mode'], Article::VIEW_MODES)) {
+    $suggestions[] = $hook . '__full';
+  }
+
 }
 
 /**
