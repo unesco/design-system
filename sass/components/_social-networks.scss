@@ -1,0 +1,31 @@
+.social_network {
+  a {
+    display: flex;
+    align-items: center;
+    color: $darkGrey;
+    span {
+      font-size: .875rem;
+      font-weight: 500;
+    }
+    .icon {
+      text-align: center;
+      background-color: $white;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 1rem;
+      margin-right: 1rem;
+      &::before {
+        color: $grey4;
+        line-height: 2rem;
+        font-size: 1rem;
+        transition: .3s;
+      }
+    }
+    &:hover {
+      text-decoration: none;
+      .icon::before {
+        color: $darkGrey;
+      }
+    }
+  }
+}
