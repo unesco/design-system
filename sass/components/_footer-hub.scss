@@ -1,8 +1,6 @@
 .footer-hub {
   position: relative;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
+  @include container-fluid();
   background-color: $grey1;
   margin: 0 0 -.5rem;
   padding: 2rem .5rem;
