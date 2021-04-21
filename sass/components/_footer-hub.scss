@@ -1,9 +1,41 @@
 .footer-hub {
+  position: relative;
   background-color: $grey1;
+  margin-bottom: -.5rem;
+  padding: 2rem 0;
+  @include min-screen($screen-desktop) {
+    margin-bottom: -1.5rem;
+    padding: 3.5rem 0;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -4000px;
+    width: 9999px;
+    height: 100%;
+    background: $grey1;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    background-color: $grey2;
+    width: calc(100% - 2rem);
+    height: .0625rem;
+  }
 
-  .field--name-field-social-networks {
-    .field__item {
-      margin-bottom: .875rem;
-    }
+  .field--name-field-image-footer {
+    margin-bottom: 2rem;
+  }
+
+  .hub-name,
+  .nav-social--title {
+    border-top: 0.0625rem solid $grey2;
+    padding: 1.5rem 0;
+    font-size: .875rem;
+    color: $darkGrey;
+    font-weight: 600;
   }
 }
