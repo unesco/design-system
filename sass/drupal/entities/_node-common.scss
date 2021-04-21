@@ -141,6 +141,25 @@ $margin24: (
     }
   }
 
+  .previous-publications {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    @include mb-block-big;
+
+    @include min-screen($screen-desktop) {
+      padding: 2rem;
+    }
+
+    &--title {
+      font-weight: 600;
+    }
+
+    .publications-wrapper {
+      margin-top: 1rem;
+    }
+  }
+
   &.media-large {
     .media-wrapper {
       position: relative;
