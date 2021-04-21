@@ -1,0 +1,100 @@
+.header-hub {
+  position: relative;
+  margin: -9.25rem auto 2.5rem;
+  @include min-screen($screen-desktop) {
+    margin: -3.5rem auto 3.5rem;
+  }
+
+  .hero-wrapper {
+    height: 14.5rem;
+    @include fullWidthBackground($BlueU);
+    @include min-screen($screen-desktop) {
+      height: 28.25rem;
+    }
+
+    &::before,
+    &::after {
+      z-index: -1;
+    }
+
+    .field--name-field-ref-image {
+      position: absolute;
+      @include container-fluid();
+      z-index: 0;
+
+      .field--name-field-media-image {
+        picture {
+          display: block;
+          width: 100%;
+          height: 14.5rem;
+          @include min-screen($screen-desktop) {
+            height: 28.25rem;
+          }
+        }
+
+        img {
+          @include img-cover;
+        }
+      }
+
+      .field--name-field-copyright {
+        display: none;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .25);
+      }
+    }
+
+    .header-texts {
+      position: relative;
+      top: 150px;
+      z-index: 2;
+
+      .article-title,
+      .field--name-field-description {
+        color: $white;
+      }
+
+      .article-title {
+        @include responsive(font-size, $hero-title);
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .field--name-field-description {
+        display: none;
+        @include min-screen($screen-desktop) {
+          display: block;
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+
+
+  .hub-menu-header {
+    @include fullWidthBackground($grey1);
+
+    .menu {
+      display: flex;
+      align-items: stretch;
+
+      li {
+        margin-right: 2rem;
+        white-space: nowrap;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
