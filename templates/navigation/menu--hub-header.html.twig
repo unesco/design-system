@@ -47,7 +47,7 @@
       <li{{ item.attributes.addClass(classes) }}>
         {{ link(item.title, item.url) }}
 
-        {% if item.below or (menu_level == 0 and item.content) %}
+        {% if menu_level == 0 and (item.below or item.content) %}
           <div class="lvl1-wrapper">
         {% endif %}
 
@@ -63,7 +63,7 @@
           {% endif %}
         {% endif %}
 
-        {% if item.below or (menu_level == 0 and item.content) %}
+        {% if menu_level == 0 and (item.below or item.content) %}
           </div>
         {% endif %}
 
