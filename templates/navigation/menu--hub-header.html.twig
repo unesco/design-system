@@ -29,10 +29,11 @@
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
+    {% set menu_level_class = 'menu-lvl' ~ (menu_level + 1) %}
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass('menu') }}>
+      <ul{{ attributes.addClass('menu', menu_level_class) }}>
     {% else %}
-      <ul class="menu">
+      <ul class="menu {{ menu_level_class }}">
     {% endif %}
     {% for item in items %}
       {%
@@ -50,9 +51,11 @@
         {% endif %}
 
         {% if menu_level == 0 %}
-          <div class="lvl1-infos">
-            {{ item.content }}
-          </div>
+          {% if item.content %}
+            <div class="lvl1-infos">
+              {{ item.content }}
+            </div>
+          {% endif %}
         {% endif %}
       </li>
     {% endfor %}
