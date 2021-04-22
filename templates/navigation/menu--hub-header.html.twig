@@ -48,10 +48,13 @@
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
+
+        {% if menu_level == 0 %}
+          <div class="lvl1-infos">
+            {{ item.content }}
+          </div>
+        {% endif %}
       </li>
-      {% if menu_level == 0 %}
-        {{ item.content }}
-      {% endif %}
     {% endfor %}
     </ul>
   {% endif %}
