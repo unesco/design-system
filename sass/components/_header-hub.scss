@@ -1,8 +1,8 @@
 .header-hub {
   position: relative;
-  margin: -9.25rem auto 2.5rem;
+  margin: -6.75rem auto 2.5rem;
   @include min-screen($screen-desktop) {
-    margin: -3.5rem auto 3.5rem;
+    margin: 0 auto 3.5rem;
   }
 
   .hero-wrapper {
@@ -82,18 +82,177 @@
 
   .hub-menu-header {
     @include fullWidthBackground($grey1);
+    padding: 1.5rem 0;
+    @include min-screen($screen-desktop) {
+      padding: 0;
+    }
 
     .menu {
       display: flex;
-      align-items: stretch;
+      flex-direction: column;
+      margin: -.5rem 0;
+
+      @include min-screen($screen-desktop) {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
 
       li {
-        margin-right: 2rem;
         white-space: nowrap;
+        margin: .5rem 0;
+        padding: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $darkGrey;
+
+        a,
+        span {
+          padding: .5rem 0;
+        }
+
+        a {
+          position: relative;
+          display: block;
+          color: $darkGrey;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
 
         &:last-child {
           margin-right: 0;
         }
+
+        &.menu-item {
+          list-style: none;
+
+          &--expanded {
+            &::marker {
+              display: none;
+            }
+
+            ul.menu-lvl2 {
+              margin: 1rem 0 1rem 1.5rem;
+
+              & > li > *:first-child {
+                font-weight: 600;
+                display: block;
+              }
+
+              ul.menu-lvl3 {
+                margin: 0;
+
+                li {
+                  font-weight: 400;
+                  margin: 0;
+
+                  a,
+                  span {
+                    padding: .75rem 0;
+                  }
+                }
+              }
+
+            }
+          }
+
+          .lvl1-infos {
+            display: none;
+
+            @include min-screen($screen-desktop) {
+              display: block;
+            }
+          }
+
+        }
+
+        @include min-screen($screen-desktop) {
+          margin: 0 2rem 0 0;
+
+          a,
+          span {
+            padding: 1.25rem 0;
+          }
+        }
+      }
+
+      .lvl1-wrapper {
+        display: none;
+
+        @include min-screen($screen-desktop) {
+          position: absolute;
+          display: none;
+          opacity: 0;
+          flex-direction: row;
+          align-items: stretch;
+          justify-content: space-between;
+          padding: 3rem 0 3.5rem;
+          width: 100%;
+          left: 0;
+          top: 4rem;
+          z-index: 90;
+          transition: .3s;
+
+          &.is-visible {
+            display: flex;
+            opacity: 1;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            width: 100vw;
+            height: 100%;
+            background-color: $white;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom: .0625rem solid $grey2;
+          }
+        }
+
+        .menu-lvl2,
+        .lvl1-infos {
+          position: relative;
+        }
+      }
+
+      &-lvl1 {
+
+        li.menu-item--expanded > {
+
+          a {
+            position: relative;
+
+            &::after {
+              @include icon('expand_more');
+              display: inline-block;
+              font-size: 1.25rem;
+              vertical-align: middle;
+              line-height: 1;
+              margin-left: 1.5rem;
+            }
+
+            &.active-item {
+              @include min-screen($screen-desktop) {
+                &::before {
+                  content: '';
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  width: 100%;
+                  height: .125rem;
+                  background-color: $BlueU;
+                }
+              }
+              &::after {
+                transform: rotate(180deg);
+              }
+            }
+          }
+        }
+
       }
     }
   }
