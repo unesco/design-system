@@ -601,8 +601,21 @@
   Drupal.behaviors.imageParallax = {
     attach: function (context, settings) {
 
+      var storyItem = $('.story-item');
+
+      if (storyItem.length > 1) {
+        storyItem.each(function(){
+          var headerHeight = 56;
+          var storyItemPosition = $(this).position().top + $(this).outerHeight(true) + headerHeight;
+          $(this).prepend('<button class="btn btn-skip-story btn-outline-white">' + Drupal.t('Skip') + '</button>');
+          $(this).find('.btn-skip-story').click(function() {
+            $(window).scrollTop(storyItemPosition);
+          });
+        });
+      }
+
       $(window).scroll(function(){
-        $('.story-item').each(function(){
+        storyItem.each(function(){
           if ($(this).offset().top < $(window).scrollTop()) {
             var difference = $(window).scrollTop() - $(this).offset().top;
             var half = (difference / 2) + 'px';

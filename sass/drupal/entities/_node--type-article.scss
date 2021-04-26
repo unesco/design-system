@@ -168,6 +168,13 @@ $paddingTop: (
           }
         }
 
+        .btn-skip-story {
+          position: absolute;
+          bottom: 4rem;
+          right: 0;
+          z-index: 2;
+        }
+
         .story {
           height: 100%;
 
