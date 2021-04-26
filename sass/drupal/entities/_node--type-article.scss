@@ -139,15 +139,39 @@ $paddingTop: (
 
     .header-node-content {
       position: relative;
-      min-height: 100vh;
       margin: -9.25rem auto 2.5rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      padding-top: 6rem;
       @include min-screen($screen-desktop) {
         margin: -3.5rem auto 3.5rem;
-        padding-top: 14rem;
+      }
+
+      .story-item {
+        position: relative;
+        height: 100vh;
+
+        .story {
+          height: 100%;
+
+          .text-wrapper {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $white;
+            z-index: 2;
+
+            .field--name-title {
+              @include responsive(font-size, $page-title);
+              font-weight: 800;
+            }
+
+            .field--name-field-description {
+
+            }
+          }
+
+        }
       }
 
       .field--name-field-ref-image {
