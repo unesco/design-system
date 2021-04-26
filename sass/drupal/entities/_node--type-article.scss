@@ -151,25 +151,26 @@ $paddingTop: (
         position: relative;
         height: 100vh;
 
+        .text-wrapper {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          color: $white;
+          z-index: 2;
+
+          .field--name-title {
+            @include responsive(font-size, $page-title);
+            font-weight: 800;
+          }
+
+          .field--name-field-description {
+
+          }
+        }
+
         .story {
           height: 100%;
 
-          .text-wrapper {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: $white;
-            z-index: 2;
-
-            .field--name-title {
-              @include responsive(font-size, $page-title);
-              font-weight: 800;
-            }
-
-            .field--name-field-description {
-
-            }
-          }
 
         }
       }
