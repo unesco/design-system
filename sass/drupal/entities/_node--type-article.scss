@@ -211,10 +211,21 @@ $paddingTop: (
   &.node--view-mode-video {
 
     .field--name-field-video {
+      margin-top: 2.5rem;
+      @include min-screen($screen-desktop) {
+        margin-top: 4rem;
+      }
       @include mb-block;
 
       .media--type-oembed-video {
         width: 100%;
+
+        &.media--view-mode-full-size {
+          width: 100vw;
+          max-width: 65rem;
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
 
       .field--name-field-media-oembed-video {
