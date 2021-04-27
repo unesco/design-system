@@ -3,6 +3,30 @@
 .paragraph {
   &--type--parallax {
     height: 100vh;
+    @include mb-block;
+
+    .text-wrapper {
+      position: absolute;
+      z-index: 1;
+      color: $white;
+      top: 6rem;
+      @include min-screen($screen-tablet) {
+        top: 12.75rem;
+      }
+      @include min-screen($screen-desktop) {
+        top: 14rem;
+      }
+
+      .field--name-field-surtitle {
+        @include responsive(font-size, $section-title-small);
+        margin-bottom: 1rem;
+      }
+
+      .field--name-field-title {
+        @include responsive(font-size, $article-title);
+        font-weight: 800;
+      }
+    }
 
     .field--name-field-ref-image {
       position: absolute;
