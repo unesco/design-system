@@ -647,5 +647,24 @@
 
     }
   };
+
+  Drupal.behaviors.paragraphParallax = {
+    attach: function (context, settings) {
+
+      var parallaxItem = $('.paragraph--type--parallax');
+
+      $(window).scroll(function(){
+        parallaxItem.each(function(){
+            var difference = $(window).scrollTop() - $(this).offset().top;
+            var half = (difference / 2) + 'px';
+            var transform = 'translate3d( 0, ' + half + ',0)';
+
+            $(this).find('img').css('transform', transform);
+
+        });
+      });
+
+    }
+  };
 })
 (jQuery);
