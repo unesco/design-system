@@ -147,6 +147,14 @@ $paddingTop: (
         margin: -3.5rem auto 3.5rem;
       }
 
+      .btn-skip-story {
+        position: fixed;
+        display: none;
+        bottom: 5rem;
+        right: 6rem;
+        z-index: 2;
+      }
+
       .story-item {
         position: relative;
         height: 100vh;
@@ -166,13 +174,6 @@ $paddingTop: (
           .field--name-field-description {
 
           }
-        }
-
-        .btn-skip-story {
-          position: absolute;
-          bottom: 4rem;
-          right: 0;
-          z-index: 2;
         }
 
         .story {

@@ -337,10 +337,11 @@
 
       // Fade in and out #back-top.
       $(window).scroll(function () {
-        backToTopTrigger.toggleClass(
-          "fade-back-top",
-          $(this).scrollTop() > 400
-        );
+        if ( 400 < $(window).scrollTop()) {
+          backToTopTrigger.fadeIn();
+        } else {
+          backToTopTrigger.fadeOut();
+        }
       });
 
       // Scroll body to 0px on click.
@@ -598,21 +599,37 @@
     }
   };
 
-  Drupal.behaviors.imageParallax = {
+  Drupal.behaviors.storyParallax = {
     attach: function (context, settings) {
 
       var storyItem = $('.story-item');
+      var story = storyItem.parent();
 
       if (storyItem.length > 1) {
-        storyItem.each(function(){
-          var headerHeight = 56;
-          var storyItemPosition = $(this).position().top + $(this).outerHeight(true) + headerHeight;
-          $(this).prepend('<button class="btn btn-skip-story btn-outline-white">' + Drupal.t('Skip') + '</button>');
-          $(this).find('.btn-skip-story').click(function() {
-            $(window).scrollTop(storyItemPosition);
-          });
+        story.prepend('<button class="btn btn-skip-story btn-outline-white">' + Drupal.t('Skip') + '</button>');
+
+        var btnSkip = story.find('.btn-skip-story');
+
+        // var showBtnPosition = storyItem.eq(1).offset().top;
+        var showBtnPosition = 400;
+        var showLastBtn = storyItem.last();
+        var showLastBtnPositionTop = showLastBtn.position().top;
+        var showLastBtnPositionBottom = showLastBtnPositionTop + showLastBtn.outerHeight(true);
+
+        btnSkip.click(function() {
+          $(window).scrollTop(showLastBtnPositionBottom);
+        });
+
+        $(window).scroll(function() {
+          if (showBtnPosition < $(window).scrollTop() && showLastBtnPositionTop > $(window).scrollTop()) {
+            btnSkip.fadeIn();
+          } else {
+            btnSkip.fadeOut();
+          }
+
         });
       }
+
 
       $(window).scroll(function(){
         storyItem.each(function(){
