@@ -1,0 +1,48 @@
+$paddingTop: (
+  null: 2.5rem,
+  large: 6rem
+);
+
+.node--type-country {
+  .explore-wrapper {
+    @include mb-block;
+
+    .field--name-field-explore-title {
+      font-weight: 800;
+      @include responsive(font-size, $section-title);
+      margin: 0 0 1rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 1.5rem;
+      }
+    }
+  }
+
+  .brief-sdh-wrapper {
+    @include mb-block;
+
+    .field--name-field-structured-data-title {
+      font-weight: 800;
+      @include responsive(font-size, $section-title);
+      margin: 0 0 1rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 1.5rem;
+      }
+    }
+  }
+
+  .brief-contact-wrapper {
+    @include mb-block;
+
+    .field--name-field-title {
+      font-weight: 800;
+      @include responsive(font-size, $section-title);
+      margin: 0 0 1rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 1.5rem;
+      }
+    }
+  }
+}
