@@ -196,7 +196,10 @@ function unesco_preprocess_region(&$variables) {
  * Implements template_preprocess_region().
  */
 function unesco_preprocess_block(&$variables) {
-  if ($variables['base_plugin_id'] == 'system_menu_block' && $variables['derivative_plugin_id'] == 'footer') {
+  $block_no_padding = ['footer', 'galaxy-footer'];
+  $plugin_id = $variables['derivative_plugin_id'];
+
+  if ($variables['base_plugin_id'] == 'system_menu_block' && in_array($plugin_id, $block_no_padding)) {
     $variables['attributes']['class'][] = 'col-lg-9';
     $variables['attributes']['class'][] = 'p-0';
   }
