@@ -46,3 +46,15 @@ $paddingTop: (
     }
   }
 }
+
+.country-view {
+  &--title {
+    font-weight: 800;
+    @include responsive(font-size, $section-title);
+    margin: 0 0 1rem;
+
+    @include min-screen($screen-desktop) {
+      margin: 0 0 1.5rem;
+    }
+  }
+}
