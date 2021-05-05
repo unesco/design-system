@@ -61,6 +61,31 @@ function unesco_preprocess_node(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function unesco_preprocess_taxonomy_term(&$variables) {
+  $entity = $variables['term'];
+  $variables['unesco_link_content'] = FALSE;
+  $view_mode = $variables['view_mode'];
+  $list_view_modes = [
+    'teaser',
+  ];
+
+  if (in_array($view_mode, $list_view_modes) && $entity->hasField('field_link') && !$entity->field_link->isEmpty()) {
+    $variables['unesco_link_content'] = TRUE;
+    $variables['unesco_link_attributes'] = new Attribute();
+    $variables['unesco_link_attributes']->setAttribute(
+      'href',
+      $entity->field_link->first()->getUrl()->toString()
+    );
+    $variables['unesco_link_attributes']->setAttribute(
+      'title',
+      $entity->label()
+    );
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function unesco_preprocess_taxonomy_term__people(&$variables) {
   if (isset($variables['elements']['#view_mode']) && $variables['elements']['#view_mode'] == 'people_detail') {
     $variables['page'] = TRUE;

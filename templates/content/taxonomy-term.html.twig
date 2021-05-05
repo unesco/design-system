@@ -1,0 +1,23 @@
+{%
+  set classes = [
+    'taxonomy-term',
+    'vocabulary-' ~ term.bundle|clean_class,
+  ]
+%}
+<div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
+  {{ title_prefix }}
+  {% if name and not page %}
+    <h2><a href="{{ url }}">{{ name }}</a></h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if unesco_link_content %}
+    <a {{ unesco_link_attributes }}>
+  {% endif %}
+  <div class="content">
+    {{ content }}
+  </div>
+  {% if unesco_link_content %}
+    </a>
+  {% endif %}
+</div>
