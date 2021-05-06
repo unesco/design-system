@@ -650,7 +650,7 @@
       var parallaxItem = $('.js-parallax', context);
 
       $(window).scroll(function(){
-        parallaxItem.once('parallaxBehaviors').each(function(){
+        parallaxItem.each(function(){
             var difference = $(window).scrollTop() - $(this).offset().top;
             var half = (difference / 2) + 'px';
             var transform = 'translate3d( 0, ' + half + ',0)';
