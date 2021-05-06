@@ -1,0 +1,32 @@
+{%
+  set classes = [
+    'block-menu',
+    'block-menu--popin',
+    'menu--' ~ derivative_plugin_id|clean_class,
+  ]
+%}
+{% set heading_id = attributes.id ~ '-menu'|clean_id %}
+<div{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
+  {% if not configuration.label_display %}
+    {% set title_attributes = title_attributes.addClass('visually-hidden') %}
+  {% endif %}
+  {{ title_prefix }}
+  <h2{{ title_attributes.addClass('button').setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
+  {{ title_suffix }}
+
+  <div aria-labelledby="{{ heading_id }}" class="popin hidden">
+    <div class="inside">
+      <div class="top">
+        <span class="title">{{ 'Explore UNESCO'|t }}</span>
+        <a href="https://unesco.org/en" class="link home">{{ 'Go to Unesco.org'|t }}</a>
+        <a href="https://unesco.org/en/search" class="link advanced-search">{{ 'Advanced search'|t }}</a>
+        <span class="close">{{ 'Close'|t }}</span>
+      </div>
+      <nav role="navigation">
+        {% block content %}
+          {{ content }}
+        {% endblock %}
+      </nav>
+    </div>
+  </div>
+</div>

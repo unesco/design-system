@@ -70,6 +70,9 @@ function unesco_preprocess_taxonomy_term(&$variables) {
   ];
 
   if (in_array($view_mode, $list_view_modes) && $entity->hasField('field_link') && !$entity->field_link->isEmpty()) {
+    // Hide taxonomy term linked name.
+    $variables['page'] = TRUE;
+
     $variables['unesco_link_content'] = TRUE;
     $variables['unesco_link_attributes'] = new Attribute();
     $variables['unesco_link_attributes']->setAttribute(
