@@ -247,9 +247,9 @@
 
   Drupal.behaviors.dropdownParagraph = {
     attach: function (context, settings) {
-      let dropdown = $('.paragraph--type--dropdown');
+      let dropdown = $('.js-dropdown', context);
 
-      dropdown.each(function () {
+      dropdown.once('dropdownBehaviors').each(function () {
         $(this).append('<button class="btn btn-sm btn-primary">' + Drupal.t('Read more') + '<i class="material-icons-sharp">expand_more</button>');
 
         let dropdownBtn = $(this).find('.btn-primary');
@@ -266,7 +266,7 @@
   Drupal.behaviors.dropdownDocument = {
     attach: function (context, settings) {
 
-      let dropdownDocument = $('.paragraph--type--document .dropdown-toggle');
+      let dropdownDocument = $('.document-wrapper .dropdown .dropdown-toggle', context);
 
       $(document).click(function () {
         dropdownDocument.next('.dropdown-menu').removeClass('show');
@@ -647,10 +647,10 @@
   Drupal.behaviors.paragraphParallax = {
     attach: function (context, settings) {
 
-      var parallaxItem = $('.paragraph--type--parallax');
+      var parallaxItem = $('.js-parallax', context);
 
       $(window).scroll(function(){
-        parallaxItem.each(function(){
+        parallaxItem.once('parallaxBehaviors').each(function(){
             var difference = $(window).scrollTop() - $(this).offset().top;
             var half = (difference / 2) + 'px';
             var transform = 'translate3d( 0, ' + half + ',0)';
