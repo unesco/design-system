@@ -254,6 +254,7 @@ $paddingTop: (
         width: 100%;
 
         &.media--view-mode-full-size {
+          position: relative;
           width: 100vw;
           max-width: 65rem;
           left: 50%;
