@@ -87,7 +87,7 @@
     attach: function (context, settings) {
 
       function dropdownClick() {
-        let dropdownTitle = $('footer nav .navbar-nav > .nav-item .dropdown-toggle');
+        let dropdownTitle = $('footer nav .navbar-nav > .nav-item .dropdown-toggle', context);
         dropdownTitle.unbind('click').on('click', function (e) {
           e.preventDefault();
           $(this).toggleClass('active-item');
@@ -120,7 +120,7 @@
 
   Drupal.behaviors.sliderMediaFull = {
     attach: function (context, settings) {
-      $('.paragraph--type--text-media-full .field--name-field-slides').each(function () {
+      $('.js-slider-full', context).once('SliderMediaFullBehaviors').each(function () {
         if ($(this).children().length > 1) {
           $(this).slick({
             speed: 300,
@@ -154,16 +154,15 @@
   Drupal.behaviors.displaySeeMore = {
     attach: function (context, settings) {
       $(window).on('load', function () {
-        let displaySeeMore = $('.field--name-field-paragraphs .paragraph.display-see-more');
 
-        displaySeeMore.each(function () {
+        $('.display-see-more', context).each(function () {
           let image = $(this).find('.wrapper-image');
           let imageHeight = 300;
           let content = $(this).find('.wrapper-infos');
           let contentHeight = content.outerHeight(true);
 
           if (image.length > 0) {
-            imageHeight = $(this).find('.field--name-field-media-image').outerHeight(true);
+            imageHeight = $(this).find('img').outerHeight(true);
           }
 
           let multiLine = ~~(imageHeight / 40);
