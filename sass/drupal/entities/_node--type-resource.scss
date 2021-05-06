@@ -1,9 +1,15 @@
 .node--type-resources {
 
-  .resource-group {
-
-    &-wrapper {
+  .resource_group > .field--name-title {
+    @include responsive(font-size, $section-title-small);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    @include min-screen($screen-desktop) {
+      margin-bottom: 2rem;
     }
+  }
+
+  .resource-group {
 
     &-item {
 
@@ -89,7 +95,7 @@
 
               &::after {
                 opacity: 1;
-                transition: 0;
+                transition: .3s;
               }
 
             }
