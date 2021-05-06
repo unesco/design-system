@@ -231,6 +231,10 @@ function unesco_preprocess_field(&$variables, $hook) {
   if ($element['#field_name'] == 'field_learn_more') {
     $variables['items'][0]['content']['#options']['attributes']['class'][] = 'btn btn-sm btn-outline-primary';
   }
+
+  if ($element['#field_name'] == 'field_slides') {
+    $variables['attributes']['class'][] = 'js-slider-full';
+  }
 }
 
 /**
