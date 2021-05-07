@@ -153,5 +153,15 @@ footer {
       }
     }
   }
-}
 
+  .block-menu--popin {
+    padding: 1rem 0;
+    background-color: $BlueU;
+    text-align: center;
+
+    .button {
+      padding: 0;
+      display: inline-block;
+    }
+  }
+}
