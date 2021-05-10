@@ -23,3 +23,11 @@ popper:
   version: 1.11.0
   js:
     https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js: { type: external, weight: -10 }
+
+leaflet:
+  version: 1.7.1
+  css:
+    base:
+      //unpkg.com/leaflet@1.7.1/dist/leaflet.css: {}
+  js:
+    //unpkg.com/leaflet@1.7.1/dist/leaflet.js: { scope: footer }
