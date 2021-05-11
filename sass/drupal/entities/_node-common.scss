@@ -326,6 +326,20 @@ $margin24: (
     }
   }
 
+  .field--name-field-language {
+    .field__item {
+      display: inline;
+      &::after {
+        content: ',';
+      }
+    }
+    :last-child.field__item::after {
+      content: '';
+    }
+  }
+
+
+
   .buttons-event {
     margin-top: 2rem;
     margin-bottom: 0.5rem;
