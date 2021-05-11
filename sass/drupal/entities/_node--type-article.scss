@@ -87,7 +87,7 @@ $paddingTop: (
             }
 
             &:last-child {
-              .people-link-name:after {
+              .people-link-name::after {
                 content: '';
               }
             }
@@ -129,6 +129,44 @@ $paddingTop: (
         width: 100%;
         @include min-screen($screen-desktop) {
           width: 51.5rem;
+        }
+      }
+
+      .authors-text-wrapper {
+        a, div {
+          display: inline;
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          &.people-link-name {
+            color: $white;
+            font-weight: 600;
+            &::after {
+              content: ',';
+              margin-left: -.25rem;
+            }
+          }
+
+          &:last-child.people-link-name::after {
+            content: '';
+          }
+        }
+      }
+
+      .content-date-wrapper {
+        display: flex;
+
+        .created-time {
+          font-weight: 600;
+        }
+
+        .updated-time {
+          margin-left: .25rem;
+          &::before {
+            content: '- ';
+          }
         }
       }
     }
