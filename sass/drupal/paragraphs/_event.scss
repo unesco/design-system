@@ -1,0 +1,105 @@
+.event {
+  background-color: $grey1;
+  @include mb-block;
+  padding: 1.5rem;
+  border-radius: .5rem;
+  font-size: 1rem;
+  line-height: 1.375rem;
+
+  @include min-screen($screen-desktop) {
+    padding: 2rem;
+  }
+
+  .event-word {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $BlueU;
+    margin: 0 0 0.5rem;
+  }
+
+  .field--name {
+    &-title {
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+
+      @include min-screen($screen-desktop) {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+    }
+
+    &-field-date {
+      font-weight: 600;
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.75rem;
+    }
+
+    &-field-location {
+      margin: 1rem 0 0.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  .field-prefix {
+    font-weight: 600;
+  }
+
+  .wrapper-event-item {
+    display: flex;
+    margin-bottom: 0.5rem;
+
+    a {
+      color: $darkGrey;
+      text-decoration: underline;
+    }
+
+    .field-prefix {
+      margin-right: 0.25rem;
+    }
+  }
+
+  .field--name-field-language {
+    .field__item {
+      display: inline;
+      &::after {
+        content: ',';
+      }
+    }
+    :last-child.field__item::after {
+      content: '';
+    }
+  }
+
+
+
+  .buttons-event {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+
+    >.field,
+    >a {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    .btn {
+      margin-bottom: 0.5rem;
+    }
+
+    .lien-ical {
+      &::after {
+        @include icon('calendar_today');
+        color: inherit;
+        font-size: 1rem;
+        vertical-align: middle;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}
