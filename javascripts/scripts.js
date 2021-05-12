@@ -139,13 +139,13 @@
     attach: function (context, settings) {
       const header = $('header');
       let toolbarHeight = header.offset().top;
-      let headerHeight = header.height() + toolbarHeight;
+      let headerHeight = header.outerHeight() + toolbarHeight;
 
       $(window).scroll(function () {
         if ($(window).scrollTop() > headerHeight) {
-          $('body').addClass('header-sticky');
+          $('body').addClass('header-sticky').css('padding-top', headerHeight);
         } else {
-          $('body').removeClass('header-sticky');
+          $('body').removeClass('header-sticky').css('padding-top', '');
         }
       });
     }
