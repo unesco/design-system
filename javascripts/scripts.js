@@ -143,9 +143,9 @@
 
       $(window).scroll(function () {
         if ($(window).scrollTop() > headerHeight) {
-          $('body').addClass('header-sticky');
+          $('body').addClass('header-sticky').css('padding-top', headerHeight);
         } else {
-          $('body').removeClass('header-sticky');
+          $('body').removeClass('header-sticky').css('padding-top', '');
         }
       });
     }

@@ -1088,8 +1088,7 @@ header {
   }
 }
 
-.header-sticky,
-.transparent-header.header-sticky {
+.header-sticky {
   padding-top: 3.5rem;
 
   @include max-screen($screen-tablet - 1) {
@@ -1099,6 +1098,10 @@ header {
   header::after {
     display: none;
   }
+}
+
+.transparent-header.header-sticky {
+  padding-top: 0 !important;
 }
 
 .transparent-header.menu-open header.bg-primary {
