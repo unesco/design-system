@@ -77,6 +77,7 @@
       $('body').on('click', function (e) {
         if (!dropdownLink.is(e.target) && dropdownLink.parent().has(e.target).length === 0 && dropdownLink.parent().find('.dropdown-menu').has(e.target).length === 0) {
           $('.dropdown-menu').parent().removeClass('show');
+          $('body').removeClass('parent-menu-open');
           dropdownLink.parent().find('.dropdown-menu').removeClass('show');
         }
       });
