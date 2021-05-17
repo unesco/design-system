@@ -75,6 +75,7 @@
     width: 100vw;
     max-width: 20.438rem;
     display: none;
+    z-index: 1;
 
     &::before {
       content: "";
