@@ -81,28 +81,54 @@ $paddingTop: (
         }
 
         .authors-text-wrapper {
-          a, div {
+
+          * {
             display: inline;
+          }
 
-            &:hover {
-              text-decoration: none;
-            }
+          .people-link-name {
 
-            .people-link-name {
-              color: $white;
-              font-weight: 600;
-              &::after {
-                content: ',';
-                margin-left: -.25rem;
-              }
+            display: inline;
+            color:  $darkGrey;
+            font-weight: 600;
+
+
+
+            &::after {
+              content: ',';
+              margin-left: .125rem;
             }
 
             &:last-child {
-              .people-link-name::after {
+              &::after {
+                display: none;
+              }
+            }
+
+            a {
+              display: inline-block;
+              position: relative;
+              color: $darkGrey;
+
+
+
+              &:hover {
+                text-decoration: none;
+                color:  $darkGrey;
+              }
+
+              &::before {
                 content: '';
+                left: 0;
+                bottom: 0;
+                position: absolute;
+                width: 100%;
+                height: .0625rem;
+                background-color: $darkGrey;
               }
             }
           }
+
         }
 
       }
@@ -166,28 +192,32 @@ $paddingTop: (
         color: $white;
       }
 
-      .authors-text-wrapper {
-        a, div {
-          display: inline;
+      .content-authors-wrapper {
 
-          &:hover {
-            text-decoration: none;
-          }
+        .authors-text-wrapper {
 
-          &.people-link-name {
-            color: $white;
-            font-weight: 600;
-            &::after {
-              content: ',';
-              margin-left: -.25rem;
+          .people-link-name {
+            color:  $white;
+
+            a {
+              color: $white;
+
+              &:hover {
+                color:  $white;
+              }
+
+              &::before {
+                background-color: $white;
+              }
             }
           }
 
-          &:last-child.people-link-name::after {
-            content: '';
-          }
         }
+
       }
+
+
+
 
       .content-date-wrapper {
         display: flex;
