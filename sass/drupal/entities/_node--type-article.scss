@@ -275,6 +275,30 @@ $paddingTop: (
         color: $white;
       }
 
+      .story-location {
+        .story-city, .story-country {
+          display: inline-block;
+          padding-bottom: .0625rem;
+          font-size: .875rem;
+          font-weight: 600;
+          color: $white;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+        .story-city + .story-country {
+          &::before {
+            content: ',';
+            margin-right: .25rem;
+          }
+        }
+
+        a.story-country, a.story-city {
+          border-bottom: .0625rem solid $white,
+        }
+      }
+
     }
 
   }
