@@ -288,9 +288,12 @@ $paddingTop: (
         }
 
         .story-city + .story-country {
+          position: relative;
+          margin-left: .7rem;
           &::before {
             content: ',';
-            margin-right: .25rem;
+            position: absolute;
+            left: -.5rem;
           }
         }
 
