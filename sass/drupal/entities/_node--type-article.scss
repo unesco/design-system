@@ -29,6 +29,9 @@ $paddingTop: (
     }
 
     .header-node-content {
+      margin: 0 auto 2.5rem;
+      width: 100%;
+      max-width: 38.125rem;
 
       .section-text {
         position: relative;
@@ -46,6 +49,14 @@ $paddingTop: (
           }
         }
 
+      }
+
+      .article-title,
+      .field--name-field-description {
+        width: 100%;
+        @include min-screen($screen-desktop) {
+          width: 51.5rem;
+        }
       }
 
       .content-authors-wrapper {
@@ -97,6 +108,36 @@ $paddingTop: (
       }
 
     }
+
+    .main-node-content {
+      .media-wrapper {
+        .media--view-mode-full-size {
+          position: relative;
+          width: 100vw;
+          height: 13.25rem;
+          left: 50%;
+          transform: translateX(-50%);
+
+          .field--name-field-media-image {
+            height: 100%;
+          }
+
+          @include min-screen($screen-tablet) {
+            height: 31.5rem;
+          }
+
+          @include min-screen($screen-desktop) {
+            height: 51rem;
+          }
+        }
+
+        .media-footer.fullsize {
+          padding: 0;
+        }
+      }
+    }
+
+
   }
 }
 
@@ -109,15 +150,12 @@ $paddingTop: (
       background-color: $BlueU;
       padding: 2.5rem 0;
       @include fullWidthBackground($BlueU);
-      width: 100%;
-      max-width: 38.125rem;
       margin: -2.5rem auto 2.5rem;
       color: $white;
       @include min-screen($screen-desktop) {
         padding: 6rem 0;
         margin: -3.5rem auto 3.5rem;
       }
-
       &::before,
       &::after {
         z-index: -1;
@@ -126,10 +164,6 @@ $paddingTop: (
       .article-title,
       .field--name-field-description {
         color: $white;
-        width: 100%;
-        @include min-screen($screen-desktop) {
-          width: 51.5rem;
-        }
       }
 
       .authors-text-wrapper {
