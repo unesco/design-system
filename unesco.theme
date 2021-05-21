@@ -92,6 +92,13 @@ function unesco_preprocess_html(&$variables) {
         'homepage',
         'landing',
       ];
+
+      $header_with_line = [
+        'report',
+        'detail',
+        'idea'
+      ];
+
       if (in_array($node->bundle(), $bundles_with_hero) && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
         $variables['attributes']['class'][] = 'transparent-header';
       }
@@ -107,6 +114,10 @@ function unesco_preprocess_html(&$variables) {
 
       if ($node->hasField('field_ref_image') && $node->get('field_ref_image')->isEmpty()) {
         $variables['attributes']['class'][] = 'no-header-image';
+      }
+
+      if ($node->bundle() === 'article' && $node->hasField('field_article_type') && !$node->field_article_type->isEmpty() && (in_array($node->field_article_type->value, $header_with_line))) {
+        $variables['attributes']['class'][] = 'header-with-line';
       }
     }
 
