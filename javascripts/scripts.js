@@ -5,8 +5,6 @@
 (function ($) {
   "use strict";
 
-// Add your custom scripts here, using Drupal.behaviors
-
   function isMobile() {
     return window.innerWidth <= 520;
   }
@@ -663,5 +661,20 @@
 
     }
   };
+
+  Drupal.behaviors.galaxyMenu = {
+    attach: function (context, settings) {
+      const galaxyButton = $('.block-menu--popin .button', context);
+      const galaxyPopin = $('.menu--galaxy-menu .popin', context);
+
+      galaxyButton.on('click', function () {
+        galaxyPopin.removeClass('hidden');
+      });
+      galaxyPopin.find('.top .close').on('click', function () {
+        galaxyPopin.addClass('hidden');
+      });
+    }
+  };
+
 })
 (jQuery);
