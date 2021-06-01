@@ -15,6 +15,7 @@ stylesheets-remove:
   - '@bootstrap4/css/style.css'
 
 regions:
+  pre_header: 'Pre Header'
   header: 'Header'
   sub_header: 'Satellite Header'
   content: Content

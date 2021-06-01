@@ -27,6 +27,7 @@
  *   comment/reply/12345).
  *
  * Regions:
+ * - page.pre_header: Items for the pre header region.
  * - page.header: Items for the header region.
  * - page.sub_header: Items for the sub header region.
  * - page.content: The main content of the current page.
@@ -44,6 +45,10 @@
   (b4_footer_schema != 'none' ? (b4_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
   (b4_footer_bg_schema != 'none' ? " bg-#{b4_footer_bg_schema}" : ' ')
 %}
+
+{% if page.pre_header %}
+  {{ page.pre_header }}
+{% endif %}
 
 <header class="navbar navbar-expand-lg bg-primary navbar-dark">
   {% if page.header %}
