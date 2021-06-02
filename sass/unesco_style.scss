@@ -7,7 +7,8 @@
 @import 'overrides/variables-overrides';
 
 // Includes parent theme with all things Bootstrap for variables override.
-@import "../../../contrib/bootstrap4/scss/style";
+//@import "../../../contrib/bootstrap4/scss/style";
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 // Custom styles
 @import 'base/base';
