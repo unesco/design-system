@@ -120,6 +120,14 @@
           align-items: flex-start;
           flex-wrap: wrap;
 
+          @include min-screen($screen-tablet) {
+            margin-top: 1.5rem;
+          }
+
+          &:empty {
+            display: none;
+          }
+
           .btn {
             margin-right: 1rem;
             @include max-screen($screen-tablet - 1px) {
@@ -330,7 +338,7 @@
 
         .document-texts {
           @include min-screen($screen-tablet) {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
           }
         }
 

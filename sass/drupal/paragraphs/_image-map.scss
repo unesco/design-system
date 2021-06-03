@@ -36,6 +36,7 @@
 
     .point {
       position: absolute;
+      cursor: pointer;
 
       &.show-popup {
         >.popup,
