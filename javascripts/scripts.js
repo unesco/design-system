@@ -249,7 +249,7 @@
       let dropdown = $('.js-dropdown', context);
 
       dropdown.once('dropdownBehaviors').each(function () {
-        $(this).append('<button class="btn btn-sm btn-primary">' + Drupal.t('Read more') + '<i class="material-icons-sharp">expand_more</button>');
+        $(this).append('<button class="btn btn-sm btn-primary"> <span>' + Drupal.t('Read more') + '</span> <i class="material-icons-sharp">expand_more</button>');
 
         let dropdownBtn = $(this).find('.btn-primary');
 
@@ -257,6 +257,12 @@
           e.preventDefault();
           $(this).toggleClass('active');
           $(this).prev().slideToggle();
+
+          if ($(this).hasClass('active')) {
+            $(this).find('span').text(Drupal.t('Read less'));
+          } else {
+            $(this).find('span').text(Drupal.t('Read more'));
+          }
         });
       });
     }
