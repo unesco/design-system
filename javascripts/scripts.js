@@ -234,6 +234,8 @@
           prevArrow: prev,
           nextArrow: next,
           infinite: false,
+          autoplay: true,
+          autoplaySpeed: 3000
         });
 
         $(this).on("afterChange", function (event, slick, currentSlide) {
