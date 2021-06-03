@@ -31,7 +31,8 @@
       }
     }
 
-    .field--name-field-description {
+    .field--name-field-description,
+    .field--name-field-text {
       @include responsive(font-size, $section-title-small);
       margin: 0 0 2rem;
 
@@ -82,21 +83,18 @@
       position: absolute;
       left: 0;
       top: 0;
-      margin-top: 66.67%;
+      margin-top: calc(66.67% + 1rem);
       background-color: $white;
       z-index: 1;
 
       @include min-screen($screen-tablet) {
         left: auto;
         right: 0;
-        top: auto;
-        bottom: -1rem;
-        margin-top: 0;
       }
 
       .count {
-        font-size: 0.75;
-        margin-right: 0.5rem;
+        font-size: .75rem;
+        margin-right: .5rem;
         margin-top: 0;
         color: $grey5;
         font-weight: 500;
