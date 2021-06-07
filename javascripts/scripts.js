@@ -199,8 +199,8 @@
 
       iframeParagraph.each(function () {
         let desktop = $(this).attr('data-height') ? $(this).attr('data-height') : 0;
-        let mobile = $(this).attr('data-height-mobile') ? $(this).attr('data-height-mobile') : 0;
-        let tablet = $(this).attr('data-height-tablet') ? $(this).attr('data-height-tablet') : 0;
+        let mobile = $(this).attr('data-height-mobile') ? $(this).attr('data-height-mobile') : desktop;
+        let tablet = $(this).attr('data-height-tablet') ? $(this).attr('data-height-tablet') : mobile;
         let eq = $(this).parent().index();
         $(this).addClass('iframe' + eq);
 
