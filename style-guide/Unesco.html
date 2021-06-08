@@ -3016,19 +3016,43 @@
     <h2 class="mb-4">Sliders</h2>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-12">
         <h4 class="mb-4">Slider full</h4>
         <div class="bs-component" style="margin-bottom: 3em;">
-          <ul id="js-slider-full">
-            <li>
+          <div class="js-slider-full">
+            <div class="slide">
               <div class="wrapper-infos">
-                test
+                <div class="slide-title">
+                  Paris
+                </div>
+                <div class="slide-text">
+                  Capital de France
+                </div>
+
+                <div class="slide-links">
+                  <div class="slide-link">
+                    <a href="#" class="btn btn-primary btn-arrow-right">http://example.com</a>
+                  </div>
+                  <div class="slide-link">
+                    <a href="#" class="btn btn-primary btn-arrow-right">http://example.com</a>
+                  </div>
+                </div>
               </div>
               <div class="wrapper-image">
-                <img src="https://assets.imgix.net/hp/snowshoe.jpg" alt="">
+                <img src="https://images.adsttc.com/media/images/5d44/14fa/284d/d1fd/3a00/003d/large_jpg/eiffel-tower-in-paris-151-medium.jpg?1564742900" alt="">
               </div>
-            </li>
-          </ul>
+            </div>
+            <div class="slide">
+              <div class="wrapper-infos">
+                <h2 class="text-white">
+                  Lyon
+                </h2>
+              </div>
+              <div class="wrapper-image">
+                <img src="https://media.routard.com/image/87/8/lyon.1556878.c1000x300.jpg" alt="">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -3111,6 +3135,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script src="https://unesco-d9.dev.ows.fr/themes/contrib/bootstrap4/style-guide/show-source.js"></script>
+<script src="../javascripts/vendor/slick.min.js"></script>
+<script src="../assets/scripts/app.js"></script>
 
 <script type="text/javascript">
   let mainNavLinks = document.querySelectorAll("nav ul li a");
