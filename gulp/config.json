@@ -21,7 +21,7 @@
   },
   "javascript": {
     "file": "app.js",
-    "src": "./javascripts/*.js",
+    "src": ["./javascripts/*.js", "!./javascripts/drupal.js"],
     "destination": "./assets/scripts",
     "sourcemaps": "./"
   }
