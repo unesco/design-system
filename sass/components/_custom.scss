@@ -72,6 +72,58 @@
   }
 }
 
+// Pre header
+
+$pre-header-text: (
+  null: .75rem,
+  medium: 1rem
+);
+
+$pre-header-close: (
+  null: 1.5rem,
+  medium: 2rem
+);
+
+$pre-header-close-icon: (
+  null: .75rem,
+  medium: 1rem
+);
+
+.pre_header {
+  background-color: $Blue3;
+  padding: .5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-text {
+    @include responsive(font-size, $pre-header-text);
+    color: $white;
+    font-weight: 600;
+  }
+
+  &-close {
+    display: inline-block;
+    background-color: $Blue2;
+    @include responsive(width, $pre-header-close);
+    @include responsive(min-width, $pre-header-close);
+    @include responsive(height, $pre-header-close);
+    margin-left: 1rem;
+    border-radius: 50%;
+    line-height: 0;
+
+    i {
+      position: relative;
+      display: inline-block;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $white;
+      @include responsive(font-size, $pre-header-close-icon);
+    }
+  }
+}
+
 // List group flush
 
 .list-group-flush {
