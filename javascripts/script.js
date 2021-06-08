@@ -40,6 +40,94 @@
       this.initParagraphParallax(context, settings);
       this.initGalaxyMenu(context, settings);
     },
+
+    initSliderMediaFull: function (context, settings) {
+      // .once('SliderMediaFullBehaviors')
+      $('.js-slider-full', context).each(function () {
+        if ($(this).children().length > 1) {
+          $(this).slick({
+            speed: 300,
+            slidesToShow: 1,
+            dots: true,
+            arrows: false,
+            infinite: true,
+            adaptiveHeight: false,
+          });
+        }
+      });
+    },
+    initMediaSlider: function (context, settings) {
+      const slider = $('.slider-medias', context);
+
+      slider.each(function () {
+        const next = $(this).parent().find('.next');
+        const prev = $(this).parent().find('.previous');
+        const $countSpan = $(this).parent().find('.slider-nav .count');
+        let $slideNum = $(this).find('>.field__item').length;
+
+        $('.carousel-button').on('click', function (e) {
+          e.preventDefault();
+        });
+
+        $(slider).on('init', function (event, slick) {
+          let $count = (1) + '/' + ($slideNum);
+          $countSpan.text($count);
+        });
+
+        $(this).slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          prevArrow: prev,
+          nextArrow: next,
+          infinite: false,
+          autoplay: true,
+          autoplaySpeed: 3000
+        });
+
+        $(this).on("afterChange", function (event, slick, currentSlide) {
+          let $count = (slick.currentSlide + 1) + '/' + (slick.slideCount);
+          $countSpan.text($count);
+        });
+      });
+    },
+    initCarouselCards: function (context, settings) {
+      $('.carousel-cards').each(function () {
+
+        $(this).children('.row').slick({
+          speed: 300,
+          slidesToShow: 4,
+          dots: false,
+          arrows: true,
+          infinite: false,
+          adaptiveHeight: false,
+          variableWidth: true,
+          responsive: [
+            {
+              breakpoint: 1400, // desktop
+              settings: {
+                slidesToShow: 3,
+                variableWidth: true
+              }
+            },
+            {
+              breakpoint: 992, // tablet breakpoint
+              settings: {
+                slidesToShow: 2,
+                variableWidth: true
+              }
+            },
+            {
+              breakpoint: 576, // mobile breakpoint
+              settings: {
+                slidesToShow: 1,
+                variableWidth: false
+              }
+            }
+          ]
+        });
+      });
+    },
+
     initReportMenu: function (context, settings) {
       let menuCarousel = $('header .report .menu-level-1');
 
@@ -135,21 +223,6 @@
         }
       });
     },
-    initSliderMediaFull: function (context, settings) {
-    // .once('SliderMediaFullBehaviors')
-      $('.js-slider-full', context).each(function () {
-        if ($(this).children().length > 1) {
-          $(this).slick({
-            speed: 300,
-            slidesToShow: 1,
-            dots: true,
-            arrows: false,
-            infinite: true,
-            adaptiveHeight: false,
-          });
-        }
-      });
-    },
     initStickyHeader: function (context, settings) {
       const header = $('header');
       let toolbarHeight = header.offset().top;
@@ -214,40 +287,6 @@
         $(this).addClass('iframe' + eq);
 
         $('head').append('<style>.iframe' + eq + ' .field--name-field-iframe { height:' + mobile + 'px;} @media only screen and (min-width: 576px) {.iframe' + eq + ' .field--name-field-iframe { height:' + tablet + 'px; }} @media only screen and (min-width: 992px) {.iframe' + eq + ' .field--name-field-iframe {height:' + desktop + 'px; }}</style>');
-      });
-    },
-    initMediaSlider: function (context, settings) {
-      const slider = $('.slider-medias', context);
-
-      slider.each(function () {
-        const next = $(this).parent().find('.next');
-        const prev = $(this).parent().find('.previous');
-        const $countSpan = $(this).parent().find('.slider-nav .count');
-        let $slideNum = $(this).find('>.field__item').length;
-
-        $('.carousel-button').on('click', function (e) {
-          e.preventDefault();
-        });
-
-        $(slider).on('init', function (event, slick) {
-          let $count = (1) + '/' + ($slideNum);
-          $countSpan.text($count);
-        });
-
-        $(this).slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          prevArrow: prev,
-          nextArrow: next,
-          infinite: false,
-          autoplay: true,
-          autoplaySpeed: 3000
-        });
-
-        $(this).on("afterChange", function (event, slick, currentSlide) {
-          let $count = (slick.currentSlide + 1) + '/' + (slick.slideCount);
-          $countSpan.text($count);
-        });
       });
     },
     initDropdownParagraph: function (context, settings) {
@@ -446,43 +485,6 @@
         $('.modal-close').on('click', function () {
           $('.ui-icon-closethick').trigger('click');
           $('body').removeClass('is-fixed');
-        });
-      });
-    },
-    initCarouselCards: function (context, settings) {
-      $('.paragraph--type--cards-landing.carousel').each(function () {
-
-        $(this).children('.row').slick({
-          speed: 300,
-          slidesToShow: 4,
-          dots: false,
-          arrows: true,
-          infinite: false,
-          adaptiveHeight: false,
-          variableWidth: true,
-          responsive: [
-            {
-              breakpoint: 1400, // desktop
-              settings: {
-                slidesToShow: 3,
-                variableWidth: true
-              }
-            },
-            {
-              breakpoint: 992, // tablet breakpoint
-              settings: {
-                slidesToShow: 2,
-                variableWidth: true
-              }
-            },
-            {
-              breakpoint: 576, // mobile breakpoint
-              settings: {
-                slidesToShow: 1,
-                variableWidth: false
-              }
-            }
-          ]
         });
       });
     },
