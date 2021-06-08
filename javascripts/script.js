@@ -127,6 +127,39 @@
         });
       });
     },
+    initDropdownFooter: function (context, settings) {
+      function dropdownClick() {
+        let dropdownTitle = $('footer .footer .nav-item .dropdown-toggle', context);
+
+        dropdownTitle.unbind('click').on('click', function (e) {
+          console.log($(this));
+          e.preventDefault();
+          $(this).toggleClass('active-item');
+          $(this).next('ul').slideToggle();
+        });
+      }
+
+      let desktopWidth = 992;
+      let initialDiff = ($(window).width() > desktopWidth) ? 1 : -1;
+
+      // Responsive
+      if ($(window).width() <= desktopWidth) {
+        dropdownClick();
+      }
+
+      // Resize responsive & reload page if change breakpoint
+      $(window).on('resize', function () {
+        let win = $(window).width();
+        let currentDiff = win - desktopWidth;
+        if (win <= desktopWidth) {
+          dropdownClick();
+        }
+        if (currentDiff * initialDiff < 0) {
+          initialDiff *= -1;
+          location.reload();
+        }
+      });
+    },
 
     initReportMenu: function (context, settings) {
       let menuCarousel = $('header .report .menu-level-1');
@@ -189,37 +222,6 @@
           $('.dropdown-menu').parent().removeClass('show');
           $('body').removeClass('parent-menu-open');
           dropdownLink.parent().find('.dropdown-menu').removeClass('show');
-        }
-      });
-    },
-    initDropdownFooter: function (context, settings) {
-      function dropdownClick() {
-        let dropdownTitle = $('footer nav .navbar-nav > .nav-item .dropdown-toggle', context);
-        dropdownTitle.unbind('click').on('click', function (e) {
-          e.preventDefault();
-          $(this).toggleClass('active-item');
-          $(this).next('ul').slideToggle();
-        });
-      }
-
-      let desktopWidth = 992;
-      let initialDiff = ($(window).width() > desktopWidth) ? 1 : -1;
-
-      // Responsive
-      if ($(window).width() <= desktopWidth) {
-        dropdownClick();
-      }
-
-      // Resize responsive & reload page if change breakpoint
-      $(window).on('resize', function () {
-        let win = $(window).width();
-        let currentDiff = win - desktopWidth;
-        if (win <= desktopWidth) {
-          dropdownClick();
-        }
-        if (currentDiff * initialDiff < 0) {
-          initialDiff *= -1;
-          location.reload();
         }
       });
     },
