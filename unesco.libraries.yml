@@ -10,6 +10,7 @@ global-styling:
   js:
     javascripts/vendor/slick.min.js: { minified: true }
     assets/scripts/app.js: {}
+    javascripts/scripts.js: {}
 
   dependencies:
     - unesco/popper
