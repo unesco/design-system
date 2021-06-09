@@ -7,6 +7,7 @@
   ul {
     @include responsive(font-size, $text);
     padding-inline-start: 1.5rem;
+    line-height: 1.67;
 
     li {
       margin-bottom: 1rem;
@@ -22,6 +23,7 @@
     margin-left: 0;
     padding-inline-start: 1.5rem;
     @include responsive(font-size, $text);
+    line-height: 1.67;
 
     li {
       position: relative;

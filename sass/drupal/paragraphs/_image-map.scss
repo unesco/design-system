@@ -4,6 +4,7 @@
     margin-top: 2rem;
     padding-top: 100%;
     overflow: scroll;
+    @include responsive(margin-bottom, $space-bottom);
 
     img {
       max-width: unset;
@@ -36,6 +37,7 @@
 
     .point {
       position: absolute;
+      cursor: pointer;
 
       &.show-popup {
         >.popup,

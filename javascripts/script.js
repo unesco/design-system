@@ -5,91 +5,134 @@
 (function ($) {
   "use strict";
 
-// Add your custom scripts here, using Drupal.behaviors
+  window.Unesco = window.Unesco || {
+    isMobile: function() {
+      return window.innerWidth <= 520;
+    },
+    initAll: function(context, settings) {
+      context = context || {};
+      settings = settings || {};
 
-  function isMobile() {
-    return window.innerWidth <= 520;
-  }
+      this.initReportMenu(context, settings);
+      this.initResponsiveMenu(context, settings);
+      this.initDropdownMenu(context, settings);
+      this.initDropdownFooter(context, settings);
+      this.initSliderMediaFull(context, settings);
+      this.initStickyHeader(context, settings);
+      this.initDisplaySeeMore(context, settings);
+      this.initIframeCustomHeight(context, settings);
+      this.initMediaSlider(context, settings);
+      this.initDropdownParagraph(context, settings);
+      this.initDropdownDocument(context, settings);
+      this.initSequencedBlock(context, settings);
+      this.initRelatedItemsBlock(context, settings);
+      this.initBackToTop(context, settings);
+      this.initAuthorReadMore(context, settings);
+      this.initTeaserListBorder(context, settings);
+      this.initCommonExternalLink(context, settings);
+      this.initSummaryMobile(context, settings);
+      this.initRessourceModal(context, settings);
+      this.initCarouselCards(context, settings);
+      this.initDropdownFAQ(context, settings);
+      this.initImageMap(context, settings);
+      this.initHeaderHubMenu(context, settings);
+      this.initStoryParallax(context, settings);
+      this.initParagraphParallax(context, settings);
+      this.initGalaxyMenu(context, settings);
+    },
 
-  Drupal.behaviors.reportMenu = {
-    attach: function (context, settings) {
-      let menuCarousel = $('header .report .menu-level-1');
-
-      menuCarousel.slick({
-        slidesToShow: 4,
-        swipeToSlide: true,
-        autoplay: false,
-        arrows: true,
-        infinite: false,
-        speed: 1500,
-        responsive: [
-          {
-            breakpoint: 951,
-            settings: {
-              slidesToShow: 3,
-              arrows: false,
-            }
-          },
-          {
-            breakpoint: 520,
-            settings: 'unslick',
-          },
-        ]
-      });
-
-      if (!isMobile()) {
-        $('.nav-link.dropdown-toggle').once().on('click', function () {
-          menuCarousel.slick('refresh');
-        });
-      }
-    }
-  };
-
-  Drupal.behaviors.responsiveMenu = {
-    attach: function (context, settings) {
-      let menuBurger = $('.navbar-toggler');
-      let parentItem = $('header .menu-level-0 > .nav-item > .dropdown-toggle');
-
-      menuBurger.on('click', function () {
-        $('html').toggleClass('menu-open');
-        $('body').toggleClass('menu-open');
-        $('body').removeClass('parent-menu-open');
-      });
-
-      parentItem.on('click', function () {
-        $('body').toggleClass('parent-menu-open');
-      });
-    }
-  };
-
-  Drupal.behaviors.dropdownMenu = {
-    attach: function (context, settings) {
-      let dropdownLink = $('.navbar .dropdown-toggle');
-
-      dropdownLink.on('click', function (e) {
-        e.preventDefault();
-        dropdownLink.not(this).parent().removeClass('show');
-        dropdownLink.not(this).parent().find('.dropdown-menu').removeClass('show');
-        $(this).parent().toggleClass('show');
-        $(this).parent().find('.dropdown-menu').toggleClass('show');
-      });
-
-      $('body').on('click', function (e) {
-        if (!dropdownLink.is(e.target) && dropdownLink.parent().has(e.target).length === 0 && dropdownLink.parent().find('.dropdown-menu').has(e.target).length === 0) {
-          $('.dropdown-menu').parent().removeClass('show');
-          $('body').removeClass('parent-menu-open');
-          dropdownLink.parent().find('.dropdown-menu').removeClass('show');
+    initSliderMediaFull: function (context, settings) {
+      // .once('SliderMediaFullBehaviors')
+      $('.js-slider-full', context).each(function () {
+        if ($(this).children().length > 1) {
+          $(this).slick({
+            speed: 300,
+            slidesToShow: 1,
+            dots: true,
+            arrows: false,
+            infinite: true,
+            adaptiveHeight: false,
+          });
         }
       });
-    }
-  };
+    },
+    initMediaSlider: function (context, settings) {
+      const slider = $('.slider-medias', context);
 
-  Drupal.behaviors.dropdownFooter = {
-    attach: function (context, settings) {
+      slider.each(function () {
+        const next = $(this).parent().find('.next');
+        const prev = $(this).parent().find('.previous');
+        const $countSpan = $(this).parent().find('.slider-nav .count');
+        let $slideNum = $(this).find('>.field__item').length;
 
+        $('.carousel-button').on('click', function (e) {
+          e.preventDefault();
+        });
+
+        $(slider).on('init', function (event, slick) {
+          let $count = (1) + '/' + ($slideNum);
+          $countSpan.text($count);
+        });
+
+        $(this).slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          prevArrow: prev,
+          nextArrow: next,
+          infinite: false,
+          autoplay: true,
+          autoplaySpeed: 3000
+        });
+
+        $(this).on("afterChange", function (event, slick, currentSlide) {
+          let $count = (slick.currentSlide + 1) + '/' + (slick.slideCount);
+          $countSpan.text($count);
+        });
+      });
+    },
+    initCarouselCards: function (context, settings) {
+      $('.carousel-cards').each(function () {
+
+        $(this).children('.row').slick({
+          speed: 300,
+          slidesToShow: 4,
+          dots: false,
+          arrows: true,
+          infinite: false,
+          adaptiveHeight: false,
+          variableWidth: true,
+          responsive: [
+            {
+              breakpoint: 1400, // desktop
+              settings: {
+                slidesToShow: 3,
+                variableWidth: true
+              }
+            },
+            {
+              breakpoint: 992, // tablet breakpoint
+              settings: {
+                slidesToShow: 2,
+                variableWidth: true
+              }
+            },
+            {
+              breakpoint: 576, // mobile breakpoint
+              settings: {
+                slidesToShow: 1,
+                variableWidth: false
+              }
+            }
+          ]
+        });
+      });
+    },
+    initDropdownFooter: function (context, settings) {
       function dropdownClick() {
-        let dropdownTitle = $('footer nav .navbar-nav > .nav-item .dropdown-toggle', context);
+        let dropdownTitle = $('footer .footer .nav-item .dropdown-toggle', context);
+
         dropdownTitle.unbind('click').on('click', function (e) {
+          console.log($(this));
           e.preventDefault();
           $(this).toggleClass('active-item');
           $(this).next('ul').slideToggle();
@@ -116,28 +159,73 @@
           location.reload();
         }
       });
-    }
-  };
+    },
 
-  Drupal.behaviors.sliderMediaFull = {
-    attach: function (context, settings) {
-      $('.js-slider-full', context).once('SliderMediaFullBehaviors').each(function () {
-        if ($(this).children().length > 1) {
-          $(this).slick({
-            speed: 300,
-            slidesToShow: 1,
-            dots: true,
-            arrows: false,
-            infinite: true,
-            adaptiveHeight: false,
-          });
+    initReportMenu: function (context, settings) {
+      let menuCarousel = $('header .report .menu-level-1');
+
+      menuCarousel.slick({
+        slidesToShow: 4,
+        swipeToSlide: true,
+        autoplay: false,
+        arrows: true,
+        infinite: false,
+        speed: 1500,
+        responsive: [
+          {
+            breakpoint: 951,
+            settings: {
+              slidesToShow: 3,
+              arrows: false,
+            }
+          },
+          {
+            breakpoint: 520,
+            settings: 'unslick',
+          },
+        ]
+      });
+
+      if (!this.isMobile()) {
+        $('.nav-link.dropdown-toggle').once().on('click', function () {
+          menuCarousel.slick('refresh');
+        });
+      }
+    },
+    initResponsiveMenu: function (context, settings) {
+      let menuBurger = $('.navbar-toggler');
+      let parentItem = $('header .menu-level-0 > .nav-item > .dropdown-toggle');
+
+      menuBurger.on('click', function () {
+        $('html').toggleClass('menu-open');
+        $('body').toggleClass('menu-open');
+        $('body').removeClass('parent-menu-open');
+      });
+
+      parentItem.on('click', function () {
+        $('body').toggleClass('parent-menu-open');
+      });
+    },
+    initDropdownMenu: function (context, settings) {
+      let dropdownLink = $('.navbar .dropdown-toggle');
+
+      dropdownLink.on('click', function (e) {
+        e.preventDefault();
+        dropdownLink.not(this).parent().removeClass('show');
+        dropdownLink.not(this).parent().find('.dropdown-menu').removeClass('show');
+        $(this).parent().toggleClass('show');
+        $(this).parent().find('.dropdown-menu').toggleClass('show');
+      });
+
+      $('body').on('click', function (e) {
+        if (!dropdownLink.is(e.target) && dropdownLink.parent().has(e.target).length === 0 && dropdownLink.parent().find('.dropdown-menu').has(e.target).length === 0) {
+          $('.dropdown-menu').parent().removeClass('show');
+          $('body').removeClass('parent-menu-open');
+          dropdownLink.parent().find('.dropdown-menu').removeClass('show');
         }
       });
-    }
-  };
-
-  Drupal.behaviors.stickyHeader = {
-    attach: function (context, settings) {
+    },
+    initStickyHeader: function (context, settings) {
       const header = $('header');
       let toolbarHeight = header.offset().top;
       let headerHeight = header.outerHeight() + toolbarHeight;
@@ -149,11 +237,8 @@
           $('body').removeClass('header-sticky').css('padding-top', '');
         }
       });
-    }
-  };
-
-  Drupal.behaviors.displaySeeMore = {
-    attach: function (context, settings) {
+    },
+    initDisplaySeeMore: function (context, settings) {
       $(window).on('load', function () {
 
         $('.display-see-more', context).each(function () {
@@ -192,66 +277,25 @@
           }
         });
       });
-    }
-  };
-
-  Drupal.behaviors.iframeCustomHeight = {
-    attach: function (context, settings) {
+    },
+    initIframeCustomHeight: function (context, settings) {
       let iframeParagraph = $('.paragraph--type--iframe');
 
       iframeParagraph.each(function () {
         let desktop = $(this).attr('data-height') ? $(this).attr('data-height') : 0;
-        let mobile = $(this).attr('data-height-mobile') ? $(this).attr('data-height-mobile') : 0;
-        let tablet = $(this).attr('data-height-tablet') ? $(this).attr('data-height-tablet') : 0;
+        let mobile = $(this).attr('data-height-mobile') ? $(this).attr('data-height-mobile') : desktop;
+        let tablet = $(this).attr('data-height-tablet') ? $(this).attr('data-height-tablet') : mobile;
         let eq = $(this).parent().index();
         $(this).addClass('iframe' + eq);
 
         $('head').append('<style>.iframe' + eq + ' .field--name-field-iframe { height:' + mobile + 'px;} @media only screen and (min-width: 576px) {.iframe' + eq + ' .field--name-field-iframe { height:' + tablet + 'px; }} @media only screen and (min-width: 992px) {.iframe' + eq + ' .field--name-field-iframe {height:' + desktop + 'px; }}</style>');
       });
-    }
-  };
-
-  Drupal.behaviors.mediaSlider = {
-    attach: function (context, settings) {
-      const slider = $('.slider-medias', context);
-
-      slider.each(function () {
-        const next = $(this).parent().find('.next');
-        const prev = $(this).parent().find('.previous');
-        const $countSpan = $(this).parent().find('.slider-nav .count');
-        let $slideNum = $(this).find('>.field__item').length;
-
-        $('.carousel-button').on('click', function (e) {
-          e.preventDefault();
-        });
-
-        $(slider).on('init', function (event, slick) {
-          let $count = (1) + '/' + ($slideNum);
-          $countSpan.text($count);
-        });
-
-        $(this).slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          prevArrow: prev,
-          nextArrow: next,
-          infinite: false,
-        });
-
-        $(this).on("afterChange", function (event, slick, currentSlide) {
-          let $count = (slick.currentSlide + 1) + '/' + (slick.slideCount);
-          $countSpan.text($count);
-        });
-      });
-    }
-  };
-
-  Drupal.behaviors.dropdownParagraph = {
-    attach: function (context, settings) {
+    },
+    initDropdownParagraph: function (context, settings) {
       let dropdown = $('.js-dropdown', context);
 
       dropdown.once('dropdownBehaviors').each(function () {
-        $(this).append('<button class="btn btn-sm btn-primary">' + Drupal.t('Read more') + '<i class="material-icons-sharp">expand_more</button>');
+        $(this).append('<button class="btn btn-sm btn-primary"> <span>' + Drupal.t('Read more') + '</span> <i class="material-icons-sharp">expand_more</button>');
 
         let dropdownBtn = $(this).find('.btn-primary');
 
@@ -259,14 +303,16 @@
           e.preventDefault();
           $(this).toggleClass('active');
           $(this).prev().slideToggle();
+
+          if ($(this).hasClass('active')) {
+            $(this).find('span').text(Drupal.t('Read less'));
+          } else {
+            $(this).find('span').text(Drupal.t('Read more'));
+          }
         });
       });
-    }
-  };
-
-  Drupal.behaviors.dropdownDocument = {
-    attach: function (context, settings) {
-
+    },
+    initDropdownDocument: function (context, settings) {
       let dropdownDocument = $('.document-wrapper .dropdown .dropdown-toggle', context);
 
       $(document).click(function () {
@@ -277,12 +323,8 @@
         e.stopPropagation();
         $(this).next('.dropdown-menu').addClass('show');
       });
-
-    }
-  };
-
-  Drupal.behaviors.sequencedBlock = {
-    attach: function (context, settings) {
+    },
+    initSequencedBlock: function (context, settings) {
       let sequencedContainer = $('.sequenced-block');
       let sequencedLink = sequencedContainer.find('li');
       let limit = 5;
@@ -301,12 +343,8 @@
         });
         $(this).hide();
       });
-
-    }
-  };
-
-  Drupal.behaviors.relatedItemsBlock = {
-    attach: function (context, settings) {
+    },
+    initRelatedItemsBlock: function (context, settings) {
       let relatedItemsContainer = $('.content-tags');
       let relatedLink = relatedItemsContainer.find('li');
       let limit = 5;
@@ -327,12 +365,8 @@
         });
         $(this).hide();
       });
-
-    }
-  };
-
-  Drupal.behaviors.backToTop = {
-    attach: function (context, settings) {
+    },
+    initBackToTop: function (context, settings) {
       const backToTopTrigger = $("#back-top", context);
 
       // Fade in and out #back-top.
@@ -350,11 +384,9 @@
         $("body,html").animate({scrollTop: 0}, 0);
         $(":focus").blur();
       });
-    }
-  };
 
-  Drupal.behaviors.authorReadMore = {
-    attach: function (context, settings) {
+    },
+    initAuthorReadMore: function (context, settings) {
       let maxLength = 150;
       let authorText = $(".vocabulary-people .rich-text p");
 
@@ -374,12 +406,8 @@
         $(this).siblings(".more-text").contents().unwrap();
         $(this).remove();
       });
-
-    }
-  };
-
-  Drupal.behaviors.teaserListBorder = {
-    attach: function (context, settings) {
+    },
+    initTeaserListBorder: function (context, settings) {
       let teaserListContainerLanding = $(".paragraph--type--content-list-custom-landing");
       let teaserListContainerArticle = $(".paragraph--type--content-list-custom-article");
       let teaserListContainer = teaserListContainerArticle && teaserListContainerLanding;
@@ -391,38 +419,30 @@
           $(this).addClass('no-border');
         }
       });
-
-    }
-  };
-
-  Drupal.behaviors.commonExternalLink = {
-    attach: function (context, settings) {
+    },
+    initCommonExternalLink: function (context, settings) {
       const host = window.location.host.replace(/\./g, "\\.");
       const match = new RegExp("^http(s)?:\\/\\/(?!" + host + ")");
 
       $("a", context)
         .on("click", function (event) {
-            // The content that had the event listener attached.
-            const target = event.currentTarget;
-            const href = target.href;
-            if (href === "#") {
-              return;
-            }
-
-            if (match.test(href) || target.rel === "external") {
-              event.stopPropagation();
-
-              window.open(href, target);
-              return false;
-            }
+          // The content that had the event listener attached.
+          const target = event.currentTarget;
+          const href = target.href;
+          if (href === "#") {
+            return;
           }
-        );
-    }
-  };
 
-  Drupal.behaviors.summaryMobile = {
-    attach: function (context, settings) {
+          if (match.test(href) || target.rel === "external") {
+            event.stopPropagation();
 
+            window.open(href, target);
+            return false;
+          }
+        }
+      );
+    },
+    initSummaryMobile: function (context, settings) {
       function summaryClick() {
         let summaryTitle = $('.main-node-content .content-summary .item-list h3');
         summaryTitle.unbind('click').on('click', function (e) {
@@ -436,12 +456,8 @@
       if ($(window).width() <= desktopWidth) {
         summaryClick();
       }
-
-    }
-  };
-
-  Drupal.behaviors.ressourceModal = {
-    attach: function (context, settings) {
+    },
+    initRessourceModal: function (context, settings) {
       let resourceModal = $('.js-resource-modal');
       $('body').removeClass('is-fixed');
 
@@ -472,89 +488,33 @@
           $('.ui-icon-closethick').trigger('click');
           $('body').removeClass('is-fixed');
         });
-
       });
-
-    }
-  };
-
-  Drupal.behaviors.carouselCards = {
-    attach: function (context, settings) {
-      $('.paragraph--type--cards-landing.carousel').each(function () {
-
-        $(this).children('.row').slick({
-          speed: 300,
-          slidesToShow: 4,
-          dots: false,
-          arrows: true,
-          infinite: false,
-          adaptiveHeight: false,
-          variableWidth: true,
-          responsive: [
-            {
-              breakpoint: 1400, // desktop
-              settings: {
-                slidesToShow: 3,
-                variableWidth: true
-              }
-            },
-            {
-              breakpoint: 992, // tablet breakpoint
-              settings: {
-                slidesToShow: 2,
-                variableWidth: true
-              }
-            },
-            {
-              breakpoint: 576, // mobile breakpoint
-              settings: {
-                slidesToShow: 1,
-                variableWidth: false
-              }
-            }
-          ]
-        });
-      });
-    }
-  };
-
-  Drupal.behaviors.dropdownFAQ = {
-    attach: function (context, settings) {
+    },
+    initDropdownFAQ: function (context, settings) {
       let dropdownFAQTitle = $('.faq-wrapper .faq-title');
-
       dropdownFAQTitle.each(function () {
-
         $(this).unbind('click').on('click', function (e) {
           e.preventDefault();
           $(this).toggleClass('active-item');
           $(this).next('.faq-text').slideToggle();
         });
-
       });
-
-    }
-  };
-
-  Drupal.behaviors.imageMap = {
-    attach: function (context, settings) {
-      let point = $('.image-map .circle');
+    },
+    initImageMap: function (context, settings) {
+      let point = $('.image-map .circle', context);
 
       point.on('click', function() {
         point.not(this).parent().removeClass('show-popup');
         $(this).parent().toggleClass('show-popup');
       });
 
-      $('body').on('click', function(e) {
+      $('body', context).on('click', function(e) {
         if (!point.is(e.target) && point.parent().has(e.target).length === 0 && point.parent().find('.popup').has(e.target).length === 0) {
           point.parent().removeClass('show-popup');
         }
       });
-    }
-  };
-
-  Drupal.behaviors.headerHubMenu = {
-    attach: function (context, settings) {
-
+    },
+    initHeaderHubMenu: function (context, settings) {
       function menuDesktopFade() {
         let menuItem = $('.header-hub .hub-menu-header .menu-lvl1 > li.menu-item--expanded');
         menuItem.each(function () {
@@ -568,16 +528,12 @@
             if ($(this).next('.lvl1-wrapper').hasClass('is-visible')) {
               $(this).next('.lvl1-wrapper').removeClass('is-visible');
               $(this).removeClass('active-item');
-              console.log('true');
             } else {
               $(this).next('.lvl1-wrapper').addClass('is-visible');
               $(this).addClass('active-item');
-              console.log('false');
             }
           });
         });
-
-
       }
 
       function menuMobileItemSlide() {
@@ -596,12 +552,8 @@
         menuDesktopFade();
       }
 
-    }
-  };
-
-  Drupal.behaviors.storyParallax = {
-    attach: function (context, settings) {
-
+    },
+    initStoryParallax: function (context, settings) {
       var storyItem = $('.story-item');
       var story = storyItem.parent();
 
@@ -641,13 +593,8 @@
           $(this).find('img').css('transform', transform);
         });
       });
-
-    }
-  };
-
-  Drupal.behaviors.paragraphParallax = {
-    attach: function (context, settings) {
-
+    },
+    initParagraphParallax: function (context, settings) {
       var parallaxItem = $('.js-parallax', context);
 
       $(window).scroll(function(){
@@ -660,8 +607,17 @@
 
         });
       });
+    },
+    initGalaxyMenu: function (context, settings) {
+      const galaxyButton = $('.block-menu--popin .button', context);
+      const galaxyPopin = $('.menu--galaxy-menu .popin', context);
 
-    }
+      galaxyButton.on('click', function () {
+        galaxyPopin.removeClass('hidden');
+      });
+      galaxyPopin.find('.top .close').on('click', function () {
+        galaxyPopin.addClass('hidden');
+      });
+    },
   };
-})
-(jQuery);
+})(jQuery);

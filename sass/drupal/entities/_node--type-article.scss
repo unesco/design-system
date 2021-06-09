@@ -97,7 +97,7 @@ $paddingTop: (
 
             &::after {
               content: ',';
-              margin-left: .125rem;
+              margin-left: -.125rem;
             }
 
             &:last-child {
@@ -354,7 +354,7 @@ $paddingTop: (
 
         .story-city + .story-country {
           position: relative;
-          margin-left: .7rem;
+          margin-left: .5rem;
           &::before {
             content: ',';
             position: absolute;

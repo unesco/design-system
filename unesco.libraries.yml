@@ -10,6 +10,7 @@ global-styling:
   js:
     javascripts/vendor/slick.min.js: { minified: true }
     assets/scripts/app.js: {}
+    javascripts/drupal.js: {}
 
   dependencies:
     - unesco/popper

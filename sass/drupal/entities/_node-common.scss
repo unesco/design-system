@@ -31,7 +31,7 @@ $margin24: (
     margin-bottom: 1rem;
 
     @include min-screen($screen-desktop) {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
     .field--name-field-ref-image {
@@ -283,7 +283,7 @@ $margin24: (
 
       &::after {
         content: ',';
-        margin-left: .125rem;
+        margin-left: -.125rem;
       }
 
       &:last-child {

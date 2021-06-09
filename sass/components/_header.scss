@@ -63,7 +63,7 @@ header {
         &:hover {
           background-color: $Blue3;
           border-color: $Blue3;
-        } 
+        }
       }
     }
 
@@ -1393,7 +1393,7 @@ header {
           max-width: calc(100% - 16.375rem);
           margin-top: 0.25rem;
           margin-bottom: -0.25rem;
-  
+
           >ul.menu {
             justify-content: flex-end;
           }
@@ -1423,6 +1423,47 @@ header {
           }
         }
       }
+    }
+  }
+}
+
+.menu--galaxy-menu {
+  .popin:not(.hidden) {
+    display: block;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: $grey1;
+
+    div.inside {
+      margin: 6rem auto;
+      padding: 2rem;
+    }
+
+    nav ul.navbar-nav,
+    .vocabulary--websites {
+      width: 75%;
+      background-color: $grey4;
+    }
+  }
+}
+
+.block-menu--popin {
+  .button {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    padding: 0 1rem;
+    margin: 0;
+    color: $white;
+    cursor: pointer;
+
+    &::after {
+      @include icon('expand_more');
+      margin-left: 0.8rem;
     }
   }
 }
