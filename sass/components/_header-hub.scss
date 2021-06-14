@@ -1,3 +1,4 @@
+.header-background,
 .header-hub {
   position: relative;
   margin: -6.75rem auto 2.5rem;
@@ -5,6 +6,7 @@
     margin: 0 auto 3.5rem;
   }
 
+  .header-wrapper,
   .hero-wrapper {
     height: 14.5rem;
     @include fullWidthBackground($BlueU);
@@ -58,12 +60,12 @@
       top: 150px;
       z-index: 2;
 
-      .article-title,
+      .title,
       .field--name-field-description {
         color: $white;
       }
 
-      .article-title {
+      .title {
         @include responsive(font-size, $hero-title);
         font-weight: 800;
         margin-bottom: 1rem;
@@ -79,6 +81,15 @@
     }
   }
 
+  .header-wrapper {
+    @include min-screen($screen-desktop) {
+      height: 14.5rem;
+    }
+
+    .header-texts {
+      top: 80px;
+    }
+  }
 
   .hub-menu-header {
     @include fullWidthBackground($grey1);
