@@ -159,4 +159,15 @@
       }
     }
   }
+
+  .flag {
+    max-width: 48px;
+    max-height: 32px;
+
+    @include min-screen($screen-desktop) {
+      max-width: 72px;
+      max-height: 48px;
+    }
+  }
+
 }

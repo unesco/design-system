@@ -291,6 +291,10 @@ function unesco_preprocess_field(&$variables, $hook) {
   if ($element['#field_name'] == 'field_slides') {
     $variables['attributes']['class'][] = 'js-slider-full';
   }
+
+  if ($element['#bundle'] === 'country' && $element['#field_name'] == 'field_media_image') {
+    $variables['attributes']['class'][] = 'flag';
+  }
 }
 
 /**
