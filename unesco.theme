@@ -48,6 +48,8 @@ function unesco_preprocess_node(&$variables) {
     'grid_big_other',
     'normal',
     'short',
+    'sdh_list',
+    'sdh_grid',
   ];
 
   if (in_array($view_mode, $list_view_modes)) {
