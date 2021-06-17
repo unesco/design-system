@@ -1,0 +1,39 @@
+.accordion {
+  &-item {
+    &:first-child {
+      margin-top: .5rem;
+    }
+  }
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include responsive(font-size, $text);
+    font-weight: 600;
+    &::after {
+      @include icon('expand_more');
+      @include responsive(font-size, $section-text);
+      border: none;
+      margin-left: 0.625rem;
+      line-height: 1;
+      transition: .3s;
+    }
+  }
+  &-button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    padding: .5rem 0 1rem;
+    &[aria-expanded="true"] {
+      .accordion-header::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &-body {
+    @include responsive(font-size, $section-text-small);
+    margin-bottom: .5rem;
+  }
+}
+
