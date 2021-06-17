@@ -11,9 +11,9 @@
 "use strict";
 
 module.exports = function(gulp, $, config, messages) {
-  gulp.task("scripts", function() {
+  gulp.task("unesco-script", function() {
     return gulp
-      .src(config.javascript.src)
+      .src(config.unescoJavascript.src)
       .pipe(
         $.plumber({
           errorHandler: messages.error
@@ -23,9 +23,9 @@ module.exports = function(gulp, $, config, messages) {
       .pipe($.jshint.reporter($.stylish))
       .pipe($.jshint.reporter("fail"))
       .pipe($.sourcemaps.init())
-      .pipe($.concat(config.javascript.file))
-      .pipe($.sourcemaps.write(config.javascript.sourcemaps))
-      .pipe(gulp.dest(config.javascript.destination))
+      .pipe($.concat(config.unescoJavascript.file))
+      .pipe($.sourcemaps.write(config.unescoJavascript.sourcemaps))
+      .pipe(gulp.dest(config.unescoJavascript.destination))
       .pipe($.notify(messages.success));
   });
 };

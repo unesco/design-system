@@ -60,7 +60,7 @@ const messages = {
 $.loadSubtasks('gulp/tasks/*.js', $, config, messages);
 
 // Gulp build task to run all tasks just once, in parallel.
-gulp.task('build', gulp.parallel('styles', 'scripts'));
+gulp.task('build', gulp.parallel('styles', 'scripts', 'unesco-script'));
 
 // Default Gulp task to run.
 gulp.task('default', gulp.series('build', 'watch'));
