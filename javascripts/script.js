@@ -609,14 +609,28 @@
       });
     },
     initGalaxyMenu: function (context, settings) {
-      const galaxyButton = $('.block-menu--popin .button', context);
+      const galaxyButton = $('.block-menu--popin .button-galaxy', context);
       const galaxyPopin = $('.menu--galaxy-menu .popin', context);
+      const ongletLink = $('.menu--galaxy-menu nav > ul > li > a, .menu--galaxy-menu nav .vocabulary--websites .title');
 
       galaxyButton.on('click', function () {
         galaxyPopin.removeClass('hidden');
+        $('html, body').addClass('galaxy-menu-open');
+        ongletLink.eq(0).parent().addClass('active-galaxy-tab');
       });
-      galaxyPopin.find('.top .close').on('click', function () {
+
+      galaxyPopin.find('.top .close-popin').on('click', function () {
         galaxyPopin.addClass('hidden');
+        $('html, body').removeClass('galaxy-menu-open');
+        $('.active-galaxy-tab').removeClass('active-galaxy-tab');
+      });
+
+      ongletLink.unbind('click');
+
+      ongletLink.on('click', function (e) {
+        e.preventDefault();
+        $('.active-galaxy-tab').removeClass('active-galaxy-tab');
+        $(this).parent().addClass('active-galaxy-tab');
       });
     },
   };
