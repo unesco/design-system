@@ -1550,6 +1550,7 @@ header {
   
         >ul {
           display: none;
+          width: 100%;
           margin: 0 -2rem;
           position: absolute;
           left: 0;
@@ -1616,7 +1617,7 @@ header {
   }
 
   .vocabulary--websites {
-    padding-left: 1.5rem;
+    padding-left: 3rem;
     padding-right: 1.5rem;
 
     .right {
