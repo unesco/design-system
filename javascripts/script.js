@@ -490,16 +490,6 @@
         });
       });
     },
-    initDropdownFAQ: function (context, settings) {
-      let dropdownFAQTitle = $('.faq-wrapper .faq-title');
-      dropdownFAQTitle.each(function () {
-        $(this).unbind('click').on('click', function (e) {
-          e.preventDefault();
-          $(this).toggleClass('active-item');
-          $(this).next('.faq-text').slideToggle();
-        });
-      });
-    },
     initImageMap: function (context, settings) {
       let point = $('.image-map .circle', context);
 
