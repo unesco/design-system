@@ -90,6 +90,8 @@ $pre-header-close-icon: (
 );
 
 .pre_header {
+  z-index: 999;
+  position: relative;
   background-color: $Blue3;
   padding: .5rem 1rem;
   display: flex;
@@ -111,6 +113,7 @@ $pre-header-close-icon: (
     margin-left: 1rem;
     border-radius: 50%;
     line-height: 0;
+    cursor: pointer;
 
     i {
       position: relative;

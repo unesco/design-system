@@ -33,12 +33,12 @@
       this.initSummaryMobile(context, settings);
       this.initRessourceModal(context, settings);
       this.initCarouselCards(context, settings);
-      this.initDropdownFAQ(context, settings);
       this.initImageMap(context, settings);
       this.initHeaderHubMenu(context, settings);
       this.initStoryParallax(context, settings);
       this.initParagraphParallax(context, settings);
       this.initGalaxyMenu(context, settings);
+      this.initPreHeaderClose(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -622,6 +622,14 @@
         $('.active-galaxy-tab').removeClass('active-galaxy-tab');
         $(this).parent().addClass('active-galaxy-tab');
       });
+    },
+    initPreHeaderClose: function (context, settings) {
+      let preHeaderClose = $('.pre_header .pre_header-close');
+
+      preHeaderClose.on('click', function () {
+        $(this).parent().hide();
+      });
+
     },
   };
 })(jQuery);
