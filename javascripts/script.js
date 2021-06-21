@@ -132,7 +132,6 @@
         let dropdownTitle = $('footer .footer .nav-item .dropdown-toggle', context);
 
         dropdownTitle.unbind('click').on('click', function (e) {
-          console.log($(this));
           e.preventDefault();
           $(this).toggleClass('active-item');
           $(this).next('ul').slideToggle();
@@ -505,21 +504,26 @@
       });
     },
     initHeaderHubMenu: function (context, settings) {
+
+      let hubMenu = $('.header-hub .hub-menu-header');
+      let tabletWidth = 576;
+
+
       function menuDesktopFade() {
         let menuItem = $('.header-hub .hub-menu-header .menu-lvl1 > li.menu-item--expanded');
         menuItem.each(function () {
 
           menuItem.children().removeClass('active-item');
-          $('.lvl1-wrapper').removeClass('is-visible');
 
           $(this).children().unbind('click').on('click', function (e) {
+
             e.preventDefault();
 
             if ($(this).next('.lvl1-wrapper').hasClass('is-visible')) {
-              $(this).next('.lvl1-wrapper').removeClass('is-visible');
+              $(this).next('.lvl1-wrapper').removeClass('is-visible').css('display', 'none');
               $(this).removeClass('active-item');
             } else {
-              $(this).next('.lvl1-wrapper').addClass('is-visible');
+              $(this).next('.lvl1-wrapper').css('display', 'flex').addClass('is-visible');
               $(this).addClass('active-item');
             }
           });
@@ -527,20 +531,28 @@
       }
 
       function menuMobileItemSlide() {
-        let dropdownTitle = $('.header-hub .hub-menu-header .menu-lvl1 > li.menu-item--expanded').children();
-        dropdownTitle.unbind('click').on('click', function (e) {
-          e.preventDefault();
-          $(this).toggleClass('active-item');
-          $(this).next('.lvl1-wrapper').slideToggle();
+
+        let hubHeaderTexts = $('.header-hub .hero-wrapper .header-texts');
+        let hubHeaderMenu = $('.header-hub .hub-menu-header');
+
+        hubHeaderTexts.append('<button class="btn btn-sm btn-blue2 hub-menu-btn">' + Drupal.t('Menu') + '</button>');
+
+        hubHeaderTexts.children('.hub-menu-btn').on('click', function () {
+          $(this).toggleClass('is-active');
+          hubHeaderMenu.slideToggle();
         });
+
       }
 
-      let desktopWidth = 992;
-      if ($(window).width() <= desktopWidth) {
-        menuMobileItemSlide();
-      } else {
-        menuDesktopFade();
+
+      if (hubMenu.is(':not(:empty)')) {
+        if ($(window).width() < tabletWidth) {
+          menuMobileItemSlide();
+        } else {
+          menuDesktopFade();
+        }
       }
+
 
     },
     initStoryParallax: function (context, settings) {

@@ -8,7 +8,7 @@
 
   .header-wrapper,
   .hero-wrapper {
-    height: 14.5rem;
+    min-height: 14.5rem;
     @include fullWidthBackground($BlueU);
     @include min-screen($screen-desktop) {
       height: 28.25rem;
@@ -25,6 +25,7 @@
       z-index: 0;
 
       .field--name-field-media-image {
+        width: 100%;
         picture {
           display: block;
           width: 100%;
@@ -57,7 +58,7 @@
 
     .header-texts {
       position: relative;
-      top: 150px;
+      padding-top: 7.5rem;
       z-index: 2;
 
       .title,
@@ -79,6 +80,22 @@
         }
       }
     }
+
+    .hub-menu-btn {
+      display: flex;
+      align-items: center;
+      &::after {
+        @include icon('expand_more');
+        margin-left: 0.625rem;
+        line-height: 1;
+        transition: .3s;
+      }
+      &.is-active {
+        &::after {
+          transform: rotate(-180deg);
+        }
+      }
+    }
   }
 
   .header-wrapper {
@@ -92,10 +109,24 @@
   }
 
   .hub-menu-header {
-    @include fullWidthBackground($grey1);
     padding: 1.5rem 0;
-    @include min-screen($screen-desktop) {
+    display: none;
+    @include max-screen($screen-tablet - 1px) {
+      position: absolute;
+      z-index: 90;
+      width: 100vw;
+      background-color: $grey1;
+      left: -1.5rem;
+      padding: 1.5rem;
+    }
+    @include min-screen($screen-tablet) {
+      position: relative;
       padding: 0;
+      display: block;
+      @include fullWidthBackground($grey1);
+    }
+    &:empty {
+      display: none;
     }
 
     .menu {
@@ -103,7 +134,7 @@
       flex-direction: column;
       margin: -.5rem 0;
 
-      @include min-screen($screen-desktop) {
+      @include min-screen($screen-tablet) {
         flex-direction: row;
         align-items: center;
         flex-wrap: nowrap;
@@ -145,7 +176,13 @@
             }
 
             ul.menu-lvl2 {
-              margin: 1rem 0 1rem 1.5rem;
+              margin: .5rem 0 .5rem 1.5rem;
+
+              .menu-item--expanded {
+                a::after {
+                  display: none;
+                }
+              }
 
               & > li > *:first-child {
                 font-weight: 600;
@@ -172,14 +209,14 @@
           .lvl1-infos {
             display: none;
 
-            @include min-screen($screen-desktop) {
+            @include min-screen($screen-tablet) {
               display: block;
             }
           }
 
         }
 
-        @include min-screen($screen-desktop) {
+        @include min-screen($screen-tablet) {
           margin: 0 2rem 0 0;
 
           a,
@@ -190,25 +227,23 @@
       }
 
       .lvl1-wrapper {
-        display: none;
+        flex-direction: column;
+        width: 100%;
+        left: 0;
+        z-index: 90;
 
-        @include min-screen($screen-desktop) {
-          position: absolute;
+        @include min-screen($screen-tablet) {
           display: none;
-          opacity: 0;
+          position: absolute;
+          background-color: $white;
           flex-direction: row;
           align-items: stretch;
-          justify-content: space-between;
           padding: 3rem 0 3.5rem;
-          width: 100%;
-          left: 0;
           top: 4rem;
-          z-index: 90;
-          transition: .3s;
+          opacity: 0;
 
           &.is-visible {
-            display: flex;
-            opacity: 1;
+            animation: fadeIn .3s ease forwards;
           }
 
           &::before {
@@ -231,6 +266,10 @@
 
       &-lvl1 {
 
+        @include min-screen($screen-tablet) {
+          overflow-x: auto;
+        }
+
         li.menu-item--expanded > {
 
           a {
@@ -246,7 +285,7 @@
             }
 
             &.active-item {
-              @include min-screen($screen-desktop) {
+              @include min-screen($screen-tablet) {
                 &::before {
                   content: '';
                   position: absolute;
@@ -268,3 +307,4 @@
     }
   }
 }
+
