@@ -46,6 +46,7 @@ function unesco_preprocess_node(&$variables) {
     'grid',
     'grid_big_first',
     'grid_big_other',
+    'map',
     'normal',
     'short',
     'sdh_list',

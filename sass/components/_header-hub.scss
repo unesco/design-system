@@ -104,7 +104,7 @@
     }
 
     .header-texts {
-      top: 80px;
+      padding-top: 5rem;
     }
   }
 
@@ -350,3 +350,45 @@
   }
 }
 
+#block-unesco-content {
+  .header-background {
+    margin: 0 auto;
+  }
+
+  .our-countries {
+    .map-wrapper {
+      margin-bottom: 4.2rem;
+    }
+
+    .electoral-group-list {
+      margin: 0;
+      padding-bottom: 1rem;
+      display: inline-block;
+      min-width: 12rem;
+    }
+
+    ul.sort {
+      display: inline-block;
+      li {
+        display: inline-block;
+
+        &:first-child {
+          margin: 0;
+        }
+      }
+    }
+
+    .node--type-country.node--view-mode-map {
+      .node__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        > div {
+          flex: auto;
+          flex-direction: row;
+        }
+      }
+    }
+  }
+}
