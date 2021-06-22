@@ -43,18 +43,51 @@
   }
 }
 
-.facets-first {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-column-gap: 2rem;
-  grid-row-gap: 1rem;
-  @include min-screen($screen-tablet) {
-    grid-template-columns: 1fr 1fr;
-  }
+.wrapper-facets {
+
+  padding: 1.5rem 0;
   @include min-screen($screen-desktop) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 2rem 0;
+  }
+
+  .toggle-facets {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    &::after {
+      @include icon('expand_more');
+      margin-left: 0.625rem;
+      line-height: 1;
+      color: $grey4;
+      transition: .3s;
+    }
+    &.active {
+       &::after {
+         transform: rotate(-180deg);
+       }
+     }
+  }
+
+}
+
+.facets-list {
+  display: none;
+
+  .facets-first {
+    padding: 1.5rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 1rem;
+    @include min-screen($screen-tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include min-screen($screen-desktop) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
   }
 }
+
 
 .block-facets {
   position: relative;

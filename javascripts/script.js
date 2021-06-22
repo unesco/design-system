@@ -646,14 +646,21 @@
     },
     initSearchFilters: function (context, settings) {
       let blockFacet = $('.block-facets', context);
+      let toggleFacets = $('.toggle-facets', context);
+
+      toggleFacets.unbind('click').on('click', function (e) {
+        e.preventDefault();
+        $(this).toggleClass('active');
+        $(this).parent().find('.facets-list').slideToggle(300,"swing");
+      });
 
       blockFacet.once('facetBehaviors').each(function () {
-        let blackFacetLabel = $(this).find('.facet-label');
+        let blockFacetLabel = $(this).find('.facet-label');
 
-        blackFacetLabel.unbind('click').on('click', function (e) {
+        blockFacetLabel.unbind('click').on('click', function (e) {
           e.preventDefault();
           $(this).toggleClass('active');
-          $(this).next().slideToggle("300","swing");
+          $(this).next().slideToggle(300,"swing");
         });
       });
     },
