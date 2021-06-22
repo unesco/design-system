@@ -177,6 +177,26 @@
 
             ul.menu-lvl2 {
               margin: .5rem 0 .5rem 1.5rem;
+              width: 100%;
+              @include min-screen($screen-tablet) {
+                margin: 0;
+                align-items: flex-start;
+              }
+              @include min-screen($screen-desktop) {
+                width: calc(75% + 2rem);
+              }
+
+              .menu-item {
+                flex: 1 1 0;
+                @include min-screen($screen-tablet) {
+                  margin-right: 2rem;
+                  a {
+                    padding: 0;
+                    margin-bottom: .75rem;
+                    white-space: normal;
+                  }
+                }
+              }
 
               .menu-item--expanded {
                 a::after {
@@ -191,6 +211,9 @@
 
               ul.menu-lvl3 {
                 margin: 0;
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: flex-start;
 
                 li {
                   font-weight: 400;
@@ -199,6 +222,8 @@
                   a,
                   span {
                     padding: .75rem 0;
+                    white-space: normal;
+                    margin-bottom: 0;
                   }
                 }
               }
@@ -209,26 +234,39 @@
           .lvl1-infos {
             display: none;
 
-            @include min-screen($screen-tablet) {
+            .hub-header-lvl1-text {
+              margin-top: 1.5rem;
+              font-size: 1.25rem;
+              font-weight: 600;
+            }
+
+            @include min-screen($screen-desktop) {
               display: block;
+              width: calc(25% - 2rem);
+              white-space: normal;
             }
           }
 
         }
 
         @include min-screen($screen-tablet) {
-          margin: 0 2rem 0 0;
+          margin: 0 1rem 0 0;
 
           a,
           span {
             padding: 1.25rem 0;
           }
         }
+
+        @include min-screen($screen-desktop) {
+          margin: 0 2rem 0 0;
+        }
       }
 
       .lvl1-wrapper {
         flex-direction: column;
         width: 100%;
+        max-width: 100vw;
         left: 0;
         z-index: 90;
 
@@ -281,7 +319,10 @@
               font-size: 1.25rem;
               vertical-align: middle;
               line-height: 1;
-              margin-left: 1.5rem;
+              margin-left: 1rem;
+              @include min-screen($screen-tablet) {
+                color: $grey3;
+              }
             }
 
             &.active-item {
