@@ -39,6 +39,7 @@
       this.initParagraphParallax(context, settings);
       this.initGalaxyMenu(context, settings);
       this.initPreHeaderClose(context, settings);
+      this.initSearchFilters(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -642,6 +643,19 @@
         $(this).parent().hide();
       });
 
+    },
+    initSearchFilters: function (context, settings) {
+      let blockFacet = $('.block-facets', context);
+
+      blockFacet.once('facetBehaviors').each(function () {
+        let blackFacetLabel = $(this).find('.facet-label');
+
+        blackFacetLabel.unbind('click').on('click', function (e) {
+          e.preventDefault();
+          $(this).toggleClass('active');
+          $(this).next().slideToggle("300","swing");
+        });
+      });
     },
   };
 })(jQuery);

@@ -1,0 +1,101 @@
+.wrapper-search-text {
+  @include fullWidthBackground($grey1);
+  padding: 2rem 0;
+
+  &::before,
+  &::after {
+    z-index: -1;
+  }
+
+  @include min-screen($screen-desktop) {
+    padding: 6rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-item,
+  .form-actions {
+    margin: 0;
+
+    input {
+      border-radius: 5rem;
+      margin-top: 0;
+    }
+
+    .form-submit {
+      padding: $btn-padding-y-lg $btn-padding-x-lg;
+      margin-top: .5rem;
+      width: 100%;
+      text-align: center;
+      &::after {
+        @include icon('arrow_search');
+        color: $white;
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+      @include min-screen($screen-desktop) {
+        width: auto;
+        margin-top: 0;
+        margin-left: .5rem;
+      }
+    }
+  }
+}
+
+.facets-first {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+  @include min-screen($screen-tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include min-screen($screen-desktop) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.block-facets {
+  position: relative;
+
+  .facet-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: .875rem 1.5rem;
+    border-radius: 4rem;
+    border: .0625rem solid $grey2;
+    font-size: .875rem;
+    margin-bottom: 0;
+    cursor: pointer;
+    &::after {
+      @include icon('expand_more');
+      margin-left: 0.625rem;
+      line-height: 1;
+      font-size: 1.25rem;
+      color: $grey3;
+      transition: .3s;
+    }
+    &.active {
+      border-color: $LightBlue;
+      box-shadow: 0 0 0 .0625rem $LightBlue;
+      &::after {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  .wrapper-facet-checkbox-search {
+    display: none;
+    position: absolute;
+    margin-top: .25rem;
+    background-color: white;
+    border-radius: .5rem;
+    border: .0625rem solid $grey2;
+    z-index: 80;
+    padding: 1.5rem;
+  }
+
+}
