@@ -652,6 +652,7 @@
       toggleFacets.unbind('click').on('click', function (e) {
         e.preventDefault();
         $(this).toggleClass('active');
+        $(this).parent().toggleClass('active');
         $(this).parent().find('.facets-list').slideToggle(300,"swing");
       });
 
