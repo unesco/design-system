@@ -107,7 +107,13 @@ div#sliding-popup .eu-cookie-withdraw-banner,
 .toolbar-horizontal {
   &.header-sticky {
     header.navbar {
-      top: 4.938rem;
+      top: 2.438rem;
+    }
+  
+    &.toolbar-tray-open.header-sticky {
+      header.navbar {
+        top: 4.938rem;
+      }
     }
 
     @include min-screen($screen-desktop) {
