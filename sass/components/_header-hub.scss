@@ -1,7 +1,7 @@
 .header-background,
 .header-hub {
   position: relative;
-  margin: -6.75rem auto 2.5rem;
+  margin: -6.75rem auto 0;
   @include min-screen($screen-desktop) {
     margin: 0 auto;
   }
@@ -30,6 +30,7 @@
           @include img-cover;
           position: absolute;
           width: 100vw;
+          max-width: unset;
           left: 50%;
           transform: translateX(-50%);
           z-index: 0;
