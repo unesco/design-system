@@ -1,0 +1,15 @@
+.user-logged-in {
+  padding-top: 39px;
+
+  &.transparent-header:not(.header-sticky) header {
+    top: 39px;
+  }
+}
+
+.toolbar-horizontal {
+  padding-top: 79px;
+
+  &.transparent-header:not(.header-sticky) header {
+    top: 79px;
+  }
+}
