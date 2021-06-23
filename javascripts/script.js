@@ -231,7 +231,7 @@
       let headerHeight = header.outerHeight() + toolbarHeight;
 
       $('.path-frontpage, .page-node-type-landing, .transparent-header').css('padding-top', headerHeight);
-      
+
       $(window).scroll(function () {
         if ($(window).scrollTop() > headerHeight) {
           $('body').addClass('header-sticky').css('padding-top', headerHeight);
@@ -653,6 +653,7 @@
       toggleFacets.unbind('click').on('click', function (e) {
         e.preventDefault();
         $(this).toggleClass('active');
+        $(this).parent().toggleClass('active');
         $(this).parent().find('.facets-list').slideToggle(300,"swing");
       });
 

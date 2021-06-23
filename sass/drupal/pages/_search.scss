@@ -44,16 +44,30 @@
 }
 
 .wrapper-facets {
-
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   padding: 1.5rem 0;
   @include min-screen($screen-desktop) {
     padding: 2rem 0;
+  }
+
+  &.active {
+    @include fullWidthBackground($white);
+    border-bottom: .0625rem solid $grey2;
+    &::before,
+    &::after {
+      border-bottom: .0625rem solid $grey2;
+      top: .0625rem;
+      z-index: -1;
+    }
   }
 
   .toggle-facets {
     display: inline-flex;
     align-items: center;
     cursor: pointer;
+    margin-right: .75rem;
     &::after {
       @include icon('expand_more');
       margin-left: 0.625rem;
@@ -68,10 +82,32 @@
      }
   }
 
+  .filter-used {
+    display: flex;
+    align-items: center;
+    font-size: .875rem;
+    padding: .4rem .75rem;
+    border: .0625rem solid $grey2;
+    border-radius: .25rem;
+    margin: 0 .25rem;
+    color: $grey5;
+    &:hover {
+      text-decoration: none;
+    }
+    &::after {
+      @include icon('close');
+      margin-left: 0.4rem;
+      line-height: 1;
+      font-size: 1rem;
+      color: $grey3;
+    }
+  }
+
 }
 
 .facets-list {
   display: none;
+  width: 100%;
 
   .facets-first {
     padding: 1.5rem 0;
@@ -87,7 +123,6 @@
     }
   }
 }
-
 
 .block-facets {
   position: relative;
@@ -131,4 +166,17 @@
     padding: 1.5rem;
   }
 
+}
+
+.view-content {
+  .views-row {
+    display: block;
+    width: 100%;
+    border-top: .0625rem solid $grey2;
+    padding: 1.5rem 0;
+    margin-bottom: .5rem;
+    @include min-screen($screen-desktop) {
+      margin-bottom: 1.5rem;
+    }
+  }
 }
