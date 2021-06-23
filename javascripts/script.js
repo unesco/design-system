@@ -620,7 +620,10 @@
       galaxyButton.on('click', function () {
         galaxyPopin.removeClass('hidden');
         $('html, body').addClass('galaxy-menu-open');
-        ongletLink.eq(0).parent().addClass('active-galaxy-tab');
+
+        if(window.innerWidth >= 992) {
+          ongletLink.eq(0).parent().addClass('active-galaxy-tab');
+        }
       });
 
       galaxyPopin.find('.top .close-popin').on('click', function () {
@@ -634,7 +637,13 @@
       ongletLink.on('click', function (e) {
         e.preventDefault();
         $('.active-galaxy-tab').removeClass('active-galaxy-tab');
-        $(this).parent().addClass('active-galaxy-tab');
+        $(this).closest('.popin').toggleClass('submenu-open');
+
+        if(window.innerWidth >= 992) {
+          $(this).parent().addClass('active-galaxy-tab');
+        } else {
+          $(this).parent().toggleClass('active-galaxy-tab');
+        }
       });
     },
     initPreHeaderClose: function (context, settings) {
