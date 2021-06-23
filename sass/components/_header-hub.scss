@@ -65,7 +65,8 @@
       }
 
       .title,
-      .field--name-field-description {
+      .field--name-field-description,
+      .field--name-field-subtitle {
         color: $white;
       }
 
@@ -370,7 +371,7 @@
       min-width: 12rem;
     }
 
-    ul.sort {
+    ul.alphabetical-filter {
       display: inline-block;
       li {
         display: inline-block;
