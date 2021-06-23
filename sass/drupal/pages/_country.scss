@@ -1,0 +1,248 @@
+.header-hub.country {
+
+  .hero-wrapper {
+    .header-texts {
+      color: $white;
+
+      .flag {
+        margin-bottom: .5rem;
+
+        svg {
+          width: 3rem;
+          height: 2rem;
+        }
+
+        @include min-screen($screen-desktop) {
+          margin-bottom: 0;
+          margin-right: 2rem;
+          display: inline-block;
+          vertical-align: middle;
+          svg {
+            width: 4.5rem;
+            height: 3rem;
+          }
+        }
+      }
+      .title {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+      }
+      .date-texts-wrapper {
+        margin-top: 1rem;
+        font-weight: 600;
+
+        div {
+          display: inline;
+        }
+
+        .field--name-field-ref-regions {
+          display: inline;
+          margin-left: 0.25rem;
+
+          .field__item {
+            display: inline;
+          }
+
+          &::before {
+            content: "\2022";
+            color: $white;
+            font-weight: bold;
+            width: .375rem;
+            margin-right: 0.25rem;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+//.header-country {
+//  position: relative;
+//  margin: -6.75rem auto 2.5rem;
+//  @include min-screen($screen-desktop) {
+//    margin: 0 auto 3.5rem;
+//  }
+//
+//  .hero-wrapper {
+//    height: 14.5rem;
+//    @include fullWidthBackground($BlueU);
+//    @include min-screen($screen-desktop) {
+//      height: 28.25rem;
+//    }
+//
+//    &::before,
+//    &::after {
+//      z-index: -1;
+//    }
+//
+//    .field--name-field-ref-image {
+//      position: absolute;
+//      @include container-fluid();
+//      z-index: 0;
+//
+//      .field--name-field-media-image {
+//        picture {
+//          display: block;
+//          width: 100%;
+//          height: 14.5rem;
+//          @include min-screen($screen-desktop) {
+//            height: 28.25rem;
+//          }
+//        }
+//
+//        img {
+//          @include img-cover;
+//        }
+//      }
+//
+//      .field--name-field-copyright {
+//        display: none;
+//      }
+//
+//      &::after {
+//        content: '';
+//        position: absolute;
+//        z-index: 0;
+//        width: 100%;
+//        height: 100%;
+//        top: 0;
+//        left: 0;
+//        background-color: rgba(0, 0, 0, .25);
+//      }
+//    }
+//
+//    .header-texts {
+//      position: relative;
+//      top: 150px;
+//      z-index: 2;
+//
+//      .article-title,
+//      .field--name-field-description,
+//      .field--name-field-ref-regions,
+//      .date-member {
+//        color: $white;
+//      }
+//
+//      .flag {
+//        margin-bottom: .5rem;
+//        svg {
+//          width: 3rem;
+//          height: 2rem;
+//        }
+//        @include min-screen($screen-desktop) {
+//          margin-bottom: 0;
+//          margin-right: 2rem;
+//          display: inline-block;
+//          vertical-align: middle;
+//          svg {
+//            width: 4.5rem;
+//            height: 3rem;
+//          }
+//        }
+//      }
+//
+//      .article-title {
+//        display: inline-block;
+//        vertical-align: middle;
+//        @include responsive(font-size, $hero-title);
+//        font-weight: 800;
+//        margin-bottom: 0;
+//      }
+//
+//      .field--name-field-description {
+//        display: none;
+//        @include min-screen($screen-desktop) {
+//          display: block;
+//          font-size: 1.25rem;
+//        }
+//      }
+//
+//      .date-texts-wrapper {
+//        display: flex;
+//        margin-top: 1rem;
+//
+//        .field--name-field-ref-regions {
+//          display: inline-block;
+//          margin-left: 0.25rem;
+//
+//          .field__item {
+//            display: inline;
+//          }
+//
+//          &::before {
+//            content: "\2022";
+//            color: $white;
+//            font-weight: bold;
+//            width: .375rem;
+//            margin-right: 0.25rem;
+//            display: inline-block;
+//          }
+//        }
+//      }
+//    }
+//  }
+//
+//  .country-menu-header {
+//    @include fullWidthBackground($grey1);
+//    padding: 1.5rem 0;
+//    @include min-screen($screen-desktop) {
+//      padding: 0;
+//    }
+//
+//    .menu {
+//      display: flex;
+//      flex-direction: column;
+//      margin: -.5rem 0;
+//
+//      @include min-screen($screen-desktop) {
+//        flex-direction: row;
+//        align-items: center;
+//        flex-wrap: nowrap;
+//      }
+//
+//      li {
+//        white-space: nowrap;
+//        margin: .5rem 0;
+//        padding: 0;
+//        font-size: 1rem;
+//        font-weight: 600;
+//        color: $darkGrey;
+//
+//        a,
+//        span {
+//          padding: .5rem 0;
+//        }
+//
+//        a {
+//          position: relative;
+//          display: block;
+//          color: $darkGrey;
+//
+//          &:hover {
+//            text-decoration: none;
+//          }
+//        }
+//
+//        &:last-child {
+//          margin-right: 0;
+//        }
+//
+//        @include min-screen($screen-desktop) {
+//          margin: 0 2rem 0 0;
+//
+//          a,
+//          span {
+//            padding: 1.25rem 0;
+//          }
+//        }
+//      }
+//    }
+//  }
+//
+//
+//
+//}

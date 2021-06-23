@@ -1,0 +1,69 @@
+.explore-wrapper {
+
+  #explorer {
+    flex-direction: column-reverse;
+    @include min-screen($screen-desktop) {
+      flex-direction: row;
+    }
+  }
+
+
+  .map-list {
+
+    @include min-screen($screen-desktop) {
+      max-height: 36rem;
+    }
+
+    .nav-tabs {
+      height: 3rem;
+      display: flex;
+      align-items: flex-start;
+
+      .nav-item {
+        font-size: 1rem;
+        margin-right: 2rem;
+        padding: 0;
+        &:last-child {
+          margin-right: 0;
+        }
+        .nav-link {
+          margin: 0;
+          padding: 0;
+          color: $grey4;
+          border: none;
+          &:hover {
+            border: none;
+          }
+          &.active {
+            background-color: transparent;
+            border: none;
+            color: $BlueU;
+          }
+        }
+      }
+
+    }
+
+    .tab-content {
+      max-height: calc(100% - 3rem);
+      overflow-y: auto;
+
+      .tab-pane > article {
+        padding: 1.5rem 0 2rem;
+        border-bottom: .0625rem solid $grey2;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .explore-map {
+    width: 100%;
+    height: 14.375rem;
+    z-index: 20;
+    @include min-screen($screen-desktop) {
+      height: 36rem;
+    }
+  }
+}
