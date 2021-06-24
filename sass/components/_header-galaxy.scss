@@ -202,7 +202,7 @@
         font-size: 1.125rem;
         line-height: 1.5rem;
         font-weight: 500;
-        padding: 0 1.25rem 1rem;
+        padding: 0 1.25rem 1.25rem;
         border-bottom: 0.1rem solid $white;
         position: absolute;
         top: 1.25rem;
@@ -210,6 +210,7 @@
         width: calc(100% - 3rem);
         text-align: center;
         display: block;
+        z-index: 3;
 
         &::before {
           position: absolute;
@@ -219,6 +220,10 @@
           font-size: 2rem;
           color: inherit;
           vertical-align: middle;
+        }
+
+        &::after {
+          display: none;
         }
       }
     }
@@ -350,6 +355,12 @@
             >a {
               font-weight: 600;
             }
+
+            >ul {
+              @include max-screen($screen-desktop - 1) {
+                margin-bottom: 2rem;
+              }
+            }
           }
         }
       }
@@ -378,6 +389,14 @@
       top: 2.75rem;
       left: 50%;
       transform: translateX(-50%);
+
+      @include max-screen($screen-desktop - 1) {
+        top: 4rem;
+        background-color: $white;
+        padding: 2rem 1.5rem;
+        height: calc(100vh - 4rem);
+        overflow-y: auto;
+      }
     }
 
     .dynamic-search,
@@ -390,11 +409,27 @@
 
     .dynamic-search-button {
       margin: 0 0 0 1rem;
+
+      @include max-screen($screen-desktop - 1) {
+        font-size: 0;
+        position: absolute;
+        right: 3rem;
+        top: 3rem;
+        padding: 0;
+        background-color: transparent !important;
+        border: none;
+        z-index: 3;
+      }
+
       &::after {
         @include icon('search');
         font-size: 1.5rem;
         vertical-align: middle;
         margin-left: 0.75rem;
+
+        @include max-screen($screen-desktop - 1) {
+          color: $BlueU;
+        }
       }
     }
 
@@ -409,18 +444,41 @@
         color: inherit;
         opacity: 1;
       }
+
+      @include max-screen($screen-desktop - 1) {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        padding: 0.875rem 1.5rem;
+        width: calc(100% - 3rem);
+      }
     }
 
     .wrapper-websites {
       padding-top: 3rem;
+
+      @include max-screen($screen-desktop - 1) {
+        padding-top: 1.5rem;
+      }
 
       .vocabulary-websites {
         padding: 1.5rem 0 2rem;
         border-top: 1px solid rgba($white, 0.2);
         border-bottom: 1px solid rgba($white, 0.2);
 
+        @include max-screen($screen-desktop - 1) {
+          padding: 1rem 1rem 1.5rem;
+          background-color: $grey1;
+          border-radius: 0.5rem;
+          margin-bottom: 1rem;
+          border: none;
+        }
+
         a {
           color: $white;
+
+          @include max-screen($screen-desktop - 1) {
+            color: $darkGrey;
+          }
 
           &:hover {
             text-decoration: none;
@@ -443,6 +501,9 @@
           line-height: 1.25rem;
           opacity: 0.7;
 
+          @include max-screen($screen-desktop - 1) {
+            opacity: 1;
+          }
         }
       }
     }
@@ -460,7 +521,7 @@
   font-size: 1.125rem;
   line-height: 1.5rem;
   font-weight: 500;
-  padding: 0 1.25rem 1rem;
+  padding: 0 1.25rem 1.25rem;
   border-bottom: 0.1rem solid $white;
   position: absolute;
   top: 1.25rem;

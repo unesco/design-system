@@ -364,7 +364,7 @@ header {
     align-items: center;
     position: relative;
 
-    @include max-screen($screen-tablet - 1) {
+    @include max-screen($screen-desktop - 1) {
       margin: 0;
     }
     
@@ -378,7 +378,7 @@ header {
       @include max-screen($screen-desktop - 1) {
         position: absolute;
         top: 2.5rem;
-        left: 1rem;
+        left: 0;
         display: block;
 
         .header-sticky & {
@@ -391,7 +391,6 @@ header {
         max-width: 15rem;
         font-size: 0.875rem;
         line-height: 1.125rem;
-        left: 0;
       }
     }
   }

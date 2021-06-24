@@ -200,6 +200,9 @@
         $('html').toggleClass('menu-open');
         $('body').toggleClass('menu-open');
         $('body').removeClass('parent-menu-open');
+        $('html').removeClass('galaxy-menu-open');
+        $('.active-galaxy-tab').removeClass('active-galaxy-tab');
+        $('.submenu-open').removeClass('submenu-open');
       });
 
       parentItem.on('click', function () {
@@ -614,6 +617,7 @@
     },
     initGalaxyMenu: function (context, settings) {
       const galaxyButton = $('.block-menu--popin .button-galaxy', context);
+      const galaxyButtonMobile = $('.button-text-mobile', context);
       const galaxyPopin = $('.menu--galaxy-menu .popin', context);
       const ongletLink = $('.menu--galaxy-menu nav > ul > li > a, .menu--galaxy-menu nav .vocabulary--websites .title');
 
@@ -626,6 +630,12 @@
         }
       });
 
+      galaxyButtonMobile.on('click', function () {
+        galaxyPopin.addClass('hidden');
+        $('.active-galaxy-tab').removeClass('active-galaxy-tab');
+        $('.submenu-open').removeClass('submenu-open');
+      });
+
       galaxyPopin.find('.top .close-popin').on('click', function () {
         galaxyPopin.addClass('hidden');
         $('html, body').removeClass('galaxy-menu-open');
@@ -636,7 +646,7 @@
 
       ongletLink.on('click', function (e) {
         e.preventDefault();
-        $('.active-galaxy-tab').removeClass('active-galaxy-tab');
+        $(this).parent().siblings().removeClass('active-galaxy-tab');
         $(this).closest('.popin').toggleClass('submenu-open');
 
         if(window.innerWidth >= 992) {
