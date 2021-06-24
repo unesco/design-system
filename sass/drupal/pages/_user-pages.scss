@@ -4,12 +4,26 @@
   &.transparent-header:not(.header-sticky) header {
     top: 39px;
   }
+
+  .menu--galaxy-menu .popin:not(.hidden) {
+    top: 39px;
+  }
+
+  header .header .navbar-toggler {
+    @include max-screen($screen-desktop - 1) {
+      top: 1rem;
+    }
+  }
 }
 
-.toolbar-horizontal {
+.toolbar-horizontal.toolbar-tray-open {
   padding-top: 79px;
 
   &.transparent-header:not(.header-sticky) header {
+    top: 79px;
+  }
+
+  .menu--galaxy-menu .popin:not(.hidden) {
     top: 79px;
   }
 }

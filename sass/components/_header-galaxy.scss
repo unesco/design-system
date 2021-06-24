@@ -297,18 +297,23 @@
         padding-bottom: 1.5rem;
         font-weight: 400;
         opacity: 1;
-
-        &::after {
-          position: static;
-          @include icon('chevron_right');
-          border: none;
-          vertical-align: middle;
-          margin-left: 0.625rem;
-          line-height: 1;
-          display: inline-block;
-        }
       }
     }
+
+    > .navbar-nav >li > .dropdown-toggle,
+      .vocabulary--websites >.title {
+        @include max-screen($screen-desktop - 1) {
+          &::after {
+            position: static;
+            @include icon('chevron_right');
+            border: none;
+            vertical-align: middle;
+            margin-left: 0.625rem;
+            line-height: 1;
+            display: inline-block;
+          }
+        }
+      }
 
     >.navbar-nav {
       margin: 0 -1.5rem;

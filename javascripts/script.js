@@ -619,7 +619,7 @@
       const galaxyButton = $('.block-menu--popin .button-galaxy', context);
       const galaxyButtonMobile = $('.button-text-mobile', context);
       const galaxyPopin = $('.menu--galaxy-menu .popin', context);
-      const ongletLink = $('.menu--galaxy-menu nav > ul > li > a, .menu--galaxy-menu nav .vocabulary--websites .title');
+      const ongletLink = $('.menu--galaxy-menu nav > ul > li > .dropdown-toggle, .menu--galaxy-menu nav .vocabulary--websites .title');
 
       galaxyButton.on('click', function () {
         galaxyPopin.removeClass('hidden');
@@ -646,7 +646,7 @@
 
       ongletLink.on('click', function (e) {
         e.preventDefault();
-        $(this).parent().siblings().removeClass('active-galaxy-tab');
+        $('.active-galaxy-tab').not($(this).parent()).removeClass('active-galaxy-tab');
         $(this).closest('.popin').toggleClass('submenu-open');
 
         if(window.innerWidth >= 992) {
