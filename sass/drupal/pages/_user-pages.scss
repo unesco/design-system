@@ -8,12 +8,6 @@
   .menu--galaxy-menu .popin:not(.hidden) {
     top: 39px;
   }
-
-  header .header .navbar-toggler {
-    @include max-screen($screen-desktop - 1) {
-      top: 1rem;
-    }
-  }
 }
 
 .toolbar-horizontal.toolbar-tray-open {

@@ -519,6 +519,12 @@
 .galaxy-menu-open {
   height: 100vh;
   overflow: hidden;
+
+  header .header .navbar-toggler {
+    @include max-screen($screen-desktop - 1) {
+      top: 0.75rem;
+    }
+  }
 }
 
 .button-text-mobile {
