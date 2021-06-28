@@ -274,15 +274,20 @@ $paddingTop: (
             font-weight: 800;
           }
 
-          .field--name-field-description {
-
-          }
         }
 
         .story {
           height: 100%;
+        }
 
-
+        &:not(.story-home) {
+          .field--name-title {
+            @include responsive(font-size, $section-text);
+            font-weight: normal;
+          }
+          .field--name-field-description {
+            @include responsive(font-size, $page-title);
+          }
         }
       }
 
