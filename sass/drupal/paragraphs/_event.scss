@@ -76,8 +76,6 @@
     }
   }
 
-
-
   .buttons-event {
     margin-top: 2rem;
     margin-bottom: 0.5rem;
@@ -99,6 +97,12 @@
         font-size: 1rem;
         vertical-align: middle;
         margin-left: 0.5rem;
+      }
+    }
+
+    .calendar-links {
+      a {
+        margin-right: 0.5rem;
       }
     }
   }
