@@ -109,6 +109,7 @@ function unesco_preprocess_html(&$variables) {
   $route_match = \Drupal::routeMatch();
   $route_name = $route_match->getRouteName();
   $settings = \Drupal::service('settings');
+  $settings_array = $settings->getAll();
 
   // Class for 403/403 pages.
   if (preg_match('/^unesco_common.page_/', $route_name)) {
@@ -194,8 +195,9 @@ function unesco_preprocess_html(&$variables) {
     $variables['page']['#attached']['html_head'][] = [$meta, $meta_data['rel']];
   }
 
-  if (!empty($settings) && !empty($settings->get('site_satellite')) && $settings->get('site_satellite')) {
-    $variables['attributes']['class'][] = 'site-satellite';
+  if (!empty($settings_array) && isset($settings_array['site_satellite'])) {
+    $site_profile_class = $settings_array['site_satellite'] ? 'site-satellite' : 'portail-unesco';
+    $variables['attributes']['class'][] = $site_profile_class;
   }
 }
 

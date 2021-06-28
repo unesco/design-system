@@ -367,7 +367,6 @@ header {
     @include max-screen($screen-desktop - 1) {
       margin: 0;
     }
-    
 
     .menu--main,
     .dropdown {
@@ -1368,6 +1367,12 @@ header {
       overflow: hidden;
     }
   }
+}
+
+// UNESCO portail header.
+// @todo fill here.
+.portail-unesco {
+
 }
 
 // satellite page header
