@@ -62,14 +62,15 @@
       }
     }
 
+    $circle-diameter: 1rem;
     .circle {
       position: absolute;
-      left: 0;
-      top: 0;
+      left: -.5 * $circle-diameter;
+      top:  -.5 * $circle-diameter;
       background-color: $BlueU;
       border: 0.063rem solid $white;
-      width: 1rem;
-      height: 1rem;
+      width: $circle-diameter;
+      height: $circle-diameter;
       border-radius: 50%;
     }
 
