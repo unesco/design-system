@@ -59,6 +59,29 @@ function unesco_preprocess_node(&$variables) {
     $variables['unesco_link_attributes']->setAttribute('href', $variables['url']);
     $variables['unesco_link_attributes']->setAttribute('title', $variables['node']->label());
   }
+
+  if (
+    $view_mode == 'normal'
+    && isset($variables['elements']['#suggested'])
+    && $variables['elements']['#suggested']
+  ) {
+    $inserted = [
+      "#type" => "html_tag",
+      "#tag" => "span",
+      "#value" => t("Suggested"),
+      "#attributes" => ['class' => ['suggested']],
+      "#weight" => 11,
+    ];
+    $variables['content'] = array_slice($variables['content'], 0, 2, true) +
+      array("suggested" => $inserted) +
+      array_slice($variables['content'], 2, count($variables['content'])-2, true);
+    $group = $variables['elements']['#group_children'];
+    $variables['elements']['#group_children'] = array_slice($group, 0, 2, true) +
+      array("suggested" => 'group_wrapper') +
+      array_slice($group, 2, count($group)-2, true);
+  }
+
+
 }
 
 /**
