@@ -88,16 +88,13 @@ $paddingTop: (
           }
 
           .people-link-name {
-
             display: inline;
             color:  $darkGrey;
             font-weight: 600;
 
-
-
             &::after {
               content: ',';
-              margin-left: -.25rem;
+              margin-left: -.21rem;
             }
 
             &:last-child {
@@ -107,11 +104,8 @@ $paddingTop: (
             }
 
             a {
-              display: inline-block;
               position: relative;
               color: $darkGrey;
-
-
 
               &:hover {
                 text-decoration: none;
@@ -123,7 +117,7 @@ $paddingTop: (
                 left: 0;
                 bottom: 0;
                 position: absolute;
-                width: 100%;
+                width: calc(100% - 0.25rem);
                 height: .0625rem;
                 background-color: $darkGrey;
               }

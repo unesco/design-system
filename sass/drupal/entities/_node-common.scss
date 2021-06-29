@@ -258,8 +258,6 @@ $margin24: (
   }
 }
 
-
-
 .content-infos-wrapper {
   font-size: .875rem;
   margin-bottom: 2rem;
@@ -274,16 +272,13 @@ $margin24: (
     }
 
     .people-link-name {
-
       display: inline;
       color:  $darkGrey;
       font-weight: 600;
 
-
-
       &::after {
         content: ',';
-        margin-left: -.25rem;
+        margin-left: -.21rem;
       }
 
       &:last-child {
@@ -297,11 +292,9 @@ $margin24: (
         position: relative;
         color: $darkGrey;
 
-
-
         &:hover {
           text-decoration: none;
-          color:  $darkGrey;
+          color: $darkGrey;
         }
 
         &::before {
@@ -309,7 +302,7 @@ $margin24: (
           left: 0;
           bottom: 0;
           position: absolute;
-          width: 100%;
+          width: calc(100% - 0.25rem);
           height: .0625rem;
           background-color: $darkGrey;
         }
