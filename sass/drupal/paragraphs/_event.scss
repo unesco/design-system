@@ -99,11 +99,30 @@
         margin-left: 0.5rem;
       }
     }
+  }
 
-    .calendar-links {
-      a {
-        margin-right: 0.5rem;
-      }
+  .calendar-links-wrapper {
+    a {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .calendar-links {
+    position: absolute;
+    min-width: 10rem;
+    padding: .5rem 0;
+    list-style: none;
+    background-color: $white;
+    background-clip: padding-box;
+    border: 1px solid $grey2;
+    border-radius: 1.5rem;
+    z-index: 1;
+
+    a {
+      color: $grey4;
+      text-decoration: none;
+      line-height: 2.2;
+      font-size: .875rem;
     }
   }
 }
