@@ -74,7 +74,6 @@ image: registry.repository.unesco.org/drupal/unescorg/unesco_ubuntu:v1.3.11.2019
 build:stage:
   <<: *build_template
   only:
-    - /^feature.*$/
     - develop
   script:
     - curl -sL https://deb.nodesource.com/setup_12.x | bash -
@@ -99,7 +98,7 @@ build:prod:
 # Depends on test in stage
 # TODO: check for unwanted modules
 ################################################################################
-.deploy_stage_template: &deploy_stage_template
+.deploy_stage:
   stage: deploy
   tags:
     - deploy
