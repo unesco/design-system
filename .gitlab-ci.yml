@@ -81,6 +81,7 @@ build:stage:
     - git fetch --all
     - git reset --hard origin/$CI_COMMIT_REF_NAME
     - git checkout origin/$CI_COMMIT_REF_NAME
+    - npm -g install gulp gulp-cli
     - npm ci
     - gulp build
 
@@ -94,6 +95,7 @@ build:prod:
     - git fetch --all
     - git reset --hard origin/master
     - git checkout master
+    - npm -g install gulp gulp-cli
     - npm ci
     - gulp build
 
