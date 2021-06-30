@@ -51,6 +51,7 @@ function unesco_preprocess_node(&$variables) {
     'short',
     'sdh_list',
     'sdh_grid',
+    'map',
   ];
 
   if (in_array($view_mode, $list_view_modes)) {
