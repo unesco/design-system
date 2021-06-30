@@ -66,6 +66,7 @@ function unesco_preprocess_node(&$variables) {
     && isset($variables['elements']['#suggested'])
     && $variables['elements']['#suggested']
   ) {
+    $variables['attributes']['class'][] = 'suggested';
     $inserted = [
       "#type" => "html_tag",
       "#tag" => "span",

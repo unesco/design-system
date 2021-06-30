@@ -18,22 +18,23 @@
   .form-actions {
     margin: 0;
 
+
     input {
       border-radius: 5rem;
       margin-top: 0;
     }
 
     .form-submit {
-      padding: $btn-padding-y-lg $btn-padding-x-lg;
+      padding: $btn-padding-y-lg 3rem;
       margin-top: .5rem;
       width: 100%;
       text-align: center;
-      &::after {
-        @include icon('arrow_search');
-        color: $white;
-        font-size: 1.5rem;
-        line-height: 1;
-      }
+      background-image: url('../images/search-white-24dp.svg');
+      background-size: 15%;
+      background-repeat: no-repeat;
+      background-position: right 11% bottom 50%;
+
+
       @include min-screen($screen-desktop) {
         width: auto;
         margin-top: 0;
