@@ -76,9 +76,14 @@
   }
 
   .explore-map {
-    width: 100%;
+    width: 100vw;
+    left: -1.5rem;
     height: 14.375rem;
     z-index: 20;
+    @include min-screen($screen-tablet) {
+      width: 100%;
+      left: 0;
+    }
     @include min-screen($screen-desktop) {
       height: 36rem;
     }
