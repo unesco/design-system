@@ -498,7 +498,7 @@
       margin-top: 3rem;
       @include transition(opacity);
       max-height: 30rem;
-      overflow-y: scroll;
+      overflow-y: auto;
 
       @include max-screen($screen-desktop - 1) {
         margin-top: 1.5rem;
