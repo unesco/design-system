@@ -510,7 +510,7 @@
     },
     initHeaderHubMenu: function (context, settings) {
 
-      let hubMenu = $('.header-hub .hub-menu-header');
+      let hubMenu = $('.header-hub:not(".country") .hub-menu-header');
       let tabletWidth = 576;
 
 

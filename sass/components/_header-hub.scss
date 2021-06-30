@@ -255,16 +255,12 @@
         }
 
         @include min-screen($screen-tablet) {
-          margin: 0 1rem 0 0;
+          margin: 0 2rem 0 0;
 
           a,
           span {
             padding: 1.25rem 0;
           }
-        }
-
-        @include min-screen($screen-desktop) {
-          margin: 0 2rem 0 0;
         }
       }
 
@@ -349,6 +345,30 @@
           }
         }
 
+      }
+    }
+  }
+}
+
+.header-hub.country {
+  .hub-menu-header {
+    @include max-screen($screen-tablet - 1px) {
+      display: block;
+      position: relative;
+      padding: 0 .5rem;
+
+      .menu {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+
+        .nav-item {
+          margin: .5rem;
+          a {
+            padding: .5rem;
+          }
+        }
       }
     }
   }
