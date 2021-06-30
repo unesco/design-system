@@ -30,6 +30,7 @@
       height: 3rem;
       display: flex;
       align-items: flex-start;
+      border-bottom: none;
 
       .nav-item {
         font-size: 1rem;
@@ -64,12 +65,20 @@
         padding-bottom: 4rem;
       }
 
+      select {
+        @extend .custom-select;
+        width: auto;
+        margin: .2rem;
+      }
+
 
       .tab-pane > article {
         padding: 1.5rem 0 2rem;
         border-top: .0625rem solid $grey2;
-        &:first-child {
-          border-top: none;
+        &:not(.hidden) {
+          &:first-of-type {
+            border-top: none;
+          }
         }
       }
     }

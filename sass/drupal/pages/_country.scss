@@ -128,6 +128,7 @@
           .field--name-field-media-image {
             width: 5rem;
             height: 5rem;
+            margin-left: 1rem;
             img {
               @include img-cover;
             }
