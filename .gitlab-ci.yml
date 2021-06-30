@@ -98,7 +98,7 @@ build:prod:
 # Depends on test in stage
 # TODO: check for unwanted modules
 ################################################################################
-.deploy_stage:
+deploy_stage:
   stage: deploy
   tags:
     - deploy
