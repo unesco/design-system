@@ -620,6 +620,9 @@
       const galaxyButtonMobile = $('.button-text-mobile', context);
       const galaxyPopin = $('.menu--galaxy-menu .popin', context);
       const ongletLink = $('.menu--galaxy-menu nav > ul > li > .dropdown-toggle, .menu--galaxy-menu nav .vocabulary--websites .title');
+      const searchInput = $('.vocabulary--websites .dynamic-search', context);
+      const searchButton = $('.dynamic-search-button', context);
+      const websiteTaxo = $('.vocabulary--websites .taxonomy-term');
 
       galaxyButton.on('click', function () {
         galaxyPopin.removeClass('hidden');
@@ -640,6 +643,7 @@
         galaxyPopin.addClass('hidden');
         $('html, body').removeClass('galaxy-menu-open');
         $('.active-galaxy-tab').removeClass('active-galaxy-tab');
+        clearInput();
       });
 
       ongletLink.unbind('click');
@@ -654,6 +658,57 @@
         } else {
           $(this).parent().toggleClass('active-galaxy-tab');
         }
+      });
+
+      function clearInput() {
+        $('.matched-text').removeClass('matched-text');
+        $('.match').removeClass('match');
+        $('.search-in-progress').removeClass('search-in-progress');
+        searchInput.val("");
+        $('.wrapper-websites').removeClass('search-in-progress');
+        return;
+      }
+
+      $.fn.highlightWord = function(searchWord) {
+        let regex = RegExp('' + searchWord + '', 'gi'), replacement = '<span class="matched-text">$&</span>';
+        return this.html(function() {
+          return $(this).html().replace(regex, replacement);
+        });
+      };
+
+      searchInput.on('change keyup', function() {
+        if($(this).val() == "") {
+          clearInput();
+          $('.vocabulary--websites .right').removeClass('show');
+        } else {
+          $('.vocabulary--websites .right').addClass('show');
+        }
+      });
+
+      $('.dynamic-search-button.clear').on('click', function() {
+        $('.vocabulary--websites .right').toggleClass('show');
+        clearInput();
+      });
+
+      searchButton.on('click', function() {
+        if(searchInput.val() == "") {
+          return;
+        }
+        
+        $(document).find('.wrapper-websites').addClass('search-in-progress');
+
+        websiteTaxo.each(function() {
+          let searchKeyTitle = $(this).find('.title').text().toLowerCase();
+          let searchKeyDesc = $(this).find('.field--name-description .field__item').text().toLowerCase();
+          let searchTerm = searchInput.val().toLowerCase();
+
+          if ( (searchKeyTitle.indexOf(searchTerm) > -1 || searchKeyDesc.indexOf(searchTerm) > -1) && searchTerm != "" ) {
+            $(this).addClass('match');
+            $(this).find('.title, .field--name-description .field__item').highlightWord(searchTerm);
+          } else {
+            $(this).removeClass('match');
+          }
+        });
       });
     },
     initPreHeaderClose: function (context, settings) {

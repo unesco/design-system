@@ -239,6 +239,14 @@
 
     .right {
       display: block;
+
+      @include max-screen($screen-desktop - 1) {
+        text-align: right;
+
+        .wrapper-websites {
+          text-align: left;
+        }
+      }
     }
   }
 
@@ -437,6 +445,32 @@
           color: $BlueU;
         }
       }
+
+      &.clear {
+        font-size: 0;
+        display: none;
+        margin-left: 1rem;
+        padding: 1rem;
+
+        @include max-screen($screen-desktop - 1) {
+          font-size: 0.75rem;
+          padding: 0;
+          position: static;
+          font-weight: 400;
+          color: $darkGrey;
+          margin: 1rem auto;
+
+          &::after {
+            font-size: 1.25rem;
+          }
+        }
+
+        &::after {
+          font-size: 1.5rem;
+          @include icon('clear');
+          margin: 0;
+        }
+      }
     }
 
     .dynamic-search {
@@ -456,14 +490,38 @@
         line-height: 1.25rem;
         padding: 0.875rem 1.5rem;
         width: calc(100% - 3rem);
+        max-width: 100%;
       }
     }
 
     .wrapper-websites {
       padding-top: 3rem;
+      @include transition(opacity);
 
       @include max-screen($screen-desktop - 1) {
         padding-top: 1.5rem;
+      }
+
+      &.search-in-progress {
+        display: flex;
+        flex-direction: column;
+
+        .taxonomy-term {
+          opacity: 0.3;
+        }
+
+        .match {
+          opacity: 1;
+          order: -1;
+
+          .matched-text {
+            background-color: $Blue3;
+
+            @include max-screen($screen-desktop - 1) {
+              background-color: $LightBlue;
+            }
+          }
+        }
       }
 
       .vocabulary-websites {
@@ -510,6 +568,21 @@
           @include max-screen($screen-desktop - 1) {
             opacity: 1;
           }
+        }
+      }
+    }
+
+    .show {
+      .dynamic-search-button.clear {
+        display: inline-block;
+      }
+
+      .dynamic-search {
+        max-width: 23.25rem;
+
+        @include max-screen($screen-desktop - 1) {
+          width: calc(100% - 3rem);
+          max-width: 100%;
         }
       }
     }
