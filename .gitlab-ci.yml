@@ -67,7 +67,8 @@ image: registry.repository.unesco.org/drupal/unescorg/unesco_ubuntu:v1.3.11.2019
     expire_in: 1 day
     when: on_success
     paths:
-      - .
+      - style-guide
+      - assets
   allow_failure: false
 
 build:stage:
@@ -106,7 +107,6 @@ build:prod:
   only:
     - develop
   except:
-    - pre-production
     - master
   when: manual
   allow_failure: false
@@ -123,7 +123,7 @@ build:prod:
   dependencies:
     - build:stage
 
-deploy:stage:no_db:
+deploy:stage:
   <<: *deploy_stage_template
   when: on_success
   script:
