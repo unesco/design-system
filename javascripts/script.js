@@ -667,7 +667,7 @@
         $('.search-in-progress').removeClass('search-in-progress');
         searchInput.val("");
         $('.wrapper-websites').removeClass('search-in-progress');
-        return;
+
       }
 
       $.fn.highlightWord = function(searchWord) {
@@ -695,7 +695,7 @@
         if(searchInput.val() == "") {
           return;
         }
-        
+
         $(document).find('.wrapper-websites').addClass('search-in-progress');
 
         websiteTaxo.each(function() {
@@ -743,28 +743,32 @@
     },
     initMapListMobile: function (context, settings) {
 
+
       function explorerMapListMobile() {
         let explorerMapList = $('#explorer .map-list .tab-content .tab-pane', context);
 
-        explorerMapList.once('explorerMapListBehaviors').each(function () {
-          let item = $(this).children();
+        explorerMapList.each(function () {
+          let item = $(this).children().not('.hidden');
           let count = item.length;
           let limit = 4;
           let more = 0;
+
+          console.log(count);
+          console.log(item);
 
           if (count > limit) {
 
             $(this).append('<button class="btn btn-outline-grey4 btn-load-more">' + Drupal.t('Load more') + '<i class="material-icons-sharp">arrow_downward</i></button>');
             item.each(function (index) {
               if (index >= limit) {
-                $(this).hide();
+                $(this).addClass('is-hide');
                 more++;
               }
             });
 
             $(this).find('.btn-load-more').on('click', function () {
               item.each(function () {
-                $(this).show();
+                $(this).removeClass('is-hide');
               });
               $(this).hide();
             });
