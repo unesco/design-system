@@ -9,9 +9,21 @@
 
 
   .map-list {
+    margin-top: 1.5rem;
 
     @include min-screen($screen-desktop) {
+      margin-top: 0;
       max-height: 36rem;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 5rem;
+        left: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba($white, 0) 0%, $white 100%);
+      }
     }
 
     .nav-tabs {
@@ -48,11 +60,16 @@
       max-height: calc(100% - 3rem);
       overflow-y: auto;
 
+      @include min-screen($screen-desktop) {
+        padding-bottom: 4rem;
+      }
+
+
       .tab-pane > article {
         padding: 1.5rem 0 2rem;
-        border-bottom: .0625rem solid $grey2;
-        &:last-child {
-          border-bottom: none;
+        border-top: .0625rem solid $grey2;
+        &:first-child {
+          border-top: none;
         }
       }
     }

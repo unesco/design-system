@@ -40,6 +40,7 @@
       this.initGalaxyMenu(context, settings);
       this.initPreHeaderClose(context, settings);
       this.initSearchFilters(context, settings);
+      this.initMapListMobile(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -684,6 +685,44 @@
           $(this).next().slideToggle(300,"swing");
         });
       });
+    },
+    initMapListMobile: function (context, settings) {
+
+      function explorerMapListMobile() {
+        let explorerMapList = $('#explorer .map-list .tab-content .tab-pane', context);
+
+        explorerMapList.once('explorerMapListBehaviors').each(function () {
+          let item = $(this).children();
+          let count = item.length;
+          let limit = 4;
+          let more = 0;
+
+          if (count > limit) {
+
+            $(this).append('<button class="btn btn-outline-grey4 btn-load-more">' + Drupal.t('Load more') + '<i class="material-icons-sharp">arrow_downward</i></button>');
+            item.each(function (index) {
+              if (index >= limit) {
+                $(this).hide();
+                more++;
+              }
+            });
+
+            $(this).find('.btn-load-more').on('click', function () {
+              item.each(function () {
+                $(this).show();
+              });
+              $(this).hide();
+            });
+
+          }
+
+        });
+      }
+
+      let desktopWidth = 992;
+      if ($(window).width() <= desktopWidth) {
+        explorerMapListMobile();
+      }
     },
   };
 })(jQuery);
