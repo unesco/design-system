@@ -77,10 +77,12 @@ build:stage:
     - develop
   script:
     - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-    - apt-get install -y nodejs
+    - apt-get install -y nodejs libnotify-bin
     - git fetch --all
     - git reset --hard origin/$CI_COMMIT_REF_NAME
     - git checkout origin/$CI_COMMIT_REF_NAME
+    - npm ci
+    - gulp build
 
 build:prod:
   <<: *build_template
@@ -88,10 +90,12 @@ build:prod:
     - master
   script:
     - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-    - apt-get install -y nodejs
+    - apt-get install -y nodejs libnotify-bin
     - git fetch --all
     - git reset --hard origin/master
     - git checkout master
+    - npm ci
+    - gulp build
 
 ################################################################################
 # Deploy stage:
