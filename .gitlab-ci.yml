@@ -108,7 +108,6 @@ build:prod:
     - develop
   except:
     - master
-  when: manual
   allow_failure: false
   before_script:
     - which ssh-agent || ( apt update -y && apt install openssh-client -y )
@@ -122,13 +121,9 @@ build:prod:
     url: https://en.srvbltydev.unesco.org/typography
   dependencies:
     - build:stage
-
-deploy:stage:
-  <<: *deploy_stage_template
   when: on_success
   script:
     - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no" style-guide assets denix@$STAGE_HOST:$GIT_ROOT/unesco/typography
-  allow_failure: false
 
 ################################################################################
 # Deploy prod:
