@@ -151,7 +151,7 @@ deploy_production:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
   script:
-    - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no -i ~/.ssh/id_rsa_deploy" style-guide assets denix@$PRODUCTION_HOST:$GIT_ROOT_PROD/$PROJECT_NAME/
+    - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no -i ~/.ssh/id_rsa_deploy" style-guide assets denix@$PRODUCTION_HOST:$GIT_ROOT_PROD/typography
   environment:
     name: prod
     url: https://en.unesco.org/typography
