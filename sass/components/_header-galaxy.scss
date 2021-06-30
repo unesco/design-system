@@ -521,6 +521,14 @@
   overflow: hidden;
 
   header .header .navbar-toggler {
+    background-color: $Blue2;
+
+    &:focus,
+    &:hover {
+      background-color: $Blue3;
+      border-color: $Blue3;
+    }
+
     @include max-screen($screen-desktop - 1) {
       top: 0.75rem;
     }

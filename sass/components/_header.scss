@@ -210,7 +210,8 @@ header {
         top: 0.75rem;
       }
 
-      .menu-open & {
+      .menu-open &,
+      .galaxy-menu-open & {
         z-index: 99;
 
         .navbar-toggler-icon {
@@ -1372,11 +1373,90 @@ header {
 // UNESCO portail header.
 // @todo fill here.
 .portail-unesco {
+  header {
+    .block-unesco-common-site-branding {
+      a {
+        .site-logo {
+          @include min-screen($screen-tablet) {
+            max-width: 16.375rem;
+          }
+        }
+      }
+    }
 
+    .region-sub-header {
+      .site-name-wrapper {
+        display: none;
+      }
+    }
+
+    &.navbar {
+      @include max-screen($screen-tablet - 1) {
+        min-height: 4rem;
+      }
+    }
+  }
+
+  &.header-sticky {
+    header {
+      .block-unesco-common-site-branding {
+        @include min-screen($screen-tablet) {
+          top: 0.75rem;
+        }
+
+        a {
+          @include min-screen($screen-desktop) {
+            position: static;
+          }
+          
+
+          .site-logo {
+            max-width: 9.375rem;
+          }
+        }
+
+        .site-name {
+          display: none;
+        }
+      }
+
+      .menu--galaxy-menu {
+        display: block;
+      }
+
+      .menu--galaxy-menu {
+        @include max-screen($screen-tablet -1) {
+          display: none;
+        }
+
+        @include min-screen($screen-tablet) {
+          display: block;
+          width: auto;
+          margin-left: auto;
+          padding-top: 0.375rem;
+        }
+      }
+
+      .header .navbar-toggler {
+        @include min-screen($screen-tablet) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.galaxy-menu-open .portail-unesco {
+  .menu--galaxy-menu {
+    @include max-screen($screen-desktop - 1) {
+      display: block;
+    }
+  }
 }
 
 // satellite page header
-.site-satellite:not(.header-sticky) {
+.site-satellite:not(.header-sticky),
+.portail-unesco {
   @include min-screen($screen-desktop) {
     header {
       .block-unesco-common-site-branding {

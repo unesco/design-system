@@ -200,9 +200,10 @@
         $('html').toggleClass('menu-open');
         $('body').toggleClass('menu-open');
         $('body').removeClass('parent-menu-open');
-        $('html').removeClass('galaxy-menu-open');
+        $('html, body').removeClass('galaxy-menu-open');
         $('.active-galaxy-tab').removeClass('active-galaxy-tab');
         $('.submenu-open').removeClass('submenu-open');
+        $('.menu--galaxy-menu .popin').addClass('hidden');
       });
 
       parentItem.on('click', function () {
@@ -232,13 +233,12 @@
       const header = $('header');
       let toolbarHeight = header.offset().top;
       let headerHeight = header.outerHeight() + toolbarHeight;
-      let initialPadding = $('body').css('padding-top');
 
       $(window).scroll(function () {
         if ($(window).scrollTop() > headerHeight) {
           $('body').addClass('header-sticky').css('padding-top', headerHeight);
         } else {
-          $('body').removeClass('header-sticky').css('padding-top', initialPadding);
+          $('body').removeClass('header-sticky').removeAttr('style');
         }
       });
     },
