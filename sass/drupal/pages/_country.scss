@@ -132,6 +132,16 @@
               @include img-cover;
             }
           }
+
+          .media-wrapper {
+            margin-bottom: 0;
+            .field--name-field-ref-image {
+              margin-bottom: 0;
+            }
+            .media-footer {
+              display: none;
+            }
+          }
         }
       }
     }
