@@ -1,0 +1,157 @@
+################################################################################
+# Gitlab CI for Drupal 7 project, code quality and deploy.
+#
+# Project: https://repository.unesco.org/gitlab/drupal/unescorg
+# Documentation: https://repository.unesco.org/gitlab/drupal/unescorg
+# Inspired by: https://gitlab.com/mog33/gitlab-ci-drupal
+#              https://blog.callr.tech/gitlab-ansible-docker-ci-cd/
+#
+# License: GPL-3
+#
+################################################################################
+
+variables:
+
+  PROJECT_NAME: "bunesco8"
+  # Server descriptions
+
+  # using gitlab user to connect to servers
+  # Stage config, srvltydev. user denix. Accessible only upon request from outside.
+  STAGE_HOST: "srvbltydev.unesco.org"
+  SSH_LOGIN: "ssh -p22 -oStrictHostKeyChecking=no denix"
+  GIT_ROOT: "/var/www/drupal/"
+  # Preprod config, Geneva, malva.svc.unicc.org, user unesco_dr
+  # Accessible only from within unesco network
+  PREPROD_HOST: "193.194.139.155"
+  SSH_LOGIN_PREPROD: "ssh -p22 -oStrictHostKeyChecking=no unesco_dr"
+  GIT_ROOT_PREPROD: "/var/www/production/"
+  # Production config, physical machine hosted at UNESCO. User denix
+  PRODUCTION_HOST: "srvblty2.unesco.org"
+  SSH_LOGIN_PROD: "ssh -p22 -oStrictHostKeyChecking=no denix"
+  GIT_ROOT_PROD: "/var/www/drupalci/"
+
+  # Variables for docker
+  # UNESCO proxy
+  HTTP_PROXY: "http://192.168.1.30:8080"
+  HTTPS_PROXY: "http://192.168.1.30:8080"
+  NO_PROXY: "localhost,127.0.0.1,.unesco.org"
+  HTTPS_PROXY_REQUEST_FULLURI: "false"
+  HTTP_PROXY_REQUEST_FULLURI: "true"
+
+  # Combawa binary, for easier use
+  COMBAWA: "vendor/bin/combawa.sh"
+
+################################################################################
+# Define your stages, this will be "pipelines" in gitlab.
+#   https://docs.gitlab.com/ee/ci/pipelines.html
+################################################################################
+stages:
+  - build
+  - test
+  - deploy
+  - validate
+  - notify
+
+image: registry.repository.unesco.org/drupal/unescorg/unesco_ubuntu:v1.3.11.2019
+
+################################################################################
+# Build Template
+################################################################################
+.build_template: &build_template
+  stage: build
+  tags:
+    - docker
+  when: always
+  artifacts:
+    untracked: true
+    expire_in: 1 day
+    when: on_success
+    paths:
+      - .
+  allow_failure: false
+
+build:stage:
+  <<: *build_template
+  only:
+    - /^feature.*$/
+    - develop
+  script:
+    - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+    - apt-get install -y nodejs
+    - git fetch --all
+    - git reset --hard origin/$CI_COMMIT_REF_NAME
+    - git checkout origin/$CI_COMMIT_REF_NAME
+
+build:prod:
+  <<: *build_template
+  only:
+    - master
+  script:
+    - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+    - apt-get install -y nodejs
+    - git fetch --all
+    - git reset --hard origin/master
+    - git checkout master
+
+################################################################################
+# Deploy stage:
+# Depends on test in stage
+# TODO: check for unwanted modules
+################################################################################
+.deploy_stage_template: &deploy_stage_template
+  stage: deploy
+  tags:
+    - deploy
+    - shell
+  only:
+    - develop
+  except:
+    - pre-production
+    - master
+  when: manual
+  allow_failure: false
+  before_script:
+    - which ssh-agent || ( apt update -y && apt install openssh-client -y )
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan -H repository.unesco.org >> ~/.ssh/known_hosts
+  environment:
+    name: $CI_COMMIT_REF_NAME
+    url: https://en.srvbltydev.unesco.org/typography
+  dependencies:
+    - build:stage
+
+deploy:stage:no_db:
+  <<: *deploy_stage_template
+  when: on_success
+  script:
+    - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no" style-guide assets denix@$STAGE_HOST:$GIT_ROOT/unesco/typography
+  allow_failure: false
+
+################################################################################
+# Deploy prod:
+# Secure everything, disable views
+################################################################################
+deploy_production:
+  stage: deploy
+  tags:
+    - deploy
+    - shell
+  only:
+    - master
+  when: manual
+  dependencies:
+    - build:prod
+  before_script:
+    - which ssh-agent || ( apt update -y && apt install openssh-client -y )
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no -i ~/.ssh/id_rsa_deploy" style-guide assets denix@$PRODUCTION_HOST:$GIT_ROOT_PROD/$PROJECT_NAME/
+  environment:
+    name: prod
+    url: https://en.unesco.org/typography

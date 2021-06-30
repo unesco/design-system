@@ -1,0 +1,25 @@
+name: bunesco8
+services:
+  apache:
+    type: apache
+    webroot: .
+    ssl: false
+  node:
+    type: node:12
+    build_as_root:
+      - apt update
+      - apt install -y libnotify-bin
+    build:
+      - npm ci
+      - gulp build
+    globals:
+      gulp-cli: latest
+tooling:
+  npm:
+    service: node
+  node:
+    service: node
+  gulp:
+    service: node
+  yarn:
+    service: node
