@@ -13,7 +13,7 @@
       padding-right: 0;
       font-size: 1rem;
       padding-left: 1.8rem;
-      
+
       &::after {
         right: auto;
         left: 0;
@@ -333,7 +333,7 @@
 
       >li {
         padding: 0 1.5rem;
-  
+
         >ul {
           display: none;
           width: 100%;
@@ -347,7 +347,7 @@
             top: 2.75rem;
             padding-top: 3rem;
           }
-  
+
           >li {
             @include min-screen($screen-desktop) {
               width: 25%;
@@ -495,11 +495,13 @@
     }
 
     .wrapper-websites {
-      padding-top: 3rem;
+      margin-top: 3rem;
       @include transition(opacity);
+      max-height: 30rem;
+      overflow-y: scroll;
 
       @include max-screen($screen-desktop - 1) {
-        padding-top: 1.5rem;
+        margin-top: 1.5rem;
       }
 
       &.search-in-progress {
