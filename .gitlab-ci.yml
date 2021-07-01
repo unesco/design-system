@@ -129,7 +129,7 @@ deploy_stage:
     - build:stage
   when: on_success
   script:
-    - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no" style-guide/* fonts assets javascripts denix@$STAGE_HOST:$GIT_ROOT/unesco/typography
+    - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no" style-guide/* fonts assets javascripts favicon.ico denix@$STAGE_HOST:$GIT_ROOT/unesco/typography
 
 ################################################################################
 # Deploy prod:
@@ -152,7 +152,7 @@ deploy_production:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
   script:
-    - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no -i ~/.ssh/id_rsa_deploy" style-guide/* fonts assets javascripts denix@$PRODUCTION_HOST:$GIT_ROOT_PROD/typography
+    - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no -i ~/.ssh/id_rsa_deploy" style-guide/* favicon.ico fonts assets javascripts denix@$PRODUCTION_HOST:$GIT_ROOT_PROD/typography
   environment:
     name: prod
     url: https://en.unesco.org/typography
