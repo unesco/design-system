@@ -15,15 +15,6 @@
       margin-top: 0;
       max-height: 36rem;
       position: relative;
-      &::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 5rem;
-        left: 0;
-        bottom: 0;
-        background: linear-gradient(180deg, rgba($white, 0) 0%, $white 100%);
-      }
     }
 
     .nav-tabs {
@@ -58,32 +49,48 @@
     }
 
     .tab-content {
-      max-height: calc(100% - 3rem);
-      overflow-y: auto;
-
-      @include min-screen($screen-desktop) {
-        padding-bottom: 4rem;
-      }
 
       select {
         @extend .custom-select;
         width: auto;
-        margin: .2rem;
+        height: calc(1.4em + 1rem + 2px);
+        padding: .5rem 2.5rem .5rem 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .tab-pane {
+
+        @include min-screen($screen-desktop) {
+          position: relative;
+          &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5rem;
+            left: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba($white, 0) 0%, $white 100%);
+          }
+        }
+
+        .tab-pane-list {
+
+          @include min-screen($screen-desktop) {
+            position: relative;
+            max-height: 29rem;
+            overflow-y: auto;
+            padding-bottom: 4rem;
+          }
+        }
       }
 
 
-      .tab-pane > article {
+      .tab-pane .tab-pane-list > article {
         padding: 1.5rem 0 2rem;
         border-top: .0625rem solid $grey2;
 
         &.is-hide {
           display: none;
-        }
-
-        &:not(.hidden) {
-          &:first-of-type {
-            border-top: none;
-          }
         }
       }
     }

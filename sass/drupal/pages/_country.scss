@@ -105,13 +105,14 @@
 .explore-wrapper {
   .map-list {
     .tab-content {
-      .tab-pane > article {
+      .tab-pane .tab-pane-list > article {
         a:hover {
           text-decoration: none;
         }
         .node__content {
           display: flex;
           justify-content: space-between;
+          align-items: flex-start;
 
           .text-wrapper {
             .field--type-entity-reference {
