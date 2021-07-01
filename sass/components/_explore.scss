@@ -65,7 +65,7 @@
           &::after {
             content: '';
             position: absolute;
-            width: 100%;
+            width: calc(100% - 1rem);
             height: 5rem;
             left: 0;
             bottom: 0;
@@ -80,6 +80,8 @@
             max-height: 29rem;
             overflow-y: auto;
             padding-bottom: 4rem;
+            padding-right: 1rem;
+            @include scrollbar-custom;
           }
         }
       }
