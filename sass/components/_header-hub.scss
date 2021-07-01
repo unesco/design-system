@@ -166,6 +166,10 @@
           &:hover {
             text-decoration: none;
           }
+
+          &.active {
+            border-bottom: .125rem solid $BlueU;
+          }
         }
 
         &:last-child {
