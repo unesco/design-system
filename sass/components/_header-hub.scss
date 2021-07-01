@@ -352,6 +352,13 @@
 }
 
 .header-hub.country {
+  margin-bottom: 1rem;
+  padding-bottom: 3.5rem;
+  border-bottom: .0625rem solid $grey2;
+  @include min-screen($screen-desktop) {
+    margin-bottom: 1.5rem;
+    padding-bottom: 6rem;
+  }
   .hub-menu-header {
     @include max-screen($screen-tablet - 1px) {
       display: block;
