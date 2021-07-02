@@ -7,6 +7,35 @@ html[dir="rtl"] {
     }
   }
 
+  .toolbar-oriented .toolbar-bar .toolbar-tab, 
+  .toolbar-oriented .toolbar-tray-horizontal li {
+    float: left;
+  }
+
+  .toolbar-horizontal .toolbar-tray > .toolbar-lining {
+    padding-left: 0;
+    padding-right: 5em;
+  }
+
+  .toolbar .toolbar-bar .toolbar-tab > .toolbar-icon {
+    @media only screen and(min-width: 36em) {
+      padding-right: 1.3333em;
+      padding-left: 2.75em;
+      background-position: left center;
+
+      &::before {
+        right: auto;
+        left: 0.6667em;
+        width: 20px;
+      }
+    }
+  }
+
+  .toolbar-oriented .toolbar-tray-horizontal .toolbar-toggle-orientation {
+    left: auto;
+    right: 0;
+  }
+
   // satellite page header
   .site-satellite:not(.header-sticky) {
     @include min-screen($screen-desktop) {
@@ -23,7 +52,7 @@ html[dir="rtl"] {
   }
 
   .header-sticky header {
-    .header-mini-light .site-name-wrapper a::before {
+    &.header-mini-light .site-name-wrapper a::before {
       margin-right: 0;
       margin-left: 1rem;
     }
@@ -184,15 +213,6 @@ html[dir="rtl"] {
     }
   }
 
-  .node--type-article.node--view-mode-idea .header-node-content {
-    .article-title,
-    .field--name-field-description {
-      @include min-screen($screen-desktop) {
-        margin: 0 -13.375rem 1.5rem;
-      }
-    }
-  }
-
   // Buttons
   .btn {
     direction: rtl;
@@ -204,11 +224,24 @@ html[dir="rtl"] {
     }
   }
 
+  .main-node-content .content-summary .item-list ul {
+    .summary-item {
+      padding-left: 0;
+      padding-right: 1rem;
+      margin-right: 0;
+
+      &::before,
+      &::after {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+
   // Paragraphs styles.
   .paragraph--type--cta {
     .cta-media-wrapper {
       @include min-screen($screen-tablet) {
-        order: -1;
         margin-left: 0;
         margin-right: 1.5rem;
       }
@@ -228,5 +261,11 @@ html[dir="rtl"] {
       margin-right: 0;
       margin-left: 1rem;
     }
+  }
+
+  .paragraph--type--text-media-full {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
   }
 }
