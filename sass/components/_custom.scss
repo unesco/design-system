@@ -104,6 +104,10 @@ $pre-header-close-icon: (
     font-weight: 600;
   }
 
+  .message {
+    color: $white;
+  }
+
   &-close {
     display: inline-block;
     background-color: $Blue2;
