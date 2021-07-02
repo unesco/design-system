@@ -268,6 +268,18 @@ html[dir="rtl"] {
     }
   }
 
+  li.icon-external > a,
+  a.icon-external {
+    &::after {
+      display: none
+    }
+
+    &::before {
+      @include icon('open_in_new');
+      margin-right: 0.25rem;
+    }
+  }
+
   .rich-text {
     ol {
       li {
@@ -315,30 +327,29 @@ html[dir="rtl"] {
   }
 
   // Articles styles.
-  .node--type-article.node--view-mode-full .header-node-content .section-text.is-arrow {
-    text-align: right;
-    
-    span::after {
-      display: none;
-    }
-
-    span::after {
-      @include icon('chevron_left');
-      display: inline;
-      vertical-align: bottom;
-      margin-right: .5rem;
-      line-height: 1.2;
-
-      @include min-screen($screen-desktop) {
-        margin-right: 1rem;
+  .node--type-article.node--view-mode-full {
+    .header-node-content .section-text.is-arrow {
+      text-align: right;
+      
+      span::after {
+        display: none;
+      }
+  
+      span::before {
+        @include icon('chevron_left');
+        display: inline;
+        vertical-align: bottom;
+        margin-right: .5rem;
+        line-height: 1.2;
+  
+        @include min-screen($screen-desktop) {
+          margin-right: 1rem;
+        }
       }
     }
-  }
 
-  .content-authors-wrapper {
-    .authors-image-wrapper,
-    .content-date-wrapper {
-      flex-direction: row-reverse;
+    .node__content {
+      width: 100%;
     }
   }
 
@@ -352,7 +363,7 @@ html[dir="rtl"] {
     }
 
     &.btn-arrow-right::after {
-      content: "arrow_backward";
+      content: "arrow_back";
     }
 
     &.dropdown-toggle {
@@ -374,6 +385,11 @@ html[dir="rtl"] {
         right: 0;
       }
     }
+  }
+
+  .js-slider-full .wrapper-image .media--copyright {
+    left: 2.5rem;
+    right: auto;
   }
 
   // Paragraphs styles.
@@ -401,9 +417,58 @@ html[dir="rtl"] {
     }
   }
 
-  .paragraph--type--text-media-full {
+  .paragraph--type--text-media-full,
+  .node--view-mode-full.media-large .media-wrapper {
     left: auto;
     right: 50%;
     transform: translateX(50%);
+  }
+
+  .paragraph--type--content-list-custom-article .field__item article.node a .field--name-field-ref-image, 
+  .paragraph--type--content-list-custom-landing .field__item article.node a .field--name-field-ref-image {
+    @include min-screen($screen-tablet) {
+      margin-left: 0;
+      margin-right: 2rem;
+    }
+  }
+
+  .paragraph--type--number .field--name-field-link {
+    display: flex;
+
+    .field__label {
+      padding-left: 0;
+    }
+  }
+
+  .wrapper-medias {
+    .slider-nav {
+      display: inline-flex;
+      right: auto;
+      left: 0;
+  
+      .carousel-buttons {
+        order: 1;
+        direction: ltr;
+      }
+  
+      .count {
+        margin-right: 0;
+        margin-left: 0.5rem;
+      }
+    }
+
+    .slider-medias .field--name-field-copyright, 
+    .slider-medias .field--name-field-legende, 
+    .slider-medias .slide-text {
+      @include min-screen($screen-desktop) {
+        padding-right: 0;
+        padding-left: 12.2rem;
+      }
+    }
+  }
+
+  .sequenced-block .item-list ul li::before {
+    margin-right: 0;
+    margin-left: 1rem;
   }
 }
