@@ -1,11 +1,6 @@
-$paddingTop: (
-  null: 2.5rem,
-  large: 6rem
-);
-
 .node--type-country {
   .explore-wrapper {
-    @include mb-block;
+    @include mb-border-block;
 
     .field--name-field-explore-title {
       font-weight: 800;
@@ -19,7 +14,11 @@ $paddingTop: (
   }
 
   .brief-sdh-wrapper {
-    @include mb-block;
+    @include mb-border-block;
+
+    .row {
+      margin-bottom: -1rem;
+    }
 
     .field--name-field-structured-data-title {
       font-weight: 800;
@@ -30,10 +29,17 @@ $paddingTop: (
         margin: 0 0 1.5rem;
       }
     }
+
+    .field--name-field-structured-data-desc {
+      margin-bottom: 1.5rem;
+      @include min-screen($screen-desktop) {
+        margin-bottom: 3rem;
+      }
+    }
   }
 
   .brief-contact-wrapper {
-    @include mb-block;
+    @include mb-border-block;
 
     .field--name-field-title {
       font-weight: 800;
@@ -43,6 +49,12 @@ $paddingTop: (
       @include min-screen($screen-desktop) {
         margin: 0 0 1.5rem;
       }
+    }
+  }
+
+  .field--name-field-paragraphs {
+    .paragraph {
+      @include mb-border-block;
     }
   }
 }
@@ -55,6 +67,161 @@ $paddingTop: (
 
     @include min-screen($screen-desktop) {
       margin: 0 0 1.5rem;
+    }
+  }
+}
+
+.header-hub.country {
+
+  .hero-wrapper {
+    .header-texts {
+      color: $white;
+
+      .flag {
+        margin-bottom: .5rem;
+
+        svg {
+          width: 3rem;
+          height: 2rem;
+        }
+
+        @include min-screen($screen-desktop) {
+          margin-bottom: 0;
+          margin-right: 2rem;
+          display: inline-block;
+          vertical-align: middle;
+          svg {
+            width: 4.5rem;
+            height: 3rem;
+          }
+        }
+      }
+      .title {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+      }
+      .date-texts-wrapper {
+        margin-top: 1rem;
+        font-weight: 600;
+
+        div {
+          display: inline;
+        }
+
+        .field--name-field-ref-regions {
+          display: inline;
+          margin-left: 0.25rem;
+
+          .field__item {
+            display: inline;
+          }
+
+          &::before {
+            content: "\2022";
+            color: $white;
+            font-weight: bold;
+            width: .375rem;
+            margin-right: 0.25rem;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+#block-unesco-content {
+  .header-background {
+    margin: 0 auto;
+  }
+
+  .our-countries {
+    .map-wrapper {
+      margin-bottom: 4.2rem;
+    }
+
+    .electoral-group-list {
+      margin: 0;
+      padding-bottom: 1rem;
+      display: inline-block;
+      min-width: 12rem;
+    }
+
+    ul.alphabetical-filter {
+      display: inline-block;
+      li {
+        display: inline-block;
+
+        &:first-child {
+          margin: 0;
+        }
+      }
+    }
+
+    .node--type-country.node--view-mode-map {
+      .node__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        > div {
+          flex: auto;
+          flex-direction: row;
+        }
+      }
+    }
+  }
+}
+
+.map-list {
+  .node--view-mode-map {
+    padding: 1.5rem 0 2rem;
+    border-top: .0625rem solid $grey2;
+
+    &.is-hide {
+      display: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+    .node__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .text-wrapper {
+        .field--type-entity-reference {
+          font-size: 1.125rem;
+          color: $BlueU;
+        }
+        .title {
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: $black;
+        }
+      }
+
+      .field--name-field-media-image {
+        width: 5rem;
+        height: 5rem;
+        margin-left: 1rem;
+        img {
+          @include img-cover;
+        }
+      }
+
+      .media-wrapper {
+        margin-bottom: 0;
+        .field--name-field-ref-image {
+          margin-bottom: 0;
+        }
+        .media-footer {
+          display: none;
+        }
+      }
     }
   }
 }

@@ -117,3 +117,31 @@
     margin-bottom: 3.5rem;
   }
 }
+
+@mixin mb-border-block {
+  margin-bottom: 1rem;
+  border-bottom: .0625rem solid $grey2;
+  padding-bottom: 3.5rem;
+  @include min-screen($screen-tablet) {
+    margin-bottom: 1.5rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@mixin scrollbar-custom {
+  &::-webkit-scrollbar-track {
+    background-color: $grey1;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: $grey1;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $grey3;
+    border-radius: 2px;
+  }
+}

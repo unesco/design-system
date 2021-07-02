@@ -742,8 +742,6 @@
       });
     },
     initMapListMobile: function (context, settings) {
-
-
       function explorerMapListMobile() {
         let explorerMapList = $('#explorer .map-list .tab-content .tab-pane', context);
 

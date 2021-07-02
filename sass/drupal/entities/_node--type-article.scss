@@ -50,6 +50,14 @@ $paddingTop: (
           }
         }
 
+        a {
+          color: inherit;
+          &:hover {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+
       }
 
       .article-title,
@@ -332,10 +340,6 @@ $paddingTop: (
         position: relative;
         @include responsive(font-size, $page-title);
         font-weight: 800;
-        color: $white;
-      }
-
-      .section-text {
         color: $white;
       }
 
