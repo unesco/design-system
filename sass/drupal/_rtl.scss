@@ -36,6 +36,18 @@ html[dir="rtl"] {
     right: 0;
   }
 
+  .user-logged-in .block-local-tasks-block {
+    float: left;
+    margin: 1rem 0;
+
+    &::after {
+      content: "";
+      width: 100%;
+      display: block;
+      clear: both;
+    }
+  }
+
   // satellite page header
   .site-satellite:not(.header-sticky) {
     @include min-screen($screen-desktop) {
@@ -68,7 +80,16 @@ html[dir="rtl"] {
       text-align: right;
     }
 
+    .menu--main ul.menu {
+      margin-right: 0;
+    }
+
     .block-unesco-common-site-branding {
+      @include max-screen($screen-desktop - 1) {
+        left: auto;
+        right: 2.125rem;
+      }
+
       @include max-screen($screen-tablet - 1) {
         left: auto;
         right: 1.5rem;
@@ -92,6 +113,34 @@ html[dir="rtl"] {
       }
     }
 
+    .menu-level-0 > .nav-item > .nav-link.dropdown-toggle {
+      @include max-screen($screen-desktop - 1) {
+        &::after {
+          display: none;
+        }
+
+        &::before {
+          @include icon('chevron_left');
+          margin-left: 0.625rem;
+          line-height: 1;
+          vertical-align: middle;
+
+          
+        }
+
+        &:hover {
+          &::before {
+            display: inline;
+            width: auto;
+            height: auto;
+            position: static;
+            background-color: transparent;
+          }
+        }
+      }
+      
+    }
+
     .header .navbar-toggler {
       right: auto;
       left: 2.125rem;
@@ -105,9 +154,89 @@ html[dir="rtl"] {
 
     .region-sub-header .site-name {
       @include max-screen($screen-desktop - 1) {
-        right: 1rem;
+        right: 0;
         left: auto;
       }
+    }
+  }
+
+  .parent-menu-open header .menu-level-0 > .nav-item.show > .nav-link  {
+    &::after, 
+    &:hover::before {
+      content: 'chevron_left';
+      display: inline;
+      position: absolute;
+      left: auto;
+      right: 0;
+      top: 0.1rem;
+      margin: 0;
+      font-size: 2rem;
+    }
+  }
+
+  // Galaxy menu styles.
+  .menu--galaxy-menu {
+    .link-galaxy.home {
+      margin-right: auto;
+      margin-left: 0.5rem;
+    }
+
+    .link-galaxy.close-popin {
+      margin-right: 0.25rem;
+
+      &::after {
+        margin-right: 0;
+      }
+    }
+
+    .vocabulary--websites .dynamic-search-button {
+      margin: 0 1rem 0 0;
+    }
+
+    .dynamic-search-button::after {
+      margin-right: 0;
+    }
+
+    .button-text-mobile {
+      &::before {
+        left: auto;
+        right: 0;
+        content: "chevron_right";
+      }
+    }
+
+    nav > .navbar-nav > .active-galaxy-tab {
+      >.nav-link::before,
+      >.title::before,
+      &.vocabulary--websites > .nav-link::before,
+      &.vocabulary--websites > .title::before {
+        left: auto;
+        right: 0;
+        content: "chevron_right";
+      }
+    }
+  }
+
+  .galaxy-menu-open .menu--galaxy-menu {
+    .link-galaxy.home,
+    .link-galaxy.advanced-search {
+      margin-left: auto;
+      margin-right: 0;
+  
+      &::before {
+        margin-right: 0;
+        margin-left: 0.625rem;
+      }
+    }
+
+    .navbar-nav > li > .dropdown-toggle::after, 
+    nav .vocabulary--websites > .title::after {
+      content: "chevron_left";
+    }
+
+    .vocabulary--websites .dynamic-search-button {
+      right: auto;
+      left: 3rem;
     }
   }
 
@@ -218,9 +347,18 @@ html[dir="rtl"] {
     direction: rtl;
 
     &::after {
-      transform:scale(-1);
       margin-right: .875rem;
       margin-left: 0;
+    }
+
+    &.btn-arrow-right::after {
+      content: "arrow_backward";
+    }
+
+    &.dropdown-toggle {
+      &::after {
+        transform: none;
+      }
     }
   }
 
