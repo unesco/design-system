@@ -106,11 +106,16 @@ $pre-header-close-icon: (
     .alert-banner--wrapper {
       display: flex;
       align-items: center;
+      color: $white;
+      &:hover {
+        text-decoration: none;
+      }
       &::after {
         @include icon('arrow_forward');
         display: inline-block;
         margin-left: .875rem;
         font-size: 1.5rem;
+        line-height: 1;
       }
     }
 
