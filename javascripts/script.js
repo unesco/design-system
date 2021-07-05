@@ -712,14 +712,6 @@
         });
       });
     },
-    initPreHeaderClose: function (context, settings) {
-      let preHeaderClose = $('.pre_header .pre_header-close');
-
-      preHeaderClose.on('click', function () {
-        $(this).parent().hide();
-      });
-
-    },
     initSearchFilters: function (context, settings) {
       let blockFacet = $('.block-facets', context);
       let toggleFacets = $('.toggle-facets', context);
