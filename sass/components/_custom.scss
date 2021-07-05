@@ -102,6 +102,18 @@ $pre-header-close-icon: (
     @include responsive(font-size, $pre-header-text);
     color: $white;
     font-weight: 600;
+
+    .alert-banner--wrapper {
+      display: flex;
+      align-items: center;
+      &::after {
+        @include icon('arrow_forward');
+        display: inline-block;
+        margin-left: .875rem;
+        font-size: 1.5rem;
+      }
+    }
+
   }
 
   .message {
