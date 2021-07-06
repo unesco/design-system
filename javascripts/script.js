@@ -734,6 +734,15 @@
           $(this).next().slideToggle(300,"swing");
         });
       });
+
+      let sortBy = $('.form-item-sort-by', context);
+      if (sortBy.length) {
+        let button = sortBy.siblings('.form-actions').find('.form-submit');
+        button.hide();
+        sortBy.find('select').change(function () {
+          button.click();
+        });
+      }
     },
     initMapListMobile: function (context, settings) {
       function explorerMapListMobile() {
