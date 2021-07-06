@@ -1045,10 +1045,25 @@ header {
   }
 
   .normal {
+    &.dropdown-menu {
+      @include max-screen($screen-desktop - 1) {
+        width: auto;
+
+        .left-wrapper,
+        .right-wrapper {
+          padding: 0;
+        }
+      }
+    }
+
     .right-wrapper >.main-navigation >.menu-level-1 {
       display: flex;
       margin: 0 -1rem;
       justify-content: flex-end;
+
+      @include max-screen($screen-desktop - 1) {
+        justify-content: flex-start;
+      }
 
       >li {
         padding: 0 1rem;
@@ -1056,11 +1071,16 @@ header {
         max-width: 18.75rem;
         margin-bottom: 1.5rem;
 
+        @include max-screen($screen-tablet - 1) {
+          width: 100%;
+        }
+
         > a {
           font-size: $font-size-base;
           line-height: 1.5rem;
           font-weight: 600;
           margin-bottom: 1.5rem;
+          white-space: normal;
 
           &.dropdown-toggle::after {
             display: none;
@@ -1088,6 +1108,17 @@ header {
           display: block !important;
           margin: 0;
         }
+      }
+    }
+
+    .submenu-wrapper {
+      max-width: 87.126rem;
+      margin: 0 auto !important;
+    }
+
+    .main-navigation {
+      @include max-screen($screen-desktop - 1) {
+        margin-top: 3rem;
       }
     }
   }
