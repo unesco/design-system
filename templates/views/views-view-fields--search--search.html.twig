@@ -32,7 +32,8 @@
 {%- if unesco_search_url -%}
   <a href="{{ unesco_search_url }}" class="link-item-content-search">
 {%- endif %}
-{% for field in fields -%}
+<div class="row-content">
+{% for field in fields|without('image_solr') -%}
   {{ field.separator }}
   {%- if field.wrapper_element -%}
     <{{ field.wrapper_element }}{{ field.wrapper_attributes }}>
@@ -53,6 +54,10 @@
     </{{ field.wrapper_element }}>
   {%- endif %}
 {%- endfor %}
+</div>
+<div class="row-image">
+  {{ fields.image_solr.content }}
+</div>
 {%- if unesco_search_url -%}
   </a>
 {%- endif %}
