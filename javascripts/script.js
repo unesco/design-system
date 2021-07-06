@@ -38,7 +38,6 @@
       this.initStoryParallax(context, settings);
       this.initParagraphParallax(context, settings);
       this.initGalaxyMenu(context, settings);
-      this.initPreHeaderClose(context, settings);
       this.initSearchFilters(context, settings);
       this.initMapListMobile(context, settings);
     },
