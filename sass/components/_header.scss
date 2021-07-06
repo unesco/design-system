@@ -846,6 +846,12 @@ header {
 header {
   // Submenus styles
   .big {
+    &.dropdown-menu {
+      @include max-screen($screen-desktop - 1) {
+        width: auto;
+      }
+    }
+
     .nav-link {
       display: none;
     }
@@ -864,6 +870,7 @@ header {
       li {
         padding: 0 1rem;
         max-width: 25%;
+        margin-bottom: 1rem;
 
         @include transition;
         transition-duration: 0.3s;
@@ -871,6 +878,34 @@ header {
         &:focus,
         &:hover {
           transform: scale(1.1);
+        }
+
+        @include max-screen($screen-tablet - 1) {
+          max-width: 100%;
+          width: 100%;
+
+          img {
+            width: 100%;
+            max-width: unset;
+          }
+        }
+      }
+    }
+
+    .submenu-wrapper {
+      max-width: 87.126rem;
+      margin: 0 auto !important;
+
+      @include max-screen($screen-desktop - 1) {
+        max-width: 100%;
+
+        .left-wrapper,
+        .right-wrapper {
+          padding: 0;
+
+          .main-navigation {
+            margin-top: 2.375rem;
+          }
         }
       }
     }
@@ -901,7 +936,7 @@ header {
     }
 
     .submenu-wrapper {
-      max-width: 83rem;
+      max-width: 87.126rem;
       margin: 0 auto !important;
       overflow: hidden;
 
