@@ -232,7 +232,7 @@
     initStickyHeader: function (context, settings) {
       const header = $('header');
       let toolbarHeight = header.offset().top;
-      let headerHeight = header.outerHeight() + toolbarHeight;
+      let headerHeight = header.outerHeight() + toolbarHeight + $('.pre_header').outerHeight();
 
       $(window).scroll(function () {
         if ($(window).scrollTop() > headerHeight) {

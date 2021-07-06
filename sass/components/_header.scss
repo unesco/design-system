@@ -41,8 +41,6 @@ header {
 
     &.bg-primary {
       background-color: transparent !important;
-      @include transition(top);
-      transition-duration: 0.3s;
 
       &:hover {
         background-color: $BlueU !important;
@@ -123,7 +121,7 @@ header {
       padding: 0.75rem 3.625rem;
       position: fixed;
       left: 0;
-      top: 0;
+      top: 0 !important;
       width: 100vw;
       z-index: 99;
       @extend %animated;
