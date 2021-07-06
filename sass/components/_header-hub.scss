@@ -85,22 +85,6 @@
         }
       }
     }
-
-    .hub-menu-btn {
-      display: flex;
-      align-items: center;
-      &::after {
-        @include icon('expand_more');
-        margin-left: 0.625rem;
-        line-height: 1;
-        transition: .3s;
-      }
-      &.is-active {
-        &::after {
-          transform: rotate(-180deg);
-        }
-      }
-    }
   }
 
   .header-wrapper {
@@ -110,6 +94,22 @@
 
     .header-texts {
       padding-top: 5rem;
+    }
+  }
+
+  .hub-menu-btn {
+    display: flex;
+    align-items: center;
+    &::after {
+      @include icon('expand_more');
+      margin-left: 0.625rem;
+      line-height: 1;
+      transition: .3s;
+    }
+    &.is-active {
+      &::after {
+        transform: rotate(-180deg);
+      }
     }
   }
 
@@ -381,6 +381,103 @@
             padding: .5rem;
           }
         }
+      }
+    }
+  }
+}
+
+#block-unesco-content .node--view-mode-full > .node--type-hub {
+  .header-hub {
+    margin-top: -2.5rem;
+    width: 100%;
+
+    @include min-screen($screen-desktop) {
+      margin-top: -3.5rem;
+      width: 100%;
+    }
+
+    @include max-screen($screen-desktop - 1) {
+      @include fullWidthBackground($BlueU);
+    }
+
+    >.title {
+      @include responsive(font-size, $hero-title);
+      text-align: left;
+      color: $white;
+      font-weight: 800;
+      @include fullWidthBackground($BlueU);
+      margin-bottom: 0;
+      padding-top: 3.5rem;
+      padding-bottom: 1rem;
+      width: 100%;
+
+      @include min-screen($screen-desktop) {
+        padding-top: 2rem;
+        padding-bottom: 5rem;
+      }
+    }
+  }
+
+  .hub-menu-btn {
+    margin-bottom: 2rem;
+
+    @include min-screen($screen-desktop) {
+      display: none;
+    }
+  }
+
+  .hub-menu-header {
+    top: 100%;
+
+    @include min-screen($screen-desktop) {
+      margin-bottom: 5.5rem;
+      top: unset;
+    }
+  }
+}
+
+#block-unesco-breadcrumbs {
+  .breadcrumb {
+    @include fullWidthBackground($BlueU);
+    border-radius: 0;
+    display: none;
+    margin: 0 -0.816rem;
+    position: relative;
+
+
+    @include min-screen($screen-desktop) {
+      display: flex;
+      width: 100vw;
+      max-width: 83.813rem;
+      position: relative;
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      display: none;
+    }
+
+
+    li {
+      padding: 0 0.406rem;
+
+      &,  a {
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+        color: $blueLight;
+        text-decoration: none;
+      }
+
+      &::after {
+        @include icon('chevron_right');
+        color: inherit;
+        vertical-align: middle;
+        margin-left: 0.816rem;
+      }
+
+      &:last-of-type::after {
+        display: none;
       }
     }
   }
