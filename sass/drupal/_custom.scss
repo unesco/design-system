@@ -107,7 +107,7 @@ div#sliding-popup .eu-cookie-withdraw-banner,
 .toolbar-horizontal {
   &.header-sticky {
     header.navbar {
-      top: 2.438rem;
+      top: 2.438rem !important;
     }
   
     &.toolbar-tray-open.header-sticky {
