@@ -949,8 +949,6 @@ header {
       }
 
       .right-wrapper {
-        padding: 0;
-
         @include min-screen($screen-desktop) {
           margin-left: auto;
           flex: 0 0 100%;
@@ -991,6 +989,7 @@ header {
     .menu-level-1 {
       display: block;
       margin: 0;
+      overflow: hidden;
 
       .slick-list {
         margin: 0 -#{$spacer};
