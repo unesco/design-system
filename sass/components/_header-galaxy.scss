@@ -509,11 +509,11 @@
         flex-direction: column;
 
         .taxonomy-term {
-          opacity: 0.3;
+          display: none;
         }
 
         .match {
-          opacity: 1;
+          display: block;
           order: -1;
 
           .matched-text {

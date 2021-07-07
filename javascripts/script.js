@@ -740,7 +740,6 @@
             $(this).find('.title, .field--name-description .field__item').highlightWord(searchTerm);
           } else {
             $(this).removeClass('match');
-            $(this).addClass('hidden');
           }
         });
       });
