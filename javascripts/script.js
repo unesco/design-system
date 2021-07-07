@@ -590,19 +590,14 @@
 
       if (storyItem.length > 1) {
         story.prepend('<button class="btn btn-skip-story btn-outline-white">' + Drupal.t('Skip') + '</button>');
-
         var btnSkip = story.find('.btn-skip-story');
-
-        // var showBtnPosition = storyItem.eq(1).offset().top;
         var showBtnPosition = 400;
         var showLastBtn = storyItem.last();
         var showLastBtnPositionTop = showLastBtn.position().top;
         var showLastBtnPositionBottom = showLastBtnPositionTop + showLastBtn.outerHeight(true);
-
         btnSkip.click(function() {
           $(window).scrollTop(showLastBtnPositionBottom);
         });
-
         $(window).scroll(function() {
           if (showBtnPosition < $(window).scrollTop() && showLastBtnPositionTop > $(window).scrollTop()) {
             btnSkip.fadeIn();
@@ -613,17 +608,45 @@
         });
       }
 
+      $('.story-item:not(:first) .text-wrapper').hide();
 
-      $(window).scroll(function(){
-        storyItem.each(function(){
+      var controller = new ScrollMagic.Controller();
 
-          var difference = $(window).scrollTop() - $(this).offset().top;
-          var half = (difference / 2) + 'px';
-          var transform = 'translate3d( 0, ' + half + ',0)';
+      var wipeAnimation = new TimelineMax()
+        .staggerTo(".story-item:not(:last)", 1, {
+          y: "-100%",
+          ease: Linear.easeNone,
+          onStartParams: ["{self}"],
+          onStart: function fadeOut(tween) {
+            $(tween.target).find('.text-wrapper').fadeOut();
+            $(tween.target).next().find('.text-wrapper').delay(600).fadeIn();
+          },
+          onReverseCompleteParams: ["{self}"],
+          onReverseComplete: function fadeIn(tween) {
+            $(tween.target).find('.text-wrapper').fadeIn();
+            $(tween.target).next().find('.text-wrapper').fadeOut();
+          },
+        }, 2, 1)
+        .staggerTo(".story-item:last", 1, {
+          onCompleteParams: ["{self}"],
+          onComplete: function (tween) {
+            $(tween.target).find('.text-wrapper').fadeOut();
+          },
+          onReverseCompleteParams: ["{self}"],
+          onReverseComplete: function (tween) {
+            $(tween.target).find('.text-wrapper').fadeIn();
+          },
+        }, 1);
 
-          $(this).find('img').css('transform', transform);
-        });
-      });
+      new ScrollMagic.Scene({
+        triggerElement: ".header-node-content.story",
+        triggerHook: "onLeave",
+        duration: "300%"
+      })
+        .setPin(".header-node-content.story")
+        .setTween(wipeAnimation)
+        .addTo(controller);
+
     },
 
     initParagraphParallax: function (context, settings) {

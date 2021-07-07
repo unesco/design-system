@@ -9,6 +9,9 @@ global-styling:
 
   js:
     javascripts/vendor/slick.min.js: { minified: true }
+    javascripts/vendor/ScrollMagic.min.js: { minified: true }
+    javascripts/vendor/TweenMax.min.js: { minified: true }
+    javascripts/vendor/animation.gsap.min.js: { minified: true }
     assets/scripts/app.js: {}
     javascripts/drupal.js: {}
 

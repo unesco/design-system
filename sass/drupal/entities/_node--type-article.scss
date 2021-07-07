@@ -2,6 +2,10 @@ $paddingTop: (
   null: 2.5rem,
   large: 3.5rem
 );
+$story-item-description: (
+  null: 1.5rem,
+  large: 2rem
+);
 
 .node--type-article {
   &.node--view-mode-full {
@@ -245,9 +249,9 @@ $paddingTop: (
     .header-node-content {
       position: relative;
       margin: -9.25rem auto 2.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
       @include min-screen($screen-desktop) {
         margin: -3.5rem auto 3.5rem;
       }
@@ -261,8 +265,14 @@ $paddingTop: (
       }
 
       .story-item {
-        position: relative;
+        position: absolute;
+        width: 100%;
         height: 100vh;
+        @include descending-z-index;
+
+        .story {
+          height: 100vh;
+        }
 
         .text-wrapper {
           position: relative;
@@ -278,17 +288,16 @@ $paddingTop: (
 
         }
 
-        .story {
-          height: 100%;
-        }
-
         &:not(.story-home) {
           .field--name-title {
-            @include responsive(font-size, $section-text);
+            font-size: 1.5rem;
             font-weight: normal;
+            margin-bottom: 1rem;
           }
           .field--name-field-description {
-            @include responsive(font-size, $page-title);
+            @include responsive(font-size, $story-item-description);
+            font-weight: 600;
+            max-width: 46rem;
           }
         }
       }
@@ -300,21 +309,15 @@ $paddingTop: (
         width: 100vw;
         height: 100%;
         transform: translateX(-50%);
-        z-index: 0;
-        overflow: hidden;
-
-        &::before {
-          content: "";
-          display: block;
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.4) 100%);
-          mix-blend-mode: normal;
+        &::after {
+          content:'';
           position: absolute;
-          left: 50%;
           top: 0;
-          width: 100vw;
+          left: 0;
+          width: 100%;
           height: 100%;
-          transform: translateX(-50%);
-          z-index: 0;
+          background-color: $black;
+          opacity: .4;
         }
 
 
