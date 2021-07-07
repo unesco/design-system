@@ -104,6 +104,7 @@ $search-content-title: (
   .filter-used {
     display: flex;
     align-items: center;
+    white-space: nowrap;
     font-size: .875rem;
     padding: .4rem .75rem;
     border: .0625rem solid $grey2;
@@ -145,7 +146,48 @@ $search-content-title: (
 
   .facets-more {
     margin-top: -.5rem;
-    padding: 0 0 1.5rem 0;
+    padding: 0 0 .5rem 0;
+  }
+
+  .links-facets {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 1.5rem;
+    font-size: .875rem;
+    @include min-screen($screen-desktop) {
+      justify-content: flex-end;
+      flex-direction: row;
+    }
+
+    .toggle-more-facets {
+      display: flex;
+      align-items: center;
+      color: $grey4;
+      font-weight: 600;
+      &:hover {
+        text-decoration: none;
+      }
+      &::after {
+        @include icon('add');
+        line-height: 1;
+        margin-left: .5rem;
+        font-size: 1rem;
+      }
+
+    }
+
+    .reset-link {
+      color: $grey4;
+      font-weight: 400;
+      margin-top: .5rem;
+      &:hover {
+        text-decoration: none;
+      }
+      @include min-screen($screen-desktop) {
+        margin-top: 0;
+        margin-right: 2rem;
+      }
+    }
   }
 }
 
@@ -354,6 +396,17 @@ $search-content-title: (
       margin-bottom: 1.5rem;
     }
 
+    a.link-item-content-search {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+      color: $black;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
     .views-field-title-1 {
       @include responsive(font-size, $search-content-title);
       font-weight: 600;
@@ -385,6 +438,9 @@ $search-content-title: (
       min-width: 5rem;
       height: 5rem;
       margin-left: 1.5rem;
+      &:empty {
+        display: none;
+      }
       img {
         @include img-cover;
       }
