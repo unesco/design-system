@@ -193,8 +193,25 @@ html[dir="rtl"] {
       margin: 0 1rem 0 0;
     }
 
-    .dynamic-search-button::after {
-      margin-right: 0;
+    .dynamic-search-button {
+      &::after {
+        margin-right: 0;
+
+        @include min-screen($screen-desktop) {
+          display: none;
+        }
+      }
+    }
+
+    .dynamic-search-button {
+      @include min-screen($screen-desktop) {
+        &::before {
+          @include icon('search');
+          font-size: 1.5rem;
+          vertical-align: middle;
+          margin-right: 0.75rem;
+        }
+      }
     }
 
     .button-text-mobile {
@@ -205,22 +222,34 @@ html[dir="rtl"] {
       }
     }
 
+    nav > .navbar-nav > li > ul {
+      @include min-screen($screen-desktop) {
+        right: 0;
+      }
+    }
+
     nav > .navbar-nav > .active-galaxy-tab {
       >.nav-link::before,
       >.title::before,
       &.vocabulary--websites > .nav-link::before,
       &.vocabulary--websites > .title::before {
-        left: auto;
-        right: 0;
-        content: "chevron_right";
+        @include max-screen($screen-desktop - 1) {
+          left: auto;
+          right: 0;
+          content: "chevron_right";
+        }
       }
     }
   }
 
   .galaxy-menu-open .menu--galaxy-menu {
+    .site-info-wrapper {
+      margin-left: auto;
+    }
+
     .link-galaxy.home,
     .link-galaxy.advanced-search {
-      margin-left: auto;
+      margin-left: 1.5rem;
       margin-right: 0;
   
       &::before {
@@ -231,7 +260,9 @@ html[dir="rtl"] {
 
     .navbar-nav > li > .dropdown-toggle::after, 
     nav .vocabulary--websites > .title::after {
-      content: "chevron_left";
+      @include max-screen($screen-desktop - 1) {
+        content: "chevron_left";
+      }
     }
 
     .vocabulary--websites .dynamic-search-button {
@@ -266,6 +297,12 @@ html[dir="rtl"] {
         padding-inline-start: 0;
       }
     }
+  }
+
+  .footer-hub {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
   }
 
   li.icon-external > a,
@@ -479,5 +516,35 @@ html[dir="rtl"] {
   .paragraph--type--quick-link .arrow-primary {
     margin-left: 1rem;
     margin-right: 0;
+  }
+
+  .paragraph--type--banner-cta {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+
+    .banner-cta-circle {
+      @include min-screen($screen-tablet) {
+        margin-left: 2.5rem;
+        margin-right: 0;
+      }
+    }
+
+    .banner-cta-texts {
+      text-align: right;
+      
+      &.border {
+        right: calc(50% - 10rem);
+        left: auto;
+        transform: translateX(50%);
+        padding: 2rem 2rem 2rem calc(30% + 2rem);
+        margin: 2rem 2rem 2rem -30%;
+
+        @include min-screen($screen-desktop) {
+          padding: 3.5rem 3.5rem 3.5rem 11.5rem;
+          margin: 3rem 3rem 3rem -5rem;
+        }
+      }
+    }
   }
 }
