@@ -737,9 +737,24 @@
 
         blockFacetLabel.unbind('click').on('click', function (e) {
           e.preventDefault();
-          $(this).toggleClass('active');
-          $(this).next().slideToggle(300,"swing");
+          blockFacet.find('.facet-label').not(this).removeClass('active').next().slideUp();
+          $(this).toggleClass('active').next().slideToggle(300,"swing");
+
+          let searchAutoComplete = $(this).next('.wrapper-facet-checkbox-search').children('.search-autocomplete');
+          searchAutoComplete.find('input').on("keyup", function() {
+            let value = $(this).val().toLowerCase();
+            let listAutoComplete = searchAutoComplete.next().find('.js-facets-checkbox-links li');
+            listAutoComplete.filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+          });
+          searchAutoComplete.find('input').bind("keypress", function (e) {
+            if (e.keyCode == 13) {
+              return false;
+            }
+          });
         });
+
       });
 
       let sortBy = $('.form-item-sort-by', context);
