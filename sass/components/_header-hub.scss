@@ -1,28 +1,31 @@
 .header-background,
 .header-hub {
   position: relative;
-  margin: -6.75rem auto 0;
+  margin: -6.75rem auto 2rem;
+  @include fullWidthBackground($BlueU);
+
+  &::before,
+  &::after {
+    z-index: -1;
+  }
+
   @include min-screen($screen-desktop) {
-    margin: 0 auto;
+    margin: 0 auto 5.5rem;
   }
 
   .header-wrapper,
   .hero-wrapper {
-    min-height: 14.5rem;
-    padding-bottom: 1rem;
-    @include fullWidthBackground($BlueU);
-
-    @include min-screen($screen-desktop) {
-      min-height: 28.25rem;
-    }
-
-    &::before,
-    &::after {
-      z-index: -1;
-    }
 
     .field--name-field-ref-image {
       overflow: hidden;
+
+      @include max-screen($screen-desktop - 1) {
+        display: none;
+      }
+
+      .contextual-region {
+        position: static;
+      }
 
       .field--name-field-media-image {
         width: 100%;
@@ -33,6 +36,7 @@
           width: 100vw;
           max-width: unset;
           left: 50%;
+          top: 0;
           transform: translateX(-50%);
           z-index: 0;
         }
@@ -57,11 +61,12 @@
 
     .header-texts {
       position: relative;
-      padding-top: 7.5rem;
+      padding-top: 3.5rem;
+      padding-bottom: 1rem;
       z-index: 2;
 
       @include min-screen($screen-desktop) {
-        padding-top: 12.5rem;
+        padding-top: 5rem;
         padding-bottom: 5rem;
       }
 
@@ -74,11 +79,13 @@
       .title {
         @include responsive(font-size, $hero-title);
         font-weight: 800;
-        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        margin-bottom: 0;
       }
 
       .field--name-field-description {
         display: none;
+
         @include min-screen($screen-desktop) {
           display: block;
           font-size: 1.25rem;
@@ -87,25 +94,17 @@
     }
   }
 
-  .header-wrapper {
-    @include min-screen($screen-desktop) {
-      height: 14.5rem;
-    }
-
-    .header-texts {
-      padding-top: 5rem;
-    }
-  }
-
   .hub-menu-btn {
     display: flex;
     align-items: center;
+
     &::after {
       @include icon('expand_more');
       margin-left: 0.625rem;
       line-height: 1;
       transition: .3s;
     }
+
     &.is-active {
       &::after {
         transform: rotate(-180deg);
@@ -116,6 +115,7 @@
   .hub-menu-header {
     padding: 1.5rem 0;
     display: none;
+
     @include max-screen($screen-tablet - 1px) {
       position: absolute;
       z-index: 90;
@@ -124,12 +124,14 @@
       left: -1.5rem;
       padding: 1.5rem;
     }
+
     @include min-screen($screen-tablet) {
       position: relative;
       padding: 0;
       display: block;
       @include fullWidthBackground($grey1);
     }
+
     &:empty {
       display: none;
     }
@@ -357,12 +359,9 @@
 
 .header-hub.country {
   margin-bottom: 1rem;
-  padding-bottom: 3.5rem;
-  border-bottom: .0625rem solid $grey2;
 
   @include min-screen($screen-desktop) {
     margin-bottom: 1.5rem;
-    padding-bottom: 6rem;
   }
 
   .hub-menu-header {
@@ -386,44 +385,29 @@
       }
     }
   }
-}
 
-#block-unesco-content .node--view-mode-full > .node--type-hub {
-  .header-hub {
-    margin-top: -2.5rem;
-    width: 100%;
-    @include fullWidthBackground($BlueU);
-
-    &::before,
-    &::after {
-      z-index: -1;
-    }
-
-    @include min-screen($screen-desktop) {
-      margin-top: -3.5rem;
-      width: 100%;
-    }
-
-    >.title {
-      @include responsive(font-size, $hero-title);
-      text-align: left;
-      color: $white;
-      font-weight: 800;
-      margin-bottom: 0;
+  & +.explore-wrapper {
+    &::before {
+      content: "";
+      display: block;
       padding-top: 3.5rem;
-      padding-bottom: 1rem;
-      width: 100%;
-
+      border-bottom: .0625rem solid $grey2;
+      margin-bottom: 1rem;
+  
       @include min-screen($screen-desktop) {
-        padding-top: 2rem;
-        padding-bottom: 5rem;
+        padding-top: 6rem;
+        margin-bottom: 1.5rem;
       }
     }
   }
+}
+
+#block-unesco-content .node--view-mode-full > .node--type-hub {
+  .hero-wrapper {
+    position: static;
+  }
 
   .hub-menu-btn {
-    margin-bottom: 2rem;
-
     @include min-screen($screen-desktop) {
       display: none;
     }
@@ -431,10 +415,8 @@
 
   .hub-menu-header {
     top: 100%;
-    margin-bottom: 2rem;
 
     @include min-screen($screen-desktop) {
-      margin-bottom: 5.5rem;
       top: unset;
     }
   }
@@ -513,7 +495,7 @@
   }
 }
 
-#block-unesco-content .node--view-mode-full.node--type-landing > .node--type-hub .header-hub {
+.header-hub {
   .transparent-header & {
     padding-top: 7.5rem;
     margin-top: 0;
@@ -527,6 +509,11 @@
   .transparent-header.site-satellite & {
     padding-top: 9.5rem;
     margin-top: 0;
+
+    @include max-screen($screen-desktop - 1) {
+      padding-top: 7.5rem;
+      margin-top: 0;
+    }
   }
 }
 

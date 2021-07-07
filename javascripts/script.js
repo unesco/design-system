@@ -557,21 +557,13 @@
 
         let hubHeaderTexts = $('.header-hub .hero-wrapper .header-texts');
         let hubHeaderMenu = $('.header-hub .hub-menu-header');
-        let hubHeader = $('#block-unesco-content .node--view-mode-full > .node--type-hub .header-hub');
 
         hubHeaderTexts.append('<button class="btn btn-sm btn-blue2 hub-menu-btn">' + Drupal.t('Menu') + '</button>');
-        hubHeader.append('<button class="btn btn-sm btn-blue2 hub-menu-btn">' + Drupal.t('Menu') + '</button>');
 
         hubHeaderTexts.children('.hub-menu-btn').on('click', function () {
           $(this).toggleClass('is-active');
           hubHeaderMenu.slideToggle();
         });
-
-        hubHeader.children('.hub-menu-btn').on('click', function () {
-          $(this).toggleClass('is-active');
-          hubHeaderMenu.slideToggle();
-        });
-
       }
 
 
