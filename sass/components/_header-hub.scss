@@ -428,6 +428,7 @@
 
   .hub-menu-header {
     top: 100%;
+    margin-bottom: 2rem;
 
     @include min-screen($screen-desktop) {
       margin-bottom: 5.5rem;
