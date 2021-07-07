@@ -638,3 +638,17 @@
     vertical-align: middle;
   }
 }
+
+body.portail-unesco {
+  .menu--galaxy-menu {
+    .link-galaxy.home {
+      display: none;
+    }
+    .link-galaxy.advanced-search {
+      margin-left: auto;
+    }
+    .site-info-wrapper .site-name {
+      display: none;
+    }
+  }
+}
