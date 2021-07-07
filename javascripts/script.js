@@ -749,6 +749,22 @@
       let blockFacet = $('.block-facets', context);
       let toggleFacets = $('.toggle-facets', context);
 
+      let desktopWidth = 992;
+      if ($(window).width() >= desktopWidth) {
+        let wrapperFilter = $('.wrapper-facets', context);
+        let sliderFilterUsed = wrapperFilter.find('.filter-used-wrapper');
+        if (sliderFilterUsed.outerWidth(true) >= wrapperFilter.outerWidth(true) - 100) {
+          sliderFilterUsed.parent().css('width', 'calc(100% - ' + toggleFacets.outerWidth(true)+ 'px)');
+          sliderFilterUsed.slick({
+            speed: 300,
+            dots: false,
+            arrows: true,
+            variableWidth: true,
+            infinite: true
+          });
+        }
+      }
+
       toggleFacets.unbind('click').on('click', function (e) {
         e.preventDefault();
         $(this).toggleClass('active');
