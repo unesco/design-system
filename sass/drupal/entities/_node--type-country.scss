@@ -125,6 +125,12 @@
             margin-right: 0.25rem;
             display: inline-block;
           }
+
+          &.field--name-field-electoral-group {
+            &::before {
+              margin-right: 0.5rem;
+            }
+          }
         }
       }
     }
