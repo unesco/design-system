@@ -748,8 +748,9 @@
     initSearchFilters: function (context, settings) {
       let blockFacet = $('.block-facets', context);
       let toggleFacets = $('.toggle-facets', context);
-
+      let toggleMoreFacets = $('.toggle-more-facets', context);
       let desktopWidth = 992;
+
       if ($(window).width() >= desktopWidth) {
         let wrapperFilter = $('.wrapper-facets', context);
         let sliderFilterUsed = wrapperFilter.find('.filter-used-wrapper');
@@ -773,6 +774,11 @@
           .toggleClass('active')
           .find('.facets-list')
           .slideToggle(300,"swing");
+      });
+
+      toggleMoreFacets.unbind('click').on('click', function (e) {
+        e.preventDefault();
+        $(this).parent().prev('.facets-more').find('.block-facets').fadeToggle();
       });
 
       blockFacet.once('facetBehaviors').each(function () {
