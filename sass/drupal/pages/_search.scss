@@ -15,6 +15,7 @@ $search-content-title: (
   @include min-screen($screen-desktop) {
     padding: 6rem 0;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
   }
@@ -45,6 +46,18 @@ $search-content-title: (
         margin-top: 0;
         margin-left: .5rem;
       }
+    }
+  }
+
+  .wrapper-quick-links {
+    width: 100%;
+    margin-top: 1.5rem;
+    text-align: center;
+    @include responsive(font-size, $small-text);
+    a {
+      color: $black;
+      text-decoration: underline;
+      margin: 0 .5rem;
     }
   }
 }
