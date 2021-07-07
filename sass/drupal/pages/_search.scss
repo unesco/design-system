@@ -487,6 +487,32 @@ $search-content-title: (
       justify-content: space-between;
     }
 
+    .wrapper {
+      width: 100%;
+      .content-type-label {
+        display: flex;
+        align-items: center;
+        @include responsive(font-size, $search-content-title);
+        color: $BlueU;
+        &::after {
+          @include icon('star');
+          margin-left: .5rem;
+          line-height: 1;
+        }
+      }
+      .title {
+        @include responsive(font-size, $search-content-title);
+        font-weight: 600;
+        line-height: 1.4;
+        margin-bottom: .375rem;
+      }
+      .field--name-created {
+        font-size: .875rem;
+        margin-top: 1rem;
+        color: $grey4;
+      }
+    }
+
     .field--name-field-media-image {
       width: 5rem;
       min-width: 5rem;
