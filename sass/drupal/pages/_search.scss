@@ -15,6 +15,7 @@ $search-content-title: (
   @include min-screen($screen-desktop) {
     padding: 6rem 0;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
   }
@@ -45,6 +46,18 @@ $search-content-title: (
         margin-top: 0;
         margin-left: .5rem;
       }
+    }
+  }
+
+  .wrapper-quick-links {
+    width: 100%;
+    margin-top: 1.5rem;
+    text-align: center;
+    @include responsive(font-size, $small-text);
+    a {
+      color: $black;
+      text-decoration: underline;
+      margin: 0 .5rem;
     }
   }
 }
@@ -101,6 +114,31 @@ $search-content-title: (
     align-items: flex-start;
   }
 
+  .item-list {
+    @include max-screen($screen-desktop - 1px) {
+      width: 100%;
+      overflow: auto;
+      @include scrollbar-custom;
+      padding-bottom: .5rem;
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+    }
+    @include min-screen($screen-desktop) {
+      &.is-slider {
+        width: 100%;
+      }
+    }
+    .filter-used-wrapper {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      li {
+        margin: 0;
+      }
+    }
+  }
+
   .filter-used {
     display: flex;
     align-items: center;
@@ -123,6 +161,48 @@ $search-content-title: (
     }
   }
 
+  .slick-prev,
+  .slick-next {
+    font-size: 0;
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    background-color: $grey1;
+    &::after {
+      font-size: 1.125rem;
+      color: $grey4;
+      line-height: 1;
+    }
+  }
+
+  .slick-prev {
+    margin-right: 1rem;
+    &::after {
+      @include icon('chevron_left');
+    }
+  }
+
+  .slick-next {
+    margin-left: 1rem;
+    &::after {
+      @include icon('chevron_right');
+    }
+  }
+
+  .slick-list {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 3rem;
+      height: 100%;
+      background: linear-gradient(90deg, rgba($white, 0) 0, rgba($white, 1) 100%);
+      top: 0;
+      right: 0;
+    }
+  }
 }
 
 .facets-list {
@@ -252,7 +332,7 @@ $search-content-title: (
     input.form-text {
       margin-top: 0;
       height: auto;
-      padding: 0 0 .5rem 0;
+      padding: 0 2rem .5rem 0;
       color: $grey4;
       border: none;
       border-radius: 0;
