@@ -52,11 +52,6 @@
     }
   }
 
-  .field--name-field-paragraphs {
-    .paragraph {
-      @include mt-border-block;
-    }
-  }
 }
 
 .page-node-type-country {
@@ -142,7 +137,7 @@
     }
   }
 
-  .paragraph {
+  .field--name-field-paragraphs > .field__item {
     @include mt-border-block;
   }
 }
