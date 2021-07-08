@@ -17,32 +17,34 @@
     justify-content: center;
   }
 
-  .form-item,
-  .form-actions {
+  .form-item {
     margin: 0;
-
-
     input {
       border-radius: 5rem;
       margin-top: 0;
     }
+  }
 
-    .form-submit {
-      padding: $btn-padding-y-lg 3rem;
-      margin-top: .5rem;
-      width: 100%;
-      text-align: center;
-      background-image: url('../images/search-white-24dp.svg');
-      background-size: 15%;
-      background-repeat: no-repeat;
-      background-position: right 11% bottom 50%;
+  .form-actions {
+    display: none;
+  }
 
+  .custom-submit {
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    &::after {
+      @include icon('search');
+      line-height: 1;
+      margin-left: .5rem;
+      font-size: 1.25rem;
+    }
 
-      @include min-screen($screen-desktop) {
-        width: auto;
-        margin-top: 0;
-        margin-left: .5rem;
-      }
+    @include min-screen($screen-desktop) {
+      margin: 0 0 0 .5rem;
+      width: auto;
     }
   }
 
