@@ -516,17 +516,16 @@
     initImageMap: function (context, settings) {
       let point = $('.image-map .circle', context);
       let positionPoint = $('.image-map .point', context);
-      let wrapperWidth = positionPoint.next('img').get(0).naturalWidth;
-      let wrapperHeight = positionPoint.next('img').get(0).naturalHeight;
 
       positionPoint.each(function() {
+        let wrapperWidth = positionPoint.next('img').get(0).naturalWidth;
+        let wrapperHeight = positionPoint.next('img').get(0).naturalHeight;
         let PointLeft = $(this).css('left');
         let positionPointLeft = parseFloat(PointLeft);
         let PointTop = $(this).css('top');
         let positionPointTop = parseFloat(PointTop);
         let percentagePointLeft = positionPointLeft / wrapperWidth * 100 + '%';
         let percentagePointTop = positionPointTop / wrapperHeight * 100 + '%';
-
 
         $(this).css({
           'left': percentagePointLeft,
