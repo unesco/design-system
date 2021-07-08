@@ -535,13 +535,13 @@
       });
 
       point.on('click', function() {
-        point.not(this).parent().removeClass('show-popup');
-        $(this).parent().toggleClass('show-popup');
+        point.not(this).next().fadeOut();
+        $(this).next().fadeToggle();
       });
 
       $('body', context).on('click', function(e) {
         if (!point.is(e.target) && point.parent().has(e.target).length === 0 && point.parent().find('.popup').has(e.target).length === 0) {
-          point.parent().removeClass('show-popup');
+          point.next().fadeOut();
         }
       });
     },

@@ -39,34 +39,40 @@
       position: absolute;
       cursor: pointer;
 
-      &.show-popup {
-        >.popup,
-        >a {
-          display: block;
-        }
-      }
-
-      >.popup,
-      >a {
-        position: absolute;
-        top: 1.5rem;
-        left: 50%;
-        transform: translateX(-50%);
+      > .popup,
+      > a {
+        position: fixed;
+        z-index: 60;
+        width: 100%;
+        left: 0;
         padding: 1.5rem;
         background-color: $white;
         border: 0.063rem solid $grey2;
-        border-radius: 0.5rem;
         text-decoration: none;
-        width: 18rem;
         display: none;
+
+        @include max-screen($screen-desktop - 1px) {
+          bottom: 0;
+        }
+
+        @include min-screen($screen-desktop) {
+          position: absolute;
+          z-index: 1;
+          top: 1.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          border-radius: 0.5rem;
+          width: 18rem;
+        }
       }
     }
 
     $circle-diameter: 1rem;
+
     .circle {
       position: absolute;
       left: -.5 * $circle-diameter;
-      top:  -.5 * $circle-diameter;
+      top: -.5 * $circle-diameter;
       background-color: $BlueU;
       border: 0.063rem solid $white;
       width: $circle-diameter;
@@ -74,7 +80,6 @@
       border-radius: 50%;
     }
 
-    .show-popup .circle,
     .circle :hover {
       border-width: 0.25rem;
       width: 1.25rem;
