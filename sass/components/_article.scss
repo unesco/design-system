@@ -56,6 +56,12 @@
   &.normal {
     .link-item-content-search {
       flex-direction: row;
+      picture {
+        margin-left: 2rem;
+        width: 11.375rem;
+        min-width: 11.375rem;
+        height: 7.5rem;
+      }
     }
   }
 
