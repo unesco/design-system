@@ -580,26 +580,6 @@
       var storyItem = $('.story-item');
       var story = storyItem.parent();
 
-      if (storyItem.length > 1) {
-        story.prepend('<button class="btn btn-skip-story btn-outline-white">' + Drupal.t('Skip') + '</button>');
-        var btnSkip = story.find('.btn-skip-story');
-        var showBtnPosition = 400;
-        var showLastBtn = storyItem.last();
-        var showLastBtnPositionTop = showLastBtn.position().top;
-        var showLastBtnPositionBottom = showLastBtnPositionTop + showLastBtn.outerHeight(true);
-        btnSkip.click(function() {
-          $(window).scrollTop(showLastBtnPositionBottom);
-        });
-        $(window).scroll(function() {
-          if (showBtnPosition < $(window).scrollTop() && showLastBtnPositionTop > $(window).scrollTop()) {
-            btnSkip.fadeIn();
-          } else {
-            btnSkip.fadeOut();
-          }
-
-        });
-      }
-
       $('.story-item:not(:first) .text-wrapper').hide();
 
       var controller = new ScrollMagic.Controller();
@@ -638,6 +618,27 @@
         .setPin(".header-node-content.story")
         .setTween(wipeAnimation)
         .addTo(controller);
+
+
+      if (storyItem.length > 1) {
+        story.prepend('<button class="btn btn-skip-story btn-outline-white">' + Drupal.t('Skip') + '</button>');
+        let btnSkip = story.find('.btn-skip-story');
+        let showBtnPosition = 400;
+        let lastSlidePosition = $('.scrollmagic-pin-spacer').outerHeight(true);
+        let hideBtnPosition = lastSlidePosition - $(window).outerHeight(true);
+
+        console.log(lastSlidePosition);
+        btnSkip.click(function() {
+          $(window).scrollTop(lastSlidePosition);
+        });
+        $(window).scroll(function() {
+          if (showBtnPosition < $(window).scrollTop() && hideBtnPosition > $(window).scrollTop()) {
+            btnSkip.fadeIn();
+          } else {
+            btnSkip.fadeOut();
+          }
+        });
+      }
 
     },
 
