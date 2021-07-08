@@ -380,21 +380,6 @@
       }
     }
   }
-
-  & +.explore-wrapper {
-    &::before {
-      content: "";
-      display: block;
-      padding-top: 3.5rem;
-      border-bottom: .0625rem solid $grey2;
-      margin-bottom: 1rem;
-
-      @include min-screen($screen-desktop) {
-        padding-top: 6rem;
-        margin-bottom: 1.5rem;
-      }
-    }
-  }
 }
 
 #block-unesco-content .node--view-mode-full > .node--type-hub {
