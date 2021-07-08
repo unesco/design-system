@@ -59,6 +59,92 @@
   }
 }
 
+.country-news-title,
+.country-next-events-title {
+  border-top: .0625rem solid $grey2;
+  padding-top: 1.5rem;
+  @include responsive(font-size, $section-title);
+  margin-top: 3.5rem;
+  @include min-screen($screen-desktop) {
+    margin-top: 6rem;
+  }
+}
+
+.country-news,
+.country-next-events {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2rem;
+  justify-items: stretch;
+  @include min-screen($screen-tablet) {
+    grid-template-columns:  1fr 1fr;
+  }
+  @include min-screen($screen-desktop) {
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    margin-right: 3rem;
+  }
+  .item-content-search {
+    border-top: .0625rem solid $grey2;
+    padding: 1.5rem 0 2rem;
+    @include min-screen($screen-desktop) {
+      padding: 1.5rem 0 3rem;
+    }
+
+    .link-item-content-search {
+      display: flex;
+      flex-direction: row-reverse;
+      color: $black;
+      &:hover {
+        text-decoration: none;
+      }
+      @include min-screen($screen-tablet) {
+        flex-direction: column;
+      }
+
+      picture {
+        margin-left: 1.5rem;
+        width: 5rem;
+        min-width: 5rem;
+        height: 5rem;
+        img {
+          @include img-cover;
+        }
+        @include min-screen($screen-tablet) {
+          margin-left: 0;
+          margin-bottom: 1.5rem;
+          width: 100%;
+          height: 12rem;
+        }
+      }
+
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        .content-type-label {
+          @include responsive(font-size, $search-content-title);
+          color: $BlueU;
+          padding: 0;
+          margin: 0;
+          background-color: transparent;
+        }
+        .title {
+          @include responsive(font-size, $search-content-title);
+          color: $black;
+          font-weight: 600;
+        }
+        .datetime {
+          font-size: .875rem;
+          color: $grey4;
+          margin-top: 1rem;
+        }
+      }
+
+    }
+
+  }
+}
+
 .country-view {
   &--title {
     font-weight: 800;

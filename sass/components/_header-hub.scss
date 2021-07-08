@@ -358,12 +358,7 @@
 }
 
 .header-hub.country {
-  margin-bottom: 1rem;
-
-  @include min-screen($screen-desktop) {
-    margin-bottom: 1.5rem;
-  }
-
+  margin-bottom: 0;
   .hub-menu-header {
     @include max-screen($screen-tablet - 1px) {
       display: block;
@@ -393,7 +388,7 @@
       padding-top: 3.5rem;
       border-bottom: .0625rem solid $grey2;
       margin-bottom: 1rem;
-  
+
       @include min-screen($screen-desktop) {
         padding-top: 6rem;
         margin-bottom: 1.5rem;
@@ -520,7 +515,7 @@
 .node--type-article {
   .header-hub {
     margin-top: -2.5rem;
-    
+
     @include min-screen($screen-desktop)  {
       margin-top: -3.5rem;
     }
