@@ -515,6 +515,23 @@
 
     initImageMap: function (context, settings) {
       let point = $('.image-map .circle', context);
+      let positionPoint = $('.image-map .point', context);
+      let wrapperWidth = positionPoint.parent().width();
+      let wrapperHeight = positionPoint.parent().height();
+
+      positionPoint.each(function() {
+        let PointLeft = $(this).css('left');
+        let positionPointLeft = parseFloat(PointLeft);
+        let PointTop = $(this).css('top');
+        let positionPointTop = parseFloat(PointTop);
+        let percentagePointLeft = positionPointLeft / wrapperWidth * 100 + '%';
+        let percentagePointTop = positionPointTop / wrapperHeight * 100 + '%';
+
+        positionPoint.css({
+          'left': percentagePointLeft,
+          'top' : percentagePointTop
+        });
+      });
 
       point.on('click', function() {
         point.not(this).parent().removeClass('show-popup');
@@ -627,7 +644,6 @@
         let lastSlidePosition = $('.scrollmagic-pin-spacer').outerHeight(true);
         let hideBtnPosition = lastSlidePosition - $(window).outerHeight(true);
 
-        console.log(lastSlidePosition);
         btnSkip.click(function() {
           $(window).scrollTop(lastSlidePosition);
         });
