@@ -5,10 +5,12 @@
 
   .field--name-field-media-image .metadata {
     position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
+    top: 1rem;
+    left: 1rem;
     color: $Blue2;
+    font-size: 0.85rem;
     font-weight: bold;
+    z-index: 10;
   }
 
   .icons--audio {
