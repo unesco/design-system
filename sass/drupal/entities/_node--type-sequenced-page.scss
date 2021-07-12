@@ -11,6 +11,10 @@ $paddingTop: (
       padding-top: 2.5rem;
       @include responsive(padding-top, $paddingTop);
     }
+
+    .header-hub {
+      margin-bottom: 0;
+    }
   }
 
   .paragraph {

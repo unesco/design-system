@@ -16,6 +16,12 @@ $paddingTop: (
       @include responsive(padding-top, $paddingTop);
     }
 
+    .header-hub {
+      @include min-screen($screen-desktop) {
+        margin-bottom: 3rem;
+      }
+    }
+
     .rich-text p {
       line-height: 1.75;
 
