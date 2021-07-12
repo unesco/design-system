@@ -53,7 +53,6 @@ stages:
   - notify
 
 image: registry.repository.unesco.org/dpi/docker-debian10-lamp:master
-  #  registry.repository.unesco.org/drupal/unescorg/unesco_ubuntu:v1.3.11.2019
 
 ################################################################################
 # Build Template
@@ -77,12 +76,9 @@ build:stage:
   only:
     - develop
   script:
-    #  - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-    #- apt-get install -y nodejs libnotify-bin
     - git fetch --all
     - git reset --hard origin/$CI_COMMIT_REF_NAME
     - git checkout origin/$CI_COMMIT_REF_NAME
-      #- npm -g install gulp gulp-cli
     - npm ci
     - gulp build
 
@@ -91,12 +87,9 @@ build:prod:
   only:
     - master
   script:
-    #- curl -sL https://deb.nodesource.com/setup_12.x | bash -
-    #- apt-get install -y nodejs libnotify-bin
     - git fetch --all
     - git reset --hard origin/master
     - git checkout master
-      #- npm -g install gulp gulp-cli
     - npm ci
     - gulp build
 
