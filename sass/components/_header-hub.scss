@@ -1,7 +1,7 @@
 .header-background,
 .header-hub {
   position: relative;
-  margin: -6.75rem auto 2rem;
+  margin: 0 auto 2rem;
   width: 100%;
   @include fullWidthBackground($BlueU);
 
@@ -502,8 +502,24 @@
   position: absolute;
   z-index: 3;
   top: 9rem;
+  left: 50%;
+  transform: translateX(-50%);
 
   .breadcrumb {
     padding: 0;
+    background-color: transparent;
+    transform: none;
+    position: static;
+    
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    li {
+      &,  a {
+        color: rgba($white, 0.7);
+      }
+    }
   }
 }

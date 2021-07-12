@@ -9,6 +9,9 @@ $paddingTop: (
 
     .node__content {
       display: flex;
+    }
+
+    >.node__content {
       padding-top: 2.5rem;
       @include responsive(padding-top, $paddingTop);
     }

@@ -14,14 +14,17 @@ $story-item-description: (
     .node__content {
       display: flex;
       flex-direction: column;
-      padding-top: 2.5rem;
-      @include responsive(padding-top, $paddingTop);
 
       .main-node-content {
         width: 100%;
         max-width: 38.125rem;
         margin: 0 auto;
       }
+    }
+
+    >.node__content {
+      padding-top: 2.5rem;
+      @include responsive(padding-top, $paddingTop);
     }
 
     .rich-text p {
