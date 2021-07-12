@@ -119,7 +119,7 @@ deploy_stage:
     - build:stage
   when: on_success
   script:
-    - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no" style-guide/* fonts assets javascripts favicon.ico denix@$STAGE_HOST:$GIT_ROOT/unesco/typography
+    - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no" style-guide/* fonts assets javascripts favicon.ico denix@$STAGE_HOST:$GIT_ROOT/typography
 
 ################################################################################
 # Deploy prod:
