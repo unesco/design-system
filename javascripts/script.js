@@ -899,20 +899,47 @@
       playersWrapper.each(function () {
         const parent = $(this);
         const cover = parent.find('.field--name-field-media-image');
+        const icons = parent.find('.icons--audio .material-icons-sharp');
         const player = parent.find('.field--name-field-media-audio-file audio');
         if (!player.length) {
           return;
         }
 
-        cover.on('click', function () {
+        function format(time) {
+          const hrs = ~~(time / 3600);
+          const min = ~~((time % 3600) / 60);
+          const sec = ~~time % 60;
+
+          let ret = "";
+          if (hrs > 0) {
+            ret += "" + hrs + ":" + (min < 10 ? "0" : "");
+          }
+          ret += "" + min + ":" + (sec < 10 ? "0" : "");
+          ret += "" + sec;
+
+          return ret;
+        }
+
+        const audio = player[0];
+        player.on("loadedmetadata", function() {
+          if (!cover.find('.metadata').length) {
+            cover.prepend('<span class="metadata">' + format(audio.duration) + '</span>');
+          }
+        });
+
+        parent.find('.icons--audio').on('click', function () {
           if (parent.hasClass('audio-playing')) {
-            player[0].pause();
+            audio.pause();
             parent.removeClass('audio-playing');
           }
           else {
-            player[0].play();
+            audio.play();
             parent.addClass('audio-playing');
           }
+
+          icons.each(function () {
+            $(this).toggleClass('hidden');
+          });
         });
       });
     }
