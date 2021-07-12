@@ -14,9 +14,9 @@
 #}
 {% import _self as menu %}
 
-{{ menu.build_menu_link_content(attributes, menu_link_content, show_item_link, content, elements) }}
+{{ menu.build_menu_link_content(attributes, menu_link_content, show_item_link, content, elements, report_menu) }}
 
-{% macro build_menu_link_content(attributes, menu_link_content, show_item_link, content, elements) %}
+{% macro build_menu_link_content(attributes, menu_link_content, show_item_link, content, elements, report_menu) %}
   {% set menu_dropdown_classes = [
     'dropdown-menu',
     'bg-primary',
@@ -30,7 +30,9 @@
         {% if show_item_link %}
           {{ link(menu_link_content.getTitle(), menu_link_content.getUrlObject()) }}
         {% endif %}
-        {% if content %}
+        {% if report_menu %}
+          {{ report_menu }}
+        {% elseif content %}
           {{ content }}
         {% endif %}
       </div>
