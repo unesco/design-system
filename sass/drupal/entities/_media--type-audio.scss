@@ -1,0 +1,25 @@
+.media--type-audio {
+  &.media--view-mode-medium {
+    max-width: 21rem;
+  }
+
+  .field--name-field-media-audio-file {
+    display: none;
+  }
+
+  picture::after {
+    content: 'play';
+    position: absolute;
+    top: calc(50% - 1rem);
+    left: calc(50% - 1.5rem);
+    color: $white;
+    background-color: rgba(125,125,125, 0.75);
+    padding: 0.5rem;
+  }
+}
+
+.media--type-audio.audio-playing {
+  .field--name-field-media-image picture::after {
+    content: 'pause';
+  }
+}

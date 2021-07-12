@@ -41,6 +41,7 @@
       this.initGalaxyMenu(context, settings);
       this.initSearchFilters(context, settings);
       this.initMapListMobile(context, settings);
+      this.initAudioPlayers(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -892,6 +893,29 @@
         explorerMapListMobile();
       }
     },
+
+    initAudioPlayers: function (context, settings) {
+      const playersWrapper = $('.media--type-audio', context);
+      playersWrapper.each(function () {
+        const parent = $(this);
+        const cover = parent.find('.field--name-field-media-image');
+        const player = parent.find('.field--name-field-media-audio-file audio');
+        if (!player.length) {
+          return;
+        }
+
+        cover.on('click', function () {
+          if (parent.hasClass('audio-playing')) {
+            player[0].pause();
+            parent.removeClass('audio-playing');
+          }
+          else {
+            player[0].play();
+            parent.addClass('audio-playing');
+          }
+        });
+      });
+    }
 
   };
 
