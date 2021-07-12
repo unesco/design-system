@@ -10,12 +10,12 @@ $story-item-description: (
 .node--type-article {
   &.node--view-mode-full {
     position: relative;
-    padding-top: 2.5rem;
-    @include responsive(padding-top, $paddingTop);
 
     .node__content {
       display: flex;
       flex-direction: column;
+      padding-top: 2.5rem;
+      @include responsive(padding-top, $paddingTop);
 
       .main-node-content {
         width: 100%;

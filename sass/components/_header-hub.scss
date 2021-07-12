@@ -2,6 +2,7 @@
 .header-hub {
   position: relative;
   margin: -6.75rem auto 2rem;
+  width: 100%;
   @include fullWidthBackground($BlueU);
 
   &::before,
@@ -497,13 +498,12 @@
   }
 }
 
-.node--type-article {
-  .header-hub {
-    margin-top: -2.5rem;
+.transparent-header #block-unesco-breadcrumbs {
+  position: absolute;
+  z-index: 3;
+  top: 9rem;
 
-    @include min-screen($screen-desktop)  {
-      margin-top: -3.5rem;
-    }
+  .breadcrumb {
+    padding: 0;
   }
 }
-
