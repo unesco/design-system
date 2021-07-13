@@ -71,14 +71,20 @@
             font-size: .875rem;
             font-weight: 400;
             margin-bottom: .5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
           }
 
           .field--name-field-legende {
             color: $grey5;
+            -webkit-line-clamp: 3;
           }
 
           .field--name-field-copyright {
             color: $grey4;
+            -webkit-line-clamp: 1;
           }
 
         }
