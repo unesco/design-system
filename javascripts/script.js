@@ -486,35 +486,37 @@
     },
 
     initRessourceModal: function (context, settings) {
-      let resourceModal = $('.js-resource-modal');
       $('body').removeClass('is-fixed');
 
-      resourceModal.each(function () {
-        let initialSlide = $(this).attr('current-delta');
+      $(window).once('resourceModal-behavior').on('dialog:aftercreate', function() {
+        let resourceModal = $('.js-resource-modal');
+        resourceModal.each(function () {
+          let initialSlide = $(this).attr('current-delta');
 
-        $('body').addClass('is-fixed');
+          $('body').addClass('is-fixed');
 
-        $(this).parent().prepend(
-          '<div class="resource-modal-actions"><button class="modal-previous"></button><button class="modal-next"></button><button class="modal-close"></button></div>'
-        );
+          $(this).parent().prepend(
+            '<div class="resource-modal-actions"><button class="modal-previous"></button><button class="modal-next"></button><button class="modal-close"></button></div>'
+          );
 
-        $(this).slick({
-          speed: 300,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: false,
-          infinite: true,
-          adaptiveHeight: false,
-          initialSlide: parseInt(initialSlide),
-          prevArrow: $('.modal-previous'),
-          nextArrow: $('.modal-next'),
-          fade: true,
-          cssEase: 'linear'
-        });
+          $(this).slick({
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            infinite: true,
+            adaptiveHeight: false,
+            initialSlide: parseInt(initialSlide),
+            prevArrow: $('.modal-previous'),
+            nextArrow: $('.modal-next'),
+            fade: true,
+            cssEase: 'linear'
+          });
 
-        $('.modal-close').on('click', function () {
-          $('.ui-icon-closethick').trigger('click');
-          $('body').removeClass('is-fixed');
+          $('.modal-close').on('click', function () {
+            $('.ui-icon-closethick').trigger('click');
+            $('body').removeClass('is-fixed');
+          });
         });
       });
     },
