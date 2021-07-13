@@ -401,6 +401,7 @@ header {
 
       >.nav-link {
         position: relative;
+        cursor: pointer;
 
         @include max-screen($screen-desktop - 1) {
           font-size: 1.5rem;
