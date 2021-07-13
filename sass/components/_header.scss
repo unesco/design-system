@@ -74,6 +74,19 @@ header {
     }
   }
 
+  &.bg-primary {
+    .btn-secondary {
+      background-color: $Blue2;
+      border-color: $Blue2;
+  
+      &:focus,
+      &:hover {
+        background-color: $Blue3;
+        border-color: $Blue3;
+      }
+    }
+  }
+
   .parent-menu-open &,
   .transparent-header &,
   .header-with-line:not(.header-sticky) & {
