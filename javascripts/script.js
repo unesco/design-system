@@ -895,22 +895,22 @@
     },
 
     initFilterAlphabetical: function (context, settings) {
-      let alphabeticalItem = $('.alphabetical-filter li', context);
+      let explorer = $('#explorer', context);
+      let alphabeticalItem = $('.alphabetical-filter li');
 
-      alphabeticalItem.click(function () {
+      alphabeticalItem.on('click', function () {
         let letter = $(this).text()[0];
-
         if ($(this).hasClass('active')) {
           $(this).removeClass('active');
-          $('.list-wrapper').children().show();
+          $('.list-wrapper').children().not('.hidden').show();
         } else {
           alphabeticalItem.removeClass('active');
           $(this).addClass('active');
-          $('.list-wrapper').children().hide().filter(function () {
+          $('.list-wrapper').children().not('.hidden').hide().filter(function () {
             return $(this).attr('data-letter') == letter;
           }).show();
         }
-
+        Drupal.unescoMap.updateMap(explorer);
       });
 
     },
