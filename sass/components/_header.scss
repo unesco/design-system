@@ -1072,11 +1072,7 @@ header {
     .right-wrapper >.main-navigation >.menu-level-1 {
       display: flex;
       margin: 0 -1rem;
-      justify-content: flex-end;
-
-      @include max-screen($screen-desktop - 1) {
-        justify-content: flex-start;
-      }
+      justify-content: flex-start;
 
       >li {
         padding: 0 1rem;
@@ -1088,7 +1084,8 @@ header {
           width: 100%;
         }
 
-        > a {
+        > a,
+        > span {
           font-size: $font-size-base;
           line-height: 1.5rem;
           font-weight: 600;
