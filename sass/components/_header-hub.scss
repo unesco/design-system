@@ -86,12 +86,12 @@
       .title {
         @include responsive(font-size, $hub-title-small);
         font-weight: 800;
-        padding-bottom: 1rem;
         margin-bottom: 0;
 
         .page-node-type-hub &,
         .page-node-type-structured-data-hub & {
           @include responsive(font-size, $hero-title);
+          padding-bottom: 1rem;
         }
       }
 
@@ -426,27 +426,26 @@
     display: none;
     margin: 0 -0.816rem;
     position: relative;
+    padding: 0;
+    background-color: transparent;
 
     @include min-screen($screen-desktop) {
       display: flex;
       width: 100vw;
-      max-width: 83.813rem;
-      position: relative;
-      transform: translateX(-50%);
-      left: 50%;
+      max-width: 83rem;
     }
 
     .breadcrumb-item + .breadcrumb-item::before {
       display: none;
     }
-    
+
     li {
       padding: 0 0.406rem;
 
       &,  a {
         font-size: 0.875rem;
         line-height: 1.5rem;
-        color: $blueLight;
+        color: $white;
         text-decoration: none;
       }
 
