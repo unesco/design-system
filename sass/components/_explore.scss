@@ -93,3 +93,34 @@
     }
   }
 }
+
+#explore-map {
+  .leaflet-bar {
+    @include max-screen($screen-desktop - 1px) {
+      display: none;
+    }
+    border: 0;
+    margin: 0 1.5rem 1.5rem 0;
+    box-shadow: 0 0 20px 0 rgba(0,0,0, .2);
+    border-radius: 1.5rem;
+    a {
+      height: 40px;
+      width: 36px;
+      border-bottom: 0;
+      color: $grey3;
+      &:hover {
+        border-bottom: 0;
+        color: $grey5;
+      }
+      &:first-child {
+        padding-top: .25rem;
+        border-top-left-radius: 1.5rem;
+        border-top-right-radius: 1.5rem;
+      }
+      &:last-child {
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
+      }
+    }
+  }
+}
