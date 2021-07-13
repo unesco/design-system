@@ -67,8 +67,14 @@
       z-index: 2;
 
       @include min-screen($screen-desktop) {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+        padding-top: 4rem;
+        padding-bottom: 2.5rem;
+
+        .page-node-type-hub &,
+        .page-node-type-structured-data-hub & {
+          padding-top: 5rem;
+          padding-bottom: 5rem;
+        }
       }
 
       .title,
@@ -78,10 +84,15 @@
       }
 
       .title {
-        @include responsive(font-size, $hero-title);
+        @include responsive(font-size, $hub-title-small);
         font-weight: 800;
         padding-bottom: 1rem;
         margin-bottom: 0;
+
+        .page-node-type-hub &,
+        .page-node-type-structured-data-hub & {
+          @include responsive(font-size, $hero-title);
+        }
       }
 
       .field--name-field-description {
@@ -404,13 +415,17 @@
 }
 
 #block-unesco-breadcrumbs {
+  position: absolute;
+  z-index: 3;
+  top: 9rem;
+  left: 50%;
+  transform: translateX(-50%);
+
   .breadcrumb {
-    @include fullWidthBackground($BlueU);
     border-radius: 0;
     display: none;
     margin: 0 -0.816rem;
     position: relative;
-
 
     @include min-screen($screen-desktop) {
       display: flex;
@@ -424,8 +439,7 @@
     .breadcrumb-item + .breadcrumb-item::before {
       display: none;
     }
-
-
+    
     li {
       padding: 0 0.406rem;
 
@@ -499,12 +513,6 @@
 }
 
 .transparent-header #block-unesco-breadcrumbs {
-  position: absolute;
-  z-index: 3;
-  top: 9rem;
-  left: 50%;
-  transform: translateX(-50%);
-
   .breadcrumb {
     padding: 0;
     background-color: transparent;
