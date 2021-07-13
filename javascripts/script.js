@@ -6,11 +6,11 @@
   "use strict";
 
   window.Unesco = window.Unesco || {
-    isMobile: function() {
+    isMobile: function () {
       return window.innerWidth <= 520;
     },
 
-    initAll: function(context, settings) {
+    initAll: function (context, settings) {
       context = context || {};
       settings = settings || {};
 
@@ -41,6 +41,7 @@
       this.initGalaxyMenu(context, settings);
       this.initSearchFilters(context, settings);
       this.initMapListMobile(context, settings);
+      this.initFilterAlphabetical(context, settings);
       this.initAudioPlayers(context, settings);
     },
 
@@ -242,7 +243,7 @@
       let toolbarHeight = header.offset().top;
       let headerHeight = header.outerHeight() + toolbarHeight;
 
-      if($('.transparent-header .pre_header').length > 0) {
+      if ($('.transparent-header .pre_header').length > 0) {
         headerHeight = headerHeight + $('.transparent-header .pre_header').outerHeight();
       }
 
@@ -394,7 +395,7 @@
 
       // Fade in and out #back-top.
       $(window).scroll(function () {
-        if ( 400 < $(window).scrollTop()) {
+        if (400 < $(window).scrollTop()) {
           backToTopTrigger.fadeIn();
         } else {
           backToTopTrigger.fadeOut();
@@ -451,21 +452,21 @@
 
       $("a", context)
         .on("click", function (event) {
-          // The content that had the event listener attached.
-          const target = event.currentTarget;
-          const href = target.href;
-          if (href === "#") {
-            return;
-          }
+            // The content that had the event listener attached.
+            const target = event.currentTarget;
+            const href = target.href;
+            if (href === "#") {
+              return;
+            }
 
-          if (match.test(href) || target.rel === "external") {
-            event.stopPropagation();
+            if (match.test(href) || target.rel === "external") {
+              event.stopPropagation();
 
-            window.open(href, target);
-            return false;
+              window.open(href, target);
+              return false;
+            }
           }
-        }
-      );
+        );
     },
 
     initSummaryMobile: function (context, settings) {
@@ -522,7 +523,7 @@
       let point = $('.image-map .circle', context);
       let positionPoint = $('.image-map .point', context);
 
-      positionPoint.each(function() {
+      positionPoint.each(function () {
         let wrapperWidth = positionPoint.next('img').get(0).naturalWidth;
         let wrapperHeight = positionPoint.next('img').get(0).naturalHeight;
         let PointLeft = $(this).css('left');
@@ -534,16 +535,16 @@
 
         $(this).css({
           'left': percentagePointLeft,
-          'top' : percentagePointTop
+          'top': percentagePointTop
         });
       });
 
-      point.on('click', function() {
+      point.on('click', function () {
         point.not(this).next().fadeOut();
         $(this).next().fadeToggle();
       });
 
-      $('body', context).on('click', function(e) {
+      $('body', context).on('click', function (e) {
         if (!point.is(e.target) && point.parent().has(e.target).length === 0 && point.parent().find('.popup').has(e.target).length === 0) {
           point.next().fadeOut();
         }
@@ -649,10 +650,10 @@
         let lastSlidePosition = $('.scrollmagic-pin-spacer').outerHeight(true);
         let hideBtnPosition = lastSlidePosition - $(window).outerHeight(true);
 
-        btnSkip.click(function() {
+        btnSkip.click(function () {
           $(window).scrollTop(lastSlidePosition);
         });
-        $(window).scroll(function() {
+        $(window).scroll(function () {
           if (showBtnPosition < $(window).scrollTop() && hideBtnPosition > $(window).scrollTop()) {
             btnSkip.fadeIn();
           } else {
@@ -666,13 +667,13 @@
     initParagraphParallax: function (context, settings) {
       var parallaxItem = $('.js-parallax', context);
 
-      $(window).scroll(function(){
-        parallaxItem.each(function(){
-            var difference = $(window).scrollTop() - $(this).offset().top;
-            var half = (difference / 2) + 'px';
-            var transform = 'translate3d( 0, ' + half + ',0)';
+      $(window).scroll(function () {
+        parallaxItem.each(function () {
+          var difference = $(window).scrollTop() - $(this).offset().top;
+          var half = (difference / 2) + 'px';
+          var transform = 'translate3d( 0, ' + half + ',0)';
 
-            $(this).find('img').css('transform', transform);
+          $(this).find('img').css('transform', transform);
 
         });
       });
@@ -695,7 +696,7 @@
         }
         $('html, body').addClass('galaxy-menu-open');
 
-        if(window.innerWidth >= 992) {
+        if (window.innerWidth >= 992) {
           ongletLink.eq(0).parent().addClass('active-galaxy-tab');
         }
       });
@@ -723,7 +724,7 @@
         $('.active-galaxy-tab').not($(this).parent()).removeClass('active-galaxy-tab');
         $(this).closest('.popin').toggleClass('submenu-open');
 
-        if(window.innerWidth >= 992) {
+        if (window.innerWidth >= 992) {
           $(this).parent().addClass('active-galaxy-tab');
         } else {
           $(this).parent().toggleClass('active-galaxy-tab');
@@ -739,14 +740,14 @@
 
       }
 
-      $.fn.highlightWord = function(searchWord) {
+      $.fn.highlightWord = function (searchWord) {
         let regex = RegExp('' + searchWord + '', 'gi'), replacement = '<span class="matched-text">$&</span>';
-        return this.html(function() {
+        return this.html(function () {
           return $(this).html().replace(regex, replacement);
         });
       };
 
-      searchInput.on('change keyup', function() {
+      searchInput.on('change keyup', function () {
         if ($(this).val() == "") {
           clearInput();
           $('.vocabulary--websites .right').removeClass('show');
@@ -755,24 +756,24 @@
         }
       });
 
-      $('.dynamic-search-button.clear', context).on('click', function() {
+      $('.dynamic-search-button.clear', context).on('click', function () {
         $('.vocabulary--websites .right').toggleClass('show');
         clearInput();
       });
 
-      searchButton.on('click', function() {
-        if(searchInput.val() == "") {
+      searchButton.on('click', function () {
+        if (searchInput.val() == "") {
           return;
         }
 
         $(document).find('.wrapper-websites').addClass('search-in-progress');
 
-        websiteTaxo.each(function() {
+        websiteTaxo.each(function () {
           let searchKeyTitle = $(this).find('.title').text().toLowerCase();
           let searchKeyDesc = $(this).find('.field--name-description .field__item').text().toLowerCase();
           let searchTerm = searchInput.val().toLowerCase();
 
-          if ( (searchKeyTitle.indexOf(searchTerm) > -1 || searchKeyDesc.indexOf(searchTerm) > -1) && searchTerm != "" ) {
+          if ((searchKeyTitle.indexOf(searchTerm) > -1 || searchKeyDesc.indexOf(searchTerm) > -1) && searchTerm != "") {
             $(this).addClass('match');
             $(this).find('.title, .field--name-description .field__item').highlightWord(searchTerm);
           } else {
@@ -792,7 +793,7 @@
         let wrapperFilter = $('.wrapper-facets', context);
         let sliderFilterUsed = wrapperFilter.find('.filter-used-wrapper');
         if (sliderFilterUsed.outerWidth(true) >= wrapperFilter.outerWidth(true) - 100) {
-          sliderFilterUsed.parent().css('width', 'calc(100% - ' + toggleFacets.outerWidth(true)+ 'px)');
+          sliderFilterUsed.parent().css('width', 'calc(100% - ' + toggleFacets.outerWidth(true) + 'px)');
           sliderFilterUsed.slick({
             speed: 300,
             dots: false,
@@ -810,7 +811,7 @@
           .parents('.wrapper-facets')
           .toggleClass('active')
           .find('.facets-list')
-          .slideToggle(300,"swing");
+          .slideToggle(300, "swing");
       });
 
       toggleMoreFacets.unbind('click').on('click', function (e) {
@@ -824,13 +825,13 @@
         blockFacetLabel.unbind('click').on('click', function (e) {
           e.preventDefault();
           blockFacet.find('.facet-label').not(this).removeClass('active').next().slideUp();
-          $(this).toggleClass('active').next().slideToggle(300,"swing");
+          $(this).toggleClass('active').next().slideToggle(300, "swing");
 
           let searchAutoComplete = $(this).next('.wrapper-facet-checkbox-search').children('.search-autocomplete');
-          searchAutoComplete.find('input').on("keyup", function() {
+          searchAutoComplete.find('input').on("keyup", function () {
             let value = $(this).val().toLowerCase();
             let listAutoComplete = searchAutoComplete.next().find('.js-facets-checkbox-links li');
-            listAutoComplete.filter(function() {
+            listAutoComplete.filter(function () {
               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
             });
           });
@@ -863,9 +864,6 @@
           let limit = 4;
           let more = 0;
 
-          console.log(count);
-          console.log(item);
-
           if (count > limit) {
 
             $(this).append('<button class="btn btn-outline-grey4 btn-load-more">' + Drupal.t('Load more') + '<i class="material-icons-sharp">arrow_downward</i></button>');
@@ -892,6 +890,27 @@
       if ($(window).width() <= desktopWidth) {
         explorerMapListMobile();
       }
+    },
+
+    initFilterAlphabetical: function (context, settings) {
+      let alphabeticalItem = $('.alphabetical-filter li', context);
+
+      alphabeticalItem.click(function () {
+        let letter = $(this).text()[0];
+
+        if ($(this).hasClass('active')) {
+          $(this).removeClass('active');
+          $('.list-wrapper').children().show();
+        } else {
+          alphabeticalItem.removeClass('active');
+          $(this).addClass('active');
+          $('.list-wrapper').children().hide().filter(function () {
+            return $(this).attr('data-letter') == letter;
+          }).show();
+        }
+
+      });
+
     },
 
     initAudioPlayers: function (context, settings) {
@@ -921,7 +940,7 @@
         }
 
         const audio = player[0];
-        player.on("loadedmetadata", function() {
+        player.on("loadedmetadata", function () {
           if (!cover.find('.metadata').length) {
             cover.prepend('<span class="metadata">' + format(audio.duration) + '</span>');
           }
@@ -931,8 +950,7 @@
           if (parent.hasClass('audio-playing')) {
             audio.pause();
             parent.removeClass('audio-playing');
-          }
-          else {
+          } else {
             audio.play();
             parent.addClass('audio-playing');
           }

@@ -491,7 +491,7 @@
       .content-type-label {
         display: flex;
         align-items: center;
-        @include responsive(font-size, $search-content-title);
+        @include responsive(font-size, $small-content-title);
         color: $BlueU;
         &::after {
           @include icon('star');
@@ -500,7 +500,7 @@
         }
       }
       .title {
-        @include responsive(font-size, $search-content-title);
+        @include responsive(font-size, $small-content-title);
         font-weight: 600;
         line-height: 1.4;
         margin-bottom: .375rem;
@@ -556,7 +556,7 @@
     }
 
     .views-field-title-1 {
-      @include responsive(font-size, $search-content-title);
+      @include responsive(font-size, $small-content-title);
       font-weight: 600;
       line-height: 1.4;
       margin-bottom: .375rem;

@@ -33,14 +33,14 @@
     }
 
     .content-type-label {
-      @include responsive(font-size, $search-content-title);
+      @include responsive(font-size, $small-content-title);
       color: $BlueU;
       padding: 0;
       margin: 0;
       background-color: transparent;
     }
     .title {
-      @include responsive(font-size, $search-content-title);
+      @include responsive(font-size, $small-content-title);
       color: $black;
       font-weight: 600;
       transition: .3s;
