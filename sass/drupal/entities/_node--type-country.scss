@@ -83,8 +83,6 @@
   }
 }
 
-
-
 .country-view {
   &--title {
     font-weight: 800;
@@ -170,38 +168,142 @@
   }
 
   .our-countries {
+
     .map-wrapper {
-      margin-bottom: 4.2rem;
+      position: relative;
+      width: 100vw;
+      transform: translateX(-50%);
+      left: 50%;
+
+      .explore-map {
+        z-index: 2;
+      }
+    }
+
+    .description-wrapper {
+      @include mt-border-block;
     }
 
     .electoral-group-list {
       margin: 0;
-      padding-bottom: 1rem;
-      display: inline-block;
-      min-width: 12rem;
     }
 
-    ul.alphabetical-filter {
+    .item-list {
       display: inline-block;
-      li {
-        display: inline-block;
+      width: 100%;
+    }
 
-        &:first-child {
-          margin: 0;
+    .alphabetical-filter {
+      width: 100%;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow: auto;
+      @include scrollbar-custom;
+      padding-bottom: .5rem;
+      margin: 0 0 1rem 0;
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      li {
+        margin: 0 .5rem 0 0;
+        width: 2rem;
+        min-width: 2rem;
+        height: 2rem;
+        text-align: center;
+        background-color: $grey1;
+        border-radius: 1rem;
+        font-size: .875rem;
+        line-height: 2rem;
+        cursor: pointer;
+        &.active {
+          background-color: $BlueU;
+          color: $white;
         }
       }
     }
 
-    .node--type-country.node--view-mode-map {
-      .node__content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .list-wrapper {
+      & > article {
+        padding-top: 1.5rem;
+        margin-top: 2rem;
+        border-top: .0625rem solid $grey2;
+        a {
+          position: relative;
+          display: block;
+          color: $black;
+          min-height: 5.5rem;
 
-        > div {
-          flex: auto;
-          flex-direction: row;
+          &:hover {
+            text-decoration: none;
+            .title {
+              color: $BlueU;
+            }
+          }
+
+          .node__content::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            @include icon('arrow_forward');
+            color: $grey4;
+            background-color: $grey1;
+            width: 1.5rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            text-align: center;
+            border-radius: 1rem;
+            @include min-screen($screen-desktop) {
+              position: relative;
+            }
+          }
         }
+
+        .node__content {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          padding-right: 6rem;
+          @include min-screen($screen-desktop) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+          .flag {
+            position: absolute;
+            right: 0;
+            @include min-screen($screen-desktop) {
+              position: relative;
+            }
+          }
+
+          .title {
+            @include responsive(font-size, $small-content-title);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: .3s;
+          }
+
+          .country-iso-wrapper {
+            @include responsive(font-size, $small-text);
+            color: $grey4;
+            margin-bottom: .5rem;
+            span {
+              color: $black;
+              margin-left: .5rem;
+            }
+          }
+
+          .date-member {
+            @include responsive(font-size, $small-text);
+          }
+        }
+
       }
     }
   }
