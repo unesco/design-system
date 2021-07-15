@@ -98,6 +98,10 @@ $pre-header-close-icon: (
   justify-content: space-between;
   align-items: center;
 
+  @include min-screen($screen-desktop) {
+    padding: 0.5rem 3.5rem;
+  }
+
   &.hidden {
     display: none;
   }
