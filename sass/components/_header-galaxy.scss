@@ -274,6 +274,11 @@
       position: static;
       margin-top: 0;
       padding-top: 2rem;
+
+      > ul {
+        max-height: calc(100vh - 3.938rem);
+        overflow-y: auto;
+      }
     }
 
     ul {
@@ -539,6 +544,13 @@
           border: none;
         }
 
+        .field--name-description {
+          &, p {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+          }
+        }
+
         a {
           color: $white;
 
@@ -646,6 +658,12 @@ body.portail-unesco {
     }
     .link-galaxy.advanced-search {
       margin-left: auto;
+
+      .galaxy-menu-open & {
+        @include max-screen($screen-desktop - 1) {
+          margin-left: 0;
+        }
+      }
     }
     .site-info-wrapper .site-name {
       display: none;
