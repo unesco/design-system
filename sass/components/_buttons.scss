@@ -376,3 +376,13 @@
   transform: translateX(-50%);
   margin-top: 1rem;
 }
+
+.btn-see-more {
+  display: inline-flex;
+  align-items: center;
+  &::after {
+    @include icon('arrow_forward');
+    margin-left: .5rem;
+    font-size: 1rem;
+  }
+}
