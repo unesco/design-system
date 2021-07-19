@@ -1,0 +1,12 @@
+.path-explore {
+
+  .explore-wrapper {
+
+    .map-list {
+      overflow: auto;
+      @include scrollbar-custom;
+    }
+
+  }
+
+}
