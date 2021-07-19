@@ -63,8 +63,21 @@ $story-item-description: (
           }
         }
 
+        &.text-white {
+          a:hover {
+            color: $grey1;
+          }
+        }
+
+        &.text-primary {
+          a:hover {
+            color: $Blue2;
+          }
+        }
+
         a {
           color: inherit;
+          transition: .3s;
           &:hover {
             text-decoration: none;
             color: inherit;
