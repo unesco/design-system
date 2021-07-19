@@ -86,6 +86,7 @@
   &.normal {
     .link-item-content-search {
       flex-direction: row;
+      justify-content: space-between;
 
       & > picture,
       & > img {
@@ -168,6 +169,7 @@
 
   .field--name-field-description {
     @include responsive(font-size, $section-text);
+    max-width: 51.5rem;
   }
 
 
