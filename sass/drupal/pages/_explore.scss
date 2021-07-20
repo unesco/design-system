@@ -10,9 +10,13 @@
       flex-wrap: wrap;
       flex-direction: column;
       @include min-screen($screen-desktop) {
+        position: relative;
         flex-direction: row;
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
+        justify-content: center;
       }
-      //border-top: .0625rem solid $grey2;
 
       .map-actions {
         order: 1;
@@ -24,6 +28,7 @@
 
         @include min-screen($screen-desktop) {
           order: 0;
+          max-width: calc(1300px - 3rem);
         }
 
         .map-select {
@@ -80,7 +85,7 @@
           order: 1;
           width: calc(35% - 1rem);
           margin-right: 1rem;
-          padding-right: 1rem;
+          padding: 0 1rem;
           min-height: 50rem;
           height: 50rem;
           overflow: auto;
