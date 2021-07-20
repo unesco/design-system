@@ -72,9 +72,12 @@
       position: absolute;
       top: 0;
       right: 100%;
-      width: 9999px;
       height: 100%;
       background: $background;
+      width: 1.5rem;
+      @include min-screen($screen-tablet) {
+        width: 9999px;
+      }
     }
   }
 
@@ -84,9 +87,12 @@
       position: absolute;
       top: 0;
       left: 100%;
-      width: 9999px;
       height: 100%;
       background: $background;
+      width: 1.5rem;
+      @include min-screen($screen-tablet) {
+        width: 9999px;
+      }
     }
   }
 }
