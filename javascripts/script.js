@@ -554,7 +554,7 @@
     },
 
     initHeaderHubMenu: function (context, settings) {
-      let hubMenu = $('.header-hub:not(".country") .hub-menu-header');
+      let hubMenu = $('.header-hub:not(".country, .explorer") .hub-menu-header');
       let tabletWidth = 576;
 
       function menuDesktopFade() {

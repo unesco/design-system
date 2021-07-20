@@ -369,7 +369,8 @@
   }
 }
 
-.header-hub.country {
+.header-hub.country,
+.header-hub.explorer {
   margin-bottom: 0;
   .hub-menu-header {
     @include max-screen($screen-tablet - 1px) {
@@ -517,7 +518,7 @@
     background-color: transparent;
     transform: none;
     position: static;
-    
+
     &::before,
     &::after {
       display: none;

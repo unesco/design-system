@@ -3,8 +3,63 @@
   .explore-wrapper {
 
     .map-list {
-      overflow: auto;
-      @include scrollbar-custom;
+      @include min-screen($screen-desktop) {
+        overflow: auto;
+        @include scrollbar-custom;
+      }
+    }
+
+    #explorer {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      //border-top: .0625rem solid $grey2;
+
+      .map-actions {
+        order: 1;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.5rem;
+        padding: 1.5rem 0;
+
+        .map-select {
+          place-self: center self-start;
+          margin-bottom: 0;
+        }
+
+        .results {
+          grid-row-start: 2;
+          font-size: .875rem;
+          place-self: center self-start;
+        }
+
+        .display-switcher {
+          grid-column-start: 2;
+          grid-row-start: 2;
+          place-self: center self-end;
+
+          a {
+            margin-right: 1rem;
+            @include min-screen($screen-desktop) {
+              margin-right: .5rem;
+            }
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+      .map-wrapper {
+        order: 0;
+      }
+
+      .map-list {
+        order: 2;
+        width: 100%;
+        margin-top: 0;
+      }
     }
 
   }
