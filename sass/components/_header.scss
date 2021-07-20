@@ -80,7 +80,7 @@ header {
     .btn-secondary {
       background-color: $Blue2;
       border-color: $Blue2;
-  
+
       &:focus,
       &:hover {
         background-color: $Blue3;
@@ -1112,7 +1112,8 @@ header {
       }
 
       .level-1-submenu {
-        >a {
+        >a,
+        >span {
           display: none;
         }
 
@@ -1485,7 +1486,7 @@ header {
           @include min-screen($screen-desktop) {
             position: static;
           }
-          
+
 
           .site-logo {
             max-width: 9.375rem;
