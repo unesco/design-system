@@ -14,6 +14,11 @@
       }
 
       &.list {
+        margin-bottom: 4rem;
+        @include min-screen($screen-desktop) {
+          margin-bottom: 7.5rem;
+        }
+
         .map-actions .display-switcher .list {
           background-color: $grey4;
           i {
@@ -72,6 +77,11 @@
       }
 
       &.grid {
+        margin-bottom: 4rem;
+        @include min-screen($screen-desktop) {
+          margin-bottom: 7.5rem;
+        }
+
         .map-actions .display-switcher .grid {
           background-color: $grey4;
           i {

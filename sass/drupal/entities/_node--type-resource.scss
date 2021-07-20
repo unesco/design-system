@@ -24,6 +24,24 @@
             padding: 1.5rem 0 2.5rem;
           }
 
+          &.media--type-oembed-video {
+            position: relative;
+            &::after {
+              position: absolute;
+              top: 2.5rem;
+              left: 1rem;
+              background-color: $BlueU;
+              width: 2.5rem;
+              height: 2.5rem;
+              line-height: 2.5rem;
+              border-radius: 50%;
+              @include icon('play_arrow');
+              color: $white;
+              text-align: center;
+              font-size: 1.5rem;
+            }
+          }
+
           .field--name-field-media-image {
             position: relative;
             width: 100%;
