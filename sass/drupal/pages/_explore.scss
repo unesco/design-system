@@ -11,11 +11,48 @@
       flex-direction: column;
       @include min-screen($screen-desktop) {
         position: relative;
-        flex-direction: row;
-        width: 100vw;
-        left: 50%;
-        transform: translateX(-50%);
-        justify-content: center;
+      }
+
+      &.list {
+        .map-actions .display-switcher .list {
+          background-color: $grey4;
+          i {
+            color: $white;
+          }
+        }
+
+        .wrapper {
+          & > article {
+            border-top: .0625rem solid $grey2;
+            padding-top: 1.5rem;
+            margin-bottom: 2rem;
+          }
+        }
+      }
+
+      &.map {
+        .map-actions .display-switcher .map {
+          background-color: $grey4;
+          i {
+            color: $white;
+          }
+        }
+        @include min-screen($screen-desktop) {
+          flex-direction: row;
+          width: 100vw;
+          left: 50%;
+          transform: translateX(-50%);
+          justify-content: center;
+        }
+      }
+
+      &.grid {
+        .map-actions .display-switcher .grid {
+          background-color: $grey4;
+          i {
+            color: $white;
+          }
+        }
       }
 
       .map-actions {
@@ -28,7 +65,8 @@
 
         @include min-screen($screen-desktop) {
           order: 0;
-          max-width: calc(1300px - 3rem);
+          max-width: calc(1300px);
+          padding: 1.5rem;
         }
 
         .map-select {
@@ -49,6 +87,12 @@
 
           @include min-screen($screen-desktop) {
             grid-row-start: 1;
+          }
+
+          .grid {
+            @include max-screen($screen-desktop - 1px) {
+              display: none;
+            }
           }
 
           a {
@@ -85,7 +129,7 @@
           order: 1;
           width: calc(35% - 1rem);
           margin-right: 1rem;
-          padding: 0 1rem;
+          padding: 0 1.5rem;
           min-height: 50rem;
           height: 50rem;
           overflow: auto;
@@ -98,6 +142,27 @@
 
           .title {
             order: 1;
+          }
+        }
+      }
+
+      .wrapper {
+        order: 2;
+
+        article {
+          a {
+            &:hover {
+              text-decoration: none;
+              .title {
+                color: $BlueU;
+              }
+            }
+          }
+          .title {
+            @include responsive(font-size, $small-content-title);
+            font-weight: 600;
+            color: $black;
+            transition: .3s;
           }
         }
       }
