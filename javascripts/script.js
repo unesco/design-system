@@ -952,6 +952,10 @@
           return;
         }
 
+        const audio = player[0];
+        let duration;
+        let reset = false;
+
         function format(time) {
           const hrs = ~~(time / 3600);
           const min = ~~((time % 3600) / 60);
@@ -967,10 +971,33 @@
           return ret;
         }
 
-        const audio = player[0];
-        player.on("loadedmetadata", function () {
+        audio.addEventListener('loadedmetadata', function () { console.log('loadedmetadata'); });
+        audio.addEventListener('loadeddata', function () {
+            duration = audio.duration;
+            cover.prepend('<span class="metadata">' + format(duration) + '</span>');
+          }
+        );
+        audio.addEventListener('timeupdate', function () {
+          duration = audio.duration;
+          let diffDuration = duration - audio.currentTime;
+
           if (!cover.find('.metadata').length) {
-            cover.prepend('<span class="metadata">' + format(audio.duration) + '</span>');
+            cover.prepend('<span class="metadata">' + format(duration) + '</span>');
+          }
+
+          if (diffDuration >= 1) {
+            cover.find('.metadata').text('-' + format(diffDuration));
+          }
+
+          if (diffDuration == 0) {
+            cover.find('.metadata').text(format(duration));
+
+            if (!reset) {
+              // Reset mic icon.
+              parent.find('.icons--audio').trigger('click');
+
+              reset = true;
+            }
           }
         });
 
