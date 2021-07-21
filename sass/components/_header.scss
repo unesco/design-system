@@ -14,7 +14,8 @@ header {
 
   &.navbar {
     .path-frontpage &,
-    .page-node-type-landing & {
+    .page-node-type-landing &,
+    .transparent-header.page-node-type-homepage & {
       position: absolute;
       z-index: 99;
       @include transition(top);
