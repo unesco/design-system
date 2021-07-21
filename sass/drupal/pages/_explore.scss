@@ -92,8 +92,14 @@
 
         .wrapper {
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-template-columns: 1fr;
           grid-gap: 5rem 2rem ;
+          @include min-screen($screen-tablet) {
+            grid-template-columns: 1fr 1fr;
+          }
+          @include min-screen($screen-desktop) {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+          }
 
           & > article {
             .node__content {
