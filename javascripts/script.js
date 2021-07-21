@@ -41,6 +41,7 @@
       this.initGalaxyMenu(context, settings);
       this.initSearchFilters(context, settings);
       this.initMapListMobile(context, settings);
+      this.initMapSizeMobile(context, settings);
       this.initFilterAlphabetical(context, settings);
       this.initAudioPlayers(context, settings);
     },
@@ -885,6 +886,27 @@
 
           }
 
+        });
+      }
+
+      let desktopWidth = 992;
+      if ($(window).width() <= desktopWidth) {
+        explorerMapListMobile();
+      }
+    },
+
+    initMapSizeMobile: function (context, settings) {
+      function explorerMapListMobile() {
+        let explorerMap = $('.js-explore-map', context);
+
+        explorerMap.removeClass('fullscreen').prepend('<span class="round-fullscreen round round-lg round-grey1"><i class="material-icons-sharp">fullscreen</i></span>');
+        let btnFullscreenMap = $('.js-explore-map .round-fullscreen');
+
+        btnFullscreenMap.on('click', function (){
+          $(this).children().text(function(i, text){
+            return text === "fullscreen" ? "fullscreen_exit" : "fullscreen";
+          });
+          $(this).parent().toggleClass('fullscreen');
         });
       }
 

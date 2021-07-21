@@ -82,7 +82,7 @@
   .explore-map {
     width: 100vw;
     left: -1.5rem;
-    height: 14.375rem;
+    height: 16rem;
     z-index: 20;
     @include min-screen($screen-tablet) {
       width: 100%;
@@ -95,6 +95,7 @@
 }
 
 #explore-map {
+  transition: .3s;
   .leaflet-bar {
     @include max-screen($screen-desktop - 1px) {
       display: none;
@@ -121,6 +122,23 @@
         border-bottom-left-radius: 1.5rem;
         border-bottom-right-radius: 1.5rem;
       }
+    }
+  }
+
+  .round-fullscreen {
+    position: absolute;
+    bottom: 1.5rem;
+    right: .5rem;
+    z-index: 1000;
+    cursor: pointer;
+    @include min-screen($screen-desktop) {
+      display: none;
+    }
+  }
+
+  &.fullscreen {
+    @include max-screen($screen-desktop - 1px) {
+      height: 30rem;
     }
   }
 }
