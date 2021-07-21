@@ -918,7 +918,8 @@
 
     initFilterAlphabetical: function (context, settings) {
       let explorer = $('#explorer', context);
-      let alphabeticalItem = $('.alphabetical-filter li');
+      let alphabeticalItem = explorer.find('.alphabetical-filter li');
+      let mapWrapper = explorer.find('.map-wrapper');
 
       alphabeticalItem.on('click', function () {
         let letter = $(this).text()[0];
@@ -932,7 +933,10 @@
             return $(this).attr('data-letter') == letter;
           }).show();
         }
-        Drupal.unescoMap.updateMap(explorer);
+
+        if (mapWrapper.length) {
+          Drupal.unescoMap.updateMap(explorer);
+        }
       });
 
     },
