@@ -564,7 +564,7 @@
 
           menuItem.children().removeClass('active-item');
 
-          $(this).children().unbind('click').on('click', function (e) {
+          $(this).children(':first').unbind('click').on('click', function (e) {
 
             e.preventDefault();
 
