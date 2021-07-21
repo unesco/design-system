@@ -15,13 +15,18 @@
 
   .icons--audio {
     position: absolute;
-    top: calc(50% - 1rem);
+    top: calc(50% - 2rem);
     left: calc(50% - 1.5rem);
     color: $white;
     background-color: $Blue2;
     padding: 1.2rem 1.3rem;
     border-radius: 50%;
     cursor: pointer;
+
+    .material-icons-sharp {
+      font-size: 2rem;
+      line-height: 1.25;
+    }
   }
 }
 
