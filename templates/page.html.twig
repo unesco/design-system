@@ -50,21 +50,23 @@
   {{ page.pre_header }}
 {% endif %}
 
-<header class="navbar navbar-expand-lg bg-primary navbar-dark">
-  {% if page.header %}
-    <div class="header">
-      {{ page.header }}
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  {% endif %}
-  {% if page.sub_header %}
-    <div class="sub-header">
-      {{ page.sub_header }}
-    </div>
-  {% endif %}
-</header>
+{% if remove_header %}
+  <header class="navbar navbar-expand-lg bg-primary navbar-dark">
+    {% if page.header %}
+      <div class="header">
+        {{ page.header }}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"  aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    {% endif %}
+    {% if page.sub_header %}
+      <div class="sub-header">
+        {{ page.sub_header }}
+      </div>
+    {% endif %}
+  </header>
+{% endif %}
 
 <main role="main" class="container">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
