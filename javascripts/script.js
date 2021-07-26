@@ -243,6 +243,9 @@
 
     initStickyHeader: function (context, settings) {
       const header = $('header');
+      if (header.length == 0) {
+        return;
+      }
       let toolbarHeight = header.offset().top;
       let headerHeight = header.outerHeight() + toolbarHeight;
 
@@ -317,7 +320,9 @@
     initWebformEmbedIframe: function (context, settings) {
       // Resize iframe.
       let iframeWebFormParagraph = $('.iframe-webform');
-      console.log(iframeWebFormParagraph);
+      if (iframeWebFormParagraph.length == 0) {
+        return;
+      }
       window.onmessage = function (e) {
         if (e.data.hasOwnProperty("frameHeight")) {
           iframeWebFormParagraph[0].style.height = "".concat(e.data.frameHeight + 30, "px");
