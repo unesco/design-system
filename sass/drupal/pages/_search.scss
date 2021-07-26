@@ -119,9 +119,7 @@
       overflow: auto;
       @include scrollbar-custom;
       padding-bottom: .5rem;
-      &::-webkit-scrollbar {
-        height: 4px;
-      }
+
     }
     @include min-screen($screen-desktop) {
       &.is-slider {
