@@ -313,6 +313,16 @@
       });
     },
 
+    initWebformEmbedIframe: function (context, settings) {
+      // Resize iframe.
+      let iframeWebFormParagraph = $('.iframe-webform');
+      window.onmessage = function (e) {
+        if (e.data.hasOwnProperty("frameHeight")) {
+          iframeWebFormParagraph[0].style.height = "".concat(e.data.frameHeight + 30, "px");
+        }
+      };
+    },
+
     initDropdownParagraph: function (context, settings) {
       let dropdown = $('.js-dropdown', context);
 
