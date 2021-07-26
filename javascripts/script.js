@@ -22,6 +22,7 @@
       this.initStickyHeader(context, settings);
       this.initDisplaySeeMore(context, settings);
       this.initIframeCustomHeight(context, settings);
+      this.initWebformEmbedIframe(context, settings);
       this.initMediaSlider(context, settings);
       this.initDropdownParagraph(context, settings);
       this.initDropdownDocument(context, settings);
@@ -316,6 +317,7 @@
     initWebformEmbedIframe: function (context, settings) {
       // Resize iframe.
       let iframeWebFormParagraph = $('.iframe-webform');
+      console.log(iframeWebFormParagraph);
       window.onmessage = function (e) {
         if (e.data.hasOwnProperty("frameHeight")) {
           iframeWebFormParagraph[0].style.height = "".concat(e.data.frameHeight + 30, "px");
