@@ -20,9 +20,9 @@
     .field--name-field-ref-image {
       overflow: hidden;
 
-      @include max-screen($screen-desktop - 1) {
-        display: none;
-      }
+      //@include max-screen($screen-desktop - 1) {
+      //  display: none;
+      //} todo: branka why ?
 
       .contextual-region {
         position: static;
@@ -63,7 +63,7 @@
     .header-texts {
       position: relative;
       padding-top: 3.5rem;
-      padding-bottom: 1rem;
+      padding-bottom: 2rem;
       z-index: 2;
 
       @include min-screen($screen-desktop) {
