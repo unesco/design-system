@@ -16,7 +16,8 @@ header {
     .path-frontpage &,
     .page-node-type-landing &,
     .page-node-type-homepage &,
-    .page-node-type-hub & {
+    .page-node-type-hub &,
+    .page-node-type-country & {
       position: absolute;
       z-index: 99;
       @include transition(top);
