@@ -1,3 +1,5 @@
+$topHeaderMobileFixed: 4rem;
+
 header {
   .header,
   .sub-header {
@@ -111,7 +113,33 @@ header {
         width: calc(100% - 3rem);
 
         .menu-open & {
-          top: 6.75rem;
+          top: $topHeaderMobileFixed;
+        }
+      }
+
+      @include max-screen($screen-desktop - 1) {
+        position: fixed;
+        z-index: 3;
+      }
+    }
+    @include max-screen($screen-desktop - 1) {
+      .menu-open & {
+        &::before {
+          content: '';
+          position: fixed;
+          width: 100%;
+          height: $topHeaderMobileFixed;
+          background-color: $BlueU;
+          left: 0;
+          top: 0;
+          z-index: 2;
+        }
+
+        .block-unesco-common-site-branding {
+          position: fixed;
+        }
+        .navbar-toggler {
+          position: fixed;
         }
       }
     }
@@ -229,7 +257,7 @@ header {
 
       .menu-open &,
       .galaxy-menu-open & {
-        z-index: 99;
+        z-index: 100;
 
         .navbar-toggler-icon {
           display: none;
@@ -445,19 +473,16 @@ header {
 
         &:focus,
         &:hover {
-
-          &::before {
-            content: "";
-            display: block;
-            position: absolute;
-            left: 1rem;
-            bottom: -1.625rem;
-            width: calc(100% - 2rem);
-            height: 0.25rem;
-            background-color: $navbar-dark-color;
-
-            @include max-screen($screen-desktop - 1) {
-              display: none;
+          @include min-screen($screen-desktop) {
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              left: 1rem;
+              bottom: -1.625rem;
+              width: calc(100% - 2rem);
+              height: 0.25rem;
+              background-color: $navbar-dark-color;
             }
           }
         }
@@ -480,20 +505,18 @@ header {
 
       &.show {
         >.nav-link {
-          &::before {
-            content: "";
-            display: block;
-            position: absolute;
-            left: 1rem;
-            bottom: -1.625rem;
-            width: calc(100% - 2rem);
-            height: 0.25rem;
-            background-color: $navbar-dark-color;
-
-            @include max-screen($screen-desktop - 1) {
-              display: none;
-            }
-          }
+         @include min-screen($screen-desktop) {
+           &::before {
+             content: "";
+             display: block;
+             position: absolute;
+             left: 1rem;
+             bottom: -1.625rem;
+             width: calc(100% - 2rem);
+             height: 0.25rem;
+             background-color: $navbar-dark-color;
+           }
+         }
         }
       }
     }
@@ -516,23 +539,32 @@ header {
             max-width: 100%;
 
             >.nav-link {
-              display: block;
               font-size: 1.125rem;
               line-height: 1.5rem;
               text-align: center;
-              padding: 0 1.25rem 1.5rem;
-              border-bottom: 1px solid $navbar-dark-color;
+              padding: .3rem 3rem 0;
               position: relative;
-              margin-bottom: 2rem;
+              margin-bottom: 1.2rem;
+              -webkit-line-clamp: 1;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
 
-              @include max-screen($screen-tablet - 1) {
-                padding: 0 1.25rem 1rem;
+              &::before {
+                content: '';
+                position: fixed;
+                width: calc(100% - 3rem);
+                height: .0625rem;
+                left: 1.5rem;
+                top: $topHeaderMobileFixed;
+                background-color: $navbar-dark-color;
               }
 
-              &:after {
+              &::after {
                 position: absolute;
                 left: 0;
-                top: 0.1rem;
+                top: 0;
                 margin: 0;
                 transform: rotate(-180deg);
                 font-size: 2rem;
@@ -627,7 +659,7 @@ header {
     }
 
     @include max-screen($screen-tablet - 1) {
-      margin-top: 6.75rem;
+      margin-top: calc(#{$topHeaderMobileFixed} + 1rem);
     }
 
     .header-sticky & {
@@ -707,8 +739,10 @@ header {
 
     @include max-screen($screen-desktop - 1) {
       position: static;
-      padding: 0;
+      padding: 2rem 0 0 0;
       transform: none;
+      overflow: auto;
+      height: calc(100vh - #{$topHeaderMobileFixed});
     }
 
     .submenu-wrapper {
