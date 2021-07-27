@@ -109,17 +109,18 @@ header {
       height: 1px;
       background-color: $navbar-dark-color;
 
+      @include max-screen($screen-desktop - 1) {
+        position: fixed;
+        z-index: 3;
+        width: calc(100% - 4.25rem);
+      }
+
       @include max-screen($screen-tablet - 1) {
         width: calc(100% - 3rem);
 
         .menu-open & {
           top: $topHeaderMobileFixed;
         }
-      }
-
-      @include max-screen($screen-desktop - 1) {
-        position: fixed;
-        z-index: 3;
       }
     }
     @include max-screen($screen-desktop - 1) {
@@ -646,6 +647,12 @@ header {
   font-weight: 800;
   color: $navbar-dark-brand-color;
   margin-bottom: 0;
+  @include min-screen($screen-tablet) {
+    padding: .5rem 0;
+  }
+  @include min-screen($screen-desktop) {
+    padding: 0;
+  }
 }
 
 .region-header {
