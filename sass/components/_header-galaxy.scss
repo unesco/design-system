@@ -71,9 +71,12 @@
     padding: 2.5rem;
 
     @include max-screen($screen-desktop - 1) {
-      padding: 3.938rem 1.5rem 1rem;
       display: flex;
       flex-direction: column;
+      margin: 4.1rem 1.5rem;
+      padding: 0;
+      height: calc(100vh - 4.1rem);
+      overflow: auto;
     }
   }
 
@@ -275,11 +278,11 @@
       position: static;
       margin-top: 0;
       padding-top: 2rem;
-
-      > ul {
-        max-height: calc(100vh - 3.938rem);
-        overflow-y: auto;
-      }
+      //
+      //> ul {
+      //  max-height: calc(100vh - 3.938rem);
+      //  overflow-y: auto;
+      //}
     }
 
     ul {
@@ -416,6 +419,7 @@
         padding: 2rem 1.5rem;
         height: calc(100vh - 4rem);
         overflow-y: auto;
+        max-width: inherit;
       }
     }
 
