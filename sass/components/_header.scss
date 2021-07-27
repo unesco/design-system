@@ -182,7 +182,8 @@ header {
 
       @include max-screen($screen-tablet - 1) {
         padding: 1rem 1.5rem;
-        min-height: 4rem;
+        min-height: $topHeaderMobileFixed;
+        max-height: $topHeaderMobileFixed;
       }
     }
 
@@ -191,12 +192,11 @@ header {
       padding: 1.5rem 2.125rem 1.5rem;
       align-items: flex-start;
       justify-content: flex-start;
-      min-height: 6.5rem;
+      min-height: 4rem;
     }
 
     @include max-screen($screen-tablet - 1) {
       padding: 1rem 1.5rem;
-      min-height: 6.75rem;
       flex-wrap: wrap;
     }
   }
@@ -420,8 +420,16 @@ header {
     }
 
     .site-name {
+      position: absolute;
+      width: calc(100% - 4rem);
+      max-width: 15rem;
+      @include min-screen($screen-tablet) {
+        max-width: none;
+      }
+      @include min-screen($screen-desktop) {
+        position: relative;
+      }
       @include max-screen($screen-desktop - 1) {
-        position: absolute;
         top: 2.5rem;
         left: 0;
         display: block;
@@ -432,10 +440,9 @@ header {
       }
 
       @include max-screen($screen-tablet - 1) {
-        width: calc(100% - 4rem);
-        max-width: 15rem;
         font-size: 0.875rem;
         line-height: 1.125rem;
+        display: inline-block;
       }
     }
   }
@@ -1481,6 +1488,27 @@ header {
       @include max-screen($screen-desktop - 1) {
       height: 100vh;
       overflow: hidden;
+    }
+  }
+
+  .sub-header {
+    .site-name {
+      position: fixed;
+      z-index: 3;
+      left: 1.5rem;
+      top: 3.5rem;
+      @include min-screen($screen-tablet) {
+        left: 2.125rem;
+        top: 4rem;
+      }
+      @include max-screen($screen-desktop - 1) {
+        width: calc(100% - 8.25rem);
+      }
+      @include min-screen($screen-desktop) {
+        position: relative;
+        left: 0;
+        top: 0;
+      }
     }
   }
 }

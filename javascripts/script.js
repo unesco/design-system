@@ -205,6 +205,7 @@
     initResponsiveMenu: function (context, settings) {
       let menuBurger = $('.navbar-toggler');
       let parentItem = $('header .menu-level-0 > .nav-item > .dropdown-toggle');
+      let siteName = $('.js-site-name');
 
       menuBurger.on('click', function () {
         $('html, body').toggleClass('menu-open').removeClass('galaxy-menu-open');
@@ -217,6 +218,22 @@
       parentItem.on('click', function () {
         $('body').toggleClass('parent-menu-open');
       });
+
+      if (siteName.length >= 1 && window.innerWidth < 992) {
+        let siteNameHeight = siteName[1].offsetHeight;
+        $('header.navbar').css({height: `calc(4.5rem + ${siteNameHeight}px)`});
+        $( '<style>' +
+          '.menu-open .parent-menu-open header::before, ' +
+          '.menu-open .transparent-header header::before, ' +
+          '.menu-open .header-with-line:not(.header-sticky) header::before { height: calc(4.5rem + ' + siteNameHeight + 'px); }' +
+          '.menu-open .parent-menu-open header::after, ' +
+          '.menu-open .transparent-header header::after, ' +
+          '.menu-open .header-with-line:not(.header-sticky) header::after { top: calc(4.5rem + ' + siteNameHeight + 'px); }' +
+          '.menu-open .menu--main .main-navigation { margin-top: calc(4.5rem + ' + siteNameHeight + 'px); }' +
+          '</style>').appendTo('head');
+      }
+
+
     },
 
     initDropdownMenu: function (context, settings) {
