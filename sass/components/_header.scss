@@ -178,12 +178,12 @@ header {
       @include max-screen($screen-desktop - 1) {
         padding: 0.75rem 2.125rem 0.75rem;
         min-height: 3.5rem;
+        max-height: $topHeaderMobileFixed;
       }
 
       @include max-screen($screen-tablet - 1) {
         padding: 1rem 1.5rem;
         min-height: $topHeaderMobileFixed;
-        max-height: $topHeaderMobileFixed;
       }
     }
 

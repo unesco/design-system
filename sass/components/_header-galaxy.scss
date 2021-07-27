@@ -113,6 +113,7 @@
       margin-right: 0;
       font-size: 0;
       width: 2.5rem;
+      min-width: 2.5rem;
       height: 2.5rem;
       padding: 0;
       display: flex;
@@ -444,10 +445,11 @@
         @include icon('search');
         font-size: 1.5rem;
         vertical-align: middle;
-        margin-left: 0.75rem;
+        color: $BlueU;
 
-        @include max-screen($screen-desktop - 1) {
-          color: $BlueU;
+        @include min-screen($screen-desktop) {
+          margin-left: 0.75rem;
+          color: $white;
         }
       }
 
@@ -502,8 +504,10 @@
     .wrapper-websites {
       margin-top: 3rem;
       @include transition(opacity);
-      max-height: 30rem;
-      overflow-y: auto;
+      @include min-screen($screen-desktop) {
+        max-height: 30rem;
+        overflow-y: auto;
+      }
 
       @include max-screen($screen-desktop - 1) {
         margin-top: 1.5rem;
