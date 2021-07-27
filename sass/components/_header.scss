@@ -566,6 +566,7 @@ header {
                 left: 1.5rem;
                 top: $topHeaderMobileFixed;
                 background-color: $navbar-dark-color;
+                z-index: 4;
               }
 
               &::after {
@@ -758,6 +759,11 @@ header {
 
       @include max-screen($screen-desktop - 1) {
         margin: 0 -1rem;
+      }
+
+      @include max-screen($screen-tablet - 1) {
+        display: inline-block;
+        height: fit-content;
       }
     }
 
@@ -1024,7 +1030,8 @@ header {
               margin-bottom: 1.5rem;
               padding: 0;
 
-              img {
+              img,
+              .field--name-field-ref-image {
                 display: none;
               }
             }
