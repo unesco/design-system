@@ -374,6 +374,10 @@ header {
     }
 
     .header-sticky & {
+      width: 100%;
+      @include max-screen($screen-desktop - 1) {
+        max-width: calc(100% - 8.5rem);
+      }
       >a {
         display: flex;
         align-items: center;
@@ -393,6 +397,14 @@ header {
 
         @include max-screen($screen-tablet - 1) {
           display: none;
+        }
+
+        @include max-screen($screen-desktop - 1) {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%;
+          white-space: nowrap;
+          line-height: 1;
         }
       }
     }
@@ -665,6 +677,7 @@ header {
   @include min-screen($screen-desktop) {
     padding: 0;
   }
+
 }
 
 .region-header {
