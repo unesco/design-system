@@ -1,4 +1,5 @@
 $topHeaderMobileFixed: 4rem;
+$topHeaderTabletFixed: 6.5rem;
 
 header {
   .header,
@@ -113,6 +114,10 @@ header {
         position: fixed;
         z-index: 3;
         width: calc(100% - 4.25rem);
+
+        .menu-open & {
+          top: $topHeaderTabletFixed;
+        }
       }
 
       @include max-screen($screen-tablet - 1) {
@@ -129,18 +134,24 @@ header {
           content: '';
           position: fixed;
           width: 100%;
-          height: $topHeaderMobileFixed;
+          min-height: $topHeaderTabletFixed;
           background-color: $BlueU;
           left: 0;
           top: 0;
           z-index: 2;
         }
-
         .block-unesco-common-site-branding {
           position: fixed;
         }
         .navbar-toggler {
           position: fixed;
+        }
+      }
+    }
+    @include max-screen($screen-tablet - 1) {
+      .menu-open & {
+        &::before {
+          min-height: $topHeaderMobileFixed;
         }
       }
     }
@@ -193,12 +204,13 @@ header {
       padding: 1.5rem 2.125rem 1.5rem;
       align-items: flex-start;
       justify-content: flex-start;
-      min-height: 4rem;
+      min-height: $topHeaderTabletFixed;
     }
 
     @include max-screen($screen-tablet - 1) {
       padding: 1rem 1.5rem;
       flex-wrap: wrap;
+      min-height: $topHeaderMobileFixed;
     }
   }
 
@@ -513,18 +525,18 @@ header {
 
       &.show {
         >.nav-link {
-         @include min-screen($screen-desktop) {
-           &::before {
-             content: "";
-             display: block;
-             position: absolute;
-             left: 1rem;
-             bottom: -1.625rem;
-             width: calc(100% - 2rem);
-             height: 0.25rem;
-             background-color: $navbar-dark-color;
-           }
-         }
+          @include min-screen($screen-desktop) {
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              left: 1rem;
+              bottom: -1.625rem;
+              width: calc(100% - 2rem);
+              height: 0.25rem;
+              background-color: $navbar-dark-color;
+            }
+          }
         }
       }
     }
@@ -670,7 +682,7 @@ header {
 
     @include max-screen($screen-desktop - 1) {
       transition: none;
-      margin-top: 5.375rem;
+      margin-top: calc(#{$topHeaderTabletFixed} + 1rem);
     }
 
     @include max-screen($screen-tablet - 1) {
@@ -1508,7 +1520,7 @@ header {
 
 .menu-open {
   &, body {
-      @include max-screen($screen-desktop - 1) {
+    @include max-screen($screen-desktop - 1) {
       height: 100vh;
       overflow: hidden;
     }
@@ -1557,7 +1569,7 @@ header {
 
     &.navbar {
       @include max-screen($screen-tablet - 1) {
-        min-height: 4rem;
+        //min-height: 4rem;
       }
     }
   }
