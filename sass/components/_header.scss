@@ -1030,7 +1030,16 @@ header {
               margin-bottom: 1.5rem;
               padding: 0;
 
-              img,
+              img {
+                display: none;
+              }
+            }
+          }
+        }
+
+        @include max-screen($screen-tablet - 1) {
+          article {
+            .node__content {
               .field--name-field-ref-image {
                 display: none;
               }
