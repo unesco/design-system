@@ -1502,10 +1502,6 @@ header {
       }
 
       .menu--galaxy-menu {
-        display: block;
-      }
-
-      .menu--galaxy-menu {
         @include max-screen($screen-tablet -1) {
           display: none;
         }

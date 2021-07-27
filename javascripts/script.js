@@ -207,10 +207,8 @@
       let parentItem = $('header .menu-level-0 > .nav-item > .dropdown-toggle');
 
       menuBurger.on('click', function () {
-        $('html').toggleClass('menu-open');
-        $('body').toggleClass('menu-open');
+        $('html, body').toggleClass('menu-open').removeClass('galaxy-menu-open');
         $('body').removeClass('parent-menu-open');
-        $('html, body').removeClass('galaxy-menu-open');
         $('.active-galaxy-tab').removeClass('active-galaxy-tab');
         $('.submenu-open').removeClass('submenu-open');
         $('.menu--galaxy-menu .popin').addClass('hidden');
@@ -719,6 +717,9 @@
 
         if (window.innerWidth >= 992) {
           ongletLink.eq(0).parent().addClass('active-galaxy-tab');
+        } else {
+          $('html, body').addClass('menu-open');
+          $('#navbarNav').addClass('show');
         }
       });
 
