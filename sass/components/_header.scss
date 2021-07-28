@@ -23,8 +23,10 @@ header {
     .page-node-type-country & {
       position: absolute;
       z-index: 99;
-      @include transition(top);
-      transition-duration: 0.2s;
+      //@include transition(top);
+      //transition-duration: 0.2s;
+
+      transition: top, background-color .3s;
 
       @include max-screen($screen-desktop - 1) {
         position: absolute;
@@ -854,6 +856,7 @@ header {
     padding-right: 0;
     flex: unset;
     width: unset;
+    min-width: fit-content;
   }
 
   .header-sticky & {
@@ -882,7 +885,7 @@ header {
 
   .dropdown-menu {
     padding: 1rem 1.5rem;
-
+    border-radius: .5rem;
     @include max-screen($screen-desktop - 1) {
       position: static;
       background-color: inherit;
