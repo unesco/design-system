@@ -190,6 +190,36 @@
   }
 
   .slider-medias {
+
+    .submedia {
+      display: flex;
+      flex-direction: column;
+
+      .field--name-field-legend {
+        order: 1;
+        color: $grey5;
+        font-size: .875rem;
+      }
+
+      .field--name-field-ref-licence {
+        order: 2;
+        color: $grey4;
+        font-weight: 400;
+        font-size: .875rem;
+      }
+
+      .field--name-field-copyright {
+        position: relative;
+        order: 3;
+        left: 0;
+        top: 0;
+        color: $grey4;
+        font-weight: 400;
+        font-size: .875rem;
+        opacity: 1;
+      }
+    }
+
     .field--name-field-media-image,
     img {
       width: 100%;
