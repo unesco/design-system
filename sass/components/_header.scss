@@ -111,18 +111,17 @@ header {
       background-color: $navbar-dark-color;
 
       @include max-screen($screen-desktop - 1) {
-        position: fixed;
-        z-index: 3;
         width: calc(100% - 4.25rem);
 
         .menu-open & {
+          position: fixed;
+          z-index: 3;
           top: $topHeaderTabletFixed;
         }
       }
 
       @include max-screen($screen-tablet - 1) {
         width: calc(100% - 3rem);
-
         .menu-open & {
           top: $topHeaderMobileFixed;
         }
