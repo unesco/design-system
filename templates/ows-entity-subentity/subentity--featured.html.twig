@@ -1,0 +1,11 @@
+{% if content %}
+  {% if unesco_link_content %}
+    <a class="featured-link" {{ unesco_link_attributes }}>
+  {% endif %}
+    <div{{ attributes }}>
+      {{- content -}}
+    </div>
+  {% if unesco_link_content %}
+    </a>
+  {% endif %}
+{% endif %}
