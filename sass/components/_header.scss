@@ -374,10 +374,7 @@ header {
     }
 
     .header-sticky & {
-      width: 100%;
-      @include max-screen($screen-desktop - 1) {
-        max-width: calc(100% - 8.5rem);
-      }
+
       >a {
         display: flex;
         align-items: center;
@@ -1707,6 +1704,17 @@ header {
             }
           }
         }
+      }
+    }
+  }
+}
+
+.site-satellite.header-sticky {
+  header {
+    .block-unesco-common-site-branding {
+      @include max-screen($screen-desktop - 1) {
+        width: 100%;
+        max-width: calc(100% - 8.5rem);
       }
     }
   }
