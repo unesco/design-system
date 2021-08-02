@@ -238,6 +238,7 @@ header {
     z-index: 99;
     flex-wrap: nowrap;
     overflow-y: auto;
+    padding-bottom: 2rem;
 
     //.block-unesco-commonlanguage-blocklanguage-interface {
     //  padding-bottom: 2rem;
@@ -790,7 +791,7 @@ header {
 
     @include max-screen($screen-desktop - 1) {
       position: static;
-      padding: 2rem 0 0 0;
+      padding: 2rem 0 2rem 0;
       transform: none;
       overflow: auto;
       height: calc(100vh - #{$topHeaderMobileFixed});
