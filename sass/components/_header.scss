@@ -84,6 +84,18 @@ header {
     }
   }
 
+  .transparent-header:not(.parent-menu-open) & {
+    &.bg-primary {
+      @include min-screen($screen-desktop) {
+        &:hover {
+          &::after {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+
   &.bg-primary {
     .btn-secondary {
       background-color: $Blue2;
@@ -111,6 +123,7 @@ header {
       max-width: 83rem;
       height: 1px;
       background-color: $navbar-dark-color;
+      transition: opacity .3s;
 
       @include max-screen($screen-desktop - 1) {
         width: calc(100% - 4.25rem);
@@ -1718,6 +1731,14 @@ header {
         width: 100%;
         max-width: calc(100% - 8.5rem);
       }
+    }
+  }
+}
+
+@include min-screen($screen-desktop) {
+  .menu--galaxy-menu {
+    .button-galaxy {
+      margin-right: 1rem;
     }
   }
 }

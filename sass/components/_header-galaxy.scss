@@ -77,6 +77,10 @@
       padding: 0;
       height: calc(100vh - 4.1rem);
       overflow: auto;
+      width: calc(100% - 3rem);
+      .navbar-nav {
+        width: 100%;
+      }
     }
   }
 

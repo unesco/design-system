@@ -242,16 +242,16 @@
       dropdownLink.on('click', function (e) {
         e.preventDefault();
         dropdownLink.not(this).parent().removeClass('show');
-        dropdownLink.not(this).parent().find('.dropdown-menu').removeClass('show');
+        dropdownLink.not(this).parent().find('.dropdown-menu').fadeOut();
         $(this).parent().toggleClass('show');
-        $(this).parent().find('.dropdown-menu').toggleClass('show');
+        $(this).parent().find('.dropdown-menu').fadeToggle();
       });
 
       $('body').on('click', function (e) {
         if (!dropdownLink.is(e.target) && dropdownLink.parent().has(e.target).length === 0 && dropdownLink.parent().find('.dropdown-menu').has(e.target).length === 0) {
           $('.dropdown-menu').parent().removeClass('show');
           $('body').removeClass('parent-menu-open');
-          dropdownLink.parent().find('.dropdown-menu').removeClass('show');
+          dropdownLink.parent().find('.dropdown-menu').fadeOut();
         }
       });
     },
