@@ -1125,7 +1125,7 @@ header {
         line-height: 1.33;
         font-weight: 600;
         margin-top: $spacer;
-    
+
         @include max-screen($screen-tablet - 1) {
           font-size: 1rem;
           line-height: 1.5rem;
@@ -1296,7 +1296,7 @@ header {
 }
 
 .transparent-header.header-sticky {
-  padding-top: 0 !important;
+  //padding-top: 0 !important;
 }
 
 .transparent-header.menu-open header.bg-primary {
