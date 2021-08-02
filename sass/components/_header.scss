@@ -1023,27 +1023,8 @@ header {
   }
 
   .report {
-    display: block;
-    opacity: 0;
-    pointer-events: none;
-
-    @include max-screen($screen-desktop - 1) {
-      display: none;
-
-      &.show {
-        display: block;
-        width: auto;
-      }
-    }
-
     .nav-link {
       display: none;
-    }
-
-    &.show {
-      opacity: 1;
-      pointer-events: unset;
-      display: block;
     }
 
     .submenu-wrapper {
@@ -1127,6 +1108,29 @@ header {
 
     .slick-slider {
       position: relative;
+
+      .field--name-field-media-image {
+        width: 100%;
+
+        img {
+          width: 100%;
+          max-width: unset;
+        }
+      }
+
+      .submenu-text {
+        display: block;
+        font-size: $font-size-lg;
+        line-height: 1.33;
+        font-weight: 600;
+        margin-top: $spacer;
+    
+        @include max-screen($screen-tablet - 1) {
+          font-size: 1rem;
+          line-height: 1.5rem;
+          font-weight: 400;
+        }
+      }
     }
 
     .slick-arrow {
@@ -1159,6 +1163,16 @@ header {
 
         &::after {
           content: "chevron_left";
+        }
+      }
+    }
+  }
+
+  .show {
+    .report {
+      @include max-screen($screen-desktop - 1) {
+        &.show {
+          width: auto;
         }
       }
     }
@@ -1257,22 +1271,6 @@ header {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     z-index: 1;
-  }
-}
-
-.submenu-carousel {
-  span {
-    display: block;
-    font-size: $font-size-lg;
-    line-height: 1.33;
-    font-weight: 600;
-    margin-top: $spacer;
-
-    @include max-screen($screen-tablet - 1) {
-      font-size: 1rem;
-      line-height: 1.5rem;
-      font-weight: 400;
-    }
   }
 }
 
