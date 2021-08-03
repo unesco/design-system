@@ -174,7 +174,8 @@
 
         a {
           position: relative;
-          display: block;
+          display: flex;
+          align-items: center;
           color: $darkGrey;
 
           &:hover {
@@ -360,6 +361,14 @@
               &::after {
                 transform: rotate(180deg);
               }
+            }
+          }
+        }
+
+        @include min-screen($screen-desktop) {
+          li.menu-item.active {
+            a {
+              border-bottom: .125rem solid $BlueU;
             }
           }
         }
