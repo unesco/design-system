@@ -145,49 +145,31 @@
 
 .map-wrapper {
   position: relative;
-  .map-copyright {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0, .4);
-    width: 100%;
-    height: 100%;
-    z-index: 20;
-    cursor: pointer;
-    & > div {
-      width: 35rem;
-      max-width: 80%;
-      margin: 3.5rem auto;
-      background-color: $white;
-      box-shadow: 0 0 20px 0 rgba(0,0,0, .2);
-      border-radius: .5rem;
-      padding: 1.5rem;
-      max-height: calc(100% - 7rem);
-      overflow: auto;
-      cursor: auto;
-    }
-  }
 }
 
 .map-disclaimer-wrapper {
-  background-color: rgba(0,48,112,.5);
+  background-color: rgba(0,0,0, .4);
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 50;
+  z-index: 20;
+  cursor: pointer;
   // By default, do not display it. It is managed via JS: hidden by default to
   // avoid flashing effect.
   display: none;
   .map-disclaimer {
-    left: 80px;
-    top: 60px;
-    right: 60px;
-    bottom: 80px;
-    position: absolute;
-    background-color: #fff;
+    width: 35rem;
+    max-width: 80%;
+    margin: 3.5rem auto;
+    background-color: $white;
+    box-shadow: 0 0 20px 0 rgba(0,0,0, .2);
+    border-radius: .5rem;
+    padding: 1.5rem;
+    max-height: calc(100% - 7rem);
+    overflow: auto;
+    cursor: auto;
   }
   .remember {
     input {

@@ -43,7 +43,6 @@
       this.initSearchFilters(context, settings);
       this.initMapListMobile(context, settings);
       this.initMapSizeMobile(context, settings);
-      this.initMapDisclaimers(context, settings);
       this.initFilterAlphabetical(context, settings);
       this.initAudioPlayers(context, settings);
     },
@@ -955,28 +954,6 @@
       if ($(window).width() <= desktopWidth) {
         explorerMapListMobile();
       }
-    },
-
-    initMapDisclaimers: function (context, settings) {
-      let explorerMap = $('#explore-map', context);
-
-      $(document).ready(function() {
-        let mapCopyright= $('.map-copyright');
-
-        explorerMap.find('.js-map-copyright').on('click', function (e) {
-          e.preventDefault();
-          mapCopyright.fadeIn();
-        });
-
-        mapCopyright.on('click', function() {
-          $(this).fadeOut();
-        });
-
-        mapCopyright.on('click', '*:not(a)', function(e) {
-          e.stopPropagation();
-        });
-      });
-
     },
 
     initFilterAlphabetical: function (context, settings) {
