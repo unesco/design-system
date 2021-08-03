@@ -589,18 +589,14 @@
 
     initHeaderHubMenu: function (context, settings) {
       let hubMenu = $('.header-hub:not(".country, .explorer") .hub-menu-header');
+      let menuItem = $('.header-hub .hub-menu-header .menu-lvl1 > li.menu-item--expanded');
       let tabletWidth = 576;
 
       function menuDesktopFade() {
-        let menuItem = $('.header-hub .hub-menu-header .menu-lvl1 > li.menu-item--expanded');
         menuItem.each(function () {
-
           menuItem.children().removeClass('active-item');
-
           $(this).children(':first').unbind('click').on('click', function (e) {
-
             e.preventDefault();
-
             if ($(this).next('.lvl1-wrapper').hasClass('is-visible')) {
               $(this).next('.lvl1-wrapper').removeClass('is-visible').css('display', 'none');
               $(this).removeClass('active-item');
@@ -623,6 +619,15 @@
           $(this).toggleClass('is-active');
           hubHeaderMenu.slideToggle();
         });
+
+        menuItem.each(function () {
+          $(this).children(':first').unbind('click').on('click', function (e) {
+            e.preventDefault();
+            $(this).toggleClass('active-item');
+            $(this).next('.lvl1-wrapper').slideToggle();
+          });
+        });
+
       }
 
 
