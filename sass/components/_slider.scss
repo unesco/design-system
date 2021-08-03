@@ -17,11 +17,17 @@
     position: absolute;
     width: 100%;
     max-width: 80.25rem;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     bottom: 6rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
+    @include min-screen($screen-tablet) {
+      padding: 0 2.125rem;
+    }
+    @include min-screen($screen-desktop) {
+      padding: 0 3.5rem;
+    }
 
     .field--name-title,
     .slide-title {

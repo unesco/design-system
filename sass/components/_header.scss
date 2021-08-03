@@ -1319,8 +1319,8 @@ header.header-mini-light {
 
 .header-sticky header.header-mini-light {
   display: flex;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  flex-wrap: nowrap;
+  align-items: center;
   background-color: $white !important;
   flex-direction: row;
   max-width: 85.5rem;
@@ -1330,6 +1330,10 @@ header.header-mini-light {
   @extend %slideInDownWhite;
   @include min-screen($screen-tablet) {
     height: 3.5rem;
+  }
+  @include min-screen($screen-desktop) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   &::after {
@@ -1365,6 +1369,7 @@ header.header-mini-light {
 
   .sub-header {
     margin-left: auto;
+    order: 1;
 
     .region-sub-header {
       margin: 0;
@@ -1462,10 +1467,6 @@ header.header-mini-light {
       position: relative;
       z-index: 1;
       text-decoration: none;
-
-      @include max-screen($screen-tablet - 1 ) {
-        top: 0.5rem;
-      }
 
       span {
         font-size: 0;
