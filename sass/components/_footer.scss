@@ -48,6 +48,9 @@ footer {
       }
 
       .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         border-top: 0.0625rem solid $grey2;
         padding: 1.5rem 0;
         font-size: .875rem;
