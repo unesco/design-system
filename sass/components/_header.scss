@@ -1642,6 +1642,14 @@ header {
         }
       }
     }
+
+    header.header-mini-light {
+      .menu--galaxy-menu {
+        @include min-screen($screen-tablet) {
+          display: none;
+        }
+      }
+    }
   }
 }
 
