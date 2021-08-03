@@ -169,3 +169,29 @@
     }
   }
 }
+
+.map-disclaimer-wrapper {
+  background-color: rgba(0,48,112,.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  // By default, do not display it. It is managed via JS: hidden by default to
+  // avoid flashing effect.
+  display: none;
+  .map-disclaimer {
+    left: 80px;
+    top: 60px;
+    right: 60px;
+    bottom: 80px;
+    position: absolute;
+    background-color: #fff;
+  }
+  .remember {
+    input {
+      appearance: auto;
+    }
+  }
+}
