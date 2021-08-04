@@ -329,8 +329,12 @@
 
         > li {
           font-weight: 400;
-          a {
+          > a {
             border-bottom: .125rem solid transparent;
+            transition: .3s;
+            &:hover {
+              border-color: $BlueU;
+            }
           }
         }
 
