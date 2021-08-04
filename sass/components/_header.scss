@@ -219,6 +219,10 @@ header {
       align-items: flex-start;
       justify-content: flex-start;
       min-height: $topHeaderTabletFixed;
+
+      .transparent-header & {
+        position: absolute;
+      }
     }
 
     @include max-screen($screen-tablet - 1) {
