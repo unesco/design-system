@@ -262,6 +262,9 @@
             .title {
               color: $BlueU;
             }
+            .node__content::after {
+              animation: arrow-slide-right .4s both;
+            }
           }
 
           .node__content::after {
@@ -303,6 +306,9 @@
             right: 0;
             @include min-screen($screen-desktop) {
               position: relative;
+            }
+            img {
+              border-radius: .125rem;
             }
           }
 
@@ -422,4 +428,30 @@
       color: $white;
     }
   }
+}
+
+.path-countries {
+  #block-unesco-content {
+    .header {
+      &-texts {
+        padding: 2rem 0;
+        @include min-screen($screen-desktop) {
+          padding: 5rem 0;
+        }
+        .title {
+          @include responsive(font-size, $hero-title);
+        }
+      }
+    }
+  }
+
+  .map-select-wrapper {
+    flex-wrap: wrap;
+    margin: -.5rem;
+    padding-bottom: 1.5rem;
+    .map-select {
+      margin: .5rem;
+    }
+  }
+
 }

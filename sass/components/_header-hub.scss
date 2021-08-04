@@ -87,6 +87,7 @@
         @include responsive(font-size, $hub-title-small);
         font-weight: 800;
         margin-bottom: 0;
+        max-width: 58rem;
 
         .page-node-type-hub &,
         .page-node-type-structured-data-hub & {
@@ -101,6 +102,7 @@
         @include min-screen($screen-desktop) {
           display: block;
           font-size: 1.25rem;
+          max-width: 56rem;
         }
       }
     }
@@ -174,7 +176,8 @@
 
         a {
           position: relative;
-          display: block;
+          display: flex;
+          align-items: center;
           color: $darkGrey;
 
           &:hover {
@@ -284,6 +287,7 @@
       }
 
       .lvl1-wrapper {
+        display: none;
         flex-direction: column;
         width: 100%;
         max-width: 100vw;
@@ -291,7 +295,6 @@
         z-index: 90;
 
         @include min-screen($screen-tablet) {
-          display: none;
           position: absolute;
           background-color: $white;
           flex-direction: row;
@@ -324,8 +327,20 @@
 
       &-lvl1 {
 
+        > li {
+          font-weight: 400;
+          a {
+            border-bottom: .125rem solid transparent;
+          }
+        }
+
         @include min-screen($screen-tablet) {
           overflow-x: auto;
+          li.menu-item.active {
+            a {
+              border-bottom: .125rem solid $BlueU;
+            }
+          }
         }
 
         li.menu-item--expanded > {
@@ -347,15 +362,7 @@
 
             &.active-item {
               @include min-screen($screen-tablet) {
-                &::before {
-                  content: '';
-                  position: absolute;
-                  bottom: 0;
-                  left: 0;
-                  width: 100%;
-                  height: .125rem;
-                  background-color: $BlueU;
-                }
+                border-bottom-color: $BlueU;
               }
               &::after {
                 transform: rotate(180deg);

@@ -11,6 +11,7 @@
   @include min-screen($screen-desktop) {
     padding-left: 3.5rem;
     padding-right: 3.5rem;
+    max-width: 1300px;
   }
 }
 

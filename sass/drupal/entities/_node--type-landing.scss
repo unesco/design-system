@@ -37,13 +37,19 @@ $padding-top: (
 
     .field--name-field-copyright {
       position: absolute;
-      right: 2.5rem;
+      right: 1.5rem;
       bottom: 1.5rem;
       z-index: 2;
       font-size: .75rem;
       font-weight: 400;
       opacity: .7;
       color: $white;
+      @include min-screen($screen-tablet) {
+        right: 2.125rem;
+      }
+      @include min-screen($screen-desktop) {
+        right: 3.5rem;
+      }
     }
   }
 

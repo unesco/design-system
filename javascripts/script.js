@@ -43,7 +43,6 @@
       this.initSearchFilters(context, settings);
       this.initMapListMobile(context, settings);
       this.initMapSizeMobile(context, settings);
-      this.initMapDisclaimers(context, settings);
       this.initFilterAlphabetical(context, settings);
       this.initAudioPlayers(context, settings);
     },
@@ -589,18 +588,14 @@
 
     initHeaderHubMenu: function (context, settings) {
       let hubMenu = $('.header-hub:not(".country, .explorer") .hub-menu-header');
+      let menuItem = $('.header-hub .hub-menu-header .menu-lvl1 > li.menu-item--expanded');
       let tabletWidth = 576;
 
       function menuDesktopFade() {
-        let menuItem = $('.header-hub .hub-menu-header .menu-lvl1 > li.menu-item--expanded');
         menuItem.each(function () {
-
           menuItem.children().removeClass('active-item');
-
           $(this).children(':first').unbind('click').on('click', function (e) {
-
             e.preventDefault();
-
             if ($(this).next('.lvl1-wrapper').hasClass('is-visible')) {
               $(this).next('.lvl1-wrapper').removeClass('is-visible').css('display', 'none');
               $(this).removeClass('active-item');
@@ -623,6 +618,15 @@
           $(this).toggleClass('is-active');
           hubHeaderMenu.slideToggle();
         });
+
+        menuItem.each(function () {
+          $(this).children(':first').unbind('click').on('click', function (e) {
+            e.preventDefault();
+            $(this).toggleClass('active-item');
+            $(this).next('.lvl1-wrapper').slideToggle();
+          });
+        });
+
       }
 
 
@@ -950,28 +954,6 @@
       if ($(window).width() <= desktopWidth) {
         explorerMapListMobile();
       }
-    },
-
-    initMapDisclaimers: function (context, settings) {
-      let explorerMap = $('#explore-map', context);
-
-      $(document).ready(function() {
-        let mapCopyright= $('.map-copyright');
-
-        explorerMap.find('.js-map-copyright').on('click', function (e) {
-          e.preventDefault();
-          mapCopyright.fadeIn();
-        });
-
-        mapCopyright.on('click', function() {
-          $(this).fadeOut();
-        });
-
-        mapCopyright.on('click', '*:not(a)', function(e) {
-          e.stopPropagation();
-        });
-      });
-
     },
 
     initFilterAlphabetical: function (context, settings) {
