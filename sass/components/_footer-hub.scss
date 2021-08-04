@@ -42,6 +42,21 @@
 
   .field--name-field-image-footer {
     margin-bottom: 2rem;
+    @include min-screen($screen-desktop) {
+      margin-bottom: 0;
+    }
+    .field--type-image {
+      width: 7.5rem;
+      min-width: 7.5rem;
+      height: 7.5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      @include min-screen($screen-tablet) {
+        width: 9rem;
+        min-width: 9rem;
+        height: 9rem;
+      }
+    }
   }
 
   .hub-name,
