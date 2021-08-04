@@ -26,7 +26,10 @@ $audio-icon-size: (
   }
   .image-icon {
     position: relative;
-
+    margin-bottom: 1.5rem;
+    .field--name-field-media-image {
+      margin-bottom: 0!important;
+    }
     .metadata {
       position: absolute;
       top: 1rem;

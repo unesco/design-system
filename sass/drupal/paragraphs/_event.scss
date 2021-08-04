@@ -135,7 +135,8 @@
 }
 
 .node--type-homepage,
-.node--type-landing {
+.node--type-landing,
+.node--type-hub {
   .event {
     @include mt-block;
   }
