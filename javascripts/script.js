@@ -15,6 +15,7 @@
       settings = settings || {};
 
       this.initReportMenu(context, settings);
+      this.initHorizontalMenu(context, settings);
       this.initResponsiveMenu(context, settings);
       this.initDropdownMenu(context, settings);
       this.initDropdownFooter(context, settings);
@@ -172,6 +173,38 @@
 
     initReportMenu: function (context, settings) {
       let menuCarousel = $('header .report .menu-level-1');
+
+      menuCarousel.slick({
+        slidesToShow: 4,
+        swipeToSlide: true,
+        autoplay: false,
+        arrows: true,
+        infinite: false,
+        speed: 1500,
+        responsive: [
+          {
+            breakpoint: 951,
+            settings: {
+              slidesToShow: 3,
+              arrows: false,
+            }
+          },
+          {
+            breakpoint: 520,
+            settings: 'unslick',
+          },
+        ]
+      });
+
+      if (!this.isMobile()) {
+        $('.nav-link.dropdown-toggle').once().on('click', function () {
+          menuCarousel.slick('refresh');
+        });
+      }
+    },
+
+    initHorizontalMenu: function (context, settings) {
+      let menuCarousel = $('header .horizontal .menu-level-1');
 
       menuCarousel.slick({
         slidesToShow: 4,
