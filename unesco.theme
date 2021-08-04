@@ -174,6 +174,10 @@ function unesco_preprocess_html(&$variables) {
         $variables['attributes']['class'][] = 'transparent-header';
       }
 
+      if($node->hasField('field_ref_hub') && !$node->field_ref_hub->isEmpty()) {
+        $variables['attributes']['class'][] = 'transparent-header hub';
+      }
+
       if ($node->hasField('field_ref_image') && $node->get('field_ref_image')->isEmpty()) {
         $variables['attributes']['class'][] = 'no-header-image';
       }
