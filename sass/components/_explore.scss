@@ -51,6 +51,10 @@
 
       .tab-pane {
 
+        .map-select {
+          margin-bottom: 1.5rem;
+        }
+
         @include min-screen($screen-desktop) {
           position: relative;
           &::after {
