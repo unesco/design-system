@@ -37,6 +37,7 @@
       this.initCarouselCards(context, settings);
       this.initImageMap(context, settings);
       this.initHeaderHubMenu(context, settings);
+      this.initFooterHubMobile(context, settings);
       this.initStoryParallax(context, settings);
       this.initParagraphParallax(context, settings);
       this.initGalaxyMenu(context, settings);
@@ -637,6 +638,26 @@
           menuDesktopFade();
         }
       }
+    },
+
+    initFooterHubMobile: function (context, settings) {
+      function dropdownClick() {
+        let dropdownTitle = $('.footer-hub .hub-name', context);
+
+        dropdownTitle.unbind('click').on('click', function (e) {
+          e.preventDefault();
+          $(this).toggleClass('active-item');
+          $(this).next('.hub-menu-footer').slideToggle();
+        });
+      }
+
+      let desktopWidth = 992;
+
+      // Responsive
+      if ($(window).width() <= desktopWidth) {
+        dropdownClick();
+      }
+
     },
 
     initStoryParallax: function (context, settings) {
