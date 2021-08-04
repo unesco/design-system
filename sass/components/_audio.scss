@@ -11,7 +11,7 @@ $audio-icon-size: (
 @keyframes waves {
   0% {
     transform: scale(1);
-    opacity: 1;
+    opacity: .5;
   }
 
   100% {
@@ -21,12 +21,34 @@ $audio-icon-size: (
 }
 
 .media--type-audio {
+  audio {
+    display:none;
+  }
+  .image-icon {
+    position: relative;
+
+    .metadata {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      color: $BlueU;
+      font-size: .875rem;
+      z-index: 6;
+      font-weight: 600;
+      @include min-screen($screen-desktop) {
+        top: 1.5rem;
+        left: 1.5rem;
+      }
+    }
+  }
   .icons--audio {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
+    cursor: pointer;
+    user-select: none;
     i {
       color: $white;
       background-color: $BlueU;
@@ -37,77 +59,49 @@ $audio-icon-size: (
       border-radius: 50%;
       text-align: center;
     }
+    .hidden {
+      display: none;
+    }
+  }
+  &.audio-playing .icon-animation {
+    .delay1 {
+      animation: waves 6s ease-in-out;
+    }
+
+    .delay2 {
+      animation: waves 6s ease-in-out 2s infinite;
+    }
+
+    .delay3 {
+      animation: waves 6s ease-in-out 4s infinite;
+    }
+
+    .delay4 {
+      animation: waves 6s ease-in-out 6s infinite;
+    }
+
+    .circle {
+      display: block;
+    }
+  }
+  .circle {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include responsive(width, $audio-icon-size);
+    @include responsive(height, $audio-icon-size);
+    border-radius: 50%;
+    background-color: $white;
+    transition: 5s ease;
+    z-index: -1;
   }
 }
 
-//.media--type-audio.media--view-mode-medium {
-//  .field--name-field-media-image + .field--name-field-media-audio-file {
-//    display: none;
-//  }
-//
-//  .field--name-field-media-image .metadata {
-//    position: absolute;
-//    top: 1rem;
-//    left: 1rem;
-//    color: $Blue2;
-//    font-size: 0.85rem;
-//    font-weight: bold;
-//    z-index: 10;
-//  }
-//
-//  .icons--audio {
-//    position: absolute;
-//    top: calc(50% - 2.1rem);
-//    left: calc(50% - 2.1rem);
-//    color: $white;
-//    background-color: $Blue2;
-//    padding: 1.2rem 1.3rem;
-//    border-radius: 50%;
-//    cursor: pointer;
-//
-//    .material-icons-sharp {
-//      font-size: 2rem;
-//      line-height: 1.25;
-//    }
-//  }
-//
-//  &.audio-playing .icon-animation {
-//    .delay1 {
-//      animation: waves 10s linear;
-//    }
-//
-//    .delay2 {
-//      animation: waves 10s linear 1.5s forwards,
-//    }
-//
-//    .delay3 {
-//      animation: waves 10s linear 3s forwards;
-//    }
-//
-//    .delay4 {
-//      animation: waves 10s linear 4.5s forwards;
-//    }
-//
-//    .circle {
-//      display: block;
-//    }
-//  }
-//
-//  .circle {
-//    display: none;
-//    opacity: 0;
-//    position: absolute;
-//    left: -0.21rem;
-//    top: 0;
-//    margin: 10px;
-//    height: 60px;
-//    width: 60px;
-//    border-radius: 50%;
-//    background-color: $white;
-//    transition: 5s ease;
-//  }
-//}
-
-.icons--audio .hidden {
-  display: none;
+.media--type-audio.media--view-mode-medium {
+  .field--name-field-media-image + .field--name-field-media-audio-file {
+    display: none;
+  }
 }
+

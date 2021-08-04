@@ -982,79 +982,87 @@
     },
 
     initAudioPlayers: function (context, settings) {
-      const playersWrapper = $('.media--type-audio', context);
-      playersWrapper.each(function () {
-        const parent = $(this);
-        const cover = parent.find('.field--name-field-media-image');
-        const icons = parent.find('.icons--audio .material-icons-sharp');
-        const player = parent.find('.field--name-field-media-audio-file audio');
-        if (!player.length) {
-          return;
-        }
 
-        const audio = player[0];
-        let duration;
-        let reset = false;
-
-        function format(time) {
-          const hrs = ~~(time / 3600);
-          const min = ~~((time % 3600) / 60);
-          const sec = ~~time % 60;
-
-          let ret = "";
-          if (hrs > 0) {
-            ret += "" + hrs + ":" + (min < 10 ? "0" : "");
-          }
-          ret += "" + min + ":" + (sec < 10 ? "0" : "");
-          ret += "" + sec;
-
-          return ret;
-        }
-
-        audio.addEventListener('loadedmetadata', function () { console.log('loadedmetadata'); });
-        audio.addEventListener('loadeddata', function () {
-            duration = audio.duration;
-            cover.prepend('<span class="metadata">' + format(duration) + '</span>');
-          }
-        );
-        audio.addEventListener('timeupdate', function () {
-          duration = audio.duration;
-          let diffDuration = duration - audio.currentTime;
-
-          if (!cover.find('.metadata').length) {
-            cover.prepend('<span class="metadata">' + format(duration) + '</span>');
+      function mediaAudio() {
+        const playersWrapper = $('.media--type-audio', context);
+        playersWrapper.each(function () {
+          const parent = $(this);
+          const cover = parent.find('.field--name-field-media-image');
+          const icons = parent.find('.icons--audio .material-icons-sharp');
+          const player = parent.find('.field--name-field-media-audio-file audio');
+          if (!player.length) {
+            return;
           }
 
-          if (diffDuration >= 1) {
-            cover.find('.metadata').text('-' + format(diffDuration));
-          }
+          const audio = player[0];
+          let duration;
+          let reset = false;
 
-          if (diffDuration == 0) {
-            cover.find('.metadata').text(format(duration));
+          function format(time) {
+            const hrs = ~~(time / 3600);
+            const min = ~~((time % 3600) / 60);
+            const sec = ~~time % 60;
 
-            if (!reset) {
-              // Reset mic icon.
-              parent.find('.icons--audio').trigger('click');
-
-              reset = true;
+            let ret = "";
+            if (hrs > 0) {
+              ret += "" + hrs + ":" + (min < 10 ? "0" : "");
             }
-          }
-        });
+            ret += "" + min + ":" + (sec < 10 ? "0" : "");
+            ret += "" + sec;
 
-        parent.find('.icons--audio').on('click', function () {
-          if (parent.hasClass('audio-playing')) {
-            audio.pause();
-            parent.removeClass('audio-playing');
-          } else {
-            audio.play();
-            parent.addClass('audio-playing');
+            return ret;
           }
 
-          icons.each(function () {
-            $(this).toggleClass('hidden');
+          // audio.addEventListener('loadedmetadata', function () { console.log('loadedmetadata'); });
+          audio.addEventListener('loadeddata', function () {
+              duration = audio.duration;
+              cover.prepend('<span class="metadata">' + format(duration) + '</span>');
+            }
+          );
+          audio.addEventListener('timeupdate', function () {
+            duration = audio.duration;
+            let diffDuration = duration - audio.currentTime;
+
+            if (!cover.find('.metadata').length) {
+              cover.prepend('<span class="metadata">' + format(duration) + '</span>');
+            }
+
+            if (diffDuration >= 1) {
+              cover.find('.metadata').text('-' + format(diffDuration));
+            }
+
+            if (diffDuration == 0) {
+              cover.find('.metadata').text(format(duration));
+
+              if (!reset) {
+                // Reset mic icon.
+                parent.find('.icons--audio').trigger('click');
+
+                reset = true;
+              }
+            }
+          });
+
+          parent.find('.icons--audio').on('click', function () {
+            if (parent.hasClass('audio-playing')) {
+              audio.pause();
+              parent.removeClass('audio-playing');
+            } else {
+              audio.play();
+              parent.addClass('audio-playing');
+            }
+
+            icons.each(function () {
+              $(this).toggleClass('hidden');
+            });
           });
         });
+      }
+      mediaAudio();
+      $(window).once('resourceModalAudio-behavior').on('dialog:aftercreate', function() {
+        mediaAudio();
       });
+
     }
 
   };
