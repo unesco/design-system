@@ -1,6 +1,5 @@
 .paragraph {
   &--type--logo-grid {
-    @include mb-block;
 
     .field--name-field-title {
       font-weight: 800;
@@ -38,7 +37,6 @@
 .node--type-landing {
 
   .paragraph--type--logo-grid {
-    @extend .border-top;
     margin-bottom: 0;
   }
 

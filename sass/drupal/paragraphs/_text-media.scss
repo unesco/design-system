@@ -1,8 +1,6 @@
 .paragraph {
 
   &--type--text-media-block {
-    @extend .border-top;
-
     .row {
       display: flex;
       flex-direction: column;
@@ -132,7 +130,6 @@
 
   &--type--text-media-full {
     @include container-fluid;
-    @include mb-block;
 
     .wrapper-image {
       .field--type-image {

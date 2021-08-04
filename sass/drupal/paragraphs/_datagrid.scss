@@ -1,6 +1,5 @@
 .paragraph {
   &--type--datagrid {
-    @include mb-block;
 
     .table-bordered {
       border: none;
@@ -56,7 +55,6 @@
 .node--type-landing {
 
   .paragraph--type--datagrid {
-    @include border-top;
     margin-bottom: 0;
   }
 

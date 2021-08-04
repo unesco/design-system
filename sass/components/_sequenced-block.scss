@@ -9,9 +9,9 @@ $sequenced-link: (
 );
 
 .sequenced-block {
+  @include mt-block-sm;
   padding: 1.5rem 1.5rem 2rem;
   border-radius: .5rem;
-  @include mb-block;
   @include min-screen($screen-tablet) {
     padding: 2rem 2rem 2.5rem;
   }

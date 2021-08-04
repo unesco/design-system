@@ -3,7 +3,6 @@
   &--type--document {
     background-color: $grey1;
     border-radius: .5rem;
-    @include mb-block;
     padding: 1.5rem;
     @include min-screen($screen-tablet) {
       padding: 3rem;
@@ -198,10 +197,12 @@
   }
 
   &--type--documents {
-    @extend .border-top;
 
-    @include min-screen($screen-desktop) {
-      padding-bottom: 2.5rem;
+    .paragraph--type--document {
+      margin-top: 2rem!important;
+      @include min-screen($screen-tablet) {
+        margin-top: 3rem!important;
+      }
     }
 
     > .field--name-field-title {
@@ -226,10 +227,10 @@
     .display-line {
 
       &.paragraph--type--document {
-        border-top: 0.0625rem solid $grey2;
+        padding: 0;
+        @include mt-border-bloc-sm;
         background-color: transparent;
         border-radius: 0;
-        padding: 1.5rem 0 0;
 
         .document-wrapper {
           justify-content: flex-start;

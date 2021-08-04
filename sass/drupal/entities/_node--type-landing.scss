@@ -22,12 +22,10 @@ $padding-top: (
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
-  margin-bottom: 3.5rem;
   min-height: 39rem;
 
 
   @include min-screen($screen-desktop) {
-    margin-bottom: 6rem;
     min-height: 46.625rem;
   }
 

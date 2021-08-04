@@ -1,7 +1,5 @@
 .paragraph {
   &--type--content-featured-custom {
-    @include mb-block;
-
     .field--name-field-title {
       font-weight: 800;
       @include responsive(font-size, $section-title);

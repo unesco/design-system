@@ -1,8 +1,8 @@
 footer {
-  margin-top: .5rem;
+  margin-top: 4rem;
   padding: 0;
   @include min-screen($screen-desktop) {
-    margin-top: 1.5rem;
+    margin-top: 7.5rem;
   }
 
   .footer-wrapper {

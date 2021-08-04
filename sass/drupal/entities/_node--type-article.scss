@@ -205,11 +205,11 @@ $story-item-description: (
       background-color: $BlueU;
       padding: 2.5rem 0;
       @include fullWidthBackground($BlueU);
-      margin: -2.5rem auto 2.5rem;
+      margin: -2.5rem auto 0;
       color: $white;
       @include min-screen($screen-desktop) {
         padding: 6rem 0;
-        margin: -3.5rem auto 3.5rem;
+        margin: -3.5rem auto 0;
       }
       &::before,
       &::after {
@@ -416,11 +416,6 @@ $story-item-description: (
   &.node--view-mode-video {
 
     .field--name-field-video {
-      margin-top: 2.5rem;
-      @include min-screen($screen-desktop) {
-        margin-top: 4rem;
-      }
-      @include mb-block;
 
       .media--type-oembed-video {
         width: 100%;

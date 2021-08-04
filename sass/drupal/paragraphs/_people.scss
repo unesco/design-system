@@ -1,5 +1,6 @@
 .paragraph {
   &--type--people-detail {
+
     .field--name-field-title {
       font-weight: 800;
       @include responsive(font-size, $section-title);

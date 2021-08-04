@@ -1,6 +1,6 @@
 .paragraph {
   &--type--rich-text {
-    @include mb-block;
+    @include mt-block-sm;
 
     .field--name-field-title {
       font-weight: 800;
@@ -49,7 +49,11 @@
 .node--type-landing {
 
   .paragraph--type--rich-text {
-    @include border-top;
+    @include mt-block;
+  }
+
+  .paragraph--type--rich-text:not(.boxed) {
+    @include mt-border-block;
     margin-bottom: 0;
   }
 

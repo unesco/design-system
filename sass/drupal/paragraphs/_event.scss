@@ -1,6 +1,5 @@
 .event {
   background-color: $grey1;
-  @include mb-block;
   padding: 1.5rem;
   border-radius: .5rem;
   font-size: 1rem;
@@ -124,5 +123,20 @@
       line-height: 2.2;
       font-size: .875rem;
     }
+  }
+}
+
+.node--type-sequenced-page,
+.node--type-page,
+.node--type-article {
+  .event {
+    @include mt-block-sm;
+  }
+}
+
+.node--type-homepage,
+.node--type-landing {
+  .event {
+    @include mt-block;
   }
 }
