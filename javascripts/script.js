@@ -580,6 +580,15 @@
             cssEase: 'linear'
           });
 
+          $(document).on('keydown', function(e) {
+            if(e.keyCode == 37) {
+              resourceModal.slick('slickPrev');
+            }
+            if(e.keyCode == 39) {
+              resourceModal.slick('slickNext');
+            }
+          });
+
           $('.modal-close').on('click', function () {
             $('.ui-icon-closethick').trigger('click');
             $('body').removeClass('is-fixed');

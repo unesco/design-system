@@ -98,6 +98,10 @@
 
   .field--name-field-paragraphs > .field__item {
     @include mt-border-block;
+
+    .paragraph--type--rich-text {
+      margin-top: 0;
+    }
   }
 }
 
