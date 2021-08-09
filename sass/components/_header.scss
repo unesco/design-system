@@ -1,6 +1,14 @@
 $topHeaderMobileFixed: 4rem;
 $topHeaderTabletFixed: 6.5rem;
 
+.path-frontpage,
+.page-node-type-landing,
+.page-node-type-homepage,
+.page-node-type-hub,
+.page-node-type-country  {
+  padding-top: 0 !important;
+}
+
 header {
   .header,
   .sub-header {
