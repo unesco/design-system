@@ -830,7 +830,6 @@ header {
 
     .right-wrapper {
       .menu-level-1 {
-        width: 100%;
 
         @include max-screen($screen-desktop - 1) {
           flex-direction: row;
@@ -1009,6 +1008,7 @@ header {
 
         @include min-screen($screen-desktop) {
           padding: 0 .75rem;
+          margin-bottom: 1.5rem;
         }
 
         @include transition;
@@ -1302,6 +1302,12 @@ header {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     z-index: 1;
+  }
+
+  &.card {
+    img {
+      width: 100%;
+    }
   }
 }
 
