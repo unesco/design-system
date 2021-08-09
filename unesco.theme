@@ -84,7 +84,6 @@ function unesco_preprocess_node(&$variables) {
       array_slice($group, 2, count($group)-2, true);
   }
 
-
 }
 
 /**
