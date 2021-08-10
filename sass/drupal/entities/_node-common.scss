@@ -231,6 +231,12 @@ $margin24: (
 
       .field--name-field-ref-cta {
         width: 100%;
+        margin-top: 2.5rem;
+
+        @include min-screen($screen-desktop) {
+          margin-top: 3.5rem;
+        }
+
         .field__item:not(:first-child) {
           @include mt-block-sm;
         }
