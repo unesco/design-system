@@ -145,6 +145,19 @@
       height: 30rem;
     }
   }
+
+  .custom-cluster {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: $BlueU;;
+    color: $white;
+    text-align: center;
+    font-weight: bold;
+    line-height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
 }
 
 .map-wrapper {
