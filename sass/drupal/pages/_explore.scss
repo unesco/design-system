@@ -66,6 +66,23 @@
       }
 
       &.map {
+        @include min-screen($screen-desktop) {
+          position: relative;
+
+          &::after {
+            content: "";
+            display: block;
+            width: calc(35% - 1rem);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 11.375rem;
+            background: linear-gradient(0deg,rgb(255, 255, 255) 0%,#fff0 100%);
+            z-index: 1;
+            pointer-events: none;
+          }
+        }
+
         .map-actions {
           @include min-screen($screen-desktop) {
             order: 0;
@@ -226,18 +243,6 @@
           overflow: auto;
           @include scrollbar-custom;
           position: relative;
-
-          &::after {
-            content: "";
-            display: block;
-            width: 100%;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            height: 11.375rem;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
-            z-index: 1;
-          }
         }
 
         .text-wrapper {
