@@ -493,10 +493,23 @@
           font-size: 3rem;
           line-height: 5.6rem;
           color: $darkGrey;
+          margin: 0;
+        }
+
+        .field--name-field-description {
+          display: none;
         }
 
         .field--name-field-ref-image {
           display: none;
+        }
+
+        & +.field--name-field-paragraphs {
+          .field__item:first-of-type {
+            .paragraph--type--cards-landing {
+              margin-top: 0;
+            }
+          }
         }
       }
     }
