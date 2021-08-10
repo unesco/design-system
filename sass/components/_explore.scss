@@ -7,8 +7,25 @@
     }
   }
 
+  .results {
+    @include min-screen($screen-desktop) {
+      display: none;
+    }
+  }
+
   .map-list {
     margin-top: 1.5rem;
+
+    .results {
+      display: none;
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+      padding: 1.5rem 0;
+
+      @include min-screen($screen-desktop) {
+        display: block;
+      }
+    }
 
     @include min-screen($screen-desktop) {
       margin-top: 0;
@@ -188,9 +205,29 @@
     overflow: auto;
     cursor: auto;
   }
+
+  .content,
+  .content p {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+
   .remember {
-    input {
-      appearance: auto;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+
+    label {
+      font-size: 0.875rem;
+      line-height: 1.125rem;
+    }
+  }
+
+  .actions {
+    margin: 0 -0.25rem;
+
+    button {
+      margin: 0 0.25rem;
     }
   }
 }

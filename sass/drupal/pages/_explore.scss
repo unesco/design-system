@@ -17,6 +17,10 @@
         margin-bottom: 4rem;
         @include min-screen($screen-desktop) {
           margin-bottom: 7.5rem;
+
+          .map-actions .results {
+            display: block;
+          }
         }
 
         .map-actions .display-switcher .list {
@@ -62,6 +66,14 @@
       }
 
       &.map {
+        .map-actions {
+          @include min-screen($screen-desktop) {
+            order: 0;
+            max-width: 1300px;
+            padding: 1.5rem 3.5rem;
+          }
+        }
+
         .map-actions .display-switcher .map {
           background-color: $grey4;
           i {
@@ -79,8 +91,19 @@
 
       &.grid {
         margin-bottom: 4rem;
+
+        .map-actions .results {
+          display: block;
+        }
+
         @include min-screen($screen-desktop) {
           margin-bottom: 7.5rem;
+        }
+
+        .map-actions {
+          @include min-screen($screen-desktop) {
+            padding: 1.5rem 0;
+          }
         }
 
         .map-actions .display-switcher .grid {
@@ -123,8 +146,6 @@
 
         @include min-screen($screen-desktop) {
           order: 0;
-          max-width: calc(1300px);
-          padding: 1.5rem;
         }
 
         .map-select {
@@ -171,6 +192,17 @@
         @include min-screen($screen-desktop) {
           order: 2;
           width: 65%;
+
+          &::before {
+            content: "";
+            display: block;
+            width: 100vw;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 1px;
+            background-color: $grey2;
+          }
         }
         .explore-map {
           @include min-screen($screen-desktop) {
@@ -183,6 +215,7 @@
         order: 2;
         width: 100%;
         margin-top: 0;
+
         @include min-screen($screen-desktop) {
           order: 1;
           width: calc(35% - 1rem);
@@ -192,6 +225,19 @@
           height: 50rem;
           overflow: auto;
           @include scrollbar-custom;
+          position: relative;
+
+          &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            height: 11.375rem;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+            z-index: 1;
+          }
         }
 
         .text-wrapper {
