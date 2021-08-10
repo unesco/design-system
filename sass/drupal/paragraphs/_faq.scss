@@ -25,6 +25,14 @@ $faq-text: (
       }
     }
 
+    .field--name-field-text {
+      @include responsive(font-size, $section-text);
+      max-width: 51.5rem;
+      p {
+        @include responsive(font-size, $section-text);
+      }
+    }
+
     .field--name-field-ref-faqs {
       border-radius: .5rem;
       padding: .5rem 1.5rem;

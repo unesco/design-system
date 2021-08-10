@@ -44,7 +44,8 @@
 }
 
 .node--type-homepage,
-.node--type-landing {
+.node--type-landing,
+.node--type-hub {
   @include paragraph-simple {
     @include mt-block;
   }

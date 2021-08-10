@@ -98,6 +98,10 @@
 
   .field--name-field-paragraphs > .field__item {
     @include mt-border-block;
+
+    .paragraph--type--rich-text {
+      margin-top: 0;
+    }
   }
 }
 
@@ -128,6 +132,9 @@
       .flag {
         margin-bottom: .5rem;
 
+        img {
+          border-radius: .125rem;
+        }
         svg {
           width: 3rem;
           height: 2rem;
@@ -135,7 +142,7 @@
 
         @include min-screen($screen-desktop) {
           margin-bottom: 0;
-          margin-right: 2rem;
+          margin-right: 1.5rem;
           display: inline-block;
           vertical-align: middle;
           svg {
@@ -360,6 +367,9 @@
 
     a:hover {
       text-decoration: none;
+      .node__content .text-wrapper .title {
+        color: $BlueU;
+      }
     }
     .node__content {
       display: flex;
@@ -367,7 +377,11 @@
       align-items: flex-start;
 
       .text-wrapper {
-        .field--type-entity-reference {
+        display: flex;
+        flex-direction: column;
+        .field--type-entity-reference,
+        .field--name-field-article-type {
+          order: 0;
           font-size: 1.125rem;
           color: $BlueU;
         }
@@ -375,6 +389,8 @@
           font-size: 1.125rem;
           font-weight: 600;
           color: $black;
+          order: 1;
+          transition: .3s;
         }
       }
 

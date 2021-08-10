@@ -307,7 +307,8 @@
 // Article page surcharge
 
 .node--type-sequenced-page,
-.node--type-page {
+.node--type-page,
+.node--type-article {
 
   .paragraph--type--document {
     @include min-screen($screen-tablet) {

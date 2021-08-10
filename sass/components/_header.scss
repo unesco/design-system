@@ -1,6 +1,14 @@
 $topHeaderMobileFixed: 4rem;
 $topHeaderTabletFixed: 6.5rem;
 
+.path-frontpage,
+.page-node-type-landing,
+.page-node-type-homepage,
+.page-node-type-hub,
+.page-node-type-country  {
+  padding-top: 0 !important;
+}
+
 header {
   .header,
   .sub-header {
@@ -822,7 +830,6 @@ header {
 
     .right-wrapper {
       .menu-level-1 {
-        width: 100%;
 
         @include max-screen($screen-desktop - 1) {
           flex-direction: row;
@@ -973,20 +980,36 @@ header {
     }
 
     .menu-level-1 {
-      margin: 0 -1rem;
+      margin: 0 -.5rem;
       display: flex;
-      flex-wrap: wrap;
-      width: 100%;
+      flex-direction: column;
       justify-content: flex-end;
+      width: 100%;
 
-      @include max-screen($screen-tablet - 1) {
-        flex-direction: column;
+      @include min-screen($screen-tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: calc(100% + 1rem);
+      }
+
+      @include min-screen($screen-desktop) {
+        margin: 0 -.75rem;
+        width: calc(100% + 1.5rem);
       }
 
       li {
-        padding: 0 1rem;
-        max-width: 25%;
+        width: 100%;
         margin-bottom: 1rem;
+
+        @include min-screen($screen-tablet) {
+          padding: 0 .5rem;
+          max-width: 25%;
+        }
+
+        @include min-screen($screen-desktop) {
+          padding: 0 .75rem;
+          margin-bottom: 1.5rem;
+        }
 
         @include transition;
         transition-duration: 0.3s;
@@ -1027,6 +1050,7 @@ header {
     }
   }
 
+  .horizontal,
   .report {
     .nav-link {
       display: none;
@@ -1269,6 +1293,8 @@ header {
 
   .submenu-text {
     padding: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
     width: 100%;
     text-align: center;
     position: absolute;
@@ -1276,6 +1302,12 @@ header {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     z-index: 1;
+  }
+
+  &.card {
+    img {
+      width: 100%;
+    }
   }
 }
 

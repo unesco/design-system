@@ -109,4 +109,11 @@
       margin: 0 0 1.5rem;
     }
   }
+  .field--name-field-text {
+    @include responsive(font-size, $section-text);
+    max-width: 51.5rem;
+    p {
+      @include responsive(font-size, $section-text);
+    }
+  }
 }
