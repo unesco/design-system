@@ -85,7 +85,7 @@ header {
   }
 
   .transparent-header:not(.parent-menu-open) & {
-    &.bg-primary {
+    &.bg-primary:not(.header-mini-light) {
       @include min-screen($screen-desktop) {
         &:hover {
           &::after {
@@ -1335,6 +1335,11 @@ header.header-mini-light {
   @include min-screen($screen-tablet) {
     height: 3.5rem;
   }
+
+  &:hover {
+    background-color: $white !important;
+  }
+
   @include min-screen($screen-desktop) {
     padding-top: 1rem;
     padding-bottom: 1rem;

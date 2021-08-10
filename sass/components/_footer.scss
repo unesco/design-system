@@ -1,6 +1,11 @@
 footer {
   margin-top: 4rem;
   padding: 0;
+
+  .hub & {
+    margin-top: 0;
+  }
+  
   @include min-screen($screen-desktop) {
     margin-top: 7.5rem;
   }

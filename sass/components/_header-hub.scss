@@ -87,7 +87,9 @@
         @include responsive(font-size, $hub-title-small);
         font-weight: 800;
         margin-bottom: 0;
+        padding-bottom: 1rem;
         max-width: 58rem;
+        display: block;
 
         .page-node-type-hub &,
         .page-node-type-structured-data-hub & {
