@@ -1,3 +1,16 @@
+<h1 class="title article-title">{{ node.title.value }}</h1>
+
+{% if node.field_ref_image.0.entity.field_media_image.entity.uri.value is not empty %}
+  {% set imagestyle = {
+    '#theme': 'image_style',
+    '#style_name': 'medium',
+    '#uri': node.field_ref_image.0.entity.field_media_image.entity.uri.value,
+    '#alt': node.field_ref_image.0.entity.field_media_image.entity.alt,
+  } %}
+
+  {{ imagestyle }}
+{% endif %}
+
 <h2>Custom for Safety Journalists</h2>
 {% for data in datas %}
  <div>{{ data }}</div>
