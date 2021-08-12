@@ -178,7 +178,11 @@ function unesco_preprocess_html(&$variables) {
       }
 
       if($node->hasField('field_ref_hub') && !$node->field_ref_hub->isEmpty()) {
-        $variables['attributes']['class'][] = 'transparent-header hub';
+        $variables['attributes']['class'][] = 'hub';
+
+        if(!in_array($node->bundle(), $bundles_with_hero)) {
+          $variables['attributes']['class'][] = 'transparent-header';
+        }
       }
 
       if ($node->hasField('field_ref_image') && $node->get('field_ref_image')->isEmpty()) {

@@ -479,7 +479,8 @@
 
 .node--type-landing {
   &.node--view-mode-full {
-    .node--type-hub + .node__content {
+    .node--type-hub + .node__content,
+    .node--type-structured-data-hub + .node__content {
       .header-landing {
         min-height: 0.1rem;
         padding: 0 0 1.5rem;
@@ -506,7 +507,7 @@
 
         & +.field--name-field-paragraphs {
           .field__item:first-of-type {
-            .paragraph--type--cards-landing {
+            .paragraph {
               margin-top: 0;
             }
           }
