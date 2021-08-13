@@ -207,10 +207,6 @@ function unesco_preprocess_html(&$variables) {
     }
   }
 
-  if (($route_match->getParameter('node')->bundle()) == 'country' ) {
-    $variables['attributes']['class'][] = 'transparent-header';
-  }
-
   $favicon_meta = [
     'manifest' => [
       'rel' => 'manifest',
