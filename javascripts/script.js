@@ -47,6 +47,7 @@
       this.initMapSizeMobile(context, settings);
       this.initFilterAlphabetical(context, settings);
       this.initAudioPlayers(context, settings);
+      this.initEventParagraph(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -1126,7 +1127,15 @@
         mediaAudio();
       });
 
-    }
+    },
+
+    initEventParagraph: function (context, settings) {
+      var calendarLink = $('.calendar-links-wrapper');
+
+      calendarLink.on('mouseleave', function() {
+        $(this).find('.calendar-links').collapse('hide');
+      });
+    },
 
   };
 

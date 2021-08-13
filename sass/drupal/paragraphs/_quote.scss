@@ -21,6 +21,12 @@ $quote-article-text: (
 
     @include min-screen($screen-desktop) {
       flex-direction: row;
+      .row {
+        margin: 0;
+        flex-wrap: nowrap;
+        background-color: red;
+      }
+
       &.position-right {
         .rich-text {
           order: 1;
@@ -118,10 +124,12 @@ $quote-article-text: (
         position: relative;
         flex-direction: column;
         margin: 0;
+        flex-wrap: wrap;
       }
 
       padding: 0 0 0 1.75rem;
       &::before {
+        content: "";
         position: absolute;
         width: .25rem;
         height: 100%;
