@@ -149,7 +149,6 @@ function unesco_preprocess_html(&$variables) {
         'homepage',
         'landing',
       ];
-
       $header_with_line = [
         'report',
         'detail',
@@ -177,10 +176,10 @@ function unesco_preprocess_html(&$variables) {
         $variables['attributes']['class'][] = 'transparent-header';
       }
 
-      if($node->hasField('field_ref_hub') && !$node->field_ref_hub->isEmpty()) {
+      if ($node->hasField('field_ref_hub') && !$node->field_ref_hub->isEmpty()) {
         $variables['attributes']['class'][] = 'hub';
 
-        if(!in_array($node->bundle(), $bundles_with_hero)) {
+        if (!in_array($node->bundle(), $bundles_with_hero)) {
           $variables['attributes']['class'][] = 'transparent-header';
         }
       }
@@ -192,10 +191,10 @@ function unesco_preprocess_html(&$variables) {
       if ($node->bundle() === 'article' && $node->hasField('field_article_type') && !$node->field_article_type->isEmpty() && (in_array($node->field_article_type->value, $header_with_line))) {
         $variables['attributes']['class'][] = 'header-with-line';
       }
-    }
 
-    if (!$node->isPublished()) {
-      $variables['attributes']['class'][] = 'page-unpublished';
+      if (!$node->isPublished()) {
+        $variables['attributes']['class'][] = 'page-unpublished';
+      }
     }
   }
   elseif ($route_name === 'unesco_common.homepage') {
@@ -205,6 +204,15 @@ function unesco_preprocess_html(&$variables) {
     if (!empty($node) && !$node->isPublished()) {
       $variables['attributes']['class'][] = 'page-unpublished';
     }
+  }
+
+  $custom_routes_transparent = [
+    'entity.node.conventions',
+    'entity.node.insight',
+    'entity.node.news_events',
+  ];
+  if (in_array($route_name, $custom_routes_transparent)) {
+    $variables['attributes']['class'][] = 'transparent-header';
   }
 
   $favicon_meta = [
