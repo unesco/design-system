@@ -127,6 +127,8 @@
       @include min-screen($screen-desktop) {
         padding-top: 6rem;
         padding-bottom: 5rem;
+        display: flex;
+        flex-wrap: wrap;
       }
 
       .flag {
@@ -155,10 +157,12 @@
         display: inline-block;
         vertical-align: middle;
         margin-bottom: 0;
+        padding-bottom: 0;
       }
       .date-texts-wrapper {
         margin-top: 1rem;
         font-weight: 600;
+        width: 100%;
 
         div {
           display: inline;
