@@ -554,6 +554,11 @@
       }
     }
 
+    .views-field-unesco-subhead {
+      @include responsive(font-size, $small-content-title);
+      color: $BlueU;
+    }
+
     .views-field-title-1 {
       @include responsive(font-size, $small-content-title);
       font-weight: 600;
