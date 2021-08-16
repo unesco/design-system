@@ -605,3 +605,14 @@
     }
   }
 }
+
+.page-content-search {
+  .wrapper-facets {
+    padding-bottom: 0;
+
+    &.active {
+      padding-bottom: 2rem;
+      border-bottom: none;
+    }
+  }
+}
