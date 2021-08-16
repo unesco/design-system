@@ -96,6 +96,12 @@ div#sliding-popup .eu-cookie-withdraw-banner,
   top: 240px;
 }
 
+.page-node-type-country {
+  &.transparent-header.user-logged-in .block-local-tasks-block {
+    top: 265px;
+  }
+}
+
 .page-node-type-landing {
   &:not(.transparent-header) {
     #block-unesco-primary-local-tasks {

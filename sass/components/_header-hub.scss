@@ -435,6 +435,12 @@
   left: 50%;
   transform: translateX(-50%);
 
+  @include min-screen($screen-desktop) {
+    .toolbar-horizontal.page-node-type-country & {
+      top: 15.5rem;
+    }
+  }
+
   .breadcrumb {
     border-radius: 0;
     display: none;

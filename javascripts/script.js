@@ -304,7 +304,9 @@
 
       $(window).scroll(function () {
         if ($(window).scrollTop() > headerHeight) {
-          $('body').addClass('header-sticky').css('padding-top', headerHeight);
+          $('body').addClass('header-sticky');
+          $('body:not(.transparent-header)').css('padding-top', headerHeight);
+
         } else {
           $('body').removeClass('header-sticky').removeAttr('style');
         }
