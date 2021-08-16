@@ -854,15 +854,6 @@
         });
       };
 
-      searchInput.on('change keyup', function () {
-        if ($(this).val() == "") {
-          clearInput();
-          $('.vocabulary--websites .right').removeClass('show');
-        } else {
-          $('.vocabulary--websites .right').addClass('show');
-        }
-      });
-
       $('.dynamic-search-button.clear', context).on('click', function () {
         $('.vocabulary--websites .right').toggleClass('show');
         clearInput();
@@ -874,6 +865,7 @@
         }
 
         $(document).find('.wrapper-websites').addClass('search-in-progress');
+        $('.vocabulary--websites .right').addClass('show');
 
         websiteTaxo.each(function () {
           let searchKeyTitle = $(this).find('.title').text().toLowerCase();

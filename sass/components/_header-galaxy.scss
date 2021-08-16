@@ -239,14 +239,21 @@
 
     >ul {
       display: flex;
+      @extend %animated;
+      @extend %fadeIn;
+      animation-duration: 0.5s;
 
       @include max-screen($screen-desktop - 1) {
         display: block;
+        animation-name: none;
       }
     }
 
     .right {
       display: block;
+      @extend %animated;
+      @extend %fadeIn;
+      animation-duration: 0.5s;
 
       @include max-screen($screen-desktop - 1) {
         text-align: right;
@@ -359,12 +366,14 @@
             left: 0;
             top: 2.75rem;
             padding-top: 3rem;
+            flex-wrap: wrap;
           }
 
           >li {
             @include min-screen($screen-desktop) {
               width: 25%;
               padding: 0 2rem;
+              margin-bottom: 2rem;
             }
 
             .nav-link {
@@ -373,6 +382,11 @@
               margin-bottom: 1.5rem;
               font-size: 1rem;
               line-height: 1.5rem;
+              
+              &:focus,
+              &:hover {
+                text-decoration: underline;
+              }
 
               &.dropdown-toggle::after {
                 display: none;
@@ -513,7 +527,7 @@
       margin-top: 3rem;
       @include transition(opacity);
       @include min-screen($screen-desktop) {
-        max-height: 30rem;
+        max-height: calc(100vh - 26rem);
         overflow-y: auto;
       }
 
@@ -547,6 +561,10 @@
         padding: 1.5rem 0 2rem;
         border-top: 1px solid rgba($white, 0.2);
         border-bottom: 1px solid rgba($white, 0.2);
+        
+        .content {
+          max-width: 30rem;
+        }
 
         @include max-screen($screen-desktop - 1) {
           padding: 1rem 1rem 1.5rem;
@@ -573,7 +591,8 @@
           &:hover {
             text-decoration: none;
 
-            .description {
+            .description,
+            .field--name-description {
               opacity: 1;
             }
           }
@@ -586,7 +605,8 @@
           margin-bottom: 0.5rem;
         }
 
-        .description {
+        .description,
+        .field--name-description {
           font-size: 0.875rem;
           line-height: 1.25rem;
           opacity: 0.7;
