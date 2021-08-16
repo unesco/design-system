@@ -613,6 +613,11 @@
     &.active {
       padding-bottom: 2rem;
       border-bottom: none;
+
+      &::before,
+      &::after {
+        display: none;
+      }
     }
   }
 }
