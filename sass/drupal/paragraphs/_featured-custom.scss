@@ -32,6 +32,11 @@
 
     a:hover {
       text-decoration: none;
+
+      .field--name-title,
+      .field--name-field-surtitle {
+        color: $BlueU;
+      }
     }
 
     .field--name-field-title {
@@ -90,6 +95,33 @@
             @include min-screen($screen-desktop) {
               margin-bottom: 3rem;
             }
+          }
+        }
+      }
+
+      &--normal {
+
+        .field--name-field-ref-featured > .field__item {
+          margin-bottom: 2rem;
+
+          @include min-screen($screen-desktop) {
+            margin-right: 3rem;
+          }
+        }
+
+        .normal {
+          display: flex;
+        }
+        .field--name-field-ref-image {
+          margin-left: auto;
+          flex-shrink: 0;
+        }
+
+        .wrapper {
+          margin-right: 1.5rem;
+
+          @include min-screen($screen-desktop) {
+            margin-right: 2rem;
           }
         }
       }
