@@ -13,6 +13,12 @@
     }
   }
 
+  .country-map {
+    @include min-screen($screen-desktop) {
+      flex-wrap: nowrap;
+    }
+  }
+
   .brief-sdh-wrapper {
     @include mt-border-block;
 
