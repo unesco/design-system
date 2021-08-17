@@ -40,27 +40,6 @@
             @include min-screen($screen-desktop) {
               margin-bottom: 3rem;
             }
-
-            .node__content {
-              display: flex;
-              flex-direction: row;
-              justify-content: space-between;
-
-              .field--name-field-ref-image {
-                order: 1;
-                width: 5rem;
-                min-width: 5rem;
-                height: 5rem;
-                margin-left: 1.5rem;
-
-                @include min-screen($screen-desktop) {
-                  width: 11.375rem;
-                  min-width: 11.375rem;
-                  height: 7.5rem;
-                  margin-left: 2rem;
-                }
-              }
-            }
           }
         }
       }
@@ -203,58 +182,6 @@
         }
       }
 
-      .map-wrapper {
-        order: 0;
-        width: 100%;
-        @include min-screen($screen-desktop) {
-          order: 2;
-          width: 65%;
-
-          &::before {
-            content: "";
-            display: block;
-            width: 100vw;
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 1px;
-            background-color: $grey2;
-          }
-        }
-        .explore-map {
-          @include min-screen($screen-desktop) {
-            height: 50rem;
-          }
-        }
-      }
-
-      .map-list {
-        order: 2;
-        width: 100%;
-        margin-top: 0;
-
-        @include min-screen($screen-desktop) {
-          order: 1;
-          width: calc(35% - 1rem);
-          margin-right: 1rem;
-          padding: 0 1.5rem;
-          min-height: 50rem;
-          height: 50rem;
-          overflow: auto;
-          @include scrollbar-custom;
-          position: relative;
-        }
-
-        .text-wrapper {
-          display: flex;
-          flex-direction: column;
-
-          .title {
-            order: 1;
-          }
-        }
-      }
-
       .wrapper {
         order: 2;
 
@@ -296,7 +223,130 @@
         }
       }
     }
+  }
+}
 
+#explorer {
+  .map-wrapper {
+    order: 0;
+    width: 100%;
+    @include min-screen($screen-desktop) {
+      order: 2;
+      width: 65%;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 1px;
+        background-color: $grey2;
+      }
+    }
+    .explore-map {
+      @include min-screen($screen-desktop) {
+        height: 50rem;
+      }
+    }
   }
 
+  .map-list {
+    order: 2;
+    width: 100%;
+    margin-top: 0;
+
+    @include min-screen($screen-desktop) {
+      order: 1;
+      width: calc(35% - 1rem);
+      margin-right: 1rem;
+      padding: 0 1.5rem;
+      min-height: 50rem;
+      height: 50rem;
+      overflow: auto;
+      @include scrollbar-custom;
+      position: relative;
+    }
+
+    .text-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        order: 1;
+      }
+    }
+  }
+}
+
+.node--view-mode-sdh-list,
+.node--view-mode-sdh-grid {
+  .node__content {
+
+    .title {
+      @include responsive(font-size, $small-content-title);
+      font-weight: 600;
+      color: $black;
+      transition: .3s;
+    }
+
+    .field--name-field-ref-hub {
+      @include responsive(font-size, $small-content-title);
+    }
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      .title {
+        color: $BlueU;
+      }
+      .field--name-field-ref-hub {
+        color: $BlueU;
+      }
+    }
+  }
+}
+
+.node--view-mode-sdh-list {
+  .node__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .field--name-field-ref-image {
+      order: 1;
+      margin-left: 1.5rem;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      @include min-screen($screen-desktop) {
+        margin-left: 2rem;
+      }
+    }
+
+    .title {
+      @include responsive(font-size, $small-content-title);
+      font-weight: 600;
+      color: $black;
+      transition: .3s;
+    }
+
+    .field--name-field-ref-hub {
+      @include responsive(font-size, $small-content-title);
+    }
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      .title {
+        color: $BlueU;
+      }
+      .field--name-field-ref-hub {
+        color: $BlueU;
+      }
+    }
+  }
 }
