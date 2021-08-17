@@ -178,7 +178,7 @@
 
         a {
           position: relative;
-          display: flex;
+          display: inline-flex;
           align-items: center;
           color: $darkGrey;
 
@@ -253,6 +253,13 @@
                     padding: .75rem 0;
                     white-space: normal;
                     margin-bottom: 0;
+                  }
+
+                  a {
+                    &:focus,
+                    &:hover {
+                      text-decoration: underline;
+                    }
                   }
                 }
               }
