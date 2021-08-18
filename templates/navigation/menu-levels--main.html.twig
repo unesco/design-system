@@ -21,7 +21,7 @@
       set classes_link = [
       'nav-link',
       item.in_active_trail ? 'active',
-      item.is_expanded ? 'dropdown-toggle',
+      item.is_expanded or item.report ? 'dropdown-toggle',
     ]
     %}
 
