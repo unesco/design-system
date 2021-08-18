@@ -1190,12 +1190,29 @@ header {
     }
   }
 
+  .horizontal {
+    @include min-screen($screen-desktop) {
+      display: block !important;
+      opacity: 0 !important;
+      @include transition(opacity);
+      transition-duration: 0.5s;
+      pointer-events: none;
+    }
+  }
+
   .show {
     .report {
       @include max-screen($screen-desktop - 1) {
         &.show {
           width: auto;
         }
+      }
+    }
+
+    .horizontal {
+      @include min-screen($screen-desktop) {
+        opacity: 1 !important;
+        pointer-events: unset;
       }
     }
   }
