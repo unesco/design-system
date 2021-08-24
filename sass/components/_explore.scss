@@ -246,6 +246,9 @@
     }
   }
 }
+.leaflet-container {
+  z-index: 0;
+}
 
 #sdm-map {
   display: none;
@@ -305,7 +308,7 @@
 
   .field--name-surtitle,
   .field--name-title {
-    font-size: 1.125rem;  
+    font-size: 1.125rem;
   }
 
   .field--name-surtitle {
