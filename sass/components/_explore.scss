@@ -250,7 +250,11 @@
 #sdm-map {
   display: none;
   width: 100%;
-  height: 15rem;
+  height: 300px;
+}
+
+[class*="hidden-by-"] {
+  display: none;
 }
 
 // Map popup
