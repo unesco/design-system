@@ -245,7 +245,7 @@
         background-color: $grey2;
       }
     }
-    .explore-map {
+    .map-inner {
       @include min-screen($screen-desktop) {
         height: 50rem;
       }
