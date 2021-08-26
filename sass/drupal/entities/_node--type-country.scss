@@ -82,7 +82,10 @@
 .page-node-type-country {
   .country-news-title,
   .country-next-events-title,
-  .country-projects-title {
+  .country-projects-title,
+  .country-report-title,
+  .country-story-title,
+  .country-article-title {
     @include responsive(font-size, $section-title);
     @include mt-border-block;
   }
@@ -108,6 +111,12 @@
 
     .paragraph--type--rich-text {
       margin-top: 0;
+    }
+  }
+
+  footer {
+    @include max-screen($screen-desktop - 1) {
+      margin-top: 2rem;
     }
   }
 }

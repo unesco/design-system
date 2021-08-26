@@ -179,7 +179,10 @@
 
 .map-wrapper {
   position: relative;
-  overflow: hidden;
+
+  @include min-screen($screen-desktop) {
+    overflow: hidden;
+  }
 
   .explore-map {
     width: 100vw;
