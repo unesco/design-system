@@ -238,7 +238,7 @@
       order: 2;
       width: 65%;
     }
-    .explore-map {
+    .map-inner {
       @include min-screen($screen-desktop) {
         height: 50rem;
       }

@@ -1,0 +1,153 @@
+.map-element {
+  transition: .3s;
+  .leaflet-bar {
+    @include max-screen($screen-desktop - 1px) {
+      display: none;
+    }
+    border: 0;
+    margin: 0 1.5rem 1.5rem 0;
+    box-shadow: 0 0 20px 0 rgba(0,0,0, .2);
+    border-radius: 1.5rem;
+    a {
+      height: 40px;
+      width: 36px;
+      border-bottom: 0;
+      color: $grey3;
+      &:hover {
+        border-bottom: 0;
+        color: $grey5;
+      }
+      &:first-child {
+        padding-top: .25rem;
+        border-top-left-radius: 1.5rem;
+        border-top-right-radius: 1.5rem;
+      }
+      &:last-child {
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
+      }
+    }
+  }
+
+  .round-fullscreen {
+    position: absolute;
+    bottom: 1.5rem;
+    right: .5rem;
+    z-index: 1000;
+    cursor: pointer;
+    @include min-screen($screen-desktop) {
+      display: none;
+    }
+  }
+
+  &.fullscreen {
+    @include max-screen($screen-desktop - 1px) {
+      height: 30rem;
+    }
+  }
+
+  .custom-cluster {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: $BlueU;;
+    color: $white;
+    text-align: center;
+    font-weight: bold;
+    line-height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
+}
+
+.map-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  .explore-map {
+    width: 100vw;
+    left: -1.5rem;
+    height: 16rem;
+    z-index: 20;
+    @include min-screen($screen-tablet) {
+      width: 100%;
+      left: 0;
+    }
+    @include min-screen($screen-desktop) {
+      height: 36rem;
+    }
+  }
+}
+
+.map-inner {
+  position: relative;
+  .map-element {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+  }
+}
+
+.map-disclaimer-wrapper {
+  background-color: rgba(0,0,0, .4);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  cursor: pointer;
+  // By default, do not display it. It is managed via JS: hidden by default to
+  // avoid flashing effect.
+  display: none;
+  .map-disclaimer {
+    width: 35rem;
+    max-width: 80%;
+    margin: 3.5rem auto;
+    background-color: $white;
+    box-shadow: 0 0 20px 0 rgba(0,0,0, .2);
+    border-radius: .5rem;
+    padding: 1.5rem;
+    max-height: calc(100% - 7rem);
+    overflow: auto;
+    cursor: auto;
+  }
+
+  .content,
+  .content p {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+
+  .remember {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+
+    label {
+      font-size: 0.875rem;
+      line-height: 1.125rem;
+    }
+  }
+
+  .actions {
+    margin: 0 -0.25rem;
+
+    button {
+      margin: 0 0.25rem;
+    }
+  }
+}
+.leaflet-container {
+  z-index: 0;
+}
+
+.map-select {
+  @extend .custom-select;
+  width: auto;
+  height: calc(1.4em + 1rem + 2px);
+  padding: .5rem 2.5rem .5rem 1rem;
+}

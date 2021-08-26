@@ -239,14 +239,14 @@
       width: 100vw;
       transform: translateX(-50%);
       left: 50%;
+      .map-element {
+        z-index: 2;
+      }
+    }
+    .map-inner {
       height: 35vh;
       @include min-screen($screen-desktop) {
         height: 75vh;
-      }
-
-      #explore-map {
-        z-index: 2;
-        height: 100%;
       }
     }
 
