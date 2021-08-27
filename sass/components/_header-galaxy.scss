@@ -507,7 +507,8 @@
       border: 1px solid $grey2;
       color: $BlueU;
       width: 100%;
-      max-width: 28.25rem;
+      max-width: 45.5rem;
+      box-sizing: border-box;
 
       &::placeholder {
         color: inherit;
@@ -518,7 +519,6 @@
         font-size: 0.875rem;
         line-height: 1.25rem;
         padding: 0.875rem 1.5rem;
-        width: calc(100% - 3rem);
         max-width: 100%;
       }
     }
@@ -614,21 +614,6 @@
           @include max-screen($screen-desktop - 1) {
             opacity: 1;
           }
-        }
-      }
-    }
-
-    .show {
-      .dynamic-search-button.clear {
-        display: inline-block;
-      }
-
-      .dynamic-search {
-        max-width: 23.25rem;
-
-        @include max-screen($screen-desktop - 1) {
-          width: calc(100% - 3rem);
-          max-width: 100%;
         }
       }
     }

@@ -841,42 +841,27 @@
       });
 
       function clearInput() {
-        $('.matched-text').removeClass('matched-text');
-        $('.match').removeClass('match');
         $('.search-in-progress').removeClass('search-in-progress');
         searchInput.val("");
         $('.wrapper-websites').removeClass('search-in-progress');
-
       }
 
-      $.fn.highlightWord = function (searchWord) {
-        let regex = RegExp('' + searchWord + '', 'gi'), replacement = '<span class="matched-text">$&</span>';
-        return this.html(function () {
-          return $(this).html().replace(regex, replacement);
-        });
-      };
-
-      $('.dynamic-search-button.clear', context).on('click', function () {
-        $('.vocabulary--websites .right').toggleClass('show');
-        clearInput();
-      });
-
-      searchButton.on('click', function () {
-        if (searchInput.val() == "") {
-          return;
-        }
-
+      searchInput.on('keyup change click', function () {
+        let searchTerm = $(this).val().toLowerCase();
+        
         $(document).find('.wrapper-websites').addClass('search-in-progress');
         $('.vocabulary--websites .right').addClass('show');
 
+        if (searchTerm == "") {
+          clearInput();
+        }
+
         websiteTaxo.each(function () {
           let searchKeyTitle = $(this).find('.title').text().toLowerCase();
-          let searchKeyDesc = $(this).find('.field--name-description .field__item').text().toLowerCase();
-          let searchTerm = searchInput.val().toLowerCase();
+          let searchKeyDesc = $(this).find('.field--name-description *').text().toLowerCase();
 
           if ((searchKeyTitle.indexOf(searchTerm) > -1 || searchKeyDesc.indexOf(searchTerm) > -1) && searchTerm != "") {
             $(this).addClass('match');
-            $(this).find('.title, .field--name-description .field__item').highlightWord(searchTerm);
           } else {
             $(this).removeClass('match');
           }
