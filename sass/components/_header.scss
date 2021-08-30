@@ -354,6 +354,12 @@ header {
     a {
       text-decoration: none;
     }
+
+    &+div {
+      @include min-screen($screen-desktop) {
+        margin-left: auto;
+      }
+    }
   }
 
   .site-name {
