@@ -48,6 +48,7 @@
       this.initFilterAlphabetical(context, settings);
       this.initAudioPlayers(context, settings);
       this.initEventParagraph(context, settings);
+      this.initMultiSelect(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -1113,6 +1114,20 @@
 
       calendarLink.on('mouseleave', function() {
         $(this).find('.calendar-links').collapse('hide');
+      });
+    },
+
+    initMultiSelect: function (context, settings) {
+      var multiSelect = $('.form-select[multiple]', context);
+      var select = [];
+
+      multiSelect.once().each(function () {
+        var label = $(this).parent().find('label').text();
+        let slimSelect = new SlimSelect({
+          select: '#' + $(this).attr('id'),
+          placeholder: label,
+        });
+        select.push(slimSelect);
       });
     },
 
