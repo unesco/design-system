@@ -849,7 +849,7 @@
 
       searchInput.on('keyup change click', function () {
         let searchTerm = $(this).val().toLowerCase();
-        
+
         $(document).find('.wrapper-websites').addClass('search-in-progress');
         $('.vocabulary--websites .right').addClass('show');
 
@@ -875,6 +875,8 @@
       let toggleFacets = $('.toggle-facets', context);
       let toggleMoreFacets = $('.toggle-more-facets', context);
       let desktopWidth = 992;
+
+
 
       if ($(window).width() >= desktopWidth) {
         let wrapperFilter = $('.wrapper-facets', context);
@@ -929,6 +931,49 @@
           });
         });
 
+      });
+
+      let submitDate = $('.facet-daterange .form-submit', context);
+      submitDate.unbind('click').on('click', function (e) {
+        e.preventDefault();
+        let dateFrom = $('.facet-daterange  #date_from', context);
+        let dateTo = $('.facet-daterange  #date_to', context);
+        let url = new URL(window.location);
+        let search_params = url.searchParams;
+        let val_date_from = dateFrom.val();
+        let val_date_to = dateTo.val();
+        // Date from
+        if (val_date_from) {
+          if (search_params.has('date_from')) {
+            search_params.set('date_from', val_date_from);
+          }
+          else {
+            search_params.append('date_from', val_date_from);
+          }
+        }
+        else {
+          if (search_params.has('date_from')) {
+            search_params.delete('date_from');
+          }
+        }
+
+        // Date to
+        if (val_date_to) {
+          if (search_params.has('date_to')) {
+            search_params.set('date_to', val_date_to);
+          }
+          else {
+            search_params.append('date_to', val_date_to);
+          }
+        }
+        else {
+          if (search_params.has('date_to')) {
+            search_params.delete('date_to');
+          }
+        }
+
+        url.search = search_params.toString();
+        window.location.replace(url.toString());
       });
 
       let sortBy = $('.form-item-sort-by', context);

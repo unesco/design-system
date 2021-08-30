@@ -308,6 +308,16 @@
     border: .0625rem solid $grey2;
     z-index: 80;
     padding: 1.5rem;
+    &.wrapper-dates {
+      width: 100%;
+      :first-child {
+        margin-top: 0;
+      }
+      .form-submit {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
   }
 
   .search-autocomplete {
