@@ -17,7 +17,6 @@ header {
 
   &.navbar {
     .path-frontpage &,
-    .page-node-type-landing &,
     .page-node-type-homepage &,
     .page-node-type-hub &,
     .page-node-type-country & {
@@ -97,7 +96,8 @@ header {
   }
 
   &.bg-primary {
-    .btn-secondary {
+    .btn-secondary,
+    .btn-secondary.is-active {
       background-color: $Blue2;
       border-color: $Blue2;
 
