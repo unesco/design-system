@@ -527,7 +527,7 @@
       margin-top: 3rem;
       @include transition(opacity);
       @include min-screen($screen-desktop) {
-        max-height: calc(100vh - 26rem);
+        max-height: calc(100vh - 21.375rem);
         overflow-y: auto;
       }
 
