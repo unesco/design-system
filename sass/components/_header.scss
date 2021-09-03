@@ -375,6 +375,51 @@ header {
     padding: 0;
   }
 
+  .block-unesco-search-menu-icon {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: none;
+
+    .menu-open & {
+      display: block;
+    }
+
+    @include min-screen($screen-desktop) {
+      display: block;
+      margin-top: 0.25rem;
+      margin-bottom: -0.25rem;
+      width: auto;
+    }
+  }
+
+  .search-menu-icon {
+    color: $white;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+    position: relative;
+    padding-right: 2.5rem;
+
+    @include min-screen($screen-desktop) {
+      padding: 0 1rem;
+      font-size: 0;
+
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &::after {
+      @include icon('search');
+      font-size: 1.5rem;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
   .site-name-wrapper {
 
     a {
