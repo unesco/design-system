@@ -870,13 +870,11 @@
       });
     },
 
+    // Used $(document) to fix issues when user is logged in
     initSearchFilters: function (context, settings) {
-      let blockFacet = $('.block-facets', context);
-      let toggleFacets = $('.toggle-facets', context);
-      let toggleMoreFacets = $('.toggle-more-facets', context);
+      let toggleFacets = $(document).find('.toggle-facets', context);
+      let toggleMoreFacets = $(document).find('.toggle-more-facets', context);
       let desktopWidth = 992;
-
-
 
       if ($(window).width() >= desktopWidth) {
         let wrapperFilter = $('.wrapper-facets', context);
@@ -893,7 +891,7 @@
         }
       }
 
-      toggleFacets.unbind('click').on('click', function (e) {
+      toggleFacets.on('click', function (e) {
         e.preventDefault();
         $(this).toggleClass('active');
         $(this)
@@ -908,29 +906,26 @@
         $(this).parent().prev('.facets-more').find('.block-facets').fadeToggle();
       });
 
-      blockFacet.once('facetBehaviors').each(function () {
-        let blockFacetLabel = $(this).find('.facet-label');
+      $(document).on('click', '.block-facets .facet-label', function (e) {
+        e.preventDefault();
+        $(document).find('.facet-label').not($(this)).removeClass('active').next().slideUp();
+        $(this).toggleClass('active').next().slideToggle(300, "swing");
 
-        blockFacetLabel.unbind('click').on('click', function (e) {
-          e.preventDefault();
-          blockFacet.find('.facet-label').not(this).removeClass('active').next().slideUp();
-          $(this).toggleClass('active').next().slideToggle(300, "swing");
+        let searchAutoComplete = $(this).next('.wrapper-facet-checkbox-search').children('.search-autocomplete');
 
-          let searchAutoComplete = $(this).next('.wrapper-facet-checkbox-search').children('.search-autocomplete');
-          searchAutoComplete.find('input').on("keyup", function () {
-            let value = $(this).val().toLowerCase();
-            let listAutoComplete = searchAutoComplete.next().find('.js-facets-checkbox-links li');
-            listAutoComplete.filter(function () {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-            });
-          });
-          searchAutoComplete.find('input').bind("keypress", function (e) {
-            if (e.keyCode == 13) {
-              return false;
-            }
+        searchAutoComplete.find('input').on("keyup", function () {
+          let value = $(this).val().toLowerCase();
+          let listAutoComplete = searchAutoComplete.next().find('.js-facets-checkbox-links li');
+          listAutoComplete.filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
           });
         });
 
+        searchAutoComplete.find('input').bind("keypress", function (e) {
+          if (e.keyCode == 13) {
+            return false;
+          }
+        });
       });
 
       let submitDate = $('.facet-daterange .form-submit', context);
