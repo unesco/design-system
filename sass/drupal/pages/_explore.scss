@@ -226,6 +226,10 @@
   }
 }
 
+.sdh-map-map {
+  border-top: 0.1rem solid $grey2;
+}
+
 #explorer {
   .map-wrapper {
     order: 0;
@@ -233,17 +237,6 @@
     @include min-screen($screen-desktop) {
       order: 2;
       width: 65%;
-
-      &::before {
-        content: "";
-        display: block;
-        width: 100vw;
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 1px;
-        background-color: $grey2;
-      }
     }
     .map-inner {
       @include min-screen($screen-desktop) {

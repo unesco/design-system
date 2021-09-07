@@ -158,6 +158,7 @@ function unesco_preprocess_html(&$variables) {
       if (in_array($node->bundle(), $bundles_with_hero) && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
         $variables['attributes']['class'][] = 'transparent-header';
       }
+
       if ($node->bundle() === 'article'
       && $node->hasField('field_article_type') && !$node->field_article_type->isEmpty() && $node->field_article_type->value === 'story'
       && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
@@ -179,7 +180,7 @@ function unesco_preprocess_html(&$variables) {
       if ($node->hasField('field_ref_hub') && !$node->field_ref_hub->isEmpty()) {
         $variables['attributes']['class'][] = 'hub';
 
-        if (!in_array($node->bundle(), $bundles_with_hero)) {
+        if (!(in_array($node->bundle(), $bundles_with_hero) && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty())) {
           $variables['attributes']['class'][] = 'transparent-header';
         }
       }

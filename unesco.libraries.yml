@@ -12,10 +12,12 @@ global-styling:
     javascripts/vendor/ScrollMagic.min.js: { minified: true }
     javascripts/vendor/TweenMax.min.js: { minified: true }
     javascripts/vendor/animation.gsap.min.js: { minified: true }
+    javascripts/vendor/slimselect.min.js: { minified: true }
     assets/scripts/app.js: {}
     javascripts/drupal.js: {}
 
   dependencies:
+    - unesco/slimselect
     - unesco/popper
     - core/jquery
     - core/drupal.ajax

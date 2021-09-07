@@ -57,7 +57,23 @@
         height: 9rem;
       }
     }
+
+    & +.col-lg-6 {
+      @include min-screen($screen-desktop) {
+        max-width: 50%;
+        flex: 0 0 50%;
+      }
+    }
   }
+
+  >.col-lg-6 {
+    @include min-screen($screen-desktop) {
+      flex: 0 0 75%;
+      max-width: 75%;
+    }
+  }
+
+
 
   .hub-name,
   .nav-social--title {
@@ -121,5 +137,11 @@
         margin-bottom: 0;
       }
     }
+  }
+}
+
+.node--view-mode-footer {
+  .node__content {
+    flex-direction: column;
   }
 }

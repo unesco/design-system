@@ -17,7 +17,6 @@ header {
 
   &.navbar {
     .path-frontpage &,
-    .page-node-type-landing &,
     .page-node-type-homepage &,
     .page-node-type-hub &,
     .page-node-type-country & {
@@ -97,7 +96,8 @@ header {
   }
 
   &.bg-primary {
-    .btn-secondary {
+    .btn-secondary,
+    .btn-secondary.is-active {
       background-color: $Blue2;
       border-color: $Blue2;
 
@@ -142,6 +142,7 @@ header {
         }
       }
     }
+
     @include max-screen($screen-desktop - 1) {
       .menu-open & {
         &::before {
@@ -167,6 +168,31 @@ header {
         &::before {
           min-height: $topHeaderMobileFixed;
         }
+      }
+    }
+  }
+
+  .dropdown-menu::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 7rem);
+    max-width: 83rem;
+    height: 1px;
+    background-color: $navbar-dark-color;
+    transition: opacity .3s;
+
+    @include max-screen($screen-desktop - 1) {
+      width: calc(100% - 4.25rem);
+    }
+
+    @include max-screen($screen-tablet - 1) {
+      width: calc(100% - 3rem);
+      .menu-open & {
+        top: $topHeaderMobileFixed;
       }
     }
   }
@@ -349,10 +375,66 @@ header {
     padding: 0;
   }
 
+  .block-unesco-search-menu-icon {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: none;
+
+    .menu-open & {
+      display: block;
+    }
+
+    @include min-screen($screen-desktop) {
+      display: block;
+      margin-top: 0.25rem;
+      margin-bottom: -0.25rem;
+      width: auto;
+    }
+
+    .contextual {
+      right: auto;
+      left: 2rem;
+    }
+  }
+
+  .search-menu-icon {
+    color: $white;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+    position: relative;
+    padding-right: 2.5rem;
+
+    @include min-screen($screen-desktop) {
+      padding: 0 1rem;
+      font-size: 0;
+
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &::after {
+      @include icon('search');
+      font-size: 1.5rem;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
   .site-name-wrapper {
 
     a {
       text-decoration: none;
+    }
+
+    &+div {
+      @include min-screen($screen-desktop) {
+        margin-left: auto;
+      }
     }
   }
 

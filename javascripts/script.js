@@ -48,6 +48,7 @@
       this.initFilterAlphabetical(context, settings);
       this.initAudioPlayers(context, settings);
       this.initEventParagraph(context, settings);
+      this.initMultiSelect(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -841,42 +842,27 @@
       });
 
       function clearInput() {
-        $('.matched-text').removeClass('matched-text');
-        $('.match').removeClass('match');
         $('.search-in-progress').removeClass('search-in-progress');
         searchInput.val("");
         $('.wrapper-websites').removeClass('search-in-progress');
-
       }
 
-      $.fn.highlightWord = function (searchWord) {
-        let regex = RegExp('' + searchWord + '', 'gi'), replacement = '<span class="matched-text">$&</span>';
-        return this.html(function () {
-          return $(this).html().replace(regex, replacement);
-        });
-      };
-
-      $('.dynamic-search-button.clear', context).on('click', function () {
-        $('.vocabulary--websites .right').toggleClass('show');
-        clearInput();
-      });
-
-      searchButton.on('click', function () {
-        if (searchInput.val() == "") {
-          return;
-        }
+      searchInput.on('keyup change click', function () {
+        let searchTerm = $(this).val().toLowerCase();
 
         $(document).find('.wrapper-websites').addClass('search-in-progress');
         $('.vocabulary--websites .right').addClass('show');
 
+        if (searchTerm == "") {
+          clearInput();
+        }
+
         websiteTaxo.each(function () {
           let searchKeyTitle = $(this).find('.title').text().toLowerCase();
-          let searchKeyDesc = $(this).find('.field--name-description .field__item').text().toLowerCase();
-          let searchTerm = searchInput.val().toLowerCase();
+          let searchKeyDesc = $(this).find('.field--name-description *').text().toLowerCase();
 
           if ((searchKeyTitle.indexOf(searchTerm) > -1 || searchKeyDesc.indexOf(searchTerm) > -1) && searchTerm != "") {
             $(this).addClass('match');
-            $(this).find('.title, .field--name-description .field__item').highlightWord(searchTerm);
           } else {
             $(this).removeClass('match');
           }
@@ -884,10 +870,10 @@
       });
     },
 
+    // Used $(document) to fix issues when user is logged in
     initSearchFilters: function (context, settings) {
-      let blockFacet = $('.block-facets', context);
-      let toggleFacets = $('.toggle-facets', context);
-      let toggleMoreFacets = $('.toggle-more-facets', context);
+      let toggleFacets = $(document).find('.toggle-facets', context);
+      let toggleMoreFacets = $(document).find('.toggle-more-facets', context);
       let desktopWidth = 992;
 
       if ($(window).width() >= desktopWidth) {
@@ -905,7 +891,7 @@
         }
       }
 
-      toggleFacets.unbind('click').on('click', function (e) {
+      toggleFacets.on('click', function (e) {
         e.preventDefault();
         $(this).toggleClass('active');
         $(this)
@@ -917,32 +903,73 @@
 
       toggleMoreFacets.unbind('click').on('click', function (e) {
         e.preventDefault();
-        $(this).parent().prev('.facets-more').find('.block-facets').fadeToggle();
+        $(this).parent().prev('.facets-more').find('.block-facets:not(.hidden)').fadeToggle();
+        $(this).toggleClass('less');
       });
 
-      blockFacet.once('facetBehaviors').each(function () {
-        let blockFacetLabel = $(this).find('.facet-label');
+      $(document).on('click', '.block-facets .facet-label', function (e) {
+        e.preventDefault();
+        $(document).find('.facet-label').not($(this)).removeClass('active').next().slideUp();
+        $(this).toggleClass('active').next().slideToggle(300, "swing");
 
-        blockFacetLabel.unbind('click').on('click', function (e) {
-          e.preventDefault();
-          blockFacet.find('.facet-label').not(this).removeClass('active').next().slideUp();
-          $(this).toggleClass('active').next().slideToggle(300, "swing");
+        let searchAutoComplete = $(this).next('.wrapper-facet-checkbox-search').children('.search-autocomplete');
 
-          let searchAutoComplete = $(this).next('.wrapper-facet-checkbox-search').children('.search-autocomplete');
-          searchAutoComplete.find('input').on("keyup", function () {
-            let value = $(this).val().toLowerCase();
-            let listAutoComplete = searchAutoComplete.next().find('.js-facets-checkbox-links li');
-            listAutoComplete.filter(function () {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-            });
-          });
-          searchAutoComplete.find('input').bind("keypress", function (e) {
-            if (e.keyCode == 13) {
-              return false;
-            }
+        searchAutoComplete.find('input').on("keyup", function () {
+          let value = $(this).val().toLowerCase();
+          let listAutoComplete = searchAutoComplete.next().find('.js-facets-checkbox-links li');
+          listAutoComplete.filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
           });
         });
 
+        searchAutoComplete.find('input').bind("keypress", function (e) {
+          if (e.keyCode == 13) {
+            return false;
+          }
+        });
+      });
+
+      let submitDate = $('.facet-daterange .form-submit', context);
+      submitDate.unbind('click').on('click', function (e) {
+        e.preventDefault();
+        let dateFrom = $('.facet-daterange  #date_from', context);
+        let dateTo = $('.facet-daterange  #date_to', context);
+        let url = new URL(window.location);
+        let search_params = url.searchParams;
+        let val_date_from = dateFrom.val();
+        let val_date_to = dateTo.val();
+        // Date from
+        if (val_date_from) {
+          if (search_params.has('date_from')) {
+            search_params.set('date_from', val_date_from);
+          }
+          else {
+            search_params.append('date_from', val_date_from);
+          }
+        }
+        else {
+          if (search_params.has('date_from')) {
+            search_params.delete('date_from');
+          }
+        }
+
+        // Date to
+        if (val_date_to) {
+          if (search_params.has('date_to')) {
+            search_params.set('date_to', val_date_to);
+          }
+          else {
+            search_params.append('date_to', val_date_to);
+          }
+        }
+        else {
+          if (search_params.has('date_to')) {
+            search_params.delete('date_to');
+          }
+        }
+
+        url.search = search_params.toString();
+        window.location.replace(url.toString());
       });
 
       let sortBy = $('.form-item-sort-by', context);
@@ -1128,6 +1155,20 @@
 
       calendarLink.on('mouseleave', function() {
         $(this).find('.calendar-links').collapse('hide');
+      });
+    },
+
+    initMultiSelect: function (context, settings) {
+      var multiSelect = $('.form-select[multiple]', context);
+      var select = [];
+
+      multiSelect.once().each(function () {
+        var label = $(this).parent().find('label').text();
+        let slimSelect = new SlimSelect({
+          select: '#' + $(this).attr('id'),
+          placeholder: label,
+        });
+        select.push(slimSelect);
       });
     },
 

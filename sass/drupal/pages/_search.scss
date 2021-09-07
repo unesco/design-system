@@ -22,6 +22,7 @@
     input {
       border-radius: 5rem;
       margin-top: 0;
+      box-sizing: border-box;
     }
   }
 
@@ -224,6 +225,10 @@
   .facets-more {
     margin-top: -.5rem;
     padding: 0 0 .5rem 0;
+
+    .block-facets {
+      display: none;
+    }
   }
 
   .links-facets {
@@ -241,6 +246,9 @@
       align-items: center;
       color: $grey4;
       font-weight: 600;
+      background-color: transparent;
+      border: none;
+      
       &:hover {
         text-decoration: none;
       }
@@ -249,6 +257,12 @@
         line-height: 1;
         margin-left: .5rem;
         font-size: 1rem;
+      }
+
+      &.less {
+        &::after {
+          content: 'remove';
+        }
       }
 
     }
@@ -308,6 +322,16 @@
     border: .0625rem solid $grey2;
     z-index: 80;
     padding: 1.5rem;
+    &.wrapper-dates {
+      width: 100%;
+      :first-child {
+        margin-top: 0;
+      }
+      .form-submit {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
   }
 
   .search-autocomplete {

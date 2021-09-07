@@ -227,16 +227,6 @@ $list-text: (
 
     }
 
-    &.paragraph--view-mode--normal {
-
-      .field__item {
-
-        article.node {
-          max-width: 51.5rem;
-        }
-      }
-    }
-
     &.no-border {
       padding-top: 0;
       &::before {
