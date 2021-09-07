@@ -392,6 +392,10 @@ header {
       width: auto;
     }
 
+    .header-sticky & {
+      display: none;
+    }
+
     .contextual {
       right: auto;
       left: 2rem;
