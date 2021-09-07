@@ -316,6 +316,8 @@
 
       @include min-screen($screen-desktop) {
         margin-left: 2rem;
+        max-width: 11.375rem;
+        overflow: hidden;
       }
     }
 
