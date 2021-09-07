@@ -111,7 +111,8 @@ header {
 
   .parent-menu-open &,
   .transparent-header &,
-  .header-with-line:not(.header-sticky) & {
+  .header-with-line:not(.header-sticky) &,
+  .path-countries:not(.header-sticky) & {
     &::after {
       content: "";
       display: block;
@@ -176,7 +177,7 @@ header {
     content: "";
     display: block;
     position: absolute;
-    top: -1px;
+    top: -2px;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 7rem);
