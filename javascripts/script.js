@@ -903,7 +903,8 @@
 
       toggleMoreFacets.unbind('click').on('click', function (e) {
         e.preventDefault();
-        $(this).parent().prev('.facets-more').find('.block-facets').fadeToggle();
+        $(this).parent().prev('.facets-more').find('.block-facets:not(.hidden)').fadeToggle();
+        $(this).toggleClass('less');
       });
 
       $(document).on('click', '.block-facets .facet-label', function (e) {

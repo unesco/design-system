@@ -225,6 +225,10 @@
   .facets-more {
     margin-top: -.5rem;
     padding: 0 0 .5rem 0;
+
+    .block-facets {
+      display: none;
+    }
   }
 
   .links-facets {
@@ -253,6 +257,12 @@
         line-height: 1;
         margin-left: .5rem;
         font-size: 1rem;
+      }
+
+      &.less {
+        &::after {
+          content: 'remove';
+        }
       }
 
     }
