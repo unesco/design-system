@@ -49,6 +49,7 @@
       this.initAudioPlayers(context, settings);
       this.initEventParagraph(context, settings);
       this.initMultiSelect(context, settings);
+      this.initwebformScrollUp(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -1172,6 +1173,17 @@
       });
     },
 
+    initwebformScrollUp: function (context, settings) {
+      window.addEventListener('message', function(event) {
+        // Listen for a keyword coming from the webform iframe on first step submit and then scroll parent window to iframe
+        if(event.data.keyword == "scrolltop") {
+          let scrollValue = $('.iframe-webform').offset().top - 240;
+          $("body,html").animate({
+            scrollTop: scrollValue,
+          }, 500);
+        }
+      });
+    },
   };
 
 })(jQuery);
