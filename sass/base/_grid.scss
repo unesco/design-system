@@ -9,9 +9,9 @@
     max-width: none;
   }
   @include min-screen($screen-desktop) {
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
-    max-width: 1300px;
+    padding-left: 5.875rem;
+    padding-right: 5.875rem;
+    max-width: 1440px;
   }
 }
 

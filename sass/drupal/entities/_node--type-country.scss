@@ -474,9 +474,14 @@
     line-height: 2rem;
     cursor: pointer;
     user-select: none;
+
     &.active {
       background-color: $BlueU;
       color: $white;
+    }
+
+    &:hover {
+      background-color: $grey2;
     }
   }
 }
@@ -505,4 +510,12 @@
     }
   }
 
+}
+
+.ourcountries {
+  .description-wrapper {
+    .field--name-field-description {
+      max-width: 38.125rem;
+    }
+  }
 }
