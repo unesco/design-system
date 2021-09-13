@@ -177,7 +177,7 @@ header {
     content: "";
     display: block;
     position: absolute;
-    top: -2px;
+    top: -1px;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 7rem);
@@ -652,6 +652,10 @@ header {
               background-color: $navbar-dark-color;
             }
           }
+        }
+
+        .dropdown-toggle::after {
+          content: "expand_less";
         }
       }
     }
@@ -1260,6 +1264,30 @@ header {
         @include icon('chevron_right');
         font-size: 1.2rem;
         color: $grey4;
+      }
+
+      &:hover {
+        &::after {
+          color: $darkGrey;
+        }
+      }
+
+      &:focus {
+        border: 2px solid $LightBlue;
+        outline: none;
+
+        &::after {
+          color: $grey4;
+        }
+      }
+
+      &:active {
+        border: none;
+        outline: none;
+
+        &::after {
+          color: $grey3;
+        }
       }
 
       &.slick-disabled {
