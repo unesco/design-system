@@ -154,6 +154,15 @@
           @include icon('search');
         }
       }
+
+      @include min-screen($screen-desktop) {
+        &::after {
+          @include icon('search');
+          margin-left: 0.625rem;
+          font-size: 1rem;
+          vertical-align: middle;
+        }
+      }
     }
 
     &.home,
@@ -509,6 +518,10 @@
       width: 100%;
       max-width: 45.5rem;
       box-sizing: border-box;
+      background-image: url('../images/search-icon.svg');
+      background-size: 1rem;
+      background-position: right 1.688rem center;
+      background-repeat: no-repeat;
 
       &::placeholder {
         color: inherit;
