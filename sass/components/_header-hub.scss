@@ -100,7 +100,7 @@
 
       a.title {
         display: inline-block;
-        
+
         &::after {
           content: "";
           display: block;
@@ -552,6 +552,21 @@
           .field__item:first-of-type {
             .paragraph {
               margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .node--type-hub {
+    &.is-universe {
+      .hero-wrapper {
+        .field--name-field-ref-image {
+          article.media {
+            min-height: 18rem;
+            @include min-screen($screen-desktop) {
+              min-height: 25rem;
             }
           }
         }
