@@ -297,6 +297,20 @@
               font-weight: 600;
             }
 
+            .hub-header-lvl1-image {
+              &::after {
+                display: none;
+              }
+              article.media {
+                min-height: 0;
+              }
+              img {
+                position: relative;
+                width: 100%;
+                object-fit: initial;
+              }
+            }
+
             @include min-screen($screen-desktop) {
               display: block;
               width: calc(25% - 2rem);
