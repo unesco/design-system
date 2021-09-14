@@ -144,7 +144,7 @@ function unesco_preprocess_html(&$variables) {
 
   if ($route_name === 'entity.node.canonical') {
     $node = $route_match->getParameter('node');
-    if (!empty($node)) {
+    if ($node) {
       $bundles_with_hero = [
         'homepage',
         'landing',
@@ -195,6 +195,12 @@ function unesco_preprocess_html(&$variables) {
 
       if (!$node->isPublished()) {
         $variables['attributes']['class'][] = 'page-unpublished';
+      }
+
+      $hub = \Drupal::service('unesco_node.hub_manager')->getHubFromRouteMatch($route_match);
+      if ($hub) {
+        $variables['attributes']['class'][] = 'transparent-header';
+        $variables['attributes']['class'][] = 'hub';
       }
     }
   }
