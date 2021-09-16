@@ -144,7 +144,7 @@ function unesco_preprocess_html(&$variables) {
 
   if ($route_name === 'entity.node.canonical') {
     $node = $route_match->getParameter('node');
-    if (!empty($node)) {
+    if ($node) {
       $bundles_with_hero = [
         'homepage',
         'landing',
@@ -195,6 +195,12 @@ function unesco_preprocess_html(&$variables) {
 
       if (!$node->isPublished()) {
         $variables['attributes']['class'][] = 'page-unpublished';
+      }
+
+      $hub = \Drupal::service('unesco_node.hub_manager')->getHubFromRouteMatch($route_match);
+      if ($hub) {
+        $variables['attributes']['class'][] = 'transparent-header';
+        $variables['attributes']['class'][] = 'hub';
       }
     }
   }
@@ -301,19 +307,7 @@ function unesco_preprocess_block(&$variables) {
 
   if ($plugin_id == 'galaxy-menu') {
     $variables['site_logo'] = theme_get_setting('logo.url');
-
-    $site_name = \Drupal::service('config.factory')->get('system.site')->get('name');
-    // @TODO Duplicate code from class SiteNameBlock.
-    $config_header = \Drupal::entityTypeManager()->getStorage('config_pages')->load('header');
-    if ($config_header) {
-      if ($config_header->hasField('field_short_name') && !$config_header->field_short_name->isEmpty()) {
-        $site_name = $config_header->field_short_name->value;
-      }
-      elseif ($config_header->hasField('field_name') && !$config_header->field_name->isEmpty()) {
-        $site_name = $config_header->field_name->value;
-      }
-    }
-    $variables['site_name'] = $site_name;
+    $variables['site_name'] = \Drupal::service('unesco_common.global_helper')->getSiteName();
   }
 }
 

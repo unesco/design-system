@@ -100,7 +100,7 @@
 
       a.title {
         display: inline-block;
-        
+
         &::after {
           content: "";
           display: block;
@@ -295,6 +295,20 @@
               margin-top: 1.5rem;
               font-size: 1.25rem;
               font-weight: 600;
+            }
+
+            .hub-header-lvl1-image {
+              &::after {
+                display: none;
+              }
+              article.media {
+                min-height: 0;
+              }
+              img {
+                position: relative;
+                width: 100%;
+                object-fit: initial;
+              }
             }
 
             @include min-screen($screen-desktop) {
@@ -552,6 +566,21 @@
           .field__item:first-of-type {
             .paragraph {
               margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .node--type-hub {
+    &.is-universe {
+      .hero-wrapper {
+        .field--name-field-ref-image {
+          article.media {
+            min-height: 18rem;
+            @include min-screen($screen-desktop) {
+              min-height: 25rem;
             }
           }
         }
