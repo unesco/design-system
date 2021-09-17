@@ -295,6 +295,7 @@ $story-item-description: (
         width: 100%;
         height: 100vh;
         @include descending-z-index;
+        transition: 0.2s all linear;
 
         .story {
           height: 100vh;
