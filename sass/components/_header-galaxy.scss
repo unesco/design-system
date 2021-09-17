@@ -2,6 +2,10 @@
   @include max-screen($screen-desktop - 1) {
     display: none;
     width: 100%;
+
+    .menu-open & {
+      margin-bottom: 4rem;
+    }
   }
 
   .menu-open & {

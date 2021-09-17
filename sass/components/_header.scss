@@ -960,6 +960,10 @@ header {
     }
   }
 
+  .dropdown-menu::before {
+    display: none;
+  }
+
   @include min-screen($screen-desktop) {
     padding-right: 0;
     flex: unset;
@@ -1237,6 +1241,7 @@ header {
         line-height: 1.33;
         font-weight: 600;
         margin-top: $spacer;
+        color: $white;
 
         @include max-screen($screen-tablet - 1) {
           font-size: 1rem;
@@ -1421,6 +1426,7 @@ header {
     padding: 0 0.5rem;
     font-size: 1.125rem;
     font-weight: 600;
+    color: $white;
     width: 100%;
     text-align: center;
     position: absolute;
