@@ -1,5 +1,9 @@
+#block-exploreunesco-menu {
+  display: none;
+}
+
 .menu--galaxy-menu {
-  @include max-screen($screen-desktop - 1) {
+    @include max-screen($screen-desktop - 1) {
     display: none;
     width: 100%;
 
