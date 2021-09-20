@@ -44,6 +44,14 @@
       @include responsive(font-size, $section-title);
     }
 
+    .field--name-field-description {
+      @include responsive(font-size, $section-title-small);
+      margin: 0 0 2rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 3rem;
+      }
+    }
 
     &.paragraph--view-mode {
       &--grid {
