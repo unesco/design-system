@@ -1,5 +1,15 @@
 header.header {
-  padding: 0  2.125rem;
+  position: fixed;
+  width: 100%;
+  z-index: 90;
+  padding: 0 1.5rem;
+  @include min-screen($screen-tablet) {
+    padding: 0 2.125rem;
+  }
+  @include min-screen($screen-desktop) {
+    position: absolute;
+    padding: 0 3.5rem;
+  }
 
   &.is-blue {
     background-color: $BlueU;
@@ -24,12 +34,36 @@ header.header {
     width: 100%;
     max-width: 83rem;
     margin: 0 auto;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
+    @include min-screen($screen-tablet) {
+      padding: 1.5rem 0;
+    }
+    @include min-screen($screen-desktop) {
+      padding: 2rem 0;
+    }
 
     &_logo {
-      max-width: 16rem;
       img {
         width: 100%;
+        max-width: 9.375rem;
+        @include min-screen($screen-tablet) {
+          max-width: 16.25rem;
+        }
+      }
+    }
+
+    &_baseline {
+      display: block;
+      margin-top: .5rem;
+      font-size: .875rem;
+      color: $white;
+      font-weight: 800;
+      &:hover {
+        text-decoration: none;
+      }
+      @include min-screen($screen-desktop) {
+        margin-top: 1rem;
+        font-size: 1.125rem;
       }
     }
 
