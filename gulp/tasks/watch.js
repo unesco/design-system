@@ -17,5 +17,6 @@ module.exports = function(gulp, $, config, messages) {
 
     // Watch for .js files.
     gulp.watch(config.javascript.src, gulp.series("scripts"));
+    gulp.watch(config.unescoJavascript.src, gulp.series("scripts"));
   });
 };

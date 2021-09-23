@@ -27,6 +27,7 @@ header.header {
   }
 
   .navbar {
+    position: initial;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,7 +40,8 @@ header.header {
       padding: 1.5rem 0;
     }
     @include min-screen($screen-desktop) {
-      padding: 2rem 0;
+      align-items: flex-start;
+      padding: 2rem 0 1.5rem;
     }
 
     &_logo {
@@ -68,13 +70,20 @@ header.header {
     }
 
     &_burger {
-      position: relative;
+      position: absolute;
+      z-index: 90;
       display: inline-block;
       width: 2.5rem;
       height: 2.5rem;
+      top: .75rem;
+      right: 1.5rem;
       background-color: $BlueU;
       border-radius: 50%;
       cursor: pointer;
+      @include min-screen($screen-tablet) {
+        top: 2rem;
+        right: 2.125rem;
+      }
       @include min-screen($screen-desktop) {
         display: none;
       }
@@ -100,9 +109,140 @@ header.header {
         &:nth-child(3) {
           top: 1.625rem;
         }
+      }
+    }
 
-        .active & {
-          background-color: red;
+    &_wrapper {
+      background-color: $BlueU;
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      @include min-screen($screen-tablet) {
+        padding: 2rem 2.125rem;
+      }
+      @include max-screen($screen-desktop - 1) {
+        display: none;
+        width: 100vw;
+        left: 0;
+        position: absolute;
+      }
+      @include min-screen($screen-desktop) {
+        padding: 0;
+        display: flex!important;
+        align-items: flex-end;
+      }
+    }
+
+    &_top {
+      display: flex;
+      flex-direction: column;
+      order: 1;
+      padding: 0;
+      margin: 1.5rem 0 0 0;
+      @include min-screen($screen-desktop) {
+        margin: 0 -1rem .75rem;
+        flex-direction: row;
+        order: 0;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      li {
+        list-style: none;
+        @include min-screen($screen-desktop) {
+          margin: 0 1rem;
+        }
+        a {
+          display: inline-block;
+          color: $white;
+          font-size: 1rem;
+          padding: .5rem 0;
+          @include min-screen($screen-desktop) {
+            padding: 0;
+            font-size: .875rem;
+          }
+        }
+      }
+    }
+
+    &_nav {
+      display: flex;
+      align-items: flex-start;
+      order: 0;
+      flex-direction: column;
+      @include min-screen($screen-desktop) {
+        order: 1;
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    &_menu {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      order: 1;
+      padding: 0;
+      margin: -.75rem 0;
+      @include min-screen($screen-desktop) {
+        flex-direction: row;
+        align-items: center;
+        order: 0;
+        margin: 0 -1.125rem;
+      }
+      li {
+        list-style: none;
+        &.submenu-active {
+          .navbar_submenu {
+            left: 0;
+          }
+        }
+        @include min-screen($screen-desktop) {
+          margin: 0 1.125rem;
+        }
+        a {
+          display: inline-block;
+          color: white;
+          font-size: 1.5rem;
+          padding: 0.75rem 0;
+          @include min-screen($screen-desktop) {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+
+    &_submenu {
+      position: fixed;
+      z-index: 80;
+      top: 0;
+      left: 100vw;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: $BlueU;
+      transition: .3s ease-in-out;
+    }
+
+    &_actions {
+      display: none;
+      order: 0;
+      margin: 0 -1.125rem 0 0;
+      @include min-screen($screen-desktop) {
+        display: flex;
+        order: 1;
+      }
+      a, button {
+        color: white;
+        margin: 0 1.125rem;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    &.active {
+      .navbar_burger {
+        span {
 
           &:nth-child(1) {
             animation: burger-open-top .4s ease-out forwards;
@@ -120,85 +260,42 @@ header.header {
       }
     }
 
-    &_wrapper {
-      @include max-screen($screen-desktop - 1) {
-        display: none;
-        width: 100%;
-      }
-    }
+    &.closing {
+      .navbar_burger {
+        span {
+          &:nth-child(1) {
+            animation: burger-close-top .4s ease-out forwards;
+          }
 
-    &_top {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      margin: 0 -1rem .75rem;
-      li {
-        list-style: none;
-        margin: 0 1rem;
-        a {
-          color: $white;
-          font-size: 1rem;
-          @include min-screen($screen-desktop) {
-            font-size: .875rem;
+          &:nth-child(3) {
+            animation: burger-close-bot .4s ease-out forwards;
           }
         }
       }
     }
 
-    &_nav {
+  }
+
+  .submenu {
+    &-header {
       display: flex;
       align-items: center;
+      width: calc(100% - 3rem);
+      margin: 1.25rem 1.5rem;
+      padding: 0 4rem 1rem 0;
+      border-bottom: .0625rem solid $white;
+      color: $white;
     }
-
-    &_menu {
-      display: flex;
-      align-items: center;
-      margin: 0 -1.125rem;
-      padding: 0;
-      li {
-        list-style: none;
-        margin: 0 1.125rem;
-        a {
-          color: white;
-          font-size: 1.125rem;
-        }
-      }
+    &-back {
+      width: 4rem;
+      font-size: 2rem;
     }
-
-    &_submenu {
-      display: none;
+    &-title {
+      font-size: 1.125rem;
+      text-align: center;
+      width: 100%;
     }
-
-    &_actions {
-      display: flex;
-      margin: 0 -1.125rem 0 0;
-      a, button {
-        color: white;
-        margin: 0 1.125rem;
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
-
   }
 }
 
 
-@keyframes burger-open-top {
-  50% {
-    transform: translate3d(0, 6px, 0);
-  }
-  100% {
-    transform: translate3d(0, 6px, 0) rotate(45deg);
-  }
-}
-
-@keyframes burger-open-bot {
-  50% {
-    transform: translate3d(0, -6px, 0);
-  }
-  100% {
-    transform: translate3d(0, -6px, 0) rotate(-45deg);
-  }
-}

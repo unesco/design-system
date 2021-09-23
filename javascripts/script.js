@@ -169,7 +169,7 @@
         }
         if (currentDiff * initialDiff < 0) {
           initialDiff *= -1;
-          location.reload();
+          // location.reload();
         }
       });
     },

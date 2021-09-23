@@ -92,7 +92,6 @@
   animation-name: slideInDownWhite;
 }
 
-
 @keyframes arrow-slide-right {
   0% {
     transform: translateX(0);
@@ -104,5 +103,47 @@
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@keyframes burger-open-top {
+  50% {
+    transform: translate3d(0, 6px, 0);
+  }
+  100% {
+    transform: translate3d(0, 6px, 0) rotate(45deg);
+  }
+}
+
+@keyframes burger-open-bot {
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+  100% {
+    transform: translate3d(0, -6px, 0) rotate(-45deg);
+  }
+}
+
+@keyframes burger-close-top {
+  0% {
+    transform: translate3d(0, 6px, 0) rotate(45deg);
+  }
+  50% {
+    transform: translate3d(0, 6px, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes burger-close-bot {
+  0% {
+    transform: translate3d(0, -6px, 0) rotate(-45deg);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
   }
 }
