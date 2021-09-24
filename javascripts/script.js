@@ -1090,8 +1090,9 @@
       }
 
       input.on('keyup change click', function () {
+        const element = $(this);
         setTimeout(function () {
-          updateInput($(this));
+          updateInput(element);
         }, 500);
       });
     },
