@@ -46,6 +46,7 @@
       this.initMapListMobile(context, settings);
       this.initMapSizeMobile(context, settings);
       this.initFilterAlphabetical(context, settings);
+      this.initFilterSearch(context, settings);
       this.initAudioPlayers(context, settings);
       this.initEventParagraph(context, settings);
       this.initMultiSelect(context, settings);
@@ -794,7 +795,6 @@
       const galaxyPopin = $('.menu--galaxy-menu .popin', context);
       const ongletLink = $('.menu--galaxy-menu nav > ul > li > .dropdown-toggle, .menu--galaxy-menu nav .vocabulary--websites .title');
       const searchInput = $('.vocabulary--websites .dynamic-search', context);
-      const searchButton = $('.dynamic-search-button', context);
       const websiteTaxo = $('.vocabulary--websites .taxonomy-term');
 
       galaxyButton.on('click', function () {
@@ -1064,7 +1064,36 @@
           Drupal.unescoMap.updateMap(explorer);
         }
       });
+    },
 
+    initFilterSearch: function (context, settings) {
+      const input = $('.hubslist .dynamic-search', context);
+      const results = $('.hubslist .list-wrapper .node--type-hub', context);
+
+      function updateInput() {
+        let search = $(this).val().toLowerCase();
+        if (search == "") {
+          input.val("");
+        }
+
+        results.each(function () {
+          const textWrapper = $(this).find('.text-wrapper');
+          let keyTitle = textWrapper.find('.title').text().toLowerCase();
+          let keyTermLabel = textWrapper.find('.term-universe').text().toLowerCase();
+
+          if (search != "" && (keyTitle.indexOf(search) > -1 || keyTermLabel.indexOf(search) > -1)) {
+            $(this).removeClass('unmatch');
+          } else {
+            $(this).addClass('unmatch');
+          }
+        });
+      }
+
+      input.on('keyup change click', function () {
+        setTimeout(function () {
+          updateInput();
+        }, 500);
+      });
     },
 
     initAudioPlayers: function (context, settings) {
