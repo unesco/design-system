@@ -1070,8 +1070,8 @@
       const input = $('.hubslist .dynamic-search', context);
       const results = $('.hubslist .list-wrapper .node--type-hub', context);
 
-      function updateInput() {
-        let search = $(this).val().toLowerCase();
+      function updateInput(element) {
+        let search = element.val().toLowerCase();
         if (search == "") {
           input.val("");
         }
@@ -1091,7 +1091,7 @@
 
       input.on('keyup change click', function () {
         setTimeout(function () {
-          updateInput();
+          updateInput($(this));
         }, 500);
       });
     },
