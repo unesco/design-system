@@ -208,5 +208,7 @@ a.icon-external {
 
   @include min-screen($screen-desktop) {
     width: 80%;
+    margin: 0 auto;
+    display: block;
   }
 }
