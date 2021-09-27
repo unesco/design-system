@@ -188,7 +188,7 @@ header.header {
         order: 0;
         margin: 0 -1.125rem;
       }
-      li {
+      & > li {
         list-style: none;
         &.submenu-active {
           .navbar_submenu {
@@ -198,7 +198,7 @@ header.header {
         @include min-screen($screen-desktop) {
           margin: 0 1.125rem;
         }
-        a {
+        & > a {
           display: inline-block;
           color: white;
           font-size: 1.5rem;
@@ -213,14 +213,22 @@ header.header {
     &_submenu {
       position: fixed;
       z-index: 80;
-      top: 0;
-      left: 100vw;
       width: 100vw;
-      height: 100vh;
       margin: 0;
       padding: 0;
       background-color: $BlueU;
-      transition: .3s ease-in-out;
+      @include max-screen($screen-desktop - 1) {
+        top: 0;
+        left: 100vw;
+        height: 100vh;
+        transition: .3s ease-in-out;
+      }
+      @include min-screen($screen-desktop) {
+        position: absolute;
+        display: none;
+        top: 100%;
+        left: 0;
+      }
     }
 
     &_actions {
@@ -274,6 +282,58 @@ header.header {
       }
     }
 
+    li {
+      list-style: none;
+    }
+
+    &_sticky {
+      display: none;
+      @include min-screen($screen-desktop) {
+        display: block;
+        position: fixed;
+        width: 100%;
+        top: -6rem;
+        left: 0;
+        padding: 0 3.5rem;
+        background-color: $BlueU;
+        transition: .4s ease-in-out;
+        &.is-sticky {
+          top: 0;
+        }
+        &.is-white {
+          background-color: $white;
+          color: $BlueU;
+          .navbar_baseline,
+          .navbar_sticky-content,
+          .navbar_sticky-content a {
+            color: $BlueU;
+          }
+        }
+      }
+      .navbar_logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+          max-height: 2rem;
+        }
+        .navbar_baseline {
+          font-size: .875rem;
+          white-space: nowrap;
+          margin-top: 0;
+          margin-left: 1rem;
+        }
+      }
+      &-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 83rem;
+        margin: 0 auto;
+        padding: .75rem 0;
+      }
+    }
   }
 
   .submenu {
@@ -281,7 +341,7 @@ header.header {
       display: flex;
       align-items: center;
       width: calc(100% - 3rem);
-      margin: 1.25rem 1.5rem;
+      margin: 1.25rem 1.5rem 0;
       padding: 0 4rem 1rem 0;
       border-bottom: .0625rem solid $white;
       color: $white;
@@ -289,11 +349,43 @@ header.header {
     &-back {
       width: 4rem;
       font-size: 2rem;
+      cursor: pointer;
+      line-height: .9;
     }
     &-title {
       font-size: 1.125rem;
+      font-weight: 500;
       text-align: center;
       width: 100%;
+    }
+    &_wrapper {
+      padding: 2rem 1.5rem;
+    }
+    &_list {
+      font-size: 1rem;
+      color: $white;
+      margin: .5rem 0 0 0;
+      &:first-child {
+        margin: -.75rem 0 0 0;
+      }
+      &-title {
+        padding: .75rem 0;
+        font-weight: 600;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+        padding: .75rem 0;
+        color: $white;
+        &:hover {
+          color: $white;
+        }
+      }
     }
   }
 }
