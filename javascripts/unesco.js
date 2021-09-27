@@ -94,16 +94,30 @@
       }
     });
 
-    if (navBarSticky.hasClass('is-white')) {
+    if (navBarSticky.hasClass('bg-white')) {
       navBarSticky.find('.navbar_logo img').attr('src',function(){
         return $(this).attr('src').replace("logo.svg","logo-blue.svg");
       });
     }
   }
 
+  function themingOption() {
+    let header = $('header.header');
+    $('input[name=headerBG]').on('click', function () {
+      header.toggleClass('bg-primary');
+    });
+    $('input[name=headerBorder]').on('click', function () {
+      header.toggleClass('is-border');
+    });
+    $('input[name=headerBaseline]').on('click', function () {
+      header.find('.navbar_baseline').toggle();
+    });
+  }
+
   menuMobile();
   subMenu();
   navWrapperHeight();
+  themingOption();
   stickyMenu();
 
   $( window ).resize(function() {

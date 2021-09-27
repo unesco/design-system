@@ -14,7 +14,7 @@
   <link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp">
 </head>
 <body>
-  <header class="header is-blue is-border">
+  <header class="header bg-primary is-border">
     <nav class="navbar closing">
       <div class="navbar_logo">
         <a href="#">
@@ -169,8 +169,6 @@
     </nav>
   </header>
 
-
-
   <main>
     <div class="js-slider-full">
       <div class="slide">
@@ -276,7 +274,20 @@
     </div>
   </footer>
 
-
+  <div class="option-theming">
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" name="headerBG" id="headerBG" checked="">
+      <label class="custom-control-label" for="headerBG">Header background</label>
+    </div>
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" name="headerBorder"id="headerBorder" checked="">
+      <label class="custom-control-label" for="headerBorder">Header border</label>
+    </div>
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" name="headerBaseline"id="headerBaseline" checked="">
+      <label class="custom-control-label" for="headerBaseline">Header baseline</label>
+    </div>
+  </div>
 
   <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="../javascripts/vendor/slick.min.js"></script>

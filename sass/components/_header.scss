@@ -3,6 +3,7 @@ header.header {
   width: 100%;
   z-index: 90;
   padding: 0 1.5rem;
+  transition: .3s ease;
   @include min-screen($screen-tablet) {
     padding: 0 2.125rem;
   }
@@ -11,8 +12,11 @@ header.header {
     padding: 0 3.5rem;
   }
 
-  &.is-blue {
+  &:hover {
     background-color: $BlueU;
+  }
+
+  &.bg-primary {
     .navbar {
       &_burger {
         background-color: $Blue2;
@@ -113,13 +117,13 @@ header.header {
     }
 
     &_wrapper {
-      background-color: $BlueU;
       flex-direction: column;
       padding: 2rem 1.5rem;
       @include min-screen($screen-tablet) {
         padding: 2rem 2.125rem;
       }
       @include max-screen($screen-desktop - 1) {
+        background: $BlueU;
         display: none;
         width: 100vw;
         left: 0;
@@ -326,8 +330,7 @@ header.header {
         &.is-sticky {
           top: 0;
         }
-        &.is-white {
-          background-color: $white;
+        &.bg-white {
           color: $BlueU;
           .navbar_baseline,
           .navbar_sticky-content,
@@ -484,4 +487,29 @@ header.header {
   }
 }
 
+main {
+  transition: .3s ease;
+}
 
+header.header.bg-primary + main {
+  padding-top: 8rem;
+}
+
+.option-theming {
+  display: none;
+  @include min-screen($screen-desktop) {
+    display: block;
+  }
+  position: fixed;
+  z-index: 99;
+  right: 2rem;
+  top: 8rem;
+  background-color: $white;
+  padding: .5rem;
+  border-radius: .5rem;
+  box-shadow: 0 0 1.5rem 0 rgba(0,0,0, .2);
+
+  .custom-checkbox {
+    margin: .5rem;
+  }
+}
