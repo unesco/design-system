@@ -40,9 +40,11 @@
       }
     }
 
-    &:not(.boxed) {
-      width: 100%;
-      max-width: 83.33333%;
+    .page-node-type-landing & {
+      &:not(.boxed) {
+        width: 100%;
+        max-width: 83.33333%;
+      }
     }
   }
 }
