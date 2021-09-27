@@ -71,6 +71,12 @@
             $(this).next().fadeIn();
           }
         });
+        $('body').on('click', function (e) {
+          if (!navSubMenu.is(e.target) && navSubMenu.parent().has(e.target).length === 0 ) {
+            navSubMenu.removeClass('submenu-active');
+            navSubMenu.next().fadeOut();
+          }
+        });
       }
     });
   }

@@ -159,6 +159,9 @@ header.header {
             padding: 0;
             font-size: .875rem;
           }
+          &.button-galaxy {
+            padding-right: 2rem;
+          }
         }
       }
     }
@@ -199,12 +202,35 @@ header.header {
           margin: 0 1.125rem;
         }
         & > a {
-          display: inline-block;
+          display: flex;
+          align-items: center;
           color: white;
           font-size: 1.5rem;
           padding: 0.75rem 0;
+          &:hover {
+            text-decoration: none;
+          }
           @include min-screen($screen-desktop) {
             font-size: 1.125rem;
+          }
+
+          &.is-expanded {
+            &::after {
+              @include icon('chevron_right');
+              line-height: 1;
+              margin-left: 1rem;
+            }
+            @include min-screen($screen-desktop) {
+              &::after {
+                margin-left: .5rem;
+                @include icon('expand_more');
+              }
+              &.submenu-active {
+                &::after {
+                  transform: rotate(-180deg);
+                }
+              }
+            }
           }
         }
       }
@@ -345,6 +371,10 @@ header.header {
       padding: 0 4rem 1rem 0;
       border-bottom: .0625rem solid $white;
       color: $white;
+      @include min-screen($screen-tablet) {
+        margin: 2.5rem 1.5rem 0;
+        padding: 0 4rem 2rem 0;
+      }
     }
     &-back {
       width: 4rem;
@@ -360,14 +390,21 @@ header.header {
     }
     &_wrapper {
       padding: 2rem 1.5rem;
+      @include max-screen($screen-desktop - 1) {
+        height: calc(100% - 4rem);
+        overflow: auto;
+      }
+      @include min-screen($screen-desktop) {
+        width: 100%;
+        max-width: 88rem;
+        margin: 0 auto;
+      }
     }
+
     &_list {
       font-size: 1rem;
       color: $white;
-      margin: .5rem 0 0 0;
-      &:first-child {
-        margin: -.75rem 0 0 0;
-      }
+      margin: -.75rem 0 0 0;
       &-title {
         padding: .75rem 0;
         font-weight: 600;
@@ -383,6 +420,63 @@ header.header {
         padding: .75rem 0;
         color: $white;
         &:hover {
+          color: $white;
+        }
+      }
+    }
+    &_card {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 100%;
+      margin: 0 -.5rem;
+      @include min-screen($screen-tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: calc(100% + 1rem);
+      }
+      @include min-screen($screen-desktop) {
+        margin: 0 -.75rem;
+        width: calc(100% + 1.5rem);
+      }
+
+      li {
+        width: 100%;
+        margin-bottom: 1rem;
+        transition: all .3s ease-in-out;
+        @include min-screen($screen-tablet) {
+          padding: 0 .5rem;
+          max-width: 25%;
+        }
+        @include min-screen($screen-desktop) {
+          padding: 0 .75rem;
+          margin-bottom: 1.5rem;
+        }
+
+        &:focus,
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        @include max-screen($screen-tablet - 1) {
+          max-width: 100%;
+          width: 100%;
+
+          img {
+            width: 100%;
+            max-width: unset;
+          }
+        }
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          z-index: 1;
+          padding: 0 .5rem;
+          font-size: 1.125rem;
+          font-weight: 600;
           color: $white;
         }
       }
