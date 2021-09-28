@@ -1,12 +1,14 @@
+
 .sdh-filters-header {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1.5rem;
+  grid-column-gap: 1.5rem;
   padding: 1.5rem 0;
 
   @include min-screen($screen-desktop) {
     padding: 2rem 0;
+    width: auto;
   }
 
   .button-filter {
@@ -42,12 +44,62 @@
       &:last-child {
         margin-right: 0;
       }
+
+      &.active {
+        background-color: $grey4;
+        i {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.sdh-filters-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .block-facet-blockdataset-filters {
+    order: -1;
+  }
+
+  @include min-screen($screen-desktop) {
+    flex-direction: row;
+    align-items: center;
+
+    .sdh-filters-header {
+      margin-left: auto;
+    }
+  }
+}
+
+.sdh-grid,
+.sdh-list {
+  .results-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 51.5rem;
+    width: 100%;
+    margin: 0 auto;
+
+    .item-content-search {
+      width: 100%;
+    }
+  }
+
+  .results-sort-wrapper {
+    display: none;
+
+    @include min-screen($screen-desktop) {
+      display: block;
     }
   }
 }
 
 .sdh-list,
-.sdh-map {
+.sdh-map,
+.sdh-grid {
   margin-top: -2rem;
 
   @include min-screen($screen-desktop) {
@@ -57,13 +109,6 @@
 
 .sdh-map {
   position: relative;
-
-  .sdh-filters-header .sdh-filters-links .map {
-    background-color: $grey4;
-    i {
-      color: $white;
-    }
-  }
 
   &-map {
     display: flex;
@@ -95,29 +140,32 @@
 }
 
 .sdh-list {
-  .view-content .views-row {
+  .item-content-search {
     padding: 1.5rem 0 0;
     margin-bottom: 2.25rem;
+    width: 100%;
 
     @include min-screen($screen-desktop) {
       margin-bottom: 3rem;
-    }
-
-    >article {
-      width: 100%;
     }
   }
 }
 
 .sdh-grid {
-  .view-content {
+  .results-sort-wrapper {
     max-width: 100%;
+  }
+
+  .results-wrapper {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 
     @include min-screen($screen-desktop) {
       margin: 0 -1rem;
     }
 
-    .views-row {
+    .item-content-search {
       margin: 0 0 2rem;
 
       @include min-screen($screen-desktop) {
@@ -125,5 +173,19 @@
         max-width: calc(25% - 2rem);
       }
     }
+  }
+
+  .node--view-mode-sdh-list .node__content {
+    @include min-screen($screen-desktop) {
+      flex-direction: column;
+
+      .field--name-field-ref-image {
+        order: -1;
+        margin: 0 0 1.5rem;
+        width: 18.063rem;
+        height: 12rem;
+      }
+    }
+    
   }
 }
