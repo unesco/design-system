@@ -78,7 +78,7 @@
 
 <h2>{{ 'Custom for Creative Cities'|t }}</h2>
 {% for data in datas %}
- <div>{{ data }}</div>
+ <div>{{ data|raw }}</div>
 {% endfor %}
 
 <h3 class="mt-5">{{ 'Link to list pre-filtered'|t }}</h3>
