@@ -76,7 +76,23 @@
   {{ imagestyle }}
 {% endif %}
 
-<h2>Custom for Creative Cities</h2>
+<h2>{{ 'Custom for Creative Cities'|t }}</h2>
 {% for data in datas %}
  <div>{{ data }}</div>
 {% endfor %}
+
+<h3 class="mt-5">{{ 'Link to list pre-filtered'|t }}</h3>
+{% set parent_id = node.field_ref_hub.target_id %}
+{# Headquarter id. #}
+{% set url_options = { 'query': {'f[0]': 'dataset_filters:59f9e316-d76d-4a07-9166-bc00255d8d0d'}} %}
+<ul>
+  <li>
+    <a href="{{ url('entity.node.structured_content', { 'node': parent_id, 'display': 'map' }, url_options) }}">{{ 'Map'|t }}</a>
+  </li>
+  <li>
+    <a href="{{ url('entity.node.structured_content', { 'node': parent_id, 'display': 'list' }, url_options) }}">{{ 'List'|t }}</a>
+  </li>
+  <li>
+    <a href="{{ url('entity.node.structured_content', { 'node': parent_id, 'display': 'grid' }, url_optionss) }}">{{ 'Grid'|t }}</a>
+  </li>
+</ul>
