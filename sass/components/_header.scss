@@ -462,7 +462,7 @@ header.header {
       flex-direction: column;
       justify-content: flex-end;
       width: 100%;
-      margin: 0 -.5rem;
+      margin: 0 -.5rem -1rem;
       padding: 0;
       @include min-screen($screen-tablet) {
         flex-direction: row;
@@ -470,7 +470,7 @@ header.header {
         width: calc(100% + 1rem);
       }
       @include min-screen($screen-desktop) {
-        margin: 0 -.75rem;
+        margin: 0 -.75rem -1.5rem;
         width: calc(100% + 1.5rem);
       }
 
