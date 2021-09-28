@@ -1,5 +1,6 @@
 header.header {
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 90;
   padding: 0 1.5rem;
@@ -216,24 +217,27 @@ header.header {
           color: white;
           font-size: 1.5rem;
           padding: 0.75rem 0;
-          &::before {
-            content: '';
-            position: absolute;
-            bottom: .5rem;
-            right: 0;
-            width: 0;
-            height: 1px;
-            background-color: $white;
-            transition: .3s ease-in-out;
-          }
           &:hover {
             text-decoration: none;
-            &::before {
-              width: 100%;
-              left: 0;
-            }
           }
           @include min-screen($screen-desktop) {
+            &::before {
+              content: '';
+              position: absolute;
+              bottom: .5rem;
+              right: 0;
+              width: 0;
+              height: 1px;
+              background-color: $white;
+              transition: .3s ease-in-out;
+            }
+
+            &:hover {
+              &::before {
+                width: 100%;
+                left: 0;
+              }
+            }
             font-size: 1.125rem;
           }
 
@@ -480,10 +484,11 @@ header.header {
         transition: all .3s ease-in-out;
         @include min-screen($screen-tablet) {
           padding: 0 .5rem;
-          max-width: 25%;
+          max-width: 50%;
         }
         @include min-screen($screen-desktop) {
           padding: 0 .75rem;
+          max-width: 25%;
           margin-bottom: 1.5rem;
         }
 
@@ -493,12 +498,13 @@ header.header {
         }
 
         @include max-screen($screen-tablet - 1) {
-          max-width: 100%;
-          width: 100%;
+          a {
+            max-height: 9rem;
+          }
 
           img {
-            width: 100%;
-            max-width: unset;
+            @include img-cover();
+            object-position: center;
           }
         }
 
