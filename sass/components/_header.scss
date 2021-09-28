@@ -30,6 +30,10 @@ header.header {
     }
   }
 
+  &.is-active {
+    background-color: $BlueU;
+  }
+
   .navbar {
     position: initial;
     display: flex;
@@ -206,13 +210,28 @@ header.header {
           margin: 0 1.125rem;
         }
         & > a {
+          position: relative;
           display: flex;
           align-items: center;
           color: white;
           font-size: 1.5rem;
           padding: 0.75rem 0;
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: .5rem;
+            right: 0;
+            width: 0;
+            height: 1px;
+            background-color: $white;
+            transition: .3s ease-in-out;
+          }
           &:hover {
             text-decoration: none;
+            &::before {
+              width: 100%;
+              left: 0;
+            }
           }
           @include min-screen($screen-desktop) {
             font-size: 1.125rem;
@@ -229,9 +248,20 @@ header.header {
                 margin-left: .5rem;
                 @include icon('expand_more');
               }
+              &::before {
+                right: 1.5rem;
+              }
+              &:hover {
+                &::before {
+                  width: calc(100% - 1.5rem);
+                }
+              }
               &.submenu-active {
                 &::after {
                   transform: rotate(-180deg);
+                }
+                &::before {
+                  width: calc(100% - 1.5rem);
                 }
               }
             }
@@ -394,7 +424,7 @@ header.header {
     &_wrapper {
       padding: 2rem 1.5rem;
       @include max-screen($screen-desktop - 1) {
-        height: calc(100% - 4rem);
+        max-height: calc(100% - 4rem);
         overflow: auto;
       }
       @include min-screen($screen-desktop) {
@@ -432,14 +462,15 @@ header.header {
       flex-direction: column;
       justify-content: flex-end;
       width: 100%;
-      margin: 0 -.5rem;
+      margin: 0 -.5rem -1rem;
+      padding: 0;
       @include min-screen($screen-tablet) {
         flex-direction: row;
         flex-wrap: wrap;
         width: calc(100% + 1rem);
       }
       @include min-screen($screen-desktop) {
-        margin: 0 -.75rem;
+        margin: 0 -.75rem -1.5rem;
         width: calc(100% + 1.5rem);
       }
 
@@ -489,10 +520,6 @@ header.header {
 
 main {
   transition: .3s ease;
-}
-
-header.header.bg-primary + main {
-  padding-top: 8rem;
 }
 
 .option-theming {
