@@ -83,8 +83,12 @@
 
 <h3 class="mt-5">{{ 'Link to list pre-filtered'|t }}</h3>
 {% set parent_id = node.field_ref_hub.target_id %}
+{% if node.field_ref_hub.entity.field_dataset_filter.target_id %}
+  {% set parent_term_uuid = node.field_ref_hub.entity.field_dataset_filter.entity.getUuid() %}
+{% endif %}
+
 {# Headquarter id. #}
-{% set url_options = { 'query': {'f[0]': 'dataset_filters:59f9e316-d76d-4a07-9166-bc00255d8d0d'}} %}
+{% set url_options = { 'query': {'f[0]': 'dataset_filters:' ~ parent_term_uuid}} %}
 <ul>
   <li>
     <a href="{{ url('entity.node.structured_content', { 'node': parent_id, 'display': 'map' }, url_options) }}">{{ 'Map'|t }}</a>
