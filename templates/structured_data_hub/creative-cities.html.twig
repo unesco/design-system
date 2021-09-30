@@ -54,8 +54,11 @@
 
   Date field, to see custom formats @see /en/admin/config/regional/date-time
   <div class="mt-3"><strong>{{ 'Exemple : Date'|t }}</strong></div>
-  <div>{{ node.field_datetime.value|date('U')|format_date('long') }}</div>
-  <div>{{ node.field_datetime.value|date('U')|format_date('event_date') }}</div>
+  {% if node.field_datetime.value is not empty %}
+    <div>{{ node.field_datetime.value|date('U')|format_date('long') }}</div>
+    <div>{{ node.field_datetime.value|date('U')|format_date('event_date') }}</div>
+  {% endif %}
+
 
   <h3 class="mt-5">{{ 'Fields from Strapi'|t }}</h3>
   {% for data in datas %}
