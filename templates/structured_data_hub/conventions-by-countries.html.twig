@@ -59,8 +59,14 @@
   {% endif %}
 
   <h3 class="mt-5">{{ 'Fields from Strapi'|t }}</h3>
-  {% for data in datas %}
-  <div>{{ data }}</div>
+  {% for key, data in datas %}
+    {% if key matches "/^.*_(" ~ languages_prefix|join('|') ~ "){1}$/" %}
+      {% if key matches '/^.*_' ~ langcode ~ '$/' %}
+        <div>{{ data|raw }}</div>
+      {% endif %}
+    {% else %}
+        <div>{{ data|raw }}</div>
+    {% endif %}
   {% endfor %}
 
   <h3 class="mt-5">{{ 'Link to list pre-filtered'|t }}</h3>
