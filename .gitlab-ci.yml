@@ -47,10 +47,7 @@ variables:
 ################################################################################
 stages:
   - build
-  - test
   - deploy
-  - validate
-  - notify
 
 image: registry.repository.unesco.org/dpi/docker-debian10-lamp:master
 
@@ -64,7 +61,7 @@ image: registry.repository.unesco.org/dpi/docker-debian10-lamp:master
   when: always
   artifacts:
     untracked: true
-    expire_in: 1 day
+    expire_in: 1 hour
     when: on_success
     paths:
       - style-guide
