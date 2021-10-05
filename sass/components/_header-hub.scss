@@ -572,16 +572,16 @@
       }
     }
   }
+}
 
-  .node--type-hub {
-    &.is-universe {
-      .hero-wrapper {
-        .field--name-field-ref-image {
-          article.media {
-            min-height: 18rem;
-            @include min-screen($screen-desktop) {
-              min-height: 25rem;
-            }
+.node--type-hub {
+  &.is-universe {
+    .hero-wrapper {
+      .field--name-field-ref-image {
+        article.media {
+          min-height: 18rem;
+          @include min-screen($screen-desktop) {
+            min-height: 25rem;
           }
         }
       }
