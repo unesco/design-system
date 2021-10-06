@@ -68,14 +68,6 @@
         navSubMenu.next().fadeOut();
       }
 
-        $('body').on('click', function (e) {
-          if (!navSubMenu.is(e.target) && navSubMenu.parent().has(e.target).length === 0 && $(window).width() >= desktopWidth) {
-            closeSubMenu();
-          } else {
-            wrapper.css('display', '');
-          }
-        });
-
       wrapper.prepend('<div class="submenu-header"><div class="submenu-back material-icons-sharp">chevron_left</div><div class="submenu-title">' + $(this).text() + '</div></div>');
 
       $(this).unbind('click').on('click', function (e) {
@@ -99,6 +91,14 @@
         }
       });
 
+      $('body').on('click', function (e) {
+        if (!navSubMenu.is(e.target) && navSubMenu.parent().has(e.target).length === 0 && $(window).width() > desktopWidth) {
+          closeSubMenu();
+        }
+        if ( $(window).width() <= desktopWidth) {
+          wrapper.css('display', '');
+        }
+      });
 
     });
   }
