@@ -432,6 +432,7 @@ header.header {
         overflow: auto;
       }
       @include min-screen($screen-desktop) {
+        padding: 2rem 2.5rem;
         width: 100%;
         max-width: 88rem;
         margin: 0 auto;

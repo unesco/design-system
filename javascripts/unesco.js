@@ -42,6 +42,9 @@
     navBurger.on('click', function () {
       if ($(this).parent().hasClass('active')) {
         $(this).next('.navbar_wrapper').find('.submenu-active').removeClass('submenu-active');
+        $('html').css('overflow', 'auto');
+      } else {
+        $('html').css('overflow', 'hidden');
       }
 
       $(this).parent().toggleClass('active');
