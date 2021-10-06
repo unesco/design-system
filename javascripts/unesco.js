@@ -46,7 +46,6 @@
       } else {
         $('html').css('overflow', 'hidden');
       }
-
       $(this).parent().toggleClass('active');
       $(this).parent().toggleClass('closing');
       $(this).next('.navbar_wrapper').slideToggle({
@@ -68,19 +67,27 @@
         navBar.parent().removeClass('is-active');
         navSubMenu.next().fadeOut();
       }
-      if ($(window).width() <= desktopWidth) {
-        wrapper.prepend('<div class="submenu-header"><div class="submenu-back material-icons-sharp">chevron_left</div><div class="submenu-title">' + $(this).text() + '</div></div>');
-        $(this).unbind('click').on('click', function (e) {
-          e.preventDefault();
+
+        $('body').on('click', function (e) {
+          if (!navSubMenu.is(e.target) && navSubMenu.parent().has(e.target).length === 0 && $(window).width() >= desktopWidth) {
+            closeSubMenu();
+          } else {
+            wrapper.css('display', '');
+          }
+        });
+
+      wrapper.prepend('<div class="submenu-header"><div class="submenu-back material-icons-sharp">chevron_left</div><div class="submenu-title">' + $(this).text() + '</div></div>');
+
+      $(this).unbind('click').on('click', function (e) {
+        e.preventDefault();
+        if ($(window).width() <= desktopWidth) {
+          wrapper.css('display', '');
           $(this).parent().toggleClass('submenu-active');
           navBar.parent().toggleClass('is-active');
-        });
-        wrapper.find('.submenu-header .submenu-back').on('click', function () {
-          $(this).closest('li').removeClass('submenu-active');
-        });
-      } else {
-        $(this).unbind('click').on('click', function (e) {
-          e.preventDefault();
+          wrapper.find('.submenu-header .submenu-back').on('click', function () {
+            $(this).closest('li').removeClass('submenu-active');
+          });
+        } else {
           if ($(this).hasClass('submenu-active')) {
             closeSubMenu();
           } else {
@@ -89,13 +96,10 @@
             navBar.parent().addClass('is-active');
             $(this).next().fadeIn();
           }
-        });
-        $('body').on('click', function (e) {
-          if (!navSubMenu.is(e.target) && navSubMenu.parent().has(e.target).length === 0 ) {
-            closeSubMenu();
-          }
-        });
-      }
+        }
+      });
+
+
     });
   }
 
