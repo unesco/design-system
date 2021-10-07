@@ -58,6 +58,7 @@ header.header {
         width: 100%;
         max-width: 9.375rem;
         @include min-screen($screen-tablet) {
+          min-width: 16.25rem;
           max-width: 16.25rem;
         }
       }
@@ -198,7 +199,17 @@ header.header {
         flex-direction: row;
         align-items: center;
         order: 0;
-        margin: 0 -1.125rem;
+        margin: 0;
+        width: 100%;
+        overflow: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        scroll-behavior: initial;
+      }
+      &::-webkit-scrollbar {
+        @include min-screen($screen-desktop) {
+          display: none;
+        }
       }
       & > li {
         list-style: none;
@@ -214,6 +225,7 @@ header.header {
           position: relative;
           display: flex;
           align-items: center;
+          white-space: nowrap;
           color: white;
           font-size: 1.5rem;
           padding: 0.75rem 0;
@@ -526,6 +538,31 @@ header.header {
       }
     }
   }
+
+  .slider {
+    &_back,
+    &_next {
+      margin: 0 .5rem;
+      width: 2rem;
+      height: 2rem;
+      line-height: 2rem;
+      text-align: center;
+      color: $white;
+      border: .0625rem solid $white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    &_back {
+      &::after {
+        @include icon('chevron_left');
+      }
+    }
+    &_next {
+      &::after {
+        @include icon('chevron_right');
+      }
+    }
+  }
 }
 
 main {
@@ -540,7 +577,7 @@ main {
   position: fixed;
   z-index: 99;
   right: 2rem;
-  top: 8rem;
+  bottom: 8rem;
   background-color: $white;
   padding: .5rem;
   border-radius: .5rem;
