@@ -10,8 +10,16 @@
     z-index: -1;
   }
 
+  .page-node-type-structured-data-hub & {
+    margin: 0 auto;
+  }
+
   @include min-screen($screen-desktop) {
     margin: 0 auto 5.5rem;
+
+    .page-node-type-structured-data-hub & {
+      margin: 0 auto;
+    }
   }
 
   .header-wrapper,
