@@ -12,7 +12,6 @@
 
 variables:
 
-  PROJECT_NAME: "bunesco8"
   # Server descriptions
 
   # using gitlab user to connect to servers
@@ -20,11 +19,6 @@ variables:
   STAGE_HOST: "srvbltydev.unesco.org"
   SSH_LOGIN: "ssh -p22 -oStrictHostKeyChecking=no denix"
   GIT_ROOT: "/var/www/drupal/"
-  # Preprod config, Geneva, malva.svc.unicc.org, user unesco_dr
-  # Accessible only from within unesco network
-  PREPROD_HOST: "193.194.139.155"
-  SSH_LOGIN_PREPROD: "ssh -p22 -oStrictHostKeyChecking=no unesco_dr"
-  GIT_ROOT_PREPROD: "/var/www/production/"
   # Production config, physical machine hosted at UNESCO. User denix
   PRODUCTION_HOST: "srvblty2.unesco.org"
   SSH_LOGIN_PROD: "ssh -p22 -oStrictHostKeyChecking=no denix"
@@ -37,9 +31,6 @@ variables:
   NO_PROXY: "localhost,127.0.0.1,.unesco.org"
   HTTPS_PROXY_REQUEST_FULLURI: "false"
   HTTP_PROXY_REQUEST_FULLURI: "true"
-
-  # Combawa binary, for easier use
-  COMBAWA: "vendor/bin/combawa.sh"
 
 ################################################################################
 # Define your stages, this will be "pipelines" in gitlab.
@@ -67,26 +58,11 @@ image: registry.repository.unesco.org/dpi/docker-debian10-lamp:master
       - style-guide
       - assets
   allow_failure: false
-
-build:stage:
-  <<: *build_template
-  only:
-    - develop
-  script:
+  before_script: 
     - git fetch --all
+    - git checkout $CI_COMMIT_REF_NAME
     - git reset --hard origin/$CI_COMMIT_REF_NAME
-    - git checkout origin/$CI_COMMIT_REF_NAME
-    - npm ci
-    - gulp build
-
-build:prod:
-  <<: *build_template
-  only:
-    - master
   script:
-    - git fetch --all
-    - git reset --hard origin/master
-    - git checkout master
     - npm ci
     - gulp build
 
