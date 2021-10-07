@@ -13,14 +13,26 @@ $margin24: (
     @include responsive(margin-bottom, $margin24);
   }
 
-  .addthis_toolbox {
-    @include mb-block;
-  }
-
   .share-title,
   .about-author-title,
-  .content-tags .item-list h3,
   .bottom-cta-title {
+    @include mt-block-sm;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .about-author-title {
+    & + .field--name-field-ref-people {
+      .vocabulary-people {
+        margin: 0 0 2rem 0;
+      }
+    }
+  }
+
+  .content-tags .item-list h3 {
     font-size: 0.75rem;
     text-transform: uppercase;
     margin: 0 0 1rem;
@@ -105,11 +117,7 @@ $margin24: (
   }
 
   .content-tags {
-    margin-bottom: 2rem;
-
-    @include min-screen($screen-desktop) {
-      margin-bottom: 3rem;
-    }
+    @include mt-block-sm;
 
     .item-list {
       ul {
@@ -126,7 +134,7 @@ $margin24: (
   }
 
   .content-sdg {
-    margin-bottom: 2rem;
+    @include mt-block-sm;
 
     > div {
       padding: 0;
@@ -135,17 +143,12 @@ $margin24: (
     p {
       font-size: 0.875rem;
     }
-
-    @include min-screen($screen-desktop) {
-      margin-bottom: 3rem;
-    }
   }
 
   .previous-publications {
-    margin-bottom: 2rem;
     padding: 1.5rem;
     border-radius: .5rem;
-    @include mb-block-big;
+    @include mt-block-sm;
 
     @include min-screen($screen-desktop) {
       padding: 2rem;
@@ -228,6 +231,15 @@ $margin24: (
 
       .field--name-field-ref-cta {
         width: 100%;
+        margin-top: 2.5rem;
+
+        @include min-screen($screen-desktop) {
+          margin-top: 3.5rem;
+        }
+
+        .field__item:not(:first-child) {
+          @include mt-block-sm;
+        }
 
         .banner-image {
           .material-icons-sharp {
@@ -258,14 +270,9 @@ $margin24: (
   }
 }
 
-
-
 .content-infos-wrapper {
   font-size: .875rem;
-  margin-bottom: 2rem;
-  @include min-screen($screen-desktop) {
-    margin-bottom: 3rem;
-  }
+  @include mt-block-sm;
 
   .content-authors-wrapper {
 
@@ -274,16 +281,13 @@ $margin24: (
     }
 
     .people-link-name {
-
       display: inline;
       color:  $darkGrey;
       font-weight: 600;
 
-
-
       &::after {
         content: ',';
-        margin-left: -.125rem;
+        margin-left: -.21rem;
       }
 
       &:last-child {
@@ -293,15 +297,12 @@ $margin24: (
       }
 
       a {
-        display: inline-block;
         position: relative;
         color: $darkGrey;
 
-
-
         &:hover {
           text-decoration: none;
-          color:  $darkGrey;
+          color: $darkGrey;
         }
 
         &::before {
@@ -309,13 +310,12 @@ $margin24: (
           left: 0;
           bottom: 0;
           position: absolute;
-          width: 100%;
+          width: calc(100% - 0.25rem);
           height: .0625rem;
           background-color: $darkGrey;
         }
       }
     }
-
   }
 
   .content-date-wrapper {

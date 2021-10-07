@@ -2,17 +2,16 @@
   position: relative;
   @include container-fluid();
   background-color: $grey1;
-  margin: 0 0 -.5rem;
   padding: 2rem .5rem;
+  margin: 4rem 0 0;
 
   @include min-screen($screen-tablet) {
-    margin: 1.5rem 0 -.5rem;
     padding: 2rem 1rem;
   }
   @include min-screen($screen-desktop) {
     padding: 3rem 4.875rem 3rem;
     max-width: 90rem;
-    margin: 0 auto -1.5rem auto;
+    margin: 7.5rem auto 0 auto;
   }
   &::before {
     content: '';
@@ -43,7 +42,38 @@
 
   .field--name-field-image-footer {
     margin-bottom: 2rem;
+    @include min-screen($screen-desktop) {
+      margin-bottom: 0;
+    }
+    .field--type-image {
+      width: 7.5rem;
+      min-width: 7.5rem;
+      height: 7.5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      @include min-screen($screen-tablet) {
+        width: 9rem;
+        min-width: 9rem;
+        height: 9rem;
+      }
+    }
+
+    & +.col-lg-6 {
+      @include min-screen($screen-desktop) {
+        max-width: 50%;
+        flex: 0 0 50%;
+      }
+    }
   }
+
+  >.col-lg-6 {
+    @include min-screen($screen-desktop) {
+      flex: 0 0 75%;
+      max-width: 75%;
+    }
+  }
+
+
 
   .hub-name,
   .nav-social--title {
@@ -52,6 +82,7 @@
     font-size: .875rem;
     color: $darkGrey;
     font-weight: 600;
+    display: block;
   }
 
   .hub-name {
@@ -90,6 +121,11 @@
         font-size: .875rem;
         font-weight: 500;
         color: $darkGrey;
+        &.dropdown-toggle {
+          &::after {
+            display: none;
+          }
+        }
       }
     }
   }
@@ -101,5 +137,11 @@
         margin-bottom: 0;
       }
     }
+  }
+}
+
+.node--view-mode-footer {
+  .node__content {
+    flex-direction: column;
   }
 }

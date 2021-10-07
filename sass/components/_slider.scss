@@ -17,11 +17,17 @@
     position: absolute;
     width: 100%;
     max-width: 80.25rem;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     bottom: 6rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
+    @include min-screen($screen-tablet) {
+      padding: 0 2.125rem;
+    }
+    @include min-screen($screen-desktop) {
+      padding: 0 3.5rem;
+    }
 
     .field--name-title,
     .slide-title {
@@ -190,6 +196,36 @@
   }
 
   .slider-medias {
+
+    .submedia {
+      display: flex;
+      flex-direction: column;
+
+      .field--name-field-legend {
+        order: 1;
+        color: $grey5;
+        font-size: .875rem;
+      }
+
+      .field--name-field-ref-licence {
+        order: 2;
+        color: $grey4;
+        font-weight: 400;
+        font-size: .875rem;
+      }
+
+      .field--name-field-copyright {
+        position: relative;
+        order: 3;
+        left: 0;
+        top: 0;
+        color: $grey4;
+        font-weight: 400;
+        font-size: .875rem;
+        opacity: 1;
+      }
+    }
+
     .field--name-field-media-image,
     img {
       width: 100%;

@@ -39,7 +39,7 @@
 #}
 <div class="row">
   {% for item in items %}
-    {% set class = 'col-lg-3' %}
+    {% set class = 'col-sm-6 col-lg-4 col-xl-3' %}
     {% if field_display_options %}
       {% if (field_display_options == 'one_big' and loop.index0 == 0) or (field_display_options == 'two_big' and (loop.index0 == 0 or loop.index0 == 1)) %}
         {% set class = 'col-lg-6' %}

@@ -3,7 +3,6 @@
 .paragraph {
   &--type--parallax {
     height: 100vh;
-    @include mb-block;
 
     .text-wrapper {
       position: absolute;

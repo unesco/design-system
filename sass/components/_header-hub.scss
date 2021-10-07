@@ -1,39 +1,45 @@
+.header-background,
 .header-hub {
   position: relative;
-  margin: -6.75rem auto 2.5rem;
-  @include min-screen($screen-desktop) {
-    margin: 0 auto 3.5rem;
+  margin: 0 auto 2rem;
+  width: 100%;
+  @include fullWidthBackground($BlueU);
+
+  &::before,
+  &::after {
+    z-index: -1;
   }
 
-  .hero-wrapper {
-    height: 14.5rem;
-    @include fullWidthBackground($BlueU);
-    @include min-screen($screen-desktop) {
-      height: 28.25rem;
-    }
+  @include min-screen($screen-desktop) {
+    margin: 0 auto 5.5rem;
+  }
 
-    &::before,
-    &::after {
-      z-index: -1;
-    }
+  .header-wrapper,
+  .hero-wrapper {
 
     .field--name-field-ref-image {
-      position: absolute;
-      @include container-fluid();
-      z-index: 0;
+      overflow: hidden;
+
+      //@include max-screen($screen-desktop - 1) {
+      //  display: none;
+      //} todo: branka why ?
+
+      .contextual-region {
+        position: static;
+      }
 
       .field--name-field-media-image {
-        picture {
-          display: block;
-          width: 100%;
-          height: 14.5rem;
-          @include min-screen($screen-desktop) {
-            height: 28.25rem;
-          }
-        }
+        width: 100%;
 
         img {
           @include img-cover;
+          position: absolute;
+          width: 100vw;
+          max-width: unset;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+          z-index: 0;
         }
       }
 
@@ -45,54 +51,134 @@
         content: '';
         position: absolute;
         z-index: 0;
-        width: 100%;
+        width: 100vw;
         height: 100%;
         top: 0;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         background-color: rgba(0, 0, 0, .25);
       }
     }
 
     .header-texts {
       position: relative;
-      top: 150px;
+      padding-top: 3.5rem;
+      padding-bottom: 2rem;
       z-index: 2;
 
-      .article-title,
-      .field--name-field-description {
+      @include min-screen($screen-desktop) {
+        padding-top: 4rem;
+        padding-bottom: 2.5rem;
+
+        .page-node-type-hub &,
+        .page-node-type-structured-data-hub & {
+          padding-top: 5rem;
+          padding-bottom: 5rem;
+        }
+      }
+
+      .title,
+      .field--name-field-description,
+      .field--name-field-subtitle {
         color: $white;
       }
 
-      .article-title {
-        @include responsive(font-size, $hero-title);
+      .title {
+        @include responsive(font-size, $hub-title-small);
         font-weight: 800;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
+        padding-bottom: 1rem;
+        max-width: 58rem;
+        display: block;
+
+        .page-node-type-hub &,
+        .page-node-type-structured-data-hub & {
+          @include responsive(font-size, $hero-title);
+          padding-bottom: 1rem;
+        }
+      }
+
+      a.title {
+        display: inline-block;
+
+        &::after {
+          content: "";
+          display: block;
+          background-color: $white;
+          width: 100%;
+          height: 1px;
+          opacity: 0;
+          @include transition;
+        }
+        &:hover {
+          text-decoration: none;
+
+          &::after {
+            opacity: 1;
+          }
+        }
       }
 
       .field--name-field-description {
         display: none;
+
         @include min-screen($screen-desktop) {
           display: block;
           font-size: 1.25rem;
+          max-width: 56rem;
         }
       }
     }
   }
 
+  .hub-menu-btn {
+    display: flex;
+    align-items: center;
+
+    &::after {
+      @include icon('expand_more');
+      margin-left: 0.625rem;
+      line-height: 1;
+      transition: .3s;
+    }
+
+    &.is-active {
+      &::after {
+        transform: rotate(-180deg);
+      }
+    }
+  }
 
   .hub-menu-header {
-    @include fullWidthBackground($grey1);
     padding: 1.5rem 0;
-    @include min-screen($screen-desktop) {
+    display: none;
+
+    @include max-screen($screen-tablet - 1px) {
+      position: absolute;
+      z-index: 90;
+      width: 100vw;
+      background-color: $grey1;
+      left: -1.5rem;
+      padding: 1.5rem;
+    }
+
+    @include min-screen($screen-tablet) {
+      position: relative;
       padding: 0;
+      display: block;
+      @include fullWidthBackground($grey1);
+    }
+
+    &:empty {
+      display: none;
     }
 
     .menu {
       display: flex;
       flex-direction: column;
-      margin: -.5rem 0;
+      margin: 0;
 
-      @include min-screen($screen-desktop) {
+      @include min-screen($screen-tablet) {
         flex-direction: row;
         align-items: center;
         flex-wrap: nowrap;
@@ -113,11 +199,16 @@
 
         a {
           position: relative;
-          display: block;
+          display: inline-flex;
+          align-items: center;
           color: $darkGrey;
 
           &:hover {
             text-decoration: none;
+          }
+
+          &.active {
+            border-bottom: .125rem solid $BlueU;
           }
         }
 
@@ -134,7 +225,34 @@
             }
 
             ul.menu-lvl2 {
-              margin: 1rem 0 1rem 1.5rem;
+              margin: .5rem 0 .5rem 1.5rem;
+              width: 100%;
+              @include min-screen($screen-tablet) {
+                margin: 0;
+                align-items: flex-start;
+                flex-wrap: wrap;
+              }
+              @include min-screen($screen-desktop) {
+                width: calc(75% + 2rem);
+              }
+
+              & > .menu-item {
+                @include min-screen($screen-tablet) {
+                  width: calc(33.33% - 2rem);
+                  margin: 0 2rem 2rem 0;
+                  a {
+                    padding: 0;
+                    margin-bottom: .75rem;
+                    white-space: normal;
+                  }
+                }
+              }
+
+              .menu-item--expanded {
+                a::after {
+                  display: none;
+                }
+              }
 
               & > li > *:first-child {
                 font-weight: 600;
@@ -143,6 +261,9 @@
 
               ul.menu-lvl3 {
                 margin: 0;
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: flex-start;
 
                 li {
                   font-weight: 400;
@@ -151,6 +272,15 @@
                   a,
                   span {
                     padding: .75rem 0;
+                    white-space: normal;
+                    margin-bottom: 0;
+                  }
+
+                  a {
+                    &:focus,
+                    &:hover {
+                      text-decoration: underline;
+                    }
                   }
                 }
               }
@@ -161,14 +291,36 @@
           .lvl1-infos {
             display: none;
 
+            .hub-header-lvl1-text {
+              margin-top: 1.5rem;
+              font-size: 1.25rem;
+              font-weight: 600;
+            }
+
+            .hub-header-lvl1-image {
+              &::after {
+                display: none;
+              }
+              article.media {
+                min-height: 0;
+              }
+              img {
+                position: relative;
+                width: 100%;
+                object-fit: initial;
+              }
+            }
+
             @include min-screen($screen-desktop) {
               display: block;
+              width: calc(25% - 2rem);
+              white-space: normal;
             }
           }
 
         }
 
-        @include min-screen($screen-desktop) {
+        @include min-screen($screen-tablet) {
           margin: 0 2rem 0 0;
 
           a,
@@ -180,24 +332,23 @@
 
       .lvl1-wrapper {
         display: none;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100vw;
+        left: 0;
+        z-index: 90;
 
-        @include min-screen($screen-desktop) {
+        @include min-screen($screen-tablet) {
           position: absolute;
-          display: none;
-          opacity: 0;
+          background-color: $white;
           flex-direction: row;
           align-items: stretch;
-          justify-content: space-between;
-          padding: 3rem 0 3.5rem;
-          width: 100%;
-          left: 0;
+          padding: 3rem 0 0;
           top: 4rem;
-          z-index: 90;
-          transition: .3s;
+          opacity: 0;
 
           &.is-visible {
-            display: flex;
-            opacity: 1;
+            animation: fadeIn .3s ease forwards;
           }
 
           &::before {
@@ -220,6 +371,26 @@
 
       &-lvl1 {
 
+        > li {
+          font-weight: 400;
+          > a {
+            border-bottom: .125rem solid transparent;
+            transition: .3s;
+            &:hover {
+              border-color: $BlueU;
+            }
+          }
+        }
+
+        @include min-screen($screen-tablet) {
+          overflow-x: auto;
+          li.menu-item.active {
+            a {
+              border-bottom: .125rem solid $BlueU;
+            }
+          }
+        }
+
         li.menu-item--expanded > {
 
           a {
@@ -231,20 +402,15 @@
               font-size: 1.25rem;
               vertical-align: middle;
               line-height: 1;
-              margin-left: 1.5rem;
+              margin-left: 1rem;
+              @include min-screen($screen-tablet) {
+                color: $grey3;
+              }
             }
 
             &.active-item {
-              @include min-screen($screen-desktop) {
-                &::before {
-                  content: '';
-                  position: absolute;
-                  bottom: 0;
-                  left: 0;
-                  width: 100%;
-                  height: .125rem;
-                  background-color: $BlueU;
-                }
+              @include min-screen($screen-tablet) {
+                border-bottom-color: $BlueU;
               }
               &::after {
                 transform: rotate(180deg);
@@ -253,6 +419,217 @@
           }
         }
 
+      }
+    }
+  }
+}
+
+.header-hub.country,
+.header-hub.explorer {
+  margin-bottom: 0;
+  .hub-menu-header {
+    @include max-screen($screen-tablet - 1px) {
+      display: block;
+      position: relative;
+      padding: 0 .5rem;
+
+      .menu {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+
+        .nav-item {
+          margin: 0 1rem;
+          a {
+            padding: 1rem 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+#block-unesco-content .node--view-mode-full > .node--type-hub {
+  .hero-wrapper {
+    position: static;
+  }
+
+  .hub-menu-btn {
+    @include min-screen($screen-desktop) {
+      display: none;
+    }
+  }
+
+  .hub-menu-header {
+    top: 100%;
+
+    @include min-screen($screen-desktop) {
+      top: unset;
+    }
+  }
+}
+
+#block-unesco-breadcrumbs {
+  position: absolute;
+  z-index: 3;
+  top: 9rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include min-screen($screen-desktop) {
+    .toolbar-horizontal.page-node-type-country & {
+      top: 15.5rem;
+    }
+  }
+
+  .breadcrumb {
+    border-radius: 0;
+    display: none;
+    margin: 0 -0.816rem;
+    position: relative;
+    padding: 0;
+    background-color: transparent;
+
+    @include min-screen($screen-desktop) {
+      display: flex;
+      width: 100vw;
+      max-width: 83rem;
+    }
+
+    @include max-screen(1440px) {
+      padding: 0 3.5rem;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      display: none;
+    }
+
+    li {
+      padding: 0 0.406rem;
+
+      &,  a {
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+        color: $white;
+        text-decoration: none;
+      }
+
+      &::after {
+        @include icon('chevron_right');
+        color: inherit;
+        vertical-align: middle;
+        margin-left: 0.816rem;
+      }
+
+      &:last-of-type::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.node--type-landing {
+  &.node--view-mode-full {
+    .node--type-hub + .node__content,
+    .node--type-structured-data-hub + .node__content {
+      .header-landing {
+        min-height: 0.1rem;
+        padding: 0 0 1.5rem;
+        margin: 0;
+
+        @include min-screen($screen-desktop) {
+          padding: 0 0 4rem;
+        }
+
+        .article-title {
+          font-size: 1.75rem;
+          line-height: 2.25rem;
+          color: $darkGrey;
+          margin: 0;
+
+          @include min-screen($screen-desktop) {
+            font-size: 3rem;
+            line-height: 5.6rem;
+          }
+        }
+
+        .field--name-field-description {
+          display: none;
+        }
+
+        .field--name-field-ref-image {
+          display: none;
+        }
+
+        & +.field--name-field-paragraphs {
+          .field__item:first-of-type {
+            .paragraph {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .node--type-hub {
+    &.is-universe {
+      .hero-wrapper {
+        .field--name-field-ref-image {
+          article.media {
+            min-height: 18rem;
+            @include min-screen($screen-desktop) {
+              min-height: 25rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-hub {
+  .transparent-header & {
+    padding-top: 7.5rem;
+    margin-top: 0;
+
+    @include max-screen($screen-desktop - 1) {
+      padding-top: 3.938rem;
+      margin-top: 0;
+    }
+  }
+
+  .transparent-header.site-satellite & {
+    padding-top: 9.5rem;
+    margin-top: 0;
+
+    @include max-screen($screen-desktop - 1) {
+      padding-top: 7.5rem;
+      margin-top: 0;
+    }
+  }
+}
+
+.transparent-header #block-unesco-breadcrumbs {
+  .breadcrumb {
+    padding: 0;
+    background-color: transparent;
+    transform: none;
+    position: static;
+
+    @include max-screen(1440px) {
+      padding: 0 3.5rem;
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    li {
+      &,  a {
+        color: rgba($white, 0.7);
       }
     }
   }

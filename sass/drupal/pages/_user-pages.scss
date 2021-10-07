@@ -1,0 +1,23 @@
+.user-logged-in {
+  padding-top: 39px;
+
+  &.transparent-header:not(.header-sticky) header {
+    top: 39px;
+  }
+
+  .menu--galaxy-menu .popin:not(.hidden) {
+    top: 39px;
+  }
+}
+
+.toolbar-horizontal.toolbar-tray-open {
+  padding-top: 79px;
+
+  &.transparent-header:not(.header-sticky) header {
+    top: 79px;
+  }
+
+  .menu--galaxy-menu .popin:not(.hidden) {
+    top: 79px;
+  }
+}

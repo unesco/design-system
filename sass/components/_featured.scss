@@ -1,0 +1,29 @@
+.featured {
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .field--name-field-surtitle {
+    @include responsive(font-size, $small-content-title);
+    color: $BlueU;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+  }
+
+  .field--name-title {
+    @include responsive(font-size, $small-content-title);
+    color: $black;
+    font-weight: 600;
+    transition: .3s;
+  }
+
+  .field--name-date-text {
+    font-size: .875rem;
+    color: $grey4;
+    margin-top: 1rem;
+  }
+
+}

@@ -1,0 +1,138 @@
+.paragraph {
+  &--type--content-featured-custom {
+
+    .field--name-field-ref-featured {
+      margin-top: 2rem;
+      @include min-screen($screen-tablet) {
+        margin-top: 3rem;
+      }
+      & > .field__item {
+        border-top: .0625rem solid $grey2;
+        padding-top: 1.5rem;
+
+        .field--name-field-surtitle {
+          font-weight: 400;
+          @include responsive(font-size, $small-content-title);
+          color: $BlueU;
+        }
+
+        .field--name-field-title {
+          font-weight: 600;
+          @include responsive(font-size, $small-content-title);
+        }
+
+        .field--name-field-date-text {
+          font-weight: 400;
+          margin-top: 1rem;
+          font-size: .875rem;
+          color: $grey4;
+        }
+      }
+    }
+
+    a:hover {
+      text-decoration: none;
+
+      .field--name-title,
+      .field--name-field-surtitle {
+        color: $BlueU;
+      }
+    }
+
+    .field--name-field-title {
+      font-weight: 800;
+      @include responsive(font-size, $section-title);
+    }
+
+    .field--name-field-description {
+      @include responsive(font-size, $section-title-small);
+      margin: 0 0 2rem;
+
+      @include min-screen($screen-desktop) {
+        margin: 0 0 3rem;
+      }
+    }
+
+    &.paragraph--view-mode {
+      &--grid {
+        .field--name-field-ref-featured {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-gap: 2rem;
+          justify-items: stretch;
+          @include min-screen($screen-desktop) {
+            grid-template-columns:  1fr 1fr 1fr 1fr;
+          }
+
+          & > .field__item {
+            .field--name-field-ref-image {
+              margin-bottom: 1.5rem;
+            }
+          }
+        }
+      }
+      &--grid-big-first {
+        .field--name-field-ref-featured {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-gap: 2rem;
+          justify-items: stretch;
+
+          @include min-screen($screen-tablet) {
+            grid-template-columns:  1fr 1fr;
+            .field__item:first-child {
+              grid-column-end: span 2;
+            }
+          }
+
+          @include min-screen($screen-desktop) {
+            grid-template-columns:  1fr 1fr 1fr 1fr;
+          }
+
+          & > .field__item {
+            .field--name-field-ref-image {
+              margin-bottom: 1.5rem;
+            }
+          }
+        }
+      }
+      &--short {
+        .field--name-field-ref-featured {
+          & > .field__item {
+            margin-bottom: 2rem;
+            @include min-screen($screen-desktop) {
+              margin-bottom: 3rem;
+            }
+          }
+        }
+      }
+
+      &--normal {
+
+        .field--name-field-ref-featured > .field__item {
+          margin-bottom: 2rem;
+
+          @include min-screen($screen-desktop) {
+            margin-right: 3rem;
+          }
+        }
+
+        .normal {
+          display: flex;
+        }
+        .field--name-field-ref-image {
+          margin-left: auto;
+          flex-shrink: 0;
+        }
+
+        .wrapper {
+          margin-right: 1.5rem;
+
+          @include min-screen($screen-desktop) {
+            margin-right: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

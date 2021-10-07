@@ -24,6 +24,24 @@
             padding: 1.5rem 0 2.5rem;
           }
 
+          &.media--type-oembed-video {
+            position: relative;
+            &::after {
+              position: absolute;
+              top: 2.5rem;
+              left: 1rem;
+              background-color: $BlueU;
+              width: 2.5rem;
+              height: 2.5rem;
+              line-height: 2.5rem;
+              border-radius: 50%;
+              @include icon('play_arrow');
+              color: $white;
+              text-align: center;
+              font-size: 1.5rem;
+            }
+          }
+
           .field--name-field-media-image {
             position: relative;
             width: 100%;
@@ -71,14 +89,20 @@
             font-size: .875rem;
             font-weight: 400;
             margin-bottom: .5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
           }
 
           .field--name-field-legende {
             color: $grey5;
+            -webkit-line-clamp: 3;
           }
 
           .field--name-field-copyright {
             color: $grey4;
+            -webkit-line-clamp: 1;
           }
 
         }
@@ -111,3 +135,9 @@
   }
 
 }
+.page-node-type-resources {
+  .ui-dialog:not(.ui-dialog-off-canvas) {
+    margin: 0;
+  }
+}
+

@@ -46,8 +46,13 @@ function unesco_preprocess_node(&$variables) {
     'grid',
     'grid_big_first',
     'grid_big_other',
+    'map',
     'normal',
     'short',
+    'sdh_list',
+    'sdh_grid',
+    'map',
+    'menu',
   ];
 
   if (in_array($view_mode, $list_view_modes)) {
@@ -56,6 +61,29 @@ function unesco_preprocess_node(&$variables) {
     $variables['unesco_link_attributes']->setAttribute('href', $variables['url']);
     $variables['unesco_link_attributes']->setAttribute('title', $variables['node']->label());
   }
+
+  if (
+    $view_mode == 'normal'
+    && isset($variables['elements']['#suggested'])
+    && $variables['elements']['#suggested']
+  ) {
+    $variables['attributes']['class'][] = 'suggested';
+    $inserted = [
+      "#type" => "html_tag",
+      "#tag" => "span",
+      "#value" => t("Suggested"),
+      "#attributes" => ['class' => ['suggested']],
+      "#weight" => 11,
+    ];
+    $variables['content'] = array_slice($variables['content'], 0, 2, true) +
+      array("suggested" => $inserted) +
+      array_slice($variables['content'], 2, count($variables['content'])-2, true);
+    $group = $variables['elements']['#group_children'];
+    $variables['elements']['#group_children'] = array_slice($group, 0, 2, true) +
+      array("suggested" => 'group_wrapper') +
+      array_slice($group, 2, count($group)-2, true);
+  }
+
 }
 
 /**
@@ -106,6 +134,7 @@ function unesco_preprocess_html(&$variables) {
   $route_match = \Drupal::routeMatch();
   $route_name = $route_match->getRouteName();
   $settings = \Drupal::service('settings');
+  $settings_array = $settings->getAll();
 
   // Class for 403/403 pages.
   if (preg_match('/^unesco_common.page_/', $route_name)) {
@@ -115,12 +144,11 @@ function unesco_preprocess_html(&$variables) {
 
   if ($route_name === 'entity.node.canonical') {
     $node = $route_match->getParameter('node');
-    if (!empty($node)) {
+    if ($node) {
       $bundles_with_hero = [
         'homepage',
         'landing',
       ];
-
       $header_with_line = [
         'report',
         'detail',
@@ -130,6 +158,7 @@ function unesco_preprocess_html(&$variables) {
       if (in_array($node->bundle(), $bundles_with_hero) && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
         $variables['attributes']['class'][] = 'transparent-header';
       }
+
       if ($node->bundle() === 'article'
       && $node->hasField('field_article_type') && !$node->field_article_type->isEmpty() && $node->field_article_type->value === 'story'
       && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
@@ -140,6 +169,22 @@ function unesco_preprocess_html(&$variables) {
         $variables['attributes']['class'][] = 'transparent-header';
       }
 
+       if ($node->bundle() === 'structured_data_hub' && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
+        $variables['attributes']['class'][] = 'transparent-header';
+      }
+
+      if ($node->bundle() === 'country') {
+        $variables['attributes']['class'][] = 'transparent-header';
+      }
+
+      if ($node->hasField('field_ref_hub') && !$node->field_ref_hub->isEmpty()) {
+        $variables['attributes']['class'][] = 'hub';
+
+        if (!(in_array($node->bundle(), $bundles_with_hero) && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty())) {
+          $variables['attributes']['class'][] = 'transparent-header';
+        }
+      }
+
       if ($node->hasField('field_ref_image') && $node->get('field_ref_image')->isEmpty()) {
         $variables['attributes']['class'][] = 'no-header-image';
       }
@@ -147,10 +192,16 @@ function unesco_preprocess_html(&$variables) {
       if ($node->bundle() === 'article' && $node->hasField('field_article_type') && !$node->field_article_type->isEmpty() && (in_array($node->field_article_type->value, $header_with_line))) {
         $variables['attributes']['class'][] = 'header-with-line';
       }
-    }
 
-    if (!$node->isPublished()) {
-      $variables['attributes']['class'][] = 'page-unpublished';
+      if (!$node->isPublished()) {
+        $variables['attributes']['class'][] = 'page-unpublished';
+      }
+
+      $hub = \Drupal::service('unesco_node.hub_manager')->getHubFromRouteMatch($route_match);
+      if ($hub) {
+        $variables['attributes']['class'][] = 'transparent-header';
+        $variables['attributes']['class'][] = 'hub';
+      }
     }
   }
   elseif ($route_name === 'unesco_common.homepage') {
@@ -160,6 +211,15 @@ function unesco_preprocess_html(&$variables) {
     if (!empty($node) && !$node->isPublished()) {
       $variables['attributes']['class'][] = 'page-unpublished';
     }
+  }
+
+  $custom_routes_transparent = [
+    'entity.node.conventions',
+    'entity.node.insight',
+    'entity.node.news_events',
+  ];
+  if (in_array($route_name, $custom_routes_transparent)) {
+    $variables['attributes']['class'][] = 'transparent-header';
   }
 
   $favicon_meta = [
@@ -191,8 +251,9 @@ function unesco_preprocess_html(&$variables) {
     $variables['page']['#attached']['html_head'][] = [$meta, $meta_data['rel']];
   }
 
-  if (!empty($settings) && !empty($settings->get('site_satellite')) && $settings->get('site_satellite')) {
-    $variables['attributes']['class'][] = 'site-satellite';
+  if (!empty($settings_array) && isset($settings_array['site_satellite'])) {
+    $site_profile_class = $settings_array['site_satellite'] ? 'site-satellite' : 'portail-unesco';
+    $variables['attributes']['class'][] = $site_profile_class;
   }
 }
 
@@ -203,6 +264,7 @@ function unesco_theme_suggestions_alter(array &$suggestions, array $variables, $
   $sub_entities = [
     'card',
     'cta',
+    'featured',
   ];
   if (in_array($hook, $sub_entities)) {
     $suggestions[] = 'subentity__' . $hook;
@@ -242,6 +304,11 @@ function unesco_preprocess_block(&$variables) {
     $variables['attributes']['class'][] = 'col-lg-9';
     $variables['attributes']['class'][] = 'p-0';
   }
+
+  if ($plugin_id == 'galaxy-menu') {
+    $variables['site_logo'] = theme_get_setting('logo.url');
+    $variables['site_name'] = \Drupal::service('unesco_common.global_helper')->getSiteName();
+  }
 }
 
 /**
@@ -268,11 +335,16 @@ function unesco_preprocess_field(&$variables, $hook) {
   }
 
   if ($element['#field_name'] == 'field_learn_more') {
+    $variables['items'][0]['content']['#title'] = t('Learn more');
     $variables['items'][0]['content']['#options']['attributes']['class'][] = 'btn btn-sm btn-outline-primary';
   }
 
   if ($element['#field_name'] == 'field_slides') {
     $variables['attributes']['class'][] = 'js-slider-full';
+  }
+
+  if ($element['#bundle'] === 'country' && $element['#field_name'] == 'field_media_image') {
+    $variables['attributes']['class'][] = 'flag';
   }
 }
 

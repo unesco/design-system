@@ -1,8 +1,12 @@
 footer {
-  margin-top: .5rem;
   padding: 0;
+
+  .hub & {
+    margin-top: 0;
+  }
+
   @include min-screen($screen-desktop) {
-    margin-top: 1.5rem;
+    margin-top: 7.5rem;
   }
 
   .footer-wrapper {
@@ -48,6 +52,9 @@ footer {
       }
 
       .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         border-top: 0.0625rem solid $grey2;
         padding: 1.5rem 0;
         font-size: .875rem;
@@ -121,9 +128,13 @@ footer {
     }
 
     .region-footer-bottom {
-      border-top: 0.0625rem solid $grey2;
       margin-top: 1rem;
       padding-top: 1rem;
+
+      .site-satellite & {
+        border-top: 0.0625rem solid $grey2;
+      }
+
       @include min-screen($screen-desktop) {
         margin-top: 2.5rem;
         padding-top: 2.5rem;
@@ -155,7 +166,7 @@ footer {
   }
 
   .block-menu--popin {
-    padding: 1rem 0;
+    padding: 1.25rem 0;
     background-color: $BlueU;
     text-align: center;
 

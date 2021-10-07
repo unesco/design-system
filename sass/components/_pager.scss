@@ -1,0 +1,91 @@
+.pager {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .pagination {
+    display: flex;
+    align-items: center;
+  }
+
+  .page-item {
+    margin: 0 .5rem;
+    .page-link {
+      padding: .875rem 1.25rem;
+      border-radius: 3rem;
+      color: $black;
+      border: .0625rem solid $grey2;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: transparent;
+      }
+    }
+
+    &.active {
+      .page-link {
+        background-color: $grey1;
+        border-color: $grey1;
+        color: $black;
+      }
+    }
+
+    &:first-child,
+    &:last-child {
+      .page-link {
+        border-radius: 3rem;
+      }
+    }
+
+    &.pager__item--next,
+    &.pager__item--previous,
+    &.pager__item--first,
+    &.pager__item--last {
+      .page-link {
+        display: flex;
+        align-items: center;
+        span {
+          display: none;
+        }
+        &::after {
+          line-height: 1;
+          font-size: 1.25rem;
+          margin: -2px -7.5px;
+        }
+      }
+    }
+
+    &.pager__item--previous {
+      .page-link {
+        &::after {
+          @include icon('chevron_left');
+        }
+      }
+    }
+
+    &.pager__item--next {
+      .page-link {
+        &::after {
+          @include icon('chevron_right');
+        }
+      }
+    }
+
+    &.pager__item--first {
+      .page-link {
+        &::after {
+          @include icon('first_page');
+        }
+      }
+    }
+
+    &.pager__item--last {
+      .page-link {
+        &::after {
+          @include icon('last_page');
+        }
+      }
+    }
+
+  }
+}

@@ -1,6 +1,5 @@
 .event {
   background-color: $grey1;
-  @include mb-block;
   padding: 1.5rem;
   border-radius: .5rem;
   font-size: 1rem;
@@ -76,11 +75,9 @@
     }
   }
 
-
-
   .buttons-event {
     margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: -.5rem;
 
     >.field,
     >a {
@@ -101,5 +98,46 @@
         margin-left: 0.5rem;
       }
     }
+  }
+
+  .calendar-links-wrapper {
+    a {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .calendar-links {
+    position: absolute;
+    min-width: 10rem;
+    padding: .5rem 0;
+    list-style: none;
+    background-color: $white;
+    background-clip: padding-box;
+    border: 1px solid $grey2;
+    border-radius: 1.5rem;
+    z-index: 1;
+
+    a {
+      color: $grey4;
+      text-decoration: none;
+      line-height: 2.2;
+      font-size: .875rem;
+    }
+  }
+}
+
+.node--type-sequenced-page,
+.node--type-page,
+.node--type-article {
+  .event {
+    @include mt-block-sm;
+  }
+}
+
+.node--type-homepage,
+.node--type-landing,
+.node--type-hub {
+  .event {
+    @include mt-block;
   }
 }

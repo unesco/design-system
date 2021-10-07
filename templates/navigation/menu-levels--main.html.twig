@@ -21,12 +21,12 @@
       set classes_link = [
       'nav-link',
       item.in_active_trail ? 'active',
-      item.is_expanded ? 'dropdown-toggle',
+      item.is_expanded or item.report ? 'dropdown-toggle',
     ]
     %}
 
     {% if item.url.options.attributes.class %}
-      {% set classes_link = classes_link|merge([item.url.options.attributes.class]) %}
+      {% set classes_link = classes_link|merge(item.url.options.attributes.class) %}
     {% endif %}
 
     <li{{ item.attributes.addClass(menu_item_classes) }}>

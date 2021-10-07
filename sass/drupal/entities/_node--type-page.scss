@@ -6,11 +6,20 @@ $paddingTop: (
 .node--type-page {
   &.node--view-mode-full {
     position: relative;
-    padding-top: 2.5rem;
-    @include responsive(padding-top, $paddingTop);
 
     .node__content {
       display: flex;
+    }
+
+    >.node__content {
+      padding-top: 2.5rem;
+      @include responsive(padding-top, $paddingTop);
+    }
+
+    .header-hub {
+      @include min-screen($screen-desktop) {
+        margin-bottom: 2rem;
+      }
     }
 
     .rich-text p {

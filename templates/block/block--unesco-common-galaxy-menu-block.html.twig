@@ -11,16 +11,25 @@
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
   {% endif %}
   {{ title_prefix }}
-  <h2{{ title_attributes.addClass('button').setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
+  <h2{{ title_attributes.addClass('button-galaxy').setAttribute('id', heading_id) }}><span class="button-text">{{ configuration.label }}</span></h2>
   {{ title_suffix }}
 
   <div aria-labelledby="{{ heading_id }}" class="popin hidden">
     <div class="inside">
       <div class="top">
+        <span class="button-text-mobile">{{ configuration.label }}</span>
+        {% if site_logo and site_name %}
+        <div class="site-info-wrapper">
+          <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+          <span class="site-name">{{ site_name }}</span>
+        </div>
+        {% else %}
         <span class="title">{{ 'Explore UNESCO'|t }}</span>
-        <a href="https://unesco.org/en" class="link home">{{ 'Go to Unesco.org'|t }}</a>
-        <a href="https://unesco.org/en/search" class="link advanced-search">{{ 'Advanced search'|t }}</a>
-        <span class="close">{{ 'Close'|t }}</span>
+        {% endif %}
+
+        <a href="https://unesco.org/en" class="btn btn-secondary link-galaxy home">{{ 'Go to Unesco.org'|t }}</a>
+        <a href="https://unesco.org/en/search" class="btn btn-secondary link-galaxy advanced-search">{{ 'Advanced search'|t }}</a>
+        <a href="#" class="btn btn-secondary close-popin link-galaxy">{{ 'Close'|t }}</a>
       </div>
       <nav role="navigation">
         {% block content %}

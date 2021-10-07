@@ -4,7 +4,6 @@
     margin-top: 2rem;
     padding-top: 100%;
     overflow: scroll;
-    @include responsive(margin-bottom, $space-bottom);
 
     img {
       max-width: unset;
@@ -39,47 +38,53 @@
       position: absolute;
       cursor: pointer;
 
-      &.show-popup {
-        >.popup,
-        >a {
-          display: block;
-        }
-      }
-
-      >.popup,
-      >a {
-        position: absolute;
-        top: 1.5rem;
-        left: 50%;
-        transform: translateX(-50%);
+      > .popup,
+      > a {
+        position: fixed;
+        z-index: 60;
+        width: 100%;
+        left: 0;
         padding: 1.5rem;
         background-color: $white;
         border: 0.063rem solid $grey2;
-        border-radius: 0.5rem;
         text-decoration: none;
-        width: 18rem;
         display: none;
+
+        @include max-screen($screen-desktop - 1px) {
+          bottom: 0;
+        }
+
+        @include min-screen($screen-desktop) {
+          position: absolute;
+          z-index: 1;
+          top: 1.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          border-radius: 0.5rem;
+          width: 18rem;
+        }
       }
     }
 
+    $circle-diameter: 1rem;
+
     .circle {
       position: absolute;
-      left: 0;
-      top: 0;
+      left: -.5 * $circle-diameter;
+      top: -.5 * $circle-diameter;
       background-color: $BlueU;
       border: 0.063rem solid $white;
-      width: 1rem;
-      height: 1rem;
+      width: $circle-diameter;
+      height: $circle-diameter;
       border-radius: 50%;
     }
 
-    .show-popup .circle,
     .circle :hover {
       border-width: 0.25rem;
       width: 1.25rem;
       height: 1.25rem;
-      left: -0.125rem;
-      top: -0.125rem;
+      left: -0.57rem;
+      top: -0.57rem;
     }
 
     p {
@@ -102,6 +107,13 @@
 
     @include min-screen($screen-desktop) {
       margin: 0 0 1.5rem;
+    }
+  }
+  .field--name-field-text {
+    @include responsive(font-size, $section-text);
+    max-width: 51.5rem;
+    p {
+      @include responsive(font-size, $section-text);
     }
   }
 }

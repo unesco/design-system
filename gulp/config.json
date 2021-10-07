@@ -21,7 +21,13 @@
   },
   "javascript": {
     "file": "app.js",
-    "src": ["./javascripts/*.js", "!./javascripts/drupal.js"],
+    "src": ["./javascripts/*.js", "!./javascripts/drupal.js", "!./javascripts/unesco.js"],
+    "destination": "./assets/scripts",
+    "sourcemaps": "./"
+  },
+  "unescoJavascript": {
+    "file": "unesco.js",
+    "src": "./javascripts/unesco.js",
     "destination": "./assets/scripts",
     "sourcemaps": "./"
   }

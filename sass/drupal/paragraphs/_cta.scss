@@ -10,7 +10,6 @@ $cta-title: (
     flex-direction: column;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    @include mb-block;
 
     @include min-screen($screen-tablet) {
       padding: 2rem;

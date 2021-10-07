@@ -1,0 +1,11 @@
+
+<div class="dataset-template-wrapper">
+  {% if language %}
+    {% set langcode = language.getId() %}
+  {% endif %}
+  {% include '@unesco/structured_data_hub/' ~ dataset_id ~ '.html.twig' %}
+</div>
+
+{# Please create en file in the same directory named by the dataset_id wanted #}
+{# The structured_data variables will be accessible via the "datas" variable #}
+{# Exemple : <div><span>datas.name</span><span>datas.date</span></div> #}

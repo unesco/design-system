@@ -52,6 +52,11 @@ $big-text: (
   medium: 1.25rem
 );
 
+$small-content-title: (
+  null: 1.125rem,
+  large: 1.25rem
+);
+
 // Quote
 $blockquote-text: (
   null: 1.5rem,
@@ -207,3 +212,8 @@ a.link {
     border-radius: .125rem;
   }
 }
+
+$hub-title-small: (
+  null: 1.25rem,
+  large: 1.875rem
+);

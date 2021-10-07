@@ -1,1468 +1,548 @@
-header {
-  .header,
-  .sub-header {
-    max-width: 83rem;
-    margin-left: auto;
-    margin-right: auto;
-
-    @include min-screen($screen-desktop-xxl) {
-      >.row {
-        margin: 0;
-      }
-    }
+header.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 90;
+  padding: 0 1.5rem;
+  transition: .3s ease;
+  @include min-screen($screen-tablet) {
+    padding: 0 2.125rem;
   }
-
-  &.navbar {
-    .path-frontpage &,
-    .page-node-type-landing & {
-      position: absolute;
-      z-index: 99;
-
-      @include max-screen($screen-desktop - 1) {
-        position: absolute;
-      }
-    }
-  }
-
-  .btn-secondary .bg-primary {
-    &:hover,
-    &:focus {
-      background-color: $Blue3;
-      border-color: $Blue3;
-    }
-  }
-
-  .transparent-header & {
+  @include min-screen($screen-desktop) {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    z-index: 1;
-
-    &.bg-primary {
-      background-color: transparent !important;
-      @include transition;
-      transition-duration: 0.3s;
-
-      &:hover {
-        background-color: $BlueU !important;
-
-        .navbar-toggler {
-          background-color: $Blue2;
-          border-color: $Blue2;
-        }
-
-        .btn-secondary {
-          background-color: $Blue2;
-          border-color: $Blue2;
-        }
-      }
-
-      .btn-secondary {
-        &:focus,
-        &:hover {
-          background-color: $Blue3;
-          border-color: $Blue3;
-        }
-      }
-    }
-
-    .btn-secondary {
-      background-color: $BlueU;
-      border-color: $BlueU;
-    }
+    padding: 0 3.5rem;
   }
 
-  .parent-menu-open &,
-  .transparent-header &,
-  .header-with-line:not(.header-sticky) & {
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 4.25rem);
-      max-width: 83rem;
-      height: 1px;
-      background-color: $navbar-dark-color;
-
-      @include max-screen($screen-tablet - 1) {
-        width: calc(100% - 3rem);
-
-        .menu-open & {
-          top: 6.75rem;
-        }
-      }
-    }
-  }
-
-  .header-sticky.transparent-header &,
-  .parent-menu-open.transparent-header & {
-    background-color: $BlueU !important;
-  }
-
-  &.navbar-light {
-    background-color: $white;
-  }
-
-  &.navbar {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding: 2rem 3.625rem 1.5rem;
-    width: 100vw;
-    z-index: 99;
-
-    .header-sticky & {
-      padding: 0.75rem 3.625rem;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      z-index: 99;
-      @extend %animated;
-      @extend %slideInDown;
-      animation-duration: 0.5s;
-
-      @include max-screen($screen-desktop - 1) {
-        padding: 0.75rem 2.125rem 0.75rem;
-        min-height: 3.5rem;
-      }
-
-      @include max-screen($screen-tablet - 1) {
-        padding: 1rem 1.5rem;
-        min-height: 4rem;
-      }
-    }
-
-    @include max-screen($screen-desktop - 1) {
-      position: relative;
-      padding: 1.5rem 2.125rem 1.5rem;
-      align-items: flex-start;
-      justify-content: flex-start;
-      min-height: 6.5rem;
-    }
-
-    @include max-screen($screen-tablet - 1) {
-      padding: 1rem 1.5rem;
-      min-height: 6.75rem;
-      flex-wrap: wrap;
-    }
-  }
-
-  .menu-open & {
-    min-height: 100vh;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 99;
-    flex-wrap: nowrap;
-    overflow-y: auto;
-
-    .block-unesco-commonlanguage-blocklanguage-interface {
-      padding-bottom: 2rem;
-    }
-  }
-
-  .header {
-    width: 100%;
-
-    .navbar-toggler {
-      position: absolute;
-      top: 1.5rem;
-      right: 2.125rem;
-
-      .transparent-header & {
-        background-color: $BlueU;
-        border-color: $BlueU;
-      }
-
-      .transparent-header.header-sticky &,
-      .transparent-header.menu-open & {
-        background-color: $Blue2;
-        border-color: $Blue2;
-      }
-
-      @include max-screen($screen-desktop - 1) {
-        top: 2rem;
-      }
-
-      .header-sticky & {
-        @include max-screen($screen-desktop - 1) {
-          top: 0.75rem;
-        }
-      }
-
-      @include max-screen($screen-tablet - 1) {
-        top: 0.75rem;
-        right: 1.5rem;
-      }
-
-      .parent-menu-open & {
-        top: 0.75rem;
-      }
-
-      .menu-open & {
-        z-index: 99;
-
-        .navbar-toggler-icon {
-          display: none;
-        }
-
-        &::after {
-          @include icon('clear');
-          font-size: 1.2rem;
-          vertical-align: middle;
-        }
-      }
-    }
-  }
-
-  .sub-header {
-    width: 100%;
-
-    .site-name-wrapper {
-      padding-left: 0;
-      position: static;
-
-      .header-sticky & {
-        display: none;
-      }
-    }
-
-    @include max-screen($screen-desktop - 1) {
-      -webkit-box-ordinal-group: 0;
-      -ms-flex-order: -1;
-      order: -1;
-    }
-  }
-
-  .nav-link {
-    font-size: 1.125rem;
-    line-height: 2rem;
-    display: flex;
-    align-items: center;
-    padding-top: 0;
-    padding-bottom: 0;
-
-    &.btn {
-      font-size: 0.875rem;
-      color: $white;
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .menu-level-1 a {
-    color: $navbar-dark-color;
-  }
-
-  .nav-item {
-    padding: 0;
-  }
-
-  .site-name-wrapper {
-
-    a {
-      text-decoration: none;
-    }
-  }
-
-  .site-name {
-    &, &p {
-      margin: 0;
-    }
-
-    .header-sticky & {
-      display: none;
-    }
-
-    @include max-screen($screen-desktop - 1) {
-      display: none;
-    }
-  }
-
-  .block-unesco-common-site-branding {
-    >a {
-      display: block;
-    }
-
-    @include max-screen($screen-desktop - 1) {
-      position: absolute;
-      top: 1.5rem;
-      left: 2.125rem;
-      padding: 0;
-      width: auto;
-      z-index: 3;
-    }
-
-    .site-logo {
-      max-width: 9.375rem;
-    }
-
-    .site-name {
-      display: none;
-    }
-
-    .header-sticky & {
-      >a {
-        display: flex;
-        align-items: center;
-      }
-
-      img {
-        margin-right: 1rem;
-      }
-
-      @include max-screen($screen-desktop - 1) {
-        top: 1rem;
-      }
-
-      .site-name {
-        display: block;
-        font-size: 0.875rem;
-
-        @include max-screen($screen-tablet - 1) {
-          display: none;
-        }
-      }
-    }
-
-    @include max-screen($screen-tablet - 1) {
-      top: 1rem;
-      left: 1.5rem;
-    }
-  }
-
-  .region-header {
-    align-items: center;
-
-    @include max-screen($screen-desktop - 1) {
-      margin: 0;
-      padding: 0;
-      align-items: flex-start;
-    }
-
-    button,
-    a {
-      font-size: 0.875rem;
-      line-height: 1.375rem;
-    }
-  }
-
-  .region-sub-header {
-    align-items: center;
-    position: relative;
-
-    .menu--main,
-    .dropdown {
-      position: static;
-    }
-
-    .site-name {
-      @include max-screen($screen-desktop - 1) {
-        position: absolute;
-        top: 2.5rem;
-        left: 1rem;
-        display: block;
-
-        .header-sticky & {
-          display: none;
-        }
-      }
-
-      @include max-screen($screen-tablet - 1) {
-        width: calc(100% - 4rem);
-        max-width: 15rem;
-        font-size: 0.875rem;
-        line-height: 1.125rem;
-      }
-    }
-  }
-
-  .menu-level-0 {
-    >.nav-item {
-      @include max-screen($screen-desktop - 1) {
-        margin-bottom: 1.5rem;
-      }
-
-      >.nav-link {
-        position: relative;
-
-        @include max-screen($screen-desktop - 1) {
-          font-size: 1.5rem;
-          line-height: 2rem;
-          font-weight: 400;
-          display: inline-block;
-
-          &.dropdown-toggle {
-            white-space: normal;
-
-            &::after {
-              content: "chevron_right";
-            }
-          }
-
-          &.btn-small {
-            font-size: 0.875rem;
-            margin-left: 1rem;
-          }
-        }
-
-        &:focus,
-        &:hover {
-
-          &::before {
-            content: "";
-            display: block;
-            position: absolute;
-            left: 1rem;
-            bottom: -1.625rem;
-            width: calc(100% - 2rem);
-            height: 0.25rem;
-            background-color: $navbar-dark-color;
-
-            @include max-screen($screen-desktop - 1) {
-              display: none;
-            }
-          }
-        }
-
-        &.btn {
-          @include min-screen($screen-tablet) {
-            margin-left: 1rem;
-          }
-
-          &:focus::before,
-          &:hover::before {
-            display: none;
-          }
-        }
-      }
-
-      &.show {
-        >.nav-link {
-          &::before {
-            content: "";
-            display: block;
-            position: absolute;
-            left: 1rem;
-            bottom: -1.625rem;
-            width: calc(100% - 2rem);
-            height: 0.25rem;
-            background-color: $navbar-dark-color;
-
-            @include max-screen($screen-desktop - 1) {
-              display: none;
-            }
-          }
-        }
-      }
-    }
-
-    .parent-menu-open & {
-      @include max-screen($screen-desktop - 1) {
-        width: 100vw;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background-color: $BlueU;
-        z-index: 99;
-        padding: 1.25rem 2.125rem 1.5rem;
-
-        >.nav-item {
-          display: none;
-
-          &.show {
-            display: block;
-            max-width: 100%;
-
-            >.nav-link {
-              display: block;
-              font-size: 1.125rem;
-              line-height: 1.5rem;
-              text-align: center;
-              padding: 0 1.25rem 1.5rem;
-              border-bottom: 1px solid $navbar-dark-color;
-              position: relative;
-              margin-bottom: 2rem;
-
-              @include max-screen($screen-tablet - 1) {
-                padding: 0 1.25rem 1rem;
-              }
-
-              &:after {
-                position: absolute;
-                left: 0;
-                top: 0.1rem;
-                margin: 0;
-                transform: rotate(-180deg);
-                font-size: 2rem;
-              }
-            }
-          }
-        }
-      }
-
-      @include max-screen($screen-tablet - 1) {
-        padding: 1rem 1.5rem;
-      }
-    }
-  }
-}
-
-.navbar-toggler-icon {
-  width: 1.125rem;
-  height: 0.75rem;
-}
-
-.navbar-dark,
-.navbar-light,
-.bg-primary {
-  .logo-dark {
-    display: none;
-  }
-  .navbar-toggler {
-    background-color: $Blue2;
-  }
-
-  .navbar-brand {
-    padding: 0;
-
-    img {
-      filter: none;
-      height: 2rem;
-
-      @include max-screen($screen-desktop - 1) {
-        width: 16.375rem;
-        height: auto;
-
-        .menu-open & {
-          width: auto;
-          height: 2rem;
-        }
-      }
-
-      @include max-screen($screen-tablet - 1) {
-        width: auto;
-        height: 2rem;
-      }
-
-      .header-sticky & {
-        max-width: 9.313rem;
-        height: auto;
-      }
-    }
-  }
-}
-
-.navbar-light {
-  .navbar-toggler {
+  &:hover {
     background-color: $BlueU;
   }
-}
 
-.site-name {
-  font-size: 1.125rem;
-  line-height: 1.5rem;
-  font-weight: 800;
-  color: $navbar-dark-brand-color;
-  margin-bottom: 0;
-}
-
-.region-header {
-  justify-content: space-between;
-}
-
-.menu--main {
-  justify-content: flex-end;
-
-  .main-navigation {
-    justify-content: flex-end;
-    max-width: 100%;
-    transition: all 0.2s ease-in-out;
-    line-height: 2rem;
-
-    @include max-screen($screen-desktop - 1) {
-      transition: none;
-      margin-top: 5.375rem;
-    }
-
-    @include max-screen($screen-tablet - 1) {
-      margin-top: 6.75rem;
-    }
-
-    .header-sticky & {
-      display: none !important;
-    }
-
-    .menu-open.header-sticky & {
-      display: block !important;
+  &.bg-primary {
+    .navbar {
+      &_burger {
+        background-color: $Blue2;
+      }
     }
   }
 
-  ul.menu {
-    margin-left: 0;
+  &.is-border {
+    .navbar {
+      border-bottom: .0625rem solid $white;
+    }
   }
-}
 
-.menu--secondary {
-  margin-left: auto;
+  &.is-active {
+    background-color: $BlueU;
+  }
 
-  .nav-link {
+  .navbar {
+    position: initial;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 83rem;
+    margin: 0 auto;
+    padding: 1rem 0;
+    @include min-screen($screen-tablet) {
+      padding: 1.5rem 0;
+    }
     @include min-screen($screen-desktop) {
-      &:focus,
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  @include max-screen($screen-desktop - 1) {
-    display: none;
-    margin-left: 0;
-
-
-    li {
-      .nav-link {
-        padding: 0;
-        font-size: 1rem;
-        line-height: 1.5rem;
-        margin-bottom: 1rem;
-      }
-    }
-  }
-
-  .menu-open & {
-    @include max-screen($screen-desktop - 1) {
-      display: block;
-    }
-  }
-}
-
-.btn-link {
-  &.btn-link-white {
-    color: $navbar-dark-color;
-  }
-}
-
-.main-navigation {
-  .dropdown-menu {
-    top: calc(100% + 1.39rem);
-    padding: 3.5rem 3.625rem;
-    border: none;
-    border-radius: 0;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-
-    &.show {
-      display: flex;
-      @extend %animated;
-      @extend %fadeIn;
-      animation-duration: 0.5s;
-
-      @include max-screen($screen-desktop - 1) {
-        animation-name: none;
-      }
+      align-items: flex-start;
+      padding: 2rem 0 1.5rem;
     }
 
-    @include max-screen($screen-desktop - 1) {
-      position: static;
-      padding: 0;
-      transform: none;
-    }
-
-    .submenu-wrapper {
-      margin: 0 -2.063rem;
-      width: 100%;
-
-      @include max-screen($screen-desktop - 1) {
-        margin: 0 -1rem;
-      }
-    }
-
-    .left-wrapper,
-    .right-wrapper {
-      padding: 0 2.063rem;
-    }
-
-    .right-wrapper {
-      .menu-level-1 {
+    &_logo {
+      img {
         width: 100%;
-
-        @include max-screen($screen-desktop - 1) {
-          flex-direction: row;
-          justify-content: flex-start;
+        max-width: 9.375rem;
+        @include min-screen($screen-tablet) {
+          max-width: 16.25rem;
         }
       }
     }
 
-    .left-wrapper {
-      max-width: 28.5rem;
-
-      @include max-screen($screen-desktop - 1) {
-        max-width: 100%;
-      }
-
-      .field--name-field-description {
-        font-size: 1.5rem;
-        line-height: 2rem;
-        font-weight: 600;
-        color: $navbar-dark-color;
-        margin-bottom: $spacer * 1.5;
-      }
-    }
-  }
-
-  .menu-links {
-    .menu-link {
-      margin-bottom: 1rem;
-    }
-  }
-}
-
-.block-unesco-commonlanguage-blocklanguage-interface {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 0;
-
-  .dropdown-toggle {
-    &::after {
-      font-size: 1.5rem;
-
-      @include min-screen($screen-desktop) {
-        margin-right: -0.313rem;
-      }
-    }
-  }
-
-  @include min-screen($screen-desktop) {
-    padding-right: 0;
-    flex: unset;
-    width: unset;
-  }
-
-  .header-sticky & {
-    display: none;
-  }
-
-  @include max-screen($screen-desktop - 1) {
-    justify-content: flex-start;
-    display: none;
-    padding: 0;
-
-    .menu-open & {
-      display: flex;
-    }
-  }
-
-  .btn-link {
-    padding: 0;
-
-    @include max-screen($screen-desktop - 1) {
+    &_baseline {
       display: block;
-      font-size: 1rem;
-      line-height: 1.5rem;
+      margin-top: .5rem;
+      font-size: .875rem;
+      color: $white;
+      font-weight: 800;
+      &:hover {
+        text-decoration: none;
+      }
+      @include min-screen($screen-desktop) {
+        margin-top: 1rem;
+        font-size: 1.125rem;
+      }
     }
-  }
 
-  .dropdown-menu {
-    padding: 1rem 1.5rem;
+    &_burger {
+      position: absolute;
+      z-index: 90;
+      display: inline-block;
+      width: 2.5rem;
+      height: 2.5rem;
+      top: .75rem;
+      right: 1.5rem;
+      background-color: $BlueU;
+      border-radius: 50%;
+      cursor: pointer;
+      @include min-screen($screen-tablet) {
+        top: 2rem;
+        right: 2.125rem;
+      }
+      @include min-screen($screen-desktop) {
+        display: none;
+      }
+      span {
+        display: block;
+        position: absolute;
+        width: 1rem;
+        left: .75rem;
+        border-top: 2px solid $white;
+        transform-origin: 50% 50%;
+        transition: transform .4s ease-out;
 
-    @include max-screen($screen-desktop - 1) {
-      position: static;
-      background-color: inherit;
-      border: none;
+        &:nth-child(1) {
+          top: .875rem;
+        }
+
+        &:nth-child(2) {
+          top: 1.25rem;
+          opacity: 1;
+          transition: transform .4s ease-out, opacity 0ms linear .2s;
+        }
+
+        &:nth-child(3) {
+          top: 1.625rem;
+        }
+      }
     }
-  }
 
-  .language-switcher-language-url {
-    list-style: none;
-    list-style-image: none;
-    margin: 0;
-    padding: 0;
+    &_wrapper {
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      @include min-screen($screen-tablet) {
+        padding: 2rem 2.125rem;
+      }
+      @include max-screen($screen-desktop - 1) {
+        background: $BlueU;
+        display: none;
+        width: 100vw;
+        left: 0;
+        position: absolute;
+      }
+      @include min-screen($screen-desktop) {
+        padding: 0;
+        display: flex!important;
+        align-items: flex-end;
+      }
+    }
 
-    li {
+    &_top {
+      display: flex;
+      flex-direction: column;
+      order: 1;
+      padding: 0;
+      margin: 1.5rem 0 0 0;
+      @include min-screen($screen-desktop) {
+        margin: 0 -1rem .75rem;
+        flex-direction: row;
+        order: 0;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      li {
+        list-style: none;
+        @include min-screen($screen-desktop) {
+          margin: 0 1rem;
+        }
+        a {
+          display: inline-block;
+          color: $white;
+          font-size: 1rem;
+          padding: .5rem 0;
+          @include min-screen($screen-desktop) {
+            padding: 0;
+            font-size: .875rem;
+          }
+          &.button-galaxy {
+            padding-right: 2rem;
+          }
+        }
+      }
+    }
+
+    &_nav {
+      display: flex;
+      align-items: flex-start;
+      order: 0;
+      flex-direction: column;
+      @include min-screen($screen-desktop) {
+        order: 1;
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    &_menu {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      order: 1;
+      padding: 0;
+      margin: -.75rem 0;
+      @include min-screen($screen-desktop) {
+        flex-direction: row;
+        align-items: center;
+        order: 0;
+        margin: 0 -1.125rem;
+      }
+      & > li {
+        list-style: none;
+        &.submenu-active {
+          .navbar_submenu {
+            left: 0;
+          }
+        }
+        @include min-screen($screen-desktop) {
+          margin: 0 1.125rem;
+        }
+        & > a {
+          position: relative;
+          display: flex;
+          align-items: center;
+          color: white;
+          font-size: 1.5rem;
+          padding: 0.75rem 0;
+          &:hover {
+            text-decoration: none;
+          }
+          @include min-screen($screen-desktop) {
+            &::before {
+              content: '';
+              position: absolute;
+              bottom: .5rem;
+              right: 0;
+              width: 0;
+              height: 1px;
+              background-color: $white;
+              transition: .3s ease-in-out;
+            }
+
+            &:hover {
+              &::before {
+                width: 100%;
+                left: 0;
+              }
+            }
+            font-size: 1.125rem;
+          }
+
+          &.is-expanded {
+            &::after {
+              @include icon('chevron_right');
+              line-height: 1;
+              margin-left: 1rem;
+            }
+            @include min-screen($screen-desktop) {
+              &::after {
+                margin-left: .5rem;
+                @include icon('expand_more');
+              }
+              &::before {
+                right: 1.5rem;
+              }
+              &:hover {
+                &::before {
+                  width: calc(100% - 1.5rem);
+                }
+              }
+              &.submenu-active {
+                &::after {
+                  transform: rotate(-180deg);
+                }
+                &::before {
+                  width: calc(100% - 1.5rem);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &_submenu {
+      position: fixed;
+      z-index: 80;
+      width: 100vw;
       margin: 0;
       padding: 0;
-
+      background-color: $BlueU;
       @include max-screen($screen-desktop - 1) {
-        margin-bottom: 1rem;
+        top: 0;
+        left: 100vw;
+        height: 100vh;
+        transition: .3s ease-in-out;
       }
+      @include min-screen($screen-desktop) {
+        position: absolute;
+        display: none;
+        top: 100%;
+        left: 0;
+      }
+    }
 
-      a {
-        font-size: 0.875rem;
-        line-height: 2rem;
-        font-weight: 400;
-        color: $grey4;
-
-        @include max-screen($screen-desktop - 1) {
-          font-size: 1rem;
-          line-height: 1.5rem;
-          color: rgba($navbar-dark-color, 0.4);
-        }
-
-        &:focus,
+    &_actions {
+      display: none;
+      order: 0;
+      margin: 0 -1.125rem 0 0;
+      @include min-screen($screen-desktop) {
+        display: flex;
+        order: 1;
+      }
+      a, button {
+        color: white;
+        margin: 0 1.125rem;
         &:hover {
           text-decoration: none;
-          color: $darkGrey;
+        }
+      }
+    }
 
-          @include max-screen($screen-desktop - 1) {
-            color: $navbar-dark-color;
+    &.active {
+      .navbar_burger {
+        span {
+
+          &:nth-child(1) {
+            animation: burger-open-top .4s ease-out forwards;
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+            transition: transform .4s ease-out, opacity 0ms linear .2s;
+          }
+
+          &:nth-child(3) {
+            animation: burger-open-bot .4s ease-out forwards;
           }
         }
+      }
+    }
 
-        &.is-active {
-          color: $darkGrey;
+    &.closing {
+      .navbar_burger {
+        span {
+          &:nth-child(1) {
+            animation: burger-close-top .4s ease-out forwards;
+          }
 
-          @include max-screen($screen-desktop - 1) {
-            color: $navbar-dark-color;
+          &:nth-child(3) {
+            animation: burger-close-bot .4s ease-out forwards;
           }
         }
+      }
+    }
+
+    li {
+      list-style: none;
+    }
+
+    &_sticky {
+      display: none;
+      @include min-screen($screen-desktop) {
+        display: block;
+        position: fixed;
+        width: 100%;
+        top: -6rem;
+        left: 0;
+        padding: 0 3.5rem;
+        background-color: $BlueU;
+        transition: .4s ease-in-out;
+        &.is-sticky {
+          top: 0;
+        }
+        &.bg-white {
+          color: $BlueU;
+          .navbar_baseline,
+          .navbar_sticky-content,
+          .navbar_sticky-content a {
+            color: $BlueU;
+          }
+        }
+      }
+      .navbar_logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+          max-height: 2rem;
+        }
+        .navbar_baseline {
+          font-size: .875rem;
+          white-space: nowrap;
+          margin-top: 0;
+          margin-left: 1rem;
+        }
+      }
+      &-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 83rem;
+        margin: 0 auto;
+        padding: .75rem 0;
       }
     }
   }
-}
 
-header {
-  // Submenus styles
-  .big {
-    .nav-link {
-      display: none;
+  .submenu {
+    &-header {
+      display: flex;
+      align-items: center;
+      width: calc(100% - 3rem);
+      margin: 1.25rem 1.5rem 0;
+      padding: 0 4rem 1rem 0;
+      border-bottom: .0625rem solid $white;
+      color: $white;
+      @include min-screen($screen-tablet) {
+        margin: 2.5rem 1.5rem 0;
+        padding: 0 4rem 2rem 0;
+      }
+    }
+    &-back {
+      width: 4rem;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: .9;
+    }
+    &-title {
+      font-size: 1.125rem;
+      font-weight: 500;
+      text-align: center;
+      width: 100%;
+    }
+    &_wrapper {
+      padding: 2rem 1.5rem;
+      @include max-screen($screen-desktop - 1) {
+        max-height: calc(100% - 4rem);
+        overflow: auto;
+      }
+      @include min-screen($screen-desktop) {
+        width: 100%;
+        max-width: 88rem;
+        margin: 0 auto;
+      }
     }
 
-    .menu-level-1 {
-      margin: 0 -1rem;
+    &_list {
+      font-size: 1rem;
+      color: $white;
+      margin: -.75rem 0 0 0;
+      &-title {
+        padding: .75rem 0;
+        font-weight: 600;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+        padding: .75rem 0;
+        color: $white;
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+    &_card {
       display: flex;
-      flex-wrap: wrap;
-      width: 100%;
+      flex-direction: column;
       justify-content: flex-end;
-
-      @include max-screen($screen-tablet - 1) {
-        flex-direction: column;
+      width: 100%;
+      margin: 0 -.5rem -1rem;
+      padding: 0;
+      @include min-screen($screen-tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: calc(100% + 1rem);
+      }
+      @include min-screen($screen-desktop) {
+        margin: 0 -.75rem -1.5rem;
+        width: calc(100% + 1.5rem);
       }
 
       li {
-        padding: 0 1rem;
-        max-width: 25%;
-
-        @include transition;
-        transition-duration: 0.3s;
+        width: 100%;
+        margin-bottom: 1rem;
+        transition: all .3s ease-in-out;
+        @include min-screen($screen-tablet) {
+          padding: 0 .5rem;
+          max-width: 50%;
+        }
+        @include min-screen($screen-desktop) {
+          padding: 0 .75rem;
+          max-width: 25%;
+          margin-bottom: 1.5rem;
+        }
 
         &:focus,
         &:hover {
           transform: scale(1.1);
         }
-      }
-    }
-  }
 
-  .report {
-    display: block;
-    opacity: 0;
-    pointer-events: none;
-
-    @include max-screen($screen-desktop - 1) {
-      display: none;
-
-      &.show {
-        display: block;
-        width: auto;
-      }
-    }
-
-    .nav-link {
-      display: none;
-    }
-
-    &.show {
-      opacity: 1;
-      pointer-events: unset;
-      display: block;
-    }
-
-    .submenu-wrapper {
-      max-width: 83rem;
-      margin: 0 auto !important;
-      overflow: hidden;
-
-      @include max-screen($screen-desktop - 1) {
-        display: block;
-      }
-
-      @include min-screen($screen-desktop) {
-        flex-wrap: nowrap;
-      }
-
-      .right-wrapper {
-        padding: 0;
-
-        @include min-screen($screen-desktop) {
-          margin-left: auto;
-          flex: 0 0 100%;
-          max-width: 100%;
-        }
-
-        .main-navigation {
-          @include max-screen($screen-tablet - 1) {
-            margin-top: 0;
-
-            li {
-              margin-bottom: 1.5rem;
-              padding: 0;
-
-              img {
-                display: none;
-              }
-            }
-          }
-        }
-      }
-
-      .left-wrapper +.right-wrapper {
-        @include min-screen($screen-desktop) {
-          flex: 0 0 75%;
-          max-width: 75%;
-        }
-      }
-
-      .left-wrapper,
-      .right-wrapper {
         @include max-screen($screen-tablet - 1) {
-          padding: 0;
-        }
-      }
-    }
+          a {
+            max-height: 9rem;
+          }
 
-    .menu-level-1 {
-      display: block;
-      margin: 0;
-
-      .slick-list {
-        margin: 0 -#{$spacer};
-
-        @include min-screen($screen-desktop) {
-          padding-right: 10% !important;
-        }
-      }
-
-      li {
-        padding: 0 $spacer;
-      }
-    }
-
-    .slick-slider {
-      position: relative;
-    }
-
-    .slick-arrow {
-      font-size: 0;
-      display: inline-block;
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
-      border: none;
-      background-color: $grey1;
-      text-align: center;
-      position: absolute;
-      top: 32%;
-      right: 1rem;
-      z-index: 3;
-
-      &::after {
-        @include icon('chevron_right');
-        font-size: 1.2rem;
-        color: $grey4;
-      }
-
-      &.slick-disabled {
-        display: none !important;
-      }
-
-      &.slick-prev {
-        right: auto;
-        left: 1rem;
-
-        &::after {
-          content: "chevron_left";
-        }
-      }
-    }
-  }
-
-  .normal {
-    .right-wrapper >.main-navigation >.menu-level-1 {
-      display: flex;
-      margin: 0 -1rem;
-      justify-content: flex-end;
-
-      >li {
-        padding: 0 1rem;
-        width: 33.33%;
-        max-width: 18.75rem;
-        margin-bottom: 1.5rem;
-
-        > a {
-          font-size: $font-size-base;
-          line-height: 1.5rem;
-          font-weight: 600;
-          margin-bottom: 1.5rem;
-
-          &.dropdown-toggle::after {
-            display: none;
+          img {
+            @include img-cover();
+            object-position: center;
           }
         }
 
-        .nav-item {
-          margin-bottom: 1.5rem;
-
-          .nav-link {
-            font-size: 0.875rem;
-            line-height: 1.5rem;
-            font-weight: 400;
-          }
-        }
-      }
-
-      .level-1-submenu {
-        >a {
-          display: none;
-        }
-
-        .navbar-nav,
-        .main-navigation {
-          display: block !important;
-          margin: 0;
-        }
-      }
-    }
-  }
-}
-
-.submenu-big {
-  position: relative;
-  display: block;
-  min-height: 0;
-  height: auto;
-
-  .submenu-text {
-    padding: 0 0.5rem;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    z-index: 1;
-  }
-}
-
-.submenu-carousel {
-  span {
-    display: block;
-    font-size: $font-size-lg;
-    line-height: 1.33;
-    font-weight: 600;
-    margin-top: $spacer;
-
-    @include max-screen($screen-tablet - 1) {
-      font-size: 1rem;
-      line-height: 1.5rem;
-      font-weight: 400;
-    }
-  }
-}
-
-.navbar-light {
-  .navbar-nav .nav-link {
-    &.btn {
-      color: $white;
-    }
-  }
-}
-
-.header-sticky {
-  padding-top: 3.5rem;
-
-  @include max-screen($screen-tablet - 1) {
-    padding-top: 4rem;
-  }
-
-  header::after {
-    display: none;
-  }
-}
-
-.transparent-header.header-sticky {
-  padding-top: 0 !important;
-}
-
-.transparent-header.menu-open header.bg-primary {
-  background-color: $BlueU !important;
-}
-
-// White header on sticky
-header.header-mini-light {
-  display: block;
-
-  @include max-screen($screen-desktop - 1) {
-    .menu-open & {
-      display: flex;
-    }
-  }
-  .content-menu-sticky {
-    display: none;
-  }
-}
-
-.header-sticky header.header-mini-light {
-  display: flex;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background-color: $white !important;
-  flex-direction: row;
-  max-width: 85.5rem;
-  height: 4rem;
-  width: 100%;
-  left: 50%;
-  @extend %slideInDownWhite;
-  @include min-screen($screen-tablet) {
-    height: 3.5rem;
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    height: 4rem;
-    width: 100vw;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    background-color: $white;
-    z-index: -1;
-    border-bottom: 1px solid $grey2;
-
-    @include min-screen($screen-tablet) {
-      height: 3.5rem;
-    }
-  }
-
-  .header,
-  .sub-header {
-    width: 100%;
-    margin: 0;
-  }
-
-  .header {
-    .region-header {
-      margin: 0;
-    }
-  }
-
-  .sub-header {
-    margin-left: auto;
-
-    .region-sub-header {
-      @include max-screen($screen-tablet) {
-        margin: 0;
-      }
-    }
-  }
-
-  @include min-screen($screen-desktop) {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-  }
-
-  .site-name-wrapper a {
-    &::before {
-      display: inline-block;
-      content: "";
-      width: 9.375rem;
-      height: 2rem;
-      background-image: url('../images/logo-blue.svg');
-      background-size: contain;
-      background-position: center center;
-      background-repeat: no-repeat;
-      margin-right: 1rem;
-    }
-
-    img {
-      display: none;
-    }
-
-    .site-name {
-      width: 100%;
-    }
-  }
-
-  .header {
-    display: flex;
-    align-items: center;
-  }
-
-  .block-unesco-common-site-branding {
-    flex: unset;
-    width: auto;
-    padding-left: 0;
-  }
-
-  .site-name {
-    color: $navbar-light-color;
-  }
-
-  .content-menu-sticky {
-    margin-left: auto;
-    display: block;
-
-    @include min-screen($screen-desktop) {
-      margin-right: 2rem;
-    }
-
-    a {
-      font-size: 0;
-
-      @include min-screen($screen-desktop) {
-        font-size: 0.875rem;
-        line-height: 1.5rem;
-        font-weight: 600;
-      }
-    }
-
-    .field--name-field-header-cta {
-      display: none;
-
-      @include min-screen($screen-desktop) {
-        display: flex;
-        margin: 0 -1rem;
-      }
-
-      >div {
-        padding: 0 1rem;
-      }
-
-      a {
-        text-decoration: none;
-        position: relative;
-        display: flex;
-      }
-    }
-
-    >div,
-    >div >div {
-      display: flex;
-      align-items: center;
-    }
-
-    .sticky-share {
-      font-size: 1rem;
-      position: relative;
-      z-index: 1;
-      text-decoration: none;
-
-      @include max-screen($screen-tablet - 1 ) {
-        top: 0.5rem;
-      }
-
-      span {
-        font-size: 0;
-
-        @include min-screen($screen-desktop) {
-          font-size: 0.875rem;
-        }
-      }
-
-      i {
-        font-size: 0;
-
-        &::before {
-          display: inline-block;
-          color: inherit;
-          font-size: 1rem;
-
-          @include min-screen($screen-desktop) {
-            margin-right: 2rem;
-            font-size: 0.625rem;
-            line-height: 1.5rem;
-            margin-left: 0.5rem;
-          }
-        }
-      }
-    }
-
-    .addthis_toolbox {
-      max-width: 0;
-      padding: 0;
-      overflow: hidden;
-      @include transition;
-      transition-duration: 0.5s;
-      background-color: $white;
-    }
-
-    &.open-share {
-      .addthis_toolbox {
-        max-width: 21rem;
-        margin-right: 2rem;
-        z-index: 9;
-      }
-
-      .sticky-share {
-        background-color: $white;
-
-        .icon-share::before {
-          @include icon('clear');
-          font-family: 'Material Icons Sharp' !important;
-        }
-      }
-    }
-  }
-
-  .navbar-toggler {
-    display: none;
-  }
-}
-
-.navbar-toggler {
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-header {
-  .menu--secondary {
-    .header-sticky & {
-      display: none;
-    }
-  }
-}
-
-.menu-open {
-  &, body {
-      @include max-screen($screen-desktop - 1) {
-      height: 100vh;
-      overflow: hidden;
-    }
-  }
-}
-
-// satellite page header
-.site-satellite:not(.header-sticky) {
-  @include min-screen($screen-desktop) {
-    header {
-      .block-unesco-common-site-branding {
-        a {
-          display: block;
+        span {
           position: absolute;
-          left: 0;
-          top: 0;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
           z-index: 1;
-
-          .site-logo {
-            max-width: 16.375rem;
-          }
-        }
-      }
-
-      .region-header {
-        position: relative;
-        align-items: flex-start;
-      }
-
-      .region-sub-header {
-        flex-wrap: wrap;
-
-        .site-name-wrapper {
-          width: 100%;
-          margin-top: 0.8rem;
-          order: 2;
-        }
-
-        >.menu--main >.main-navigation {
-          max-width: calc(100% - 16.375rem);
-          margin-top: 0.25rem;
-          margin-bottom: -0.25rem;
-
-          >ul.menu {
-            justify-content: flex-end;
-          }
-        }
-      }
-
-      .menu--main {
-        .menu-level-0 > .nav-item > .nav-link:focus::before,
-        .menu-level-0 > .nav-item > .nav-link:hover::before {
-          bottom: -1.375rem;
-        }
-      }
-
-      .site-name-wrapper {
-        & +.menu--main {
-          .menu-level-0 > .nav-item > .nav-link:focus::before,
-          .menu-level-0 > .nav-item > .nav-link:hover::before,
-          .menu-level-0 > .nav-item.show .nav-link::before {
-            bottom: 0;
-            height: 1px;
-          }
-
-          .dropdown-toggle {
-            &::before {
-              width: calc(100% - 3.625rem);
-            }
-          }
+          padding: 0 .5rem;
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: $white;
         }
       }
     }
   }
 }
 
-.menu--galaxy-menu {
-  .popin:not(.hidden) {
+main {
+  transition: .3s ease;
+}
+
+.option-theming {
+  display: none;
+  @include min-screen($screen-desktop) {
     display: block;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: $grey1;
-
-    div.inside {
-      margin: 6rem auto;
-      padding: 2rem;
-    }
-
-    nav ul.navbar-nav,
-    .vocabulary--websites {
-      width: 75%;
-      background-color: $grey4;
-    }
   }
-}
+  position: fixed;
+  z-index: 99;
+  right: 2rem;
+  top: 8rem;
+  background-color: $white;
+  padding: .5rem;
+  border-radius: .5rem;
+  box-shadow: 0 0 1.5rem 0 rgba(0,0,0, .2);
 
-.block-menu--popin {
-  .button {
-    font-size: 0.875rem;
-    line-height: 1.375rem;
-    padding: 0 1rem;
-    margin: 0;
-    color: $white;
-    cursor: pointer;
-
-    &::after {
-      @include icon('expand_more');
-      margin-left: 0.8rem;
-    }
+  .custom-checkbox {
+    margin: .5rem;
   }
 }

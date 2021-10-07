@@ -1,0 +1,360 @@
+.path-explore {
+
+  .explore-wrapper {
+    @include min-screen($screen-desktop) {
+      margin-bottom: -1.5rem;
+    }
+
+    #explorer {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      @include min-screen($screen-desktop) {
+        position: relative;
+      }
+
+      &.list {
+        margin-bottom: 4rem;
+        @include min-screen($screen-desktop) {
+          margin-bottom: 7.5rem;
+
+          .map-actions .results {
+            display: block;
+          }
+        }
+
+        .map-actions .display-switcher .list {
+          background-color: $grey4;
+          i {
+            color: $white;
+          }
+        }
+
+        .wrapper {
+          position: relative;
+          max-width: 51.5rem;
+          width: 100%;
+          margin: 0 auto;
+          & > article {
+            margin-bottom: 2rem;
+            @include min-screen($screen-desktop) {
+              margin-bottom: 3rem;
+            }
+          }
+        }
+      }
+
+      &.map {
+        @include min-screen($screen-desktop) {
+          position: relative;
+
+          &::after {
+            content: "";
+            display: block;
+            width: calc(35% - 1rem);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 11.375rem;
+            background: linear-gradient(0deg,rgb(255, 255, 255) 0%,#fff0 100%);
+            z-index: 1;
+            pointer-events: none;
+          }
+        }
+
+        .map-actions {
+          @include min-screen($screen-desktop) {
+            order: 0;
+            max-width: 1300px;
+            padding: 1.5rem 3.5rem;
+          }
+        }
+
+        .map-actions .display-switcher .map {
+          background-color: $grey4;
+          i {
+            color: $white;
+          }
+        }
+        @include min-screen($screen-desktop) {
+          flex-direction: row;
+          width: 100vw;
+          left: 50%;
+          transform: translateX(-50%);
+          justify-content: center;
+        }
+      }
+
+      &.grid {
+        margin-bottom: 4rem;
+
+        .map-actions .results {
+          display: block;
+        }
+
+        @include min-screen($screen-desktop) {
+          margin-bottom: 7.5rem;
+        }
+
+        .map-actions {
+          @include min-screen($screen-desktop) {
+            padding: 1.5rem 0;
+          }
+        }
+
+        .map-actions .display-switcher .grid {
+          background-color: $grey4;
+          i {
+            color: $white;
+          }
+        }
+
+        .wrapper {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-gap: 5rem 2rem ;
+          @include min-screen($screen-tablet) {
+            grid-template-columns: 1fr 1fr;
+          }
+          @include min-screen($screen-desktop) {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+          }
+
+          & > article {
+            .node__content {
+              .field--name-field-ref-image {
+                width: 100%;
+                height: 12rem;
+                margin-bottom: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+
+      .map-actions {
+        order: 1;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1.5rem;
+        padding: 1.5rem 0;
+
+        @include min-screen($screen-desktop) {
+          order: 0;
+        }
+
+        .map-select {
+          place-self: center self-start;
+          margin-bottom: 0;
+        }
+
+        .results {
+          grid-row-start: 2;
+          font-size: .875rem;
+          place-self: center self-start;
+        }
+
+        .display-switcher {
+          grid-column-start: 2;
+          grid-row-start: 2;
+          place-self: center self-end;
+
+          @include min-screen($screen-desktop) {
+            grid-row-start: 1;
+          }
+
+          .grid {
+            @include max-screen($screen-desktop - 1px) {
+              display: none;
+            }
+          }
+
+          a {
+            margin-right: 1rem;
+            @include min-screen($screen-desktop) {
+              margin-right: .5rem;
+            }
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+      .wrapper {
+        order: 2;
+
+        & > article {
+          border-top: .0625rem solid $grey2;
+          padding-top: 1.5rem;
+
+          .node__content {
+            .field--name-field-ref-image {
+              article,
+              .field--name-field-media-image,
+              picture {
+                width: 100%;
+                height: 100%;
+              }
+              img {
+                @include img-cover;
+              }
+            }
+          }
+
+          a {
+            &:hover {
+              text-decoration: none;
+              .title {
+                color: $BlueU;
+              }
+              .field--name-field-ref-hub {
+                color: $BlueU;
+              }
+            }
+          }
+          .title {
+            @include responsive(font-size, $small-content-title);
+            font-weight: 600;
+            color: $black;
+            transition: .3s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sdh-map-map {
+  border-top: 0.1rem solid $grey2;
+}
+
+#explorer {
+  .map-wrapper {
+    order: 0;
+    width: 100%;
+    @include min-screen($screen-desktop) {
+      order: 2;
+      width: 65%;
+    }
+    .map-inner {
+      @include min-screen($screen-desktop) {
+        height: 50rem;
+      }
+    }
+  }
+
+  .map-list {
+    order: 2;
+    width: 100%;
+    margin-top: 0;
+
+    @include min-screen($screen-desktop) {
+      order: 1;
+      width: calc(35% - 1rem);
+      margin-right: 1rem;
+      padding: 0 1.5rem;
+      min-height: 50rem;
+      height: 50rem;
+      overflow: auto;
+      @include scrollbar-custom;
+      position: relative;
+    }
+
+    .text-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        order: 1;
+      }
+    }
+  }
+}
+
+.node--view-mode-sdh-list,
+.node--view-mode-sdh-grid {
+  .node__content {
+
+    .title {
+      @include responsive(font-size, $small-content-title);
+      font-weight: 600;
+      color: $black;
+      transition: .3s;
+    }
+
+    .field--name-field-ref-hub {
+      @include responsive(font-size, $small-content-title);
+    }
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      .title {
+        color: $BlueU;
+      }
+      .field--name-field-ref-hub {
+        color: $BlueU;
+      }
+    }
+  }
+}
+
+.node--view-mode-sdh-list {
+  .node__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .field--name-field-ref-image {
+      order: 1;
+      margin-left: 1.5rem;
+      overflow: hidden;
+      flex-shrink: 0;
+      width: 5rem;
+      height: 5rem;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      @include min-screen($screen-tablet) {
+        width: 11.375rem;
+        height: 7.563rem;
+      }
+
+      @include min-screen($screen-desktop) {
+        margin-left: 2rem;
+      }
+    }
+
+    .title {
+      @include responsive(font-size, $small-content-title);
+      font-weight: 600;
+      color: $black;
+      transition: .3s;
+    }
+
+    .field--name-field-ref-hub {
+      @include responsive(font-size, $small-content-title);
+    }
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      .title {
+        color: $BlueU;
+      }
+      .field--name-field-ref-hub {
+        color: $BlueU;
+      }
+    }
+  }
+}

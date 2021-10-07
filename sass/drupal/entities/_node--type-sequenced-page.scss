@@ -6,8 +6,15 @@ $paddingTop: (
 .node--type-sequenced-page {
   &.node--view-mode-full {
     position: relative;
-    padding-top: 2.5rem;
-    @include responsive(padding-top, $paddingTop);
+
+    >.node__content {
+      padding-top: 2.5rem;
+      @include responsive(padding-top, $paddingTop);
+    }
+
+    .header-hub {
+      margin-bottom: 0;
+    }
   }
 
   .paragraph {

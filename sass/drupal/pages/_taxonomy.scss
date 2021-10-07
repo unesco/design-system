@@ -5,7 +5,7 @@ $taxonomy-header-name: (
 );
 
 .vocabulary-people {
-  @include mb-block;
+  @include mt-block-sm;
 
   .wrapper-right {
     width: 100%;
@@ -119,10 +119,18 @@ $taxonomy-header-name: (
     border-bottom: .0625rem solid $grey3;
     cursor: pointer;
     margin-left: 1rem;
+    transition: .3s;
     &::before {
       content: '...';
       position: absolute;
       left: -1rem;
+    }
+    &:hover {
+      color: $black;
+      border-color: $black;
+      &::before {
+        color: $grey4;
+      }
     }
   }
 }

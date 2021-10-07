@@ -5,7 +5,6 @@ $faq-text: (
 
 .paragraph {
   &--type--faq {
-    @include mb-block;
 
     .field--name-field-title {
       font-weight: 800;
@@ -23,6 +22,14 @@ $faq-text: (
 
       @include min-screen($screen-desktop) {
         margin: 0 0 3rem;
+      }
+    }
+
+    .field--name-field-text {
+      @include responsive(font-size, $section-text);
+      max-width: 51.5rem;
+      p {
+        @include responsive(font-size, $section-text);
       }
     }
 

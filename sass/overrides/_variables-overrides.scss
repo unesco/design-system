@@ -16,7 +16,7 @@ $container-max-widths: (
   sm: 520px,
   md: 700px,
   lg: 968px,
-  xl: 1300px
+  xl: 1200px
 );
 
 // Grid columns
@@ -35,6 +35,7 @@ $theme-colors: map-merge(
     (
       "primary":    $primary,
       "secondary":  $secondary,
+      "blue2":      $Blue2,
       "grey5":      $grey5,
       "grey4":      $grey4,
       "grey2":      $grey2,

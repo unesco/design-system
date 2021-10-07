@@ -96,6 +96,12 @@ div#sliding-popup .eu-cookie-withdraw-banner,
   top: 240px;
 }
 
+.page-node-type-country {
+  &.transparent-header.user-logged-in .block-local-tasks-block {
+    top: 265px;
+  }
+}
+
 .page-node-type-landing {
   &:not(.transparent-header) {
     #block-unesco-primary-local-tasks {
@@ -107,7 +113,13 @@ div#sliding-popup .eu-cookie-withdraw-banner,
 .toolbar-horizontal {
   &.header-sticky {
     header.navbar {
-      top: 4.938rem;
+      top: 2.438rem !important;
+    }
+  
+    &.toolbar-tray-open.header-sticky {
+      header.navbar {
+        top: 4.938rem !important;
+      }
     }
 
     @include min-screen($screen-desktop) {

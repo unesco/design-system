@@ -2,12 +2,14 @@ $paddingTop: (
   null: 2.5rem,
   large: 3.5rem
 );
+$story-item-description: (
+  null: 1.5rem,
+  large: 2rem
+);
 
 .node--type-article {
   &.node--view-mode-full {
     position: relative;
-    padding-top: 2.5rem;
-    @include responsive(padding-top, $paddingTop);
 
     .node__content {
       display: flex;
@@ -17,6 +19,17 @@ $paddingTop: (
         width: 100%;
         max-width: 38.125rem;
         margin: 0 auto;
+      }
+    }
+
+    >.node__content {
+      padding-top: 2.5rem;
+      @include responsive(padding-top, $paddingTop);
+    }
+
+    .header-hub {
+      @include min-screen($screen-desktop) {
+        margin-bottom: 2rem;
       }
     }
 
@@ -47,6 +60,27 @@ $paddingTop: (
             @include min-screen($screen-desktop) {
               margin-left: 1rem;
             }
+          }
+        }
+
+        &.text-white {
+          a:hover {
+            color: $grey1;
+          }
+        }
+
+        &.text-primary {
+          a:hover {
+            color: $Blue2;
+          }
+        }
+
+        a {
+          color: inherit;
+          transition: .3s;
+          &:hover {
+            text-decoration: none;
+            color: inherit;
           }
         }
 
@@ -88,16 +122,13 @@ $paddingTop: (
           }
 
           .people-link-name {
-
             display: inline;
             color:  $darkGrey;
             font-weight: 600;
 
-
-
             &::after {
               content: ',';
-              margin-left: -.125rem;
+              margin-left: -.21rem;
             }
 
             &:last-child {
@@ -107,11 +138,8 @@ $paddingTop: (
             }
 
             a {
-              display: inline-block;
               position: relative;
               color: $darkGrey;
-
-
 
               &:hover {
                 text-decoration: none;
@@ -123,7 +151,7 @@ $paddingTop: (
                 left: 0;
                 bottom: 0;
                 position: absolute;
-                width: 100%;
+                width: calc(100% - 0.25rem);
                 height: .0625rem;
                 background-color: $darkGrey;
               }
@@ -177,11 +205,11 @@ $paddingTop: (
       background-color: $BlueU;
       padding: 2.5rem 0;
       @include fullWidthBackground($BlueU);
-      margin: -2.5rem auto 2.5rem;
+      margin: -2.5rem auto 0;
       color: $white;
       @include min-screen($screen-desktop) {
         padding: 6rem 0;
-        margin: -3.5rem auto 3.5rem;
+        margin: -3.5rem auto 0;
       }
       &::before,
       &::after {
@@ -243,9 +271,9 @@ $paddingTop: (
     .header-node-content {
       position: relative;
       margin: -9.25rem auto 2.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
       @include min-screen($screen-desktop) {
         margin: -3.5rem auto 3.5rem;
       }
@@ -253,14 +281,25 @@ $paddingTop: (
       .btn-skip-story {
         position: fixed;
         display: none;
-        bottom: 5rem;
         right: 6rem;
-        z-index: 2;
+        bottom: 2rem;
+        padding: .825rem 1.25rem;
+        z-index: 31;
+        @include min-screen($screen-desktop) {
+          bottom: 5rem;
+        }
       }
 
       .story-item {
-        position: relative;
+        position: absolute;
+        width: 100%;
         height: 100vh;
+        @include descending-z-index;
+        transition: 0.2s all linear;
+
+        .story {
+          height: 100vh;
+        }
 
         .text-wrapper {
           position: relative;
@@ -274,15 +313,19 @@ $paddingTop: (
             font-weight: 800;
           }
 
-          .field--name-field-description {
-
-          }
         }
 
-        .story {
-          height: 100%;
-
-
+        &:not(.story-home) {
+          .field--name-title {
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+          }
+          .field--name-field-description {
+            @include responsive(font-size, $story-item-description);
+            font-weight: 600;
+            max-width: 46rem;
+          }
         }
       }
 
@@ -293,21 +336,15 @@ $paddingTop: (
         width: 100vw;
         height: 100%;
         transform: translateX(-50%);
-        z-index: 0;
-        overflow: hidden;
-
-        &::before {
-          content: "";
-          display: block;
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.4) 100%);
-          mix-blend-mode: normal;
+        &::after {
+          content:'';
           position: absolute;
-          left: 50%;
           top: 0;
-          width: 100vw;
+          left: 0;
+          width: 100%;
           height: 100%;
-          transform: translateX(-50%);
-          z-index: 0;
+          background-color: $black;
+          opacity: .4;
         }
 
 
@@ -333,10 +370,6 @@ $paddingTop: (
         position: relative;
         @include responsive(font-size, $page-title);
         font-weight: 800;
-        color: $white;
-      }
-
-      .section-text {
         color: $white;
       }
 
@@ -369,16 +402,21 @@ $paddingTop: (
 
     }
 
+    .field--name-field-copyright {
+      position: absolute;
+      right: 2.5rem;
+      bottom: 1.5rem;
+      z-index: 2;
+      font-size: .75rem;
+      font-weight: 400;
+      opacity: .7;
+      color: $white;
+    }
   }
 
   &.node--view-mode-video {
 
     .field--name-field-video {
-      margin-top: 2.5rem;
-      @include min-screen($screen-desktop) {
-        margin-top: 4rem;
-      }
-      @include mb-block;
 
       .media--type-oembed-video {
         width: 100%;

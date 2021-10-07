@@ -1,0 +1,111 @@
+{#
+  For official documentation @see https://www.drupal.org/docs/8/modules/inline-formatter-field/common-twig-patterns
+
+  Full Example :
+  <h1 class="title article-title">{{ node.title.value }}</h1>
+  <h2>{{ 'Custom for Creative Cities'|t }}</h2>
+
+  <h3 class="mt-5">{{ 'Default node fields'|t }}</h3>
+  Example for title
+  <div class="mt-3"><strong>{{ 'Exemple : Node title'|t }}</strong></div>
+  <div>{{ node.title.value }}</div>
+
+  Example for image, to retrieve image style @see /en/admin/config/media/image-styles (use machine name)
+  {% if node.field_ref_image.0.entity.field_media_image.entity.uri.value is not empty %}
+
+    <div class="mt-3"><strong>{{ 'Exemple : Image style'|t }}</strong></div>
+    <div>{{ 'Medium'|t }}</div>
+    {% set imagestyle = {
+      '#theme': 'image_style',
+      '#style_name': 'medium',
+      '#uri': node.field_ref_image.0.entity.field_media_image.entity.uri.value,
+      '#alt': node.field_ref_image.0.entity.field_media_image.entity.alt,
+      '#attributes': { class: ['img-style'] },
+    } %}
+
+    {{ imagestyle }}
+  {% endif %}
+
+  You can also use responsive_image_styles @see /en/admin/config/media/responsive-image-style
+  {% if node.field_ref_image.0.entity.field_media_image.entity.uri.value is not empty %}
+    <div class="mt-3"><strong>{{ 'Exemple : Responsive image style'|t }}</strong></div>
+    <div>{{ 'Grid'|t }}</div>
+    {{ {
+      '#theme': 'responsive_image',
+      '#responsive_image_style_id': 'grid',
+      '#uri': node.field_ref_image.0.entity.field_media_image.entity.uri.value,
+      '#alt':  node.field_ref_image.0.entity.field_media_image.entity.alt,
+      '#attributes': { class: ['img-responsive'] },
+    } }}
+    <div>{{ 'Banner'|t }}</div>
+    {{ {
+        '#theme': 'responsive_image',
+        '#responsive_image_style_id': 'banner',
+        '#uri': node.field_ref_image.0.entity.field_media_image.entity.uri.value,
+        '#alt':  node.field_ref_image.0.entity.field_media_image.entity.alt,
+        '#attributes': { class: ['img-responsive'] },
+    } }}
+    <div class="example-responsive-image-style">{{ responsiveimagestyle }}</div>
+  {% endif %}
+
+  Regular text field
+  <div class="mt-3"><strong>{{ 'Exemple : Introduction'|t }}</strong></div>
+  <div>{{ node.field_description.0.value }}</div>
+
+  Date field, to see custom formats @see /en/admin/config/regional/date-time
+  <div class="mt-3"><strong>{{ 'Exemple : Date'|t }}</strong></div>
+  {% if node.field_datetime.value is not empty %}
+    <div>{{ node.field_datetime.value|date('U')|format_date('long') }}</div>
+    <div>{{ node.field_datetime.value|date('U')|format_date('event_date') }}</div>
+  {% endif %}
+
+
+  <h3 class="mt-5">{{ 'Fields from Strapi'|t }}</h3>
+  {% for data in datas %}
+  <div>{{ data }}</div>
+  {% endfor %}
+ #}
+
+<h1 class="title article-title">{{ node.title.value }}</h1>
+
+{% if node.field_ref_image.0.entity.field_media_image.entity.uri.value is not empty %}
+  {% set imagestyle = {
+    '#theme': 'image_style',
+    '#style_name': 'medium',
+    '#uri': node.field_ref_image.0.entity.field_media_image.entity.uri.value,
+    '#alt': node.field_ref_image.0.entity.field_media_image.entity.alt,
+  } %}
+
+  {{ imagestyle }}
+{% endif %}
+
+<h2>{{ 'Custom for Creative Cities'|t }}</h2>
+{% for key, data in datas %}
+  {% if key matches "/^.*_(" ~ languages_prefix|join('|') ~ "){1}$/" %}
+    {% if key matches '/^.*_' ~ langcode ~ '$/' %}
+      <div>{{ data|raw }}</div>
+    {% endif %}
+  {% else %}
+      <div>{{ data|raw }}</div>
+  {% endif %}
+{% endfor %}
+
+<h3 class="mt-5">{{ 'Link to list pre-filtered'|t }}</h3>
+{% set parent_id = node.field_ref_hub.target_id %}
+{% if node.field_ref_hub.entity.field_dataset_filter.target_id %}
+  {% set parent_term_uuid = node.field_ref_hub.entity.field_dataset_filter.entity.getUuid() %}
+{% endif %}
+
+{# Headquarter id. #}
+{% set url_options = { 'query': {'f[0]': 'dataset_filters:' ~ parent_term_uuid}} %}
+<ul>
+  <li>
+    <a href="{{ url('entity.node.structured_content', { 'node': parent_id, 'display': 'map' }, url_options) }}">{{ 'Map'|t }}</a>
+  </li>
+  <li>
+    <a href="{{ url('entity.node.structured_content', { 'node': parent_id, 'display': 'list' }, url_options) }}">{{ 'List'|t }}</a>
+  </li>
+  <li>
+    <a href="{{ url('entity.node.structured_content', { 'node': parent_id, 'display': 'grid' }, url_options) }}">{{ 'Grid'|t }}</a>
+  </li>
+</ul>

@@ -3,8 +3,6 @@
     background-color: $grey1;
     padding: 1.5rem 1.5rem 2rem;
     border-radius: .5rem;
-    @include mb-block;
-
     @include min-screen($screen-desktop) {
       padding: 2rem 2rem 2.5rem;
     }
@@ -25,6 +23,7 @@
 
     .rich-text {
       display: none;
+      max-width: 51.5rem;
     }
 
     .btn-primary {

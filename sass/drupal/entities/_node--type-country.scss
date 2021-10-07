@@ -1,11 +1,6 @@
-$paddingTop: (
-  null: 2.5rem,
-  large: 6rem
-);
-
 .node--type-country {
   .explore-wrapper {
-    @include mb-block;
+    @include mt-border-block;
 
     .field--name-field-explore-title {
       font-weight: 800;
@@ -18,8 +13,18 @@ $paddingTop: (
     }
   }
 
+  .country-map {
+    @include min-screen($screen-desktop) {
+      flex-wrap: nowrap;
+    }
+  }
+
   .brief-sdh-wrapper {
-    @include mb-block;
+    @include mt-border-block;
+
+    .row {
+      margin-bottom: -1rem;
+    }
 
     .field--name-field-structured-data-title {
       font-weight: 800;
@@ -30,10 +35,17 @@ $paddingTop: (
         margin: 0 0 1.5rem;
       }
     }
+
+    .field--name-field-structured-data-desc {
+      margin-bottom: 1.5rem;
+      @include min-screen($screen-desktop) {
+        margin-bottom: 3rem;
+      }
+    }
   }
 
   .brief-contact-wrapper {
-    @include mb-block;
+    @include mt-border-block;;
 
     .field--name-field-title {
       font-weight: 800;
@@ -43,6 +55,68 @@ $paddingTop: (
       @include min-screen($screen-desktop) {
         margin: 0 0 1.5rem;
       }
+    }
+  }
+
+  .brief-contact {
+    @include max-screen($screen-desktop - 1px) {
+      display: flex;
+      white-space: nowrap;
+      overflow: auto;
+      flex-wrap: nowrap;
+
+      .col-lg-3 {
+        width: 100%;
+      }
+      .card {
+        width: 18.5rem;
+        min-height: 26.5rem;
+        height: 26.5rem;
+        max-height: 26.5rem;
+        white-space: initial;
+      }
+    }
+  }
+}
+
+.page-node-type-country {
+  .country-news-title,
+  .country-next-events-title,
+  .country-projects-title,
+  .country-report-title,
+  .country-story-title,
+  .country-article-title {
+    @include responsive(font-size, $section-title);
+    @include mt-border-block;
+  }
+
+  .country-news,
+  .country-next-events {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 2rem;
+    justify-items: stretch;
+    @include min-screen($screen-tablet) {
+      grid-template-columns:  1fr 1fr;
+    }
+    @include min-screen($screen-desktop) {
+      grid-template-columns:  1fr 1fr 1fr 1fr;
+      margin-right: 3rem;
+    }
+  }
+
+  .field--name-field-paragraphs > .field__item {
+    @include mt-border-block;
+
+    .paragraph--type--rich-text {
+      margin-top: 0;
+    }
+  }
+
+  footer {
+    @include max-screen($screen-desktop - 1) {
+      margin-top: 2rem;
     }
   }
 }
@@ -55,6 +129,393 @@ $paddingTop: (
 
     @include min-screen($screen-desktop) {
       margin: 0 0 1.5rem;
+    }
+  }
+}
+
+.header-hub.country {
+
+  .hero-wrapper {
+    .header-texts {
+      color: $white;
+      padding-top: 3.5rem;
+      padding-bottom: 2rem;
+      @include min-screen($screen-desktop) {
+        padding-top: 6rem;
+        padding-bottom: 5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .flag {
+        margin-bottom: .5rem;
+        border-radius: 0.125rem;
+        overflow: hidden;
+
+        img {
+          height: 2rem;
+          width: auto;
+
+          @include min-screen($screen-desktop) {
+            height: 3rem;
+          }
+        }
+
+        svg {
+          width: 3rem;
+          height: 2rem;
+        }
+
+        @include min-screen($screen-desktop) {
+          margin-bottom: 0;
+          margin-right: 2rem;
+          display: inline-block;
+          vertical-align: middle;
+
+          svg {
+            width: 4.5rem;
+            height: 3rem;
+          }
+        }
+      }
+      .title {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .date-texts-wrapper {
+        margin-top: 1rem;
+        font-weight: 600;
+        width: 100%;
+
+        div {
+          display: inline;
+        }
+
+        > .field {
+          display: inline;
+          margin-left: 0.25rem;
+
+          .field__item {
+            display: inline;
+          }
+
+          &::before {
+            content: "\2022";
+            color: $white;
+            font-weight: bold;
+            width: .375rem;
+            margin-right: 0.3rem;
+            display: inline-block;
+          }
+
+          &.field--name-field-electoral-group {
+            &::before {
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    .title {
+      @include responsive(font-size, $hero-title);
+    }
+  }
+
+}
+
+#block-unesco-content {
+  .header-background {
+    margin: 0 auto;
+  }
+
+  .custom-node-list {
+    .map-wrapper {
+      position: relative;
+      width: 100vw;
+      transform: translateX(-50%);
+      left: 50%;
+      .map-element {
+        z-index: 2;
+      }
+    }
+    .map-inner {
+      height: 35vh;
+      @include min-screen($screen-desktop) {
+        height: 75vh;
+      }
+    }
+
+    .description-wrapper {
+      @include mt-border-block;
+    }
+
+    .tab-content {
+      margin-top: 4rem;
+      @include min-screen($screen-desktop) {
+        margin-top: 6rem;
+      }
+    }
+
+    .membership-group-list,
+    .electoral-group-list {
+      margin: 0;
+    }
+
+    .item-list {
+      display: inline-block;
+      width: 100%;
+      .alphabetical-filter {
+        padding-bottom: .5rem;
+        margin: 0 0 1rem 0;
+        li {
+          margin: 0 .5rem 0 0;
+        }
+      }
+    }
+
+    .list-wrapper {
+      margin-bottom: 4rem;
+      @include min-screen($screen-desktop) {
+        margin-bottom: 6rem;
+      }
+      & > article {
+        padding-top: 1.5rem;
+        margin-top: 2rem;
+        border-top: .0625rem solid $grey2;
+        @include min-screen($screen-desktop) {
+          margin-top: 1.5rem;
+        }
+        a {
+          position: relative;
+          display: block;
+          color: $black;
+          min-height: 5.5rem;
+          @include min-screen($screen-desktop) {
+            min-height: 0;
+          }
+
+          &:hover {
+            text-decoration: none;
+            .title {
+              color: $BlueU;
+            }
+            .node__content::after {
+              animation: arrow-slide-right .4s both;
+            }
+          }
+
+          .node__content::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            @include icon('arrow_forward');
+            color: $grey4;
+            background-color: $grey1;
+            width: 1.5rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            text-align: center;
+            border-radius: 1rem;
+            @include min-screen($screen-desktop) {
+              position: relative;
+              grid-column-start: 5;
+            }
+          }
+        }
+
+        .node__content {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          padding-right: 6rem;
+          @include min-screen($screen-desktop) {
+            display: grid;
+            padding-right: 0;
+            grid-template-columns: 4.5rem 1fr 1fr 1fr 1.5rem;
+            grid-column-gap: 1rem;
+            align-items: center;
+          }
+
+          .flag {
+            position: absolute;
+            right: 0;
+            @include min-screen($screen-desktop) {
+              position: relative;
+            }
+            img {
+              border-radius: .125rem;
+            }
+          }
+
+          .title {
+            @include responsive(font-size, $small-content-title);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: .3s;
+            @include min-screen($screen-desktop) {
+              margin-bottom: 0;
+              grid-column-start: 2;
+            }
+          }
+
+          .country-iso-wrapper {
+            @include responsive(font-size, $small-text);
+            color: $grey4;
+            margin-bottom: .5rem;
+            span {
+              color: $black;
+              margin-left: .5rem;
+            }
+            @include min-screen($screen-desktop) {
+              grid-column-start: 3;
+            }
+          }
+
+          .date-member {
+            @include responsive(font-size, $small-text);
+            @include min-screen($screen-desktop) {
+              grid-column-start: 4;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.map-list {
+  .node--view-mode-map {
+    padding: 1.5rem 0 2rem;
+    border-top: .0625rem solid $grey2;
+
+    &.is-hide {
+      display: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+      .node__content .text-wrapper .title {
+        color: $BlueU;
+      }
+    }
+    .node__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        .field--type-entity-reference,
+        .field--name-field-article-type {
+          order: 0;
+          font-size: 1.125rem;
+          color: $BlueU;
+        }
+        .title {
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: $black;
+          order: 1;
+          transition: .3s;
+        }
+      }
+
+      .field--name-field-media-image {
+        width: 5rem;
+        height: 5rem;
+        margin-left: 1rem;
+        img {
+          @include img-cover;
+        }
+      }
+
+      .media-wrapper {
+        margin-bottom: 0;
+        .field--name-field-ref-image {
+          margin-bottom: 0;
+        }
+        .media-footer {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.alphabetical-filter {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: auto;
+  @include scrollbar-custom;
+  padding-bottom: .5rem;
+  margin: 0 0 1rem 0;
+
+  li {
+    margin: 0 .5rem 0 0;
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    text-align: center;
+    background-color: $grey1;
+    border-radius: 1rem;
+    font-size: .875rem;
+    line-height: 2rem;
+    cursor: pointer;
+    user-select: none;
+
+    &.active {
+      background-color: $BlueU;
+      color: $white;
+    }
+
+    &:hover {
+      background-color: $grey2;
+    }
+  }
+}
+
+.path-countries {
+  #block-unesco-content {
+    .header {
+      &-texts {
+        padding: 2rem 0;
+        @include min-screen($screen-desktop) {
+          padding: 5rem 0;
+        }
+        .title {
+          @include responsive(font-size, $hero-title);
+        }
+      }
+    }
+  }
+
+  .map-select-wrapper {
+    flex-wrap: wrap;
+    margin: -.5rem;
+    padding-bottom: 1.5rem;
+    .map-select {
+      margin: .5rem;
+    }
+  }
+
+}
+
+.ourcountries {
+  .description-wrapper {
+    .field--name-field-description {
+      max-width: 38.125rem;
     }
   }
 }

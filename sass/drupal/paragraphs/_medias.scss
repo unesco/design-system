@@ -1,7 +1,6 @@
 .paragraph {
   &--type--media {
     margin: 0 auto;
-    @include responsive(margin-bottom, $space-bottom);
 
     @include min-screen($screen-desktop) {
       max-width: 38.125rem;
@@ -13,7 +12,6 @@
       position: relative;
       left: 50%;
       transform: translateX(-50%);
-      @include responsive(margin-bottom, $space-bottom);
 
       @include min-screen($screen-desktop) {
         max-width: 64.875rem;

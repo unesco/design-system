@@ -8,7 +8,6 @@ $list-text: (
 
   &--type--content-list-custom-article,
   &--type--content-list-custom-landing {
-    @include border-top;
 
     .field--name-field-title {
       @include responsive(font-size, $section-title);
@@ -228,16 +227,6 @@ $list-text: (
 
     }
 
-    &.paragraph--view-mode--normal {
-
-      .field__item {
-
-        article.node {
-          max-width: 51.5rem;
-        }
-      }
-    }
-
     &.no-border {
       padding-top: 0;
       &::before {
@@ -247,6 +236,7 @@ $list-text: (
   }
 
   &--type--content-list-custom-landing {
+    @include mt-border-block;
     &.hide-date {
       // This line is only necessary to prevent using !important.
       .field__item article.node a .wrapper {
@@ -258,6 +248,7 @@ $list-text: (
   }
 
   &--type--content-list-custom-article {
+    @include mt-block-sm;
     padding-bottom: 0;
 
     .field--name-field-title {

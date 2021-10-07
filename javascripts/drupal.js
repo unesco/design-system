@@ -1,9 +1,10 @@
 /**
  * @file
- * Theme javascript.
+ * Theme Drupal behaviors.
  */
 (function ($) {
   "use strict";
+
   Drupal.behaviors.initUnesco = {
     attach: function (context, settings) {
       $(window, context).once().each(function () {
@@ -11,5 +12,5 @@
       });
     }
   };
-})
-(jQuery);
+
+})(jQuery);
