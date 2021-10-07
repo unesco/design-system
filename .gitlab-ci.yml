@@ -45,7 +45,7 @@ image: registry.repository.unesco.org/dpi/docker-debian10-lamp:master
 ################################################################################
 # Build Template
 ################################################################################
-.build_template: &build_template
+build:
   stage: build
   tags:
     - docker
@@ -92,7 +92,7 @@ deploy_stage:
     name: $CI_COMMIT_REF_NAME
     url: https://en.srvbltydev.unesco.org/typography
   dependencies:
-    - build:stage
+    - build
   when: on_success
   script:
     - rsync -acerOo --delete -e "ssh -p22 -oStrictHostKeyChecking=no" style-guide/* fonts assets javascripts favicon.ico denix@$STAGE_HOST:$GIT_ROOT/typography
@@ -110,7 +110,7 @@ deploy_production:
     - master
   when: manual
   dependencies:
-    - build:prod
+    - build
   before_script:
     - which ssh-agent || ( apt update -y && apt install openssh-client -y )
     - eval $(ssh-agent -s)
