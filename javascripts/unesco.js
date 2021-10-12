@@ -14,7 +14,7 @@
     let main = $('main');
     let navBarHeight = navBar.outerHeight();
 
-    if ($(window).width() <= desktopWidth) {
+    if ($(window).width() < desktopWidth) {
       navBar.children('.navbar_wrapper').css({
         top: navBarHeight,
         height: `calc(100vh - ${navBarHeight}px)`,
@@ -42,8 +42,10 @@
     navBurger.on('click', function () {
       if ($(this).parent().hasClass('active')) {
         $(this).next('.navbar_wrapper').find('.submenu-active').removeClass('submenu-active');
+        $('html').css('overflow', 'auto');
+      } else {
+        $('html').css('overflow', 'hidden');
       }
-
       $(this).parent().toggleClass('active');
       $(this).parent().toggleClass('closing');
       $(this).next('.navbar_wrapper').slideToggle({
@@ -53,6 +55,46 @@
         }
       });
     });
+  }
+
+  function menuDesktop() {
+    let navbarWidth = $('header .navbar').outerWidth();
+    let navbarLogoWidth = $('header .navbar .navbar_logo').outerWidth();
+    let navbarDifference = navbarWidth - navbarLogoWidth;
+    let navbarMenu = $('header .navbar .navbar_wrapper .navbar_menu');
+    let navbarMenuWidth = 0;
+
+    navbarMenu.find('li').each( function() {
+      navbarMenuWidth += $(this).outerWidth(true);
+    });
+
+    if (navbarMenuWidth > navbarDifference) {
+      navbarMenu.css('max-width', navbarDifference - 120).addClass('slider');
+    } else {
+      navbarMenu.css('max-width', '').removeClass('slider');
+    }
+
+    if (navbarMenu.hasClass('slider')) {
+      navbarMenu.prev('.slider_back').remove();
+      navbarMenu.next('.slider_next').remove();
+      navbarMenu.before('<div class="slider_back"></div>');
+      navbarMenu.after('<div class="slider_next"></div>');
+    } else {
+      navbarMenu.prev('.slider_back').remove();
+      navbarMenu.next('.slider_next').remove();
+    }
+
+    navbarMenu.prev('.slider_back').on('click', function () {
+      navbarMenu.stop().animate({scrollLeft: "-=150"}, 400);
+      return false;
+    });
+
+    navbarMenu.next('.slider_next').on('click', function () {
+      navbarMenu.stop().animate({scrollLeft: "+=150"}, 400);
+      return false;
+    });
+
+
   }
 
   function subMenu() {
@@ -65,19 +107,19 @@
         navBar.parent().removeClass('is-active');
         navSubMenu.next().fadeOut();
       }
-      if ($(window).width() <= desktopWidth) {
-        wrapper.prepend('<div class="submenu-header"><div class="submenu-back material-icons-sharp">chevron_left</div><div class="submenu-title">' + $(this).text() + '</div></div>');
-        $(this).unbind('click').on('click', function (e) {
-          e.preventDefault();
+
+      wrapper.prepend('<div class="submenu-header"><div class="submenu-back material-icons-sharp">chevron_left</div><div class="submenu-title">' + $(this).text() + '</div></div>');
+
+      $(this).unbind('click').on('click', function (e) {
+        e.preventDefault();
+        if ($(window).width() < desktopWidth) {
+          wrapper.css('display', '');
           $(this).parent().toggleClass('submenu-active');
           navBar.parent().toggleClass('is-active');
-        });
-        wrapper.find('.submenu-header .submenu-back').on('click', function () {
-          $(this).closest('li').removeClass('submenu-active');
-        });
-      } else {
-        $(this).unbind('click').on('click', function (e) {
-          e.preventDefault();
+          wrapper.find('.submenu-header .submenu-back').on('click', function () {
+            $(this).closest('li').removeClass('submenu-active');
+          });
+        } else {
           if ($(this).hasClass('submenu-active')) {
             closeSubMenu();
           } else {
@@ -86,13 +128,18 @@
             navBar.parent().addClass('is-active');
             $(this).next().fadeIn();
           }
-        });
-        $('body').on('click', function (e) {
-          if (!navSubMenu.is(e.target) && navSubMenu.parent().has(e.target).length === 0 ) {
-            closeSubMenu();
-          }
-        });
-      }
+        }
+      });
+
+      $('body').on('click', function (e) {
+        if (!navSubMenu.is(e.target) && navSubMenu.parent().has(e.target).length === 0 && $(window).width() > desktopWidth) {
+          closeSubMenu();
+        }
+        if ( $(window).width() < desktopWidth) {
+          wrapper.css('display', '');
+        }
+      });
+
     });
   }
 
@@ -149,6 +196,7 @@
   }
 
   menuMobile();
+  menuDesktop();
   subMenu();
   navWrapperHeight();
   themingOption();
@@ -156,6 +204,7 @@
 
   $( window ).resize(function() {
     navWrapperHeight();
+    menuDesktop();
   });
 
 })(jQuery);

@@ -245,6 +245,12 @@ $list-text: (
         }
       }
     }
+
+    .node--view-mode-grid {
+      .text-white {
+        color: $BlueU !important;
+      }
+    }
   }
 
   &--type--content-list-custom-article {
