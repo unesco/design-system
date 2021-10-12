@@ -254,5 +254,19 @@
       }
 
     }
+
+    &.position-right {
+      .btn.btn-secondary {
+        background-color: $Blue2;
+        border-color: $Blue2;
+
+        &:focus,
+        &:hover {
+          background-color: $Blue3;
+          border-color: $Blue3;
+          color: $white;
+        }
+      }
+    }
   }
 }
