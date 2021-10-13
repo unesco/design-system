@@ -270,7 +270,6 @@
           '</style>').appendTo('head');
       }
 
-
     },
 
     initDropdownMenu: function (context, settings) {
@@ -561,7 +560,7 @@
     initRessourceModal: function (context, settings) {
       $('body').removeClass('is-fixed');
 
-      $(window).once('resourceModal-behavior').on('dialog:aftercreate', function() {
+      $(window).once('resourceModal-behavior').on('dialog:aftercreate', function () {
         let resourceModal = $('.js-resource-modal');
         resourceModal.each(function () {
           let initialSlide = $(this).attr('current-delta');
@@ -586,7 +585,7 @@
             cssEase: 'linear'
           });
 
-          $(document).on('keydown', function(e) {
+          $(document).on('keydown', function (e) {
             if(e.keyCode == 37) {
               resourceModal.slick('slickPrev');
             }
@@ -678,7 +677,6 @@
 
       }
 
-
       if (hubMenu.is(':not(:empty)')) {
         if ($(window).width() < tabletWidth) {
           menuMobileItemSlide();
@@ -750,7 +748,6 @@
         .setPin(".header-node-content.story")
         .setTween(wipeAnimation)
         .addTo(controller);
-
 
       if (storyItem.length > 1) {
         story.prepend('<button class="btn btn-skip-story btn-outline-white">' + Drupal.t('Skip') + '</button>');
@@ -1028,8 +1025,8 @@
         explorerMap.removeClass('fullscreen').prepend('<span class="round-fullscreen round round-lg round-grey1"><i class="material-icons-sharp">fullscreen</i></span>');
         let btnFullscreenMap = $('.js-explore-map .round-fullscreen');
 
-        btnFullscreenMap.on('click', function (){
-          $(this).children().text(function(i, text){
+        btnFullscreenMap.on('click', function () {
+          $(this).children().text(function (i, text) {
             return text === "fullscreen" ? "fullscreen_exit" : "fullscreen";
           });
           $(this).parent().toggleClass('fullscreen');
@@ -1175,7 +1172,7 @@
         });
       }
       mediaAudio();
-      $(window).once('resourceModalAudio-behavior').on('dialog:aftercreate', function() {
+      $(window).once('resourceModalAudio-behavior').on('dialog:aftercreate', function () {
         mediaAudio();
       });
 
@@ -1184,7 +1181,7 @@
     initEventParagraph: function (context, settings) {
       var calendarLink = $('.calendar-links-wrapper');
 
-      calendarLink.on('mouseleave', function() {
+      calendarLink.on('mouseleave', function () {
         $(this).find('.calendar-links').collapse('hide');
       });
     },
@@ -1204,7 +1201,7 @@
     },
 
     initwebformScrollUp: function (context, settings) {
-      window.addEventListener('message', function(event) {
+      window.addEventListener('message', function (event) {
         // Listen for a keyword coming from the webform iframe on first step submit and then scroll parent window to iframe
         if(event.data.keyword == "scrolltop") {
           let scrollValue = $('.iframe-webform').offset().top - 240;
