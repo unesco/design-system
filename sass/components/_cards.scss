@@ -85,6 +85,7 @@
 
 .card-circle {
   width: 7.5rem;
+  min-width: 7.5rem;
   height: 7.5rem;
   border-radius: 50%;
   background-color: $greenLight;
@@ -107,6 +108,7 @@
 .card-circle-sm {
   @extend .card-circle;
   width: 4.5rem;
+  min-width: 4.5rem;
   height: 4.5rem;
 
   i {
@@ -134,6 +136,7 @@
 .card-contact {
   .card-circle {
     width: 4.5rem;
+    min-width: 4.5rem;
     height: 4.5rem;
     margin-bottom: 1rem;
 
