@@ -112,22 +112,6 @@ $full-media-title: (
   font-weight: 600;
 }
 
-.display-1 {
-  @extend .page-title;
-}
-
-.display-2 {
-  @extend .article-title;
-}
-
-.display-3 {
-  @extend .section-title;
-}
-
-.display-4 {
-  @extend .section-title-small;
-}
-
 // Text
 
 .section-text {
