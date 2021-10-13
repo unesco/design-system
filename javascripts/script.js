@@ -1051,13 +1051,13 @@
         let letter = $(this).text()[0];
         if ($(this).hasClass('active')) {
           $(this).removeClass('active');
-          $('.list-wrapper').children().not('.hidden').show();
+          $('.list-wrapper').children().removeClass('hidden-by-letter');
         } else {
           alphabeticalItem.removeClass('active');
           $(this).addClass('active');
-          $('.list-wrapper').children().not('.hidden').hide().filter(function () {
-            return $(this).attr('data-letter') == letter;
-          }).show();
+          $('.list-wrapper').children().removeClass('hidden-by-letter').not('.hidden').filter(function () {
+            return $(this).attr('data-letter') != letter;
+          }).addClass('hidden-by-letter');
         }
 
         if (mapWrapper.length) {

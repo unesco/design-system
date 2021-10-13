@@ -1,75 +1,129 @@
 
-.sdh-filters-header {
+.sdh-filters-wrapper {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-wrap: wrap;
   padding: 1.5rem 0;
 
   @include min-screen($screen-desktop) {
-    padding: 2rem 0;
+    flex-direction: row;
+    align-content: center;
+    padding: 2rem 0 3rem;
     width: auto;
   }
 
-  .button-filter {
-    align-self: center;
-    justify-self: start;
+  label.facet-dataset_filters {
+    padding: 0.375rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   .map-count-mobile {
-    grid-row-start: 2;
     font-size: .875rem;
-    place-self: center self-start;
+    margin-top: 1.5rem;
 
     @include min-screen($screen-desktop) {
-      display: none;
+      display: block;
+      width: 100%;
+      margin-top: 2rem;
     }
   }
+}
+.sdh-filters-links {
+  margin-top: 1.5rem;
+  order: 3;
 
-  .sdh-filters-links {
-    grid-column-start: 2;
-    grid-row-start: 2;
-    place-self: center self-end;
+  @include min-screen($screen-desktop) {
+    margin-top: 0;
+    margin-left: auto;
+    order: unset;
+  }
 
+  a {
+    margin-right: 1rem;
     @include min-screen($screen-desktop) {
-      grid-row-start: 1;
+      margin-right: .5rem;
     }
 
-    a {
-      margin-right: 1rem;
-      @include min-screen($screen-desktop) {
-        margin-right: .5rem;
-      }
+    &:last-child {
+      margin-right: 0;
+    }
 
-      &:last-child {
-        margin-right: 0;
-      }
-
-      &.active {
-        background-color: $grey4;
-        i {
-          color: $white;
-        }
+    &.active {
+      background-color: $grey4;
+      i {
+        color: $white;
       }
     }
   }
 }
 
-.sdh-filters-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.list {
+  .sdh-filters-wrapper {
+    .sdh-filters-links {
+      @include min-screen($screen-desktop) {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
 
-  .block-facet-blockdataset-filters {
-    order: -1;
+    .map-count-mobile {
+      width: 100%;
+      max-width: 51.5rem;
+      margin: 2rem auto 0;
+    }
+  }
+}
+
+.map {
+  position: relative;
+
+  .map-count-mobile {
+    @include min-screen($screen-desktop) {
+      display: none;
+    }
   }
 
-  @include min-screen($screen-desktop) {
-    flex-direction: row;
-    align-items: center;
+  #explorer .map-wrapper {
+    @include max-screen($screen-tablet - 1) {
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
 
-    .sdh-filters-header {
-      margin-left: auto;
+      .explore-map {
+        left: 0;
+      }
+    }
+  }
+
+  .sdh-filters-wrapper {
+    @include max-screen($screen-tablet - 1) {
+      position: absolute;
+      top: 16rem;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      padding: 1.5rem 0;
+      z-index: 9;
+
+      .block-facet-blockdataset-filters {
+        width: 100%;
+
+        >div {
+          display: inline-block;
+        }
+      }
+
+      .sdh-filters-links {
+        order: 3;
+        margin-left: auto;
+      }
     }
   }
 }
@@ -86,6 +140,10 @@
     .item-content-search {
       width: 100%;
     }
+
+    .field--name-field-media-image {
+      width: 100%;
+    }
   }
 
   .results-sort-wrapper {
@@ -94,16 +152,6 @@
     @include min-screen($screen-desktop) {
       display: block;
     }
-  }
-}
-
-.sdh-list,
-.sdh-map,
-.sdh-grid {
-  margin-top: -2rem;
-
-  @include min-screen($screen-desktop) {
-    margin-top: -5.5rem;
   }
 }
 
@@ -129,12 +177,19 @@
     line-height: 1.5rem;
     padding: 1.5rem 0;
 
-    &.map-count-desktop {
+    &-desktop {
       display: none;
+    }
 
-      @include min-screen($screen-desktop) {
+    @include min-screen($screen-desktop) {
+      &-desktop {
         display: block;
       }
+    }
+  }
+  .map-list {
+    @include max-screen($screen-tablet - 1) {
+      padding-top: 8.5rem;
     }
   }
 }
@@ -186,6 +241,6 @@
         height: 12rem;
       }
     }
-    
+
   }
 }

@@ -10,8 +10,16 @@
     z-index: -1;
   }
 
+  .page-node-type-structured-data-hub & {
+    margin: 0 auto;
+  }
+
   @include min-screen($screen-desktop) {
     margin: 0 auto 5.5rem;
+
+    .page-node-type-structured-data-hub & {
+      margin: 0 auto;
+    }
   }
 
   .header-wrapper,
@@ -572,16 +580,16 @@
       }
     }
   }
+}
 
-  .node--type-hub {
-    &.is-universe {
-      .hero-wrapper {
-        .field--name-field-ref-image {
-          article.media {
-            min-height: 18rem;
-            @include min-screen($screen-desktop) {
-              min-height: 25rem;
-            }
+.node--type-hub {
+  &.is-universe {
+    .hero-wrapper {
+      .field--name-field-ref-image {
+        article.media {
+          min-height: 18rem;
+          @include min-screen($screen-desktop) {
+            min-height: 25rem;
           }
         }
       }

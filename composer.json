@@ -1,0 +1,28 @@
+{
+    "name": "unesco/bunesco8",
+    "description": "UNESCO theme",
+    "type": "drupal-custom-theme",
+    "homepage": "https://repository.unesco.org/gitlab/modules/bunesco8",
+    "authors": [
+        {
+            "name": "Denis Pitzalis (denix)",
+            "homepage": "https://www.drupal.org/u/denix",
+            "role": "Maintainer",
+            "email": "denis.pitzalis@gmail.com"
+        },
+        {
+            "name": "AOWS",
+            "homepage": "https://www.axess.fr/besoin/conception-web-drupal",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://repository.unesco.org/gitlab/modules/bunesco8/issues",
+        "source": "https://repository.unesco.org/gitlab/modules/bunesco8"
+    },
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/core": "^9"
+    }
+}

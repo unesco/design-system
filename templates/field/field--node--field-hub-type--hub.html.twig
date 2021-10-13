@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Theme override for a field hub type.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+{%
+  set classes = [
+  'field',
+  'field--name-' ~ field_name|clean_class,
+  'field--type-' ~ field_type|clean_class,
+  'field--label-' ~ label_display,
+  label_display == 'inline' ? 'clearfix',
+  'section-text',
+  'is-arrow',
+  'text-primary',
+]
+%}
+{% for item in items %}
+  <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
+{% endfor %}
