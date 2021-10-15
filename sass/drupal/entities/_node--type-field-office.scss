@@ -1,8 +1,138 @@
 .node--type-field-office {
 
-  // @todo remove when theming.
-  .map-inner {
-    height: 400px;
+  &.node--view-mode-full {
+    .header-texts {
+      @include min-screen($screen-desktop) {
+        max-width: 56rem;
+      }
+
+      >.header-texts {
+        padding-top: 0;
+      }
+
+      .title {
+        font-size: 1.75rem;
+        line-height: 2rem;
+
+        @include min-screen($screen-desktop) {
+          font-size: 3.75rem;
+          line-height: 4.5rem;
+        }
+      }
+
+      .field--name-field-description,
+      .field--name-field-ref-countries,
+      .field--name-field-ref-countries > .field__item {
+        display: inline;
+      }
+
+      .field--name-field-ref-countries {
+        @include min-screen($screen-desktop) {
+          font-size: 1.25rem;
+        }
+
+        >.field__item {
+          color: $white;
+
+          &:first-child {
+            &::before {
+              content: "-";
+              margin: 0 0.25rem;
+            }
+          }
+
+          &::after {
+            content: ",";
+          }
+
+          &:last-child {
+            &::after {
+              display: none;
+            }
+          }
+        }
+
+        a {
+          color: $white;
+          text-decoration: underline;
+        }
+      }
+    }
   }
+
+  .footer-wrapper {
+    margin-top: 3rem;
+    @include fullWidthBackground($grey1);
+    padding: 1.5rem 0;
+
+    @include min-screen($screen-desktop) {
+      padding: 3.5rem 0;
+      margin-top: 7.5rem;
+    }
+
+    .footer-field-office {
+      display: flex;
+    }
+
+    .footer-infos {
+       @include min-screen($screen-desktop) {
+        padding-right: 2rem;
+       }
+
+      &, * {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+
+      .footer-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .field--name-field-social-networks {
+        margin: 1.5rem -0.25rem 0;
+        display: flex;
+
+        >.field__item {
+          padding: 0 0.25rem;
+
+          .icon + span {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .footer-map {
+      max-width: 25rem;
+      display: none;
+
+      .map-inner {
+        max-width: 25rem;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        height: 17.688rem;
+      }
+
+      @include min-screen($screen-desktop) {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  }
+
+  .field--name-field-image-footer {
+    position: relative;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    @include min-screen($screen-tablet) {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+
+  
 
 }
