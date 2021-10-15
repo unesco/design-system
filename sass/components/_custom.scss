@@ -179,16 +179,6 @@ $pre-header-close-icon: (
   text-align: center;
 }
 
-// Background custom color
-
-$colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLight, purple: $purpleLight, red: $redLight, yellow: $orangeLight );
-@each $colorName, $color in $colors {
-  .bg-#{$colorName} {
-    background-color: $color;
-  }
-}
-
-
 li.icon-external > a,
 a.icon-external {
   &::after {

@@ -51,18 +51,15 @@
 
 // Colors
 $colors: (
-  grey: $grey1,
-  red: $redLight,
-  blue: $blueLight,
-  green: $greenLight,
-  orange: $orangeLight,
-  purple: $purpleLight,
-  yellow: $orangeLight,
+  gray: $grey1,
+  redLight: $redLight,
+  blueLight: $blueLight,
+  greenlight: $greenLight,
+  orangelight: $orangeLight,
+  purpleLight: $purpleLight,
 );
-@each $colorName, $color in $colors {
+@each $colorName, $color in $theme-colors {
   .banner-#{$colorName} {
     background-color: $color;
   }
 }
-
-// stay with that or us bg-color with bootstrap ?

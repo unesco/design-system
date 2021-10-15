@@ -1,6 +1,10 @@
 footer {
   padding: 0;
 
+  &.bg-grey {
+    background-color: $grey1;
+  }
+
   .hub & {
     margin-top: 0;
   }

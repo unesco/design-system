@@ -23,6 +23,7 @@ $container-max-widths: (
 
 $grid-columns:                12;
 $grid-gutter-width:           2rem;
+$grid-row-columns:            12 !default;
 
 // Colors
 
@@ -35,11 +36,19 @@ $theme-colors: map-merge(
     (
       "primary":    $primary,
       "secondary":  $secondary,
+      "blueULight": $LightBlue,
+      "blueU":      $BlueU,
+      "blue1":      $BlueU,
       "blue2":      $Blue2,
-      "grey5":      $grey5,
-      "grey4":      $grey4,
-      "grey2":      $grey2,
-      "grey1":      $grey1,
+      "blue3":      $Blue3,
+      "black":      $black,
+      "gray5":      $grey5,
+      "gray4":      $grey4,
+      "gray3":      $grey3,
+      "gray2":      $grey2,
+      "gray1":      $grey1,
+      "gray":       $grey1,
+      "gray-dark":  $grey5,
       "white":      $white,
       "warning":    $warning,
       "success":    $success,
@@ -47,6 +56,16 @@ $theme-colors: map-merge(
       "danger":     $danger,
       "light":      $grey1,
       "dark":       $dark,
+      "green":      $green,
+      "greenLight": $greenLight,
+      "blue":       $teal,
+      "blueLight":  $blueLight,
+      "purple":     $purple,
+      "purpleLight":$purpleLight,
+      "red":        $red,
+      "redLight":   $redLight,
+      "orange":     $orange,
+      "orangeLight":$orangeLight,
     ),
     $theme-colors
 );
