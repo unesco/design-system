@@ -128,11 +128,6 @@ $full-media-title: (
 }
 
 // Rich Text
-
-p {
-  @include responsive(font-size, $text);
-}
-
 ul.list {
   @include responsive(font-size, $text);
 
