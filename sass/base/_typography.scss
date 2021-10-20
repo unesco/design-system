@@ -145,7 +145,7 @@ ol.list {
   margin-left: 0;
   @include responsive(font-size, $text);
 
-  li {
+  & > li {
     position: relative;
     counter-increment: custom;
     margin-bottom: 1rem;
