@@ -1097,12 +1097,12 @@
     initAudioPlayers: function (context, settings) {
 
       function mediaAudio() {
-        const playersWrapper = $('.media--type-audio', context);
+        const playersWrapper = $('.media--type-audio, .media--type-audio-radio', context);
         playersWrapper.each(function () {
           const parent = $(this);
           const cover = parent.find('.field--name-field-media-image');
           const icons = parent.find('.icons--audio .material-icons-sharp');
-          const player = parent.find('.field--name-field-media-audio-file audio');
+          const player = parent.find('.field--name-field-media-audio-file audio, .audio-embed iframe');
           if (!player.length) {
             return;
           }
