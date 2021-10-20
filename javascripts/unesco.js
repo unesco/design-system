@@ -74,9 +74,10 @@
       navbarMenu.css('max-width', '').removeClass('slider');
     }
 
+    navbarMenu.prev('.slider_back').remove();
+    navbarMenu.next('.slider_next').remove();
+
     if (navbarMenu.hasClass('slider')) {
-      navbarMenu.prev('.slider_back').remove();
-      navbarMenu.next('.slider_next').remove();
       navbarMenu.before('<div class="slider_back"></div>');
       navbarMenu.after('<div class="slider_next"></div>');
     } else {
@@ -138,6 +139,34 @@
         }
       });
 
+    });
+  }
+
+  function subMenuCarousel() {
+    let menuCarousel = $('.submenu_carousel');
+
+    menuCarousel.each(function () {
+      $(this).children('ul').slick({
+        slidesToShow: 4,
+        swipeToSlide: true,
+        autoplay: false,
+        arrows: true,
+        infinite: false,
+        speed: 500,
+        responsive: [
+          {
+            breakpoint: 951,
+            settings: {
+              slidesToShow: 3,
+              arrows: false,
+            }
+          },
+          {
+            breakpoint: 520,
+            settings: 'unslick',
+          },
+        ]
+      });
     });
   }
 
@@ -280,6 +309,7 @@
   menuMobile();
   menuDesktop();
   subMenu();
+  subMenuCarousel();
   navWrapperHeight();
   stickyMenu();
   exploreMenu();
