@@ -10,6 +10,10 @@
       return window.innerWidth <= 520;
     },
 
+    clickLoadMore: function(elt) {
+      $(elt).closest('.load-more').addClass('load-more-clicked');
+    },
+
     initAll: function (context, settings) {
       context = context || {};
       settings = settings || {};
