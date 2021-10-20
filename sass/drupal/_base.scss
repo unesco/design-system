@@ -45,4 +45,45 @@ body {
   p {
     @include responsive(font-size, $text);
   }
+
+  //cards
+  @include min-screen($screen-desktop) {
+    .col-lg-6 {
+
+      .card-body {
+        max-width: 25.25rem;
+      }
+
+      .card-hero {
+        .card-footer {
+          max-width: 25.25rem;
+        }
+      }
+    }
+  }
+  .card {
+    &-body {
+      margin-bottom: 1.5rem;
+    }
+    &-title {
+      margin-bottom: 1rem;
+    }
+    &-number {
+      margin-bottom: .5rem;
+    }
+    &-circle {
+      margin-bottom: 1.5rem;
+    }
+    &-contact {
+      .card-circle {
+        margin-bottom: 1rem;
+      }
+      .card-title {
+        margin-bottom: .5rem;
+      }
+      .card-body {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
