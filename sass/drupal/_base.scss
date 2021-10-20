@@ -1,3 +1,89 @@
 body {
   overflow-x: hidden; // fix scroll -x on touch device (tablet / phone) with fullWidthBackground mixins
 }
+
+.is-drupal {
+
+  //grid
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    @include min-screen($screen-tablet) {
+      padding-left: 2.125rem;
+      padding-right: 2.125rem;
+    }
+    @include max-screen($screen-desktop - 1) {
+      max-width: none;
+    }
+    @include min-screen($screen-desktop) {
+      padding-left: 5.875rem;
+      padding-right: 5.875rem;
+      max-width: 1440px;
+    }
+  }
+  @include max-screen($screen-desktop - 1px) {
+    div:not(.row) > {
+      .col-lg-1,
+      .col-lg-2,
+      .col-lg-3,
+      .col-lg-4,
+      .col-lg-5,
+      .col-lg-6,
+      .col-lg-7,
+      .col-lg-8,
+      .col-lg-9,
+      .col-lg-10,
+      .col-lg-11,
+      .col-lg-12 {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  //typography
+  p {
+    @include responsive(font-size, $text);
+  }
+
+  //cards
+  @include min-screen($screen-desktop) {
+    .col-lg-6 {
+
+      .card-body {
+        max-width: 25.25rem;
+      }
+
+      .card-hero {
+        .card-footer {
+          max-width: 25.25rem;
+        }
+      }
+    }
+  }
+  .card {
+    &-body {
+      margin-bottom: 1.5rem;
+    }
+    &-title {
+      margin-bottom: 1rem;
+    }
+    &-number {
+      margin-bottom: .5rem;
+    }
+    &-circle {
+      margin-bottom: 1.5rem;
+    }
+    &-contact {
+      .card-circle {
+        margin-bottom: 1rem;
+      }
+      .card-title {
+        margin-bottom: .5rem;
+      }
+      .card-body {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

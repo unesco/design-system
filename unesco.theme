@@ -136,6 +136,10 @@ function unesco_preprocess_html(&$variables) {
   $settings = \Drupal::service('settings');
   $settings_array = $settings->getAll();
 
+  if (!empty($variables['html_attributes']) && $variables['html_attributes'] instanceof Attribute) {
+    $variables['html_attributes']->addClass('is-drupal');
+  }
+
   // Class for 403/403 pages.
   if (preg_match('/^unesco_common.page_/', $route_name)) {
     $variables['attributes']['class'][] = 'page-error';
