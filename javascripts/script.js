@@ -717,6 +717,13 @@
       $('.story-item:not(:first) .text-wrapper').hide();
 
       var controller = new ScrollMagic.Controller();
+      var nbSlides = $('.slides .slide').length;
+      var slideDuration;
+      if(nbSlides > 1) {
+        slideDuration = nbSlides*25;
+      } else {
+        slideDuration = "0.1";
+      }
 
       var wipeAnimation = new TimelineMax()
         .staggerTo(".story-item:not(:last)", 1, {
@@ -747,7 +754,7 @@
       new ScrollMagic.Scene({
         triggerElement: ".header-node-content.story",
         triggerHook: "onLeave",
-        duration: "300%"
+        duration: slideDuration+"%"
       })
         .setPin(".header-node-content.story")
         .setTween(wipeAnimation)
