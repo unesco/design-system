@@ -1,20 +1,16 @@
-// .unesco-style-guide main {
-//   overflow: hidden;
-// }
-
-.explore-popin {
+.galaxy-popin {
   z-index: 9999;
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   max-width: 100vw;
   height: 100vh;
-  padding: 0 20px;
   visibility: hidden;
   opacity: 0;
-  transition: .3s;
-  //transition: visibility 300ms linear, opacity 300ms linear;
+  transition: visibility 300ms linear, opacity 300ms linear;
   background-color: #0077D4;
 
   &.show {
@@ -27,16 +23,18 @@
 /* Nav */
 
 
-.explore-popin__header {
+.galaxy-popin__header {
+  padding: 0 20px 0 20px;
+
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 0 80px 0;
+    padding: 40px 30px 30px 30px;
   }
 }
 
-.explore-popin__header__logo {
+.galaxy-popin__header__logo {
   display: none;
 
   @media screen and (min-width: 768px) {
@@ -44,12 +42,12 @@
   }
 }
 
-.explore-popin__header__nav {
+.galaxy-popin__header__nav {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 15px 0;
   border-bottom: 1px solid #FFF;
 
   @media screen and (min-width: 768px) {
@@ -58,7 +56,7 @@
   }
 }
 
-.explore-popin__header__nav__back {
+.galaxy-popin__header__nav__back {
   visibility: hidden;
   pointer-events: none;
   display: flex;
@@ -87,7 +85,7 @@
   }
 }
 
-.explore-popin__header__nav__title {
+.galaxy-popin__header__nav__title {
   position: absolute;
   top: 0;
   left: 0;
@@ -110,7 +108,7 @@
   }
 }
 
-.explore-popin__header__nav__search {
+.galaxy-popin__header__nav__search {
   display: none;
 
   @media screen and (min-width: 768px) {
@@ -145,7 +143,7 @@
   }
 }
 
-.explore-popin__header__nav__close {
+.galaxy-popin__header__nav__close {
   display: block;
   width: 2.5rem;
   height: 2.5rem;
@@ -168,20 +166,29 @@
 
 /* Tabs */
 
-.explore-popin__tabs {
+.galaxy-popin__tabs {
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
+  flex: 1 1 auto;
+  height: auto;
+
+  @media screen and (min-width: 768px) {
+    overflow: hidden;
+  }
 }
 
-.explore-popin__tabs__nav {
+.galaxy-popin__tabs__nav {
   position: relative;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 40px 20px 20px 20px;
   list-style: none;
 
   @media screen and (min-width: 768px) {
     display: flex;
+    padding: 40px 30px 0px 30px;
 
     &::after {
       content: '';
@@ -194,13 +201,13 @@
   }
 }
 
-.explore-popin__tabs__nav__li {
+.galaxy-popin__tabs__nav__li {
   @media screen and (min-width: 768px) {
     &.search { display: none }
   }
 }
 
-.explore-popin__tabs__nav__link {
+.galaxy-popin__tabs__nav__link {
   position: relative;
   display: block;
   z-index: 1;
@@ -235,7 +242,7 @@
     line-height: 1;
     display: inline-block;
 
-    .explore-popin__tabs__nav__li.search & {
+    .galaxy-popin__tabs__nav__li.search & {
       content: none;
     }
   }
@@ -265,21 +272,69 @@
   }
 }
 
-.explore-popin__tabs__content {
+.galaxy-popin__tabs__content {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
+  height: 100%;
+  overflow: auto;
 
   @media screen and (min-width: 768px) {
     position: relative;
     animation: initTab 500ms linear both;
+    height: auto;
+    flex: 1 1 auto;
+    overflow: auto;
   }
 
 }
 
-.explore-popin__tabs__content__pane {
+.galaxy-popin__tabs__content__pane {
   display: none;
+  color: #FFF;
+  width: 100%;
+  padding: 40px 20px 20px 20px;
+  overflow: hidden;
+
+  &#allWebsites {
+    background-color: #FFF;
+    min-height: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    &#allWebsites {
+      background: none;
+      // max-width: 728px;
+      // margin: auto;
+    }
+  }
+
+  .nav-items.row {
+    display: block;
+  }
+
+  ul, li {
+    list-style: none;
+    padding: 0;
+  }
+
+  .nav-link {
+    color: #FFF;
+    font-weight: 300;
+    margin-bottom: 10px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .nav-items > .nav-item > .nav-link {
+    font-weight: 600;
+  }
+
+  .nav-items > .nav-item {
+    margin-bottom: 20px;
+  }
 
   &.active {
     display: block;
@@ -287,7 +342,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
     min-height: 50vh;
     background-color: #0077D4;
   }
@@ -297,11 +351,119 @@
     animation: tabfadeout 200ms ease-in-out both;
     top: 0;
     pointer-events: none;
+    height: 100%;
+    overflow: auto;
+    padding: 40px 30px 20px 30px;
+
+    .nav-items.row {
+      display: flex;
+    }
 
     &.active {
       pointer-events: auto;
       animation-name: tabfadein;
       animation-delay: 200ms;
+    }
+  }
+}
+
+.galaxy-popin__dynamic-search {
+  
+  @media screen and (min-width: 768px) {
+    max-width: 728px;
+    margin: auto;
+  }
+}
+
+.galaxy-popin__dynamic-search__input {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.875rem 1.5rem;
+  max-width: 100%;
+  background-color: #fff;
+  border: 1px solid #D5DADD;
+  color: #0077D4;
+  width: 100%;
+  max-width: 45.5rem;
+  box-sizing: border-box;
+  background-image: url(../images/search-icon.svg);
+  background-size: 1rem;
+  background-position: right 1.688rem center;
+  background-repeat: no-repeat;
+  border-radius: 5.25rem;
+  margin-bottom: 30px;
+
+  &::placeholder {
+    color: #0077D4;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 1rem;
+    line-height: 1.375rem;
+    padding: 1rem 1.75rem;
+    border-radius: 5.25rem;
+
+  }
+}
+
+
+.galaxy-popin__dynamic-search__item {
+  display: block;
+  padding: 1rem;
+  background-color: #F1F4F6;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  color: #212121;
+  text-decoration: none;
+
+  &:hover {
+    color: #212121;
+    text-decoration: none;
+  }
+  
+  &.hidden {
+    display: none;
+  }
+
+  h2{
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+  }
+
+  p{   
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    background: none;
+    color: #FFF;
+    border-radius: 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 1.5rem 0;
+
+    &:hover {
+      color: #FFF;
+    }
+    h2{
+      color: #FFF;
+      max-width: 480px;
+    }
+  
+    p{  
+      color: #FFF;
+      opacity: 0.7;
+      max-width: 480px;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }

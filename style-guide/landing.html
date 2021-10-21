@@ -38,7 +38,7 @@
             <a href="#">Newsroom</a>
           </li>
           <li>
-            <button class="button-galaxy" for="explore">Explore UNESCO</button>
+            <button class="button-galaxy" for="galaxy-popin">Explore UNESCO</button>
           </li>
           <li>
             <a href="#">English</a>
@@ -352,86 +352,48 @@
         <a href="#" class="button-galaxy">Explore UNESCO</a>
       </div>
     </nav>
-    <div class="explore-popin" id="explore">
+    
+    <!-- galaxy-popin -->
+    <div class="galaxy-popin show" id="galaxy-popin">
 
-      <!-- <div class="row align-items-center justify-content-between py-5">
-        <div>
-          <img src="../assets/images/logo-white.svg" alt="" width="150" />
+      <div class="galaxy-popin__header">
+        <div class="galaxy-popin__header__logo">
+          <img src="../logo.svg" alt="Logo Unesco" width="150" />
         </div>
-        <div class="row align-items-center">
-          <a href="https://unesco.org/en/search" class="btn btn-secondary link-galaxy advanced-search">
-            Advanced search
-            <i class="material-icons-sharp">search</i>
-          </a>
-          <a type="button" class="round round-md round-secondary mr-2" for="explore">
-            <i class="material-icons-sharp">clear</i>
-          </a>
-        </div>
-      </div> -->
-
-      <div class="explore-popin__header">
-        <div class="explore-popin__header__logo">
-          <img src="../assets/images/logo-white.svg" alt="" width="150" />
-        </div>
-        <div class="explore-popin__header__nav">
-          <a class="explore-popin__header__nav__back" data-popin="toggle" type="button">
+        <div class="galaxy-popin__header__nav">
+          <a class="galaxy-popin__header__nav__back" data-popin="toggle" type="button">
             <i class="material-icons-sharp">arrow_back_ios_new</i>
           </a>
-          <div class="explore-popin__header__nav__title" data-popin="text" >Explore UNESCO</div>
-          <a href="https://unesco.org/en/search" class="explore-popin__header__nav__search">
+          <div class="galaxy-popin__header__nav__title" data-popin="text" >Explore UNESCO</div>
+          <a href="https://unesco.org/en/search" class="galaxy-popin__header__nav__search">
             Advanced search
             <i class="material-icons-sharp">search</i>
           </a>
-          <a type="button" class="explore-popin__header__nav__close" for="explore">
+          <a type="button" class="galaxy-popin__header__nav__close" for="galaxy-popin">
             <i class="material-icons-sharp">clear</i>
           </a>
         </div>
       </div>
-
-      <div class="explore-popin__tabs">
-
-        <ul class="explore-popin__tabs__nav">
-          <li class="explore-popin__tabs__nav__li">
-            <a class="explore-popin__tabs__nav__link active" href="#wwa">Who we are</a>
+  
+      <div class="galaxy-popin__tabs">
+  
+        <ul class="galaxy-popin__tabs__nav">
+          <li class="galaxy-popin__tabs__nav__li">
+            <a class="galaxy-popin__tabs__nav__link active" href="#wwa">Who we are</a>
           </li>
-          <li class="explore-popin__tabs__nav__li">
-            <a class="explore-popin__tabs__nav__link" href="#wwd">What we do</a>
+          <li class="galaxy-popin__tabs__nav__li">
+            <a class="galaxy-popin__tabs__nav__link" href="#wwd">What we do</a>
           </li>
-          <li class="explore-popin__tabs__nav__li">
-            <a class="explore-popin__tabs__nav__link" href="#allWebsites">All UNSECO websites</a>
+          <li class="galaxy-popin__tabs__nav__li">
+            <a class="galaxy-popin__tabs__nav__link" href="#allWebsites">All UNSECO websites</a>
           </li>
-          <li class="explore-popin__tabs__nav__li search">
-            <a class="explore-popin__tabs__nav__link" href="https://unesco.org/en/search"><i class="material-icons-sharp">search</i>Advanced search</a>
-          </li>
-        </ul>
-
-        <div class="explore-popin__tabs__content">
-          <div class="explore-popin__tabs__content__pane" id="wwa">
-            aaa
-          </div>
-          <div class="explore-popin__tabs__content__pane" id="wwd">
-            zzzzzzzzzzzzzzz
-          </div>
-          <div class="explore-popin__tabs__content__pane" id="allWebsites">
-            eeeeeeeee
-          </div>
-        </div>
-
-        <!-- <ul class="nav nav-tabs py-5">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#wwa">Who we are</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#wwd">What we do</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#allWebsites">All UNSECO websites</a>
+          <li class="galaxy-popin__tabs__nav__li search">
+            <a class="galaxy-popin__tabs__nav__link" href="https://unesco.org/en/search"><i class="material-icons-sharp">search</i>Advanced search</a>
           </li>
         </ul>
-
-        <div class="tab-content">
-          <div class="tab-pane fade show active" id="wwa">
-
+  
+        <div class="galaxy-popin__tabs__content">
+          <div class="galaxy-popin__tabs__content__pane" id="wwa">
             <ul class="nav-items row">
               <li class="nav-item col-12 col-md-3">
                 <a href="https://www.unesco.org" class="nav-link">About</a>
@@ -450,7 +412,7 @@
                   </li>
                 </ul>
               </li>
-
+  
               <li class="nav-item col-12 col-md-3">
                 <a href="https://en.unesco.org/" class="nav-link">Governance</a>
                 <ul>
@@ -465,7 +427,7 @@
                   </li>
                 </ul>
               </li>
-
+  
               <li class="nav-item col-12 col-md-3">
                 <a href="https://en.unesco.org/" class="nav-link">Accountability</a>
                 <ul>
@@ -480,7 +442,7 @@
                   </li>
                 </ul>
               </li>
-
+  
               <li class="nav-item col-12 col-md-3">
                 <a href="https://en.unesco.org/" class="nav-link">Networks</a>
                 <ul>
@@ -501,7 +463,7 @@
                   </li>
                 </ul>
               </li>
-
+  
               <li class="nav-item col-12 col-md-3">
                 <a href="https://en.unesco.org/" class="nav-link">Get Involved</a>
                 <ul>
@@ -520,29 +482,97 @@
                 </ul>
               </li>
             </ul>
-
           </div>
-          <div class="tab-pane fade" id="wwd">
-            <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
-              Exercitation
-              +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table
-              craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-              ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus
-              mollit.</p>
+          <div class="galaxy-popin__tabs__content__pane" id="wwd">
+            <ul class="nav-items row">
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://www.unesco.org/" class="nav-link">Our expertise</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Education</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Global Priorities</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Gender Equality</a>
+                  </li>
+                  <li class="nav-item">
+                    <span class="nav-link">Priority Africa</span>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">How we work : UNESCO Services</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Stories</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Where we work</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">UNESCO in the World</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Target groups</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">SIDS</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Newsroom</a>
+              </li>
+            </ul>
           </div>
-          <div class="tab-pane fade" id="allWebsites">
-            <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo
-              retro
-              fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer,
-              iphone
-              skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings
-              gentrify squid 8-bit cred pitchfork.</p>
+          <div class="galaxy-popin__tabs__content__pane" id="allWebsites">
+  
+            <div class="galaxy-popin__dynamic-search">
+              
+              <input class="galaxy-popin__dynamic-search__input" data-search-for="unesco" placeholder="Search for a site or UNESCO entity" type="search" aria-label="Search for a site or UNESCO entity" >
+  
+              <div class="galaxy-popin__dynamic-search__items" data-search-id="unesco">
+                <a class="galaxy-popin__dynamic-search__item" href="http://www.unesco.org/reports/wwdr/2021/en">
+                  <h2>2021 World Water Development Report</h2>
+                  <p>The 2021 World Water Development Report on “Valuing Water” assesses the current status of, and challenges to, the valuation of water across different sectors and perspectives, and identifies ways in which valuation can be promoted as a tool to help achieve sustainability.</p>
+                </a>
+                <a class="galaxy-popin__dynamic-search__item" href="https://unesco-biennale-luanda.dev.ows.fr/en">
+                  <h2>Biennale of Luanda</h2>
+                  <p>Pan-African Forum for the Culture of Peace</p>
+                </a>
+                <a class="galaxy-popin__dynamic-search__item" href="https://unesco-icd.dev.ows.fr/">
+                  <h2>E-platform on Intercultural Dialogue</h2>
+                  <p>UNESCO's intercultural dialogue (ICD) e-Platform is a destination for audiences that want to learn from shared knowledge and experiences, or simply connect with one another to collaborate and exchange ideas</p>
+                </a>
+                <a class="galaxy-popin__dynamic-search__item" href="https://unesco-mab50.dev.ows.fr/">
+                  <h2>Man and the Biosphere - 50th Anniversary</h2>
+                </a>
+                <a class="galaxy-popin__dynamic-search__item" href="https://www.unesco.org/reports/science/2021/en">
+                  <h2>Sciences Report 2021</h2>
+                  <p>Published in June 2021, the seventh report in the series arrives at a crucial juncture, as countries are now one-third of the way to the 2030 deadline for achieving their Sustainable Development Goals (SDGs). </p>
+                </a>
+                <a class="galaxy-popin__dynamic-search__item" href="https://www.unesco.org/">
+                  <h2>UNESCO.org</h2>
+                  <p>L'<strong>Organisation des Nations unies</strong> pour l'éducation, la science et la culture est une institution spécialisée internationale de l'Organisation des Nations unies, créée le 16 novembre 1945 à la suite des dégâts et des massacres de la Seconde Guerre mondiale.</p>
+                </a>
+              </div>
+  
+            </div>
+  
           </div>
         </div>
-         -->
       </div>
-
     </div>
+    <!-- !galaxy-popin -->
+
   </header>
 
   <main>

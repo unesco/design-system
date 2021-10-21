@@ -191,13 +191,17 @@
     }
   }
 
-  function exploreMenu() {
-    const $explores = $('.explore-popin');
-    const $links = $('.explore-popin__tabs__nav__link');
+  function galaxyPopin() {
+
+    const $explores = $('.galaxy-popin');
+    const $links = $('.galaxy-popin__tabs__nav__link');
     const $title = $('[data-popin="text"]', $explores);
     const $toggle = $('[data-popin="toggle"]', $explores);
+    const $searchInput = $('[data-search-for="unesco"]', $explores);
+    const $searchItems = $('[data-search-id="unesco"] > *', $explores);
     const originTitle = $title.text();
     let memWidth = null;
+
 
     function size() {
       const width = window.innerWidth;
@@ -205,7 +209,7 @@
         memWidth = 'small';
         $toggle.removeClass('active');
         $title.text(originTitle);
-        $links.each(function() {
+        $links.each(function() { 
           const hashtag = this.getAttribute('href');
           if(!/^#/.test(hashtag)) return;
           $(hashtag).removeClass('active');
@@ -213,7 +217,7 @@
       } else if (width > 768 && memWidth !== 'large') {
         memWidth = 'large';
         let isActive = false;
-        $links.each(function() {
+        $links.each(function() { 
           if( this.classList.contains('active') ) {
             isActive = true;
             const hashtag = this.getAttribute('href');
@@ -233,7 +237,7 @@
     $toggle.on('click', function() {
       $toggle.removeClass('active');
       $title.text(originTitle);
-      $links.each(function() {
+      $links.each(function() { 
         const hashtag = this.getAttribute('href');
         if(!/^#/.test(hashtag)) return;
         $(hashtag).removeClass('active');
@@ -248,8 +252,8 @@
         const href = this.getAttribute('href');
         if(!/^#/.test(href)) return;
         e.preventDefault();
-
-        $links.each(function() {
+        
+        $links.each(function() { 
           const hashtag = this.getAttribute('href');
           if(!/^#/.test(hashtag)) return;
           $(hashtag).removeClass('active');
@@ -258,7 +262,7 @@
 
         $links.removeClass('active');
         $this.addClass('active');
-
+        
         $toggle.addClass('active');
 
         $title.text($this.text());
@@ -272,6 +276,25 @@
         e.preventDefault();
         $explore.toggleClass('show');
       });
+    });
+
+    $searchInput.on('input', function() {
+      console.log(this.value);
+
+      const val = this.value.toLowerCase();
+
+      if(this.value){
+        $searchItems.each(function() {
+          const text = this.innerText.toLowerCase();
+          if(text.includes(val)) {
+            this.classList.remove('hidden');
+          }else {
+            this.classList.add('hidden');
+          }
+        });
+      }else {
+        $searchItems.removeClass('hidden');
+      }
     });
   }
 
@@ -312,7 +335,7 @@
   subMenuCarousel();
   navWrapperHeight();
   stickyMenu();
-  exploreMenu();
+  galaxyPopin();
   themingOption();
 
   $( window ).resize(function () {
