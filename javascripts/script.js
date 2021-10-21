@@ -733,11 +733,25 @@
           onStart: function fadeOut(tween) {
             $(tween.target).find('.text-wrapper').fadeOut();
             $(tween.target).next().find('.text-wrapper').delay(600).fadeIn();
+            var ele = $(tween.target).next('.slide').offset();
+            var height= $(window).height();
+            countEle++
+            $("html, body").animate({
+              scrollTop: (height + 200) * countEle
+            }, 1000);
+            return false
           },
           onReverseCompleteParams: ["{self}"],
           onReverseComplete: function fadeIn(tween) {
             $(tween.target).find('.text-wrapper').fadeIn();
             $(tween.target).next().find('.text-wrapper').fadeOut();
+            var ele = $(tween.target).next('.slide').offset();
+            var height= $(window).height();
+            countEle--
+            $("html, body").animate({
+              scrollTop: (height + 200) * countEle
+            }, 1000);
+            return false
           },
         }, 2, 1)
         .staggerTo(".story-item:last", 1, {
@@ -752,6 +766,7 @@
         }, 1);
 
       new ScrollMagic.Scene({
+        delay: 0,
         triggerElement: ".header-node-content.story",
         triggerHook: "onLeave",
         duration: slideDuration+"%"
