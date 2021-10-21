@@ -144,6 +144,7 @@
 
   function subMenuCarousel() {
     let menuCarousel = $('.submenu_carousel');
+    let navSubMenu = $('header .navbar_menu-item.is-expanded');
 
     menuCarousel.each(function () {
       $(this).children('ul').slick({
@@ -168,6 +169,12 @@
         ]
       });
     });
+
+    if ($(window).width() >= desktopWidth) {
+      navSubMenu.on('click', function () {
+        menuCarousel.children('ul').slick('refresh');
+      });
+    }
   }
 
   function stickyMenu() {
@@ -209,7 +216,7 @@
         memWidth = 'small';
         $toggle.removeClass('active');
         $title.text(originTitle);
-        $links.each(function() { 
+        $links.each(function() {
           const hashtag = this.getAttribute('href');
           if(!/^#/.test(hashtag)) return;
           $(hashtag).removeClass('active');
@@ -217,7 +224,7 @@
       } else if (width > 768 && memWidth !== 'large') {
         memWidth = 'large';
         let isActive = false;
-        $links.each(function() { 
+        $links.each(function() {
           if( this.classList.contains('active') ) {
             isActive = true;
             const hashtag = this.getAttribute('href');
@@ -237,7 +244,7 @@
     $toggle.on('click', function() {
       $toggle.removeClass('active');
       $title.text(originTitle);
-      $links.each(function() { 
+      $links.each(function() {
         const hashtag = this.getAttribute('href');
         if(!/^#/.test(hashtag)) return;
         $(hashtag).removeClass('active');
@@ -252,8 +259,8 @@
         const href = this.getAttribute('href');
         if(!/^#/.test(href)) return;
         e.preventDefault();
-        
-        $links.each(function() { 
+
+        $links.each(function() {
           const hashtag = this.getAttribute('href');
           if(!/^#/.test(hashtag)) return;
           $(hashtag).removeClass('active');
@@ -262,7 +269,7 @@
 
         $links.removeClass('active');
         $this.addClass('active');
-        
+
         $toggle.addClass('active');
 
         $title.text($this.text());
