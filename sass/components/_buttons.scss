@@ -124,6 +124,16 @@
   }
 }
 
+button.button-galaxy {
+  padding-right: 2rem;
+  padding-left: 0;
+  background-color: inherit;
+  border: 0;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .link-underline {
   text-decoration: underline;
 }

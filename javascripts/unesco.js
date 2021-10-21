@@ -199,7 +199,6 @@
   }
 
   function galaxyPopin() {
-
     const $explores = $('.galaxy-popin');
     const $links = $('.galaxy-popin__tabs__nav__link');
     const $title = $('[data-popin="text"]', $explores);
@@ -208,7 +207,6 @@
     const $searchItems = $('[data-search-id="unesco"] > *', $explores);
     const originTitle = $title.text();
     let memWidth = null;
-
 
     function size() {
       const width = window.innerWidth;
@@ -281,13 +279,16 @@
       const $buttons = $(`[for="${this.id}"]`);
       $buttons.on('click', function(e) {
         e.preventDefault();
-        $explore.toggleClass('show');
+        $explore.fadeToggle({
+          duration: 300,
+          start: function () {
+            jQuery(this).css('display','flex');
+          }
+        });
       });
     });
 
     $searchInput.on('input', function() {
-      console.log(this.value);
-
       const val = this.value.toLowerCase();
 
       if(this.value){
