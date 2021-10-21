@@ -225,7 +225,8 @@ header.header {
           }
         }
         @include min-screen($screen-desktop) {
-          margin: 0 1.125rem;
+          margin: 0;
+          padding: 0  1.125rem;
         }
         & > a {
           position: relative;

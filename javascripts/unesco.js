@@ -65,7 +65,7 @@
     let navbarMenuWidth = 0;
 
     navbarMenu.find('li').each(function () {
-      navbarMenuWidth += $(this).outerWidth(true);
+      navbarMenuWidth += $(this).outerWidth();
     });
 
     if (navbarMenuWidth > navbarDifference) {
@@ -89,11 +89,11 @@
       navbarMenu.stop().animate({scrollLeft: "-=150"}, 400);
       return false;
     });
-
     navbarMenu.next('.slider_next').on('click', function () {
       navbarMenu.stop().animate({scrollLeft: "+=150"}, 400);
       return false;
     });
+
   }
 
   function subMenu() {
