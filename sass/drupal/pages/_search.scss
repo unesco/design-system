@@ -179,16 +179,55 @@
 
   .facets-first,
   .facets-more {
-    padding: 1.5rem 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column-gap: 2rem;
-    grid-row-gap: 1rem;
-    @include min-screen($screen-tablet) {
-      grid-template-columns: 1fr 1fr;
-    }
+    padding: 1.5rem 0 0.5rem;
+    margin: 0 -1rem;
+    display: flex;
+    flex-wrap: wrap;
+
     @include min-screen($screen-desktop) {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      padding: 1.5rem 0;
+    }
+
+    >div {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+
+      @include min-screen($screen-tablet) {
+        width: 50%;
+      }
+
+      @include min-screen($screen-desktop) {
+        width: 25%;
+      }
+
+      &.block-facet--split-facet {
+        >div {
+          flex-wrap: wrap;
+
+          >.facet-dataset_filters  {
+            width: 100%;
+
+            &:first-child {
+              margin-bottom: 1rem;
+            }
+          }
+        }
+
+        @include min-screen($screen-desktop) {
+          width: 50%;
+
+          >div {
+            margin-left: -1rem;
+            margin-right: -1rem;
+            
+            >.facet-dataset_filters {
+              padding: 0 1rem;
+              width: 50%;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -403,7 +442,17 @@
       }
     }
   }
+}
 
+.block-facet--split-facet {
+  >div {
+    display: flex;
+    margin: 0 -0.075rem;
+
+    >div {
+      padding: 0 0.075rem;
+    }
+  }
 }
 
 .results-sort-wrapper {
