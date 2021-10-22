@@ -717,7 +717,7 @@
       $('.story-item:not(:first) .text-wrapper').hide();
 
       var controller = new ScrollMagic.Controller();
-      var nbSlides = $('.slides .slide').length;
+      var nbSlides = $('.header-node-content.story .story-item').length;
       var slideDuration;
       if(nbSlides > 1) {
         slideDuration = nbSlides*25;
@@ -733,7 +733,7 @@
           onStart: function fadeOut(tween) {
             $(tween.target).find('.text-wrapper').fadeOut();
             $(tween.target).next().find('.text-wrapper').delay(600).fadeIn();
-            var ele = $(tween.target).next('.slide').offset();
+            var ele = $(tween.target).next('.story-item').offset();
             var height= $(window).height();
             countEle++
             $("html, body").animate({
@@ -745,7 +745,7 @@
           onReverseComplete: function fadeIn(tween) {
             $(tween.target).find('.text-wrapper').fadeIn();
             $(tween.target).next().find('.text-wrapper').fadeOut();
-            var ele = $(tween.target).next('.slide').offset();
+            var ele = $(tween.target).next('.story-item').offset();
             var height= $(window).height();
             countEle--
             $("html, body").animate({
