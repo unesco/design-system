@@ -735,11 +735,11 @@
             $(tween.target).next().find('.text-wrapper').delay(600).fadeIn();
             var ele = $(tween.target).next('.story-item').offset();
             var height= $(window).height();
-            countEle++
+            countEle++;
             $("html, body").animate({
               scrollTop: (height + 200) * countEle
             }, 1000);
-            return false
+            return false;
           },
           onReverseCompleteParams: ["{self}"],
           onReverseComplete: function fadeIn(tween) {
@@ -747,11 +747,11 @@
             $(tween.target).next().find('.text-wrapper').fadeOut();
             var ele = $(tween.target).next('.story-item').offset();
             var height= $(window).height();
-            countEle--
+            countEle--;
             $("html, body").animate({
               scrollTop: (height + 200) * countEle
             }, 1000);
-            return false
+            return false;
           },
         }, 2, 1)
         .staggerTo(".story-item:last", 1, {
