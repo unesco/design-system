@@ -1247,7 +1247,6 @@
       let articleUrl = window.location.href;
 
       if (navigator.share) {
-        console.log('navigator-present');
         shareButton.unbind('click');
         shareButton.on('click', function (e) {
           e.preventDefault();
