@@ -55,6 +55,7 @@
       this.initEventParagraph(context, settings);
       this.initMultiSelect(context, settings);
       this.initwebformScrollUp(context, settings);
+      this.initmobileShare(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -1236,6 +1237,26 @@
           }, 500);
         }
       });
+    },
+    
+    initmobileShare: function (context, settings) {
+      let shareButton = $('.sticky-share');
+      let desc = $('.node--type-article.node--view-mode-full .header-node-content .field--name-field-description').text();
+      let trimmedDesc = desc.length > 100 ? desc.substring(0, 100) + "..." : desc;
+      let articleTitle = $('.article-title').text();
+      let articleUrl = window.location.href;
+
+      if (navigator.share) {
+        shareButton.unbind('click');
+        shareButton.on('click', function (e) {
+          e.preventDefault();
+          navigator.share({
+            title: articleTitle,
+            text: trimmedDesc,
+            url: articleUrl,
+          });
+        });
+      }
     },
   };
 
