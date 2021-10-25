@@ -124,6 +124,16 @@
   }
 }
 
+button.button-galaxy {
+  padding-right: 2rem;
+  padding-left: 0;
+  background-color: inherit;
+  border: 0;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .link-underline {
   text-decoration: underline;
 }
@@ -389,4 +399,34 @@
     margin-left: .5rem;
     font-size: 1rem;
   }
+
+
+  &.load-more {
+    padding: 0;
+    a {
+      padding: 0.375rem 2rem 0.375rem 1rem;
+      text-decoration: none;
+      color: unset;
+    }
+    &::after {
+      transform: rotate(90deg);
+      margin-left: -1rem;
+      margin-right: 0.5rem;
+      z-index: -99;
+    }
+
+    &-clicked {
+      a {
+        padding-right: 1rem;
+      }
+      &::after {
+        display: none;
+      }
+
+      .ajax-progress {
+        padding-right: 1rem;
+      }
+    }
+  }
+
 }

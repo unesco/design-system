@@ -10,6 +10,10 @@
       return window.innerWidth <= 520;
     },
 
+    clickLoadMore: function(elt) {
+      $(elt).closest('.load-more').addClass('load-more-clicked');
+    },
+
     initAll: function (context, settings) {
       context = context || {};
       settings = settings || {};
@@ -51,6 +55,7 @@
       this.initEventParagraph(context, settings);
       this.initMultiSelect(context, settings);
       this.initwebformScrollUp(context, settings);
+      this.initmobileShare(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -713,6 +718,13 @@
       $('.story-item:not(:first) .text-wrapper').hide();
 
       var controller = new ScrollMagic.Controller();
+      var nbSlides = $('.header-node-content.story .story-item').length;
+      var slideDuration;
+      if(nbSlides > 1) {
+        slideDuration = nbSlides*25;
+      } else {
+        slideDuration = "0.1";
+      }
 
       var wipeAnimation = new TimelineMax()
         .staggerTo(".story-item:not(:last)", 1, {
@@ -722,11 +734,25 @@
           onStart: function fadeOut(tween) {
             $(tween.target).find('.text-wrapper').fadeOut();
             $(tween.target).next().find('.text-wrapper').delay(600).fadeIn();
+            var ele = $(tween.target).next('.story-item').offset();
+            var height= $(window).height();
+            countEle++;
+            $("html, body").animate({
+              scrollTop: (height + 200) * countEle
+            }, 1000);
+            return false;
           },
           onReverseCompleteParams: ["{self}"],
           onReverseComplete: function fadeIn(tween) {
             $(tween.target).find('.text-wrapper').fadeIn();
             $(tween.target).next().find('.text-wrapper').fadeOut();
+            var ele = $(tween.target).next('.story-item').offset();
+            var height= $(window).height();
+            countEle--;
+            $("html, body").animate({
+              scrollTop: (height + 200) * countEle
+            }, 1000);
+            return false;
           },
         }, 2, 1)
         .staggerTo(".story-item:last", 1, {
@@ -741,9 +767,10 @@
         }, 1);
 
       new ScrollMagic.Scene({
+        delay: 0,
         triggerElement: ".header-node-content.story",
         triggerHook: "onLeave",
-        duration: "300%"
+        duration: slideDuration+"%"
       })
         .setPin(".header-node-content.story")
         .setTween(wipeAnimation)
@@ -1097,12 +1124,12 @@
     initAudioPlayers: function (context, settings) {
 
       function mediaAudio() {
-        const playersWrapper = $('.media--type-audio', context);
+        const playersWrapper = $('.media--type-audio, .media--type-audio-radio', context);
         playersWrapper.each(function () {
           const parent = $(this);
           const cover = parent.find('.field--name-field-media-image');
           const icons = parent.find('.icons--audio .material-icons-sharp');
-          const player = parent.find('.field--name-field-media-audio-file audio');
+          const player = parent.find('.field--name-field-media-audio-file audio, .audio-embed iframe');
           if (!player.length) {
             return;
           }
@@ -1210,6 +1237,26 @@
           }, 500);
         }
       });
+    },
+
+    initmobileShare: function (context, settings) {
+      let shareButton = $('.sticky-share');
+      let desc = $('.node--type-article.node--view-mode-full .header-node-content .field--name-field-description').text();
+      let trimmedDesc = desc.length > 100 ? desc.substring(0, 100) + "..." : desc;
+      let articleTitle = $('.article-title').text();
+      let articleUrl = window.location.href;
+
+      if (navigator.share) {
+        shareButton.unbind('click');
+        shareButton.on('click', function (e) {
+          e.preventDefault();
+          navigator.share({
+            title: articleTitle,
+            text: trimmedDesc,
+            url: articleUrl,
+          });
+        });
+      }
     },
   };
 

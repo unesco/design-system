@@ -1,5 +1,4 @@
 .node--type-field-office {
-
   &.node--view-mode-full {
     .header-texts {
       @include min-screen($screen-desktop) {
@@ -104,11 +103,12 @@
     }
 
     .footer-map {
-      max-width: 25rem;
+      max-width: 50%;
+      width: 50%;
       display: none;
 
       .map-inner {
-        max-width: 25rem;
+        width: 100%;
         overflow: hidden;
         border-radius: 0.5rem;
         height: 17.688rem;
@@ -133,6 +133,11 @@
     }
   }
 
-  
-
+  .footer-field-office {
+    &+.footer-hub {
+      @include min-screen($screen-desktop) {
+        margin-top: 0;
+      }
+    }
+  }
 }

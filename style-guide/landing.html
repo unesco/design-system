@@ -38,7 +38,7 @@
             <a href="#">Newsroom</a>
           </li>
           <li>
-            <a href="#" class="button-galaxy">Explore UNESCO</a>
+            <button class="button-galaxy" for="galaxy-popin">Explore UNESCO</button>
           </li>
           <li>
             <a href="#">English</a>
@@ -210,44 +210,84 @@
               <a href="#" class="navbar_menu-item">Get involved</a>
             </li>
             <li>
-              <a href="#" class="navbar_menu-item is-expanded">other menu</a>
+              <a href="#" class="navbar_menu-item is-expanded">Carousel mode</a>
               <div class="navbar_submenu">
                 <div class="submenu_wrapper row">
 
-                  <div class="submenu_list col-12 col-md-6 col-lg-3">
-                    <div class="submenu_list-title">
-                      Lorem ipsum
-                    </div>
+                  <div class="submenu_carousel col-12">
                     <ul>
                       <li>
-                        <a href="#">Education</a>
+                        <a href="#" class="submenu_carousel-wrapper">
+                          <div class="submenu_carousel-img">
+                            <img src="https://via.placeholder.com/480x270" alt="">
+                          </div>
+                          <div class="submenu_carousel-text">
+                            Agissez maintenant pour réduire l’impact du Covid-19 sur le coût de la réalisation de l’ODD4
+                          </div>
+                        </a>
                       </li>
                       <li>
-                        <a href="#">Culture</a>
+                        <a href="#" class="submenu_carousel-wrapper">
+                          <div class="submenu_carousel-img">
+                            <img src="https://via.placeholder.com/480x270" alt="">
+                          </div>
+                          <div class="submenu_carousel-text">
+                            Agissez maintenant pour réduire l’impact du Covid-19 sur le coût de la réalisation de l’ODD4
+                          </div>
+                        </a>
                       </li>
                       <li>
-                        <a href="#">Science</a>
+                        <a href="#" class="submenu_carousel-wrapper">
+                          <div class="submenu_carousel-img">
+                            <img src="https://via.placeholder.com/480x270" alt="">
+                          </div>
+                          <div class="submenu_carousel-text">
+                            Agissez maintenant pour réduire l’impact du Covid-19 sur le coût de la réalisation de l’ODD4
+                          </div>
+                        </a>
                       </li>
                       <li>
-                        <a href="#">Communication</a>
+                        <a href="#" class="submenu_carousel-wrapper">
+                          <div class="submenu_carousel-img">
+                            <img src="https://via.placeholder.com/480x270" alt="">
+                          </div>
+                          <div class="submenu_carousel-text">
+                            Agissez maintenant pour réduire l’impact du Covid-19 sur le coût de la réalisation de l’ODD4
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="submenu_carousel-wrapper">
+                          <div class="submenu_carousel-img">
+                            <img src="https://via.placeholder.com/480x270" alt="">
+                          </div>
+                          <div class="submenu_carousel-text">
+                            Agissez maintenant pour réduire l’impact du Covid-19 sur le coût de la réalisation de l’ODD4
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="submenu_carousel-wrapper">
+                          <div class="submenu_carousel-img">
+                            <img src="https://via.placeholder.com/480x270" alt="">
+                          </div>
+                          <div class="submenu_carousel-text">
+                            Agissez maintenant pour réduire l’impact du Covid-19 sur le coût de la réalisation de l’ODD4
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="submenu_carousel-wrapper">
+                          <div class="submenu_carousel-img">
+                            <img src="https://via.placeholder.com/480x270" alt="">
+                          </div>
+                          <div class="submenu_carousel-text">
+                            Agissez maintenant pour réduire l’impact du Covid-19 sur le coût de la réalisation de l’ODD4
+                          </div>
+                        </a>
                       </li>
                     </ul>
-                  </div>
-                  <div class="submenu_list col-12 col-md-6 col-lg-3">
-                    <div class="submenu_list-title">
-                      Lorem ipsum
-                    </div>
-                    <ul>
-                      <li>
-                        <a href="#">Histoire</a>
-                      </li>
-                      <li>
-                        <a href="#">Architecture</a>
-                      </li>
-                      <li>
-                        <a href="#">Patrimoine</a>
-                      </li>
-                    </ul>
+
                   </div>
                 </div>
               </div>
@@ -309,9 +349,226 @@
     </nav>
     <nav class="navbar_sticky">
       <div class="navbar_sticky-content">
-        <a href="#" class="button-galaxy">Explore UNESCO</a>
+        <button class="button-galaxy" for="galaxy-popin">Explore UNESCO</button>
       </div>
     </nav>
+    <div class="galaxy-popin" id="galaxy-popin">
+
+      <div class="galaxy-popin__header">
+        <div class="galaxy-popin__header__logo">
+          <img src="../logo.svg" alt="Logo Unesco" width="150" />
+        </div>
+        <div class="galaxy-popin__header__nav">
+          <a class="galaxy-popin__header__nav__back" data-popin="toggle" type="button">
+            <i class="material-icons-sharp">arrow_back_ios_new</i>
+          </a>
+          <div class="galaxy-popin__header__nav__title" data-popin="text" >Explore UNESCO</div>
+          <a href="https://unesco.org/en/search" class="galaxy-popin__header__nav__search">
+            Advanced search
+            <i class="material-icons-sharp">search</i>
+          </a>
+          <a type="button" class="galaxy-popin__header__nav__close" for="galaxy-popin">
+            <i class="material-icons-sharp">clear</i>
+          </a>
+        </div>
+      </div>
+
+      <div class="galaxy-popin__tabs">
+
+        <ul class="galaxy-popin__tabs__nav">
+          <li class="galaxy-popin__tabs__nav__li">
+            <a class="galaxy-popin__tabs__nav__link active" href="#wwa">Who we are</a>
+          </li>
+          <li class="galaxy-popin__tabs__nav__li">
+            <a class="galaxy-popin__tabs__nav__link" href="#wwd">What we do</a>
+          </li>
+          <li class="galaxy-popin__tabs__nav__li">
+            <a class="galaxy-popin__tabs__nav__link" href="#allWebsites">All UNSECO websites</a>
+          </li>
+          <li class="galaxy-popin__tabs__nav__li search">
+            <a class="galaxy-popin__tabs__nav__link" href="https://unesco.org/en/search"><i class="material-icons-sharp">search</i>Advanced search</a>
+          </li>
+        </ul>
+
+        <div class="galaxy-popin__tabs__content">
+          <div class="galaxy-popin__tabs__content__pane" id="wwa">
+            <ul class="nav-items row">
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://www.unesco.org" class="nav-link">About</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://unesco-unesco.dev.ows.fr/en/node/29" class="nav-link">Our vision for peace</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://www.unesco.org" class="nav-link">History of UNESCO</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Key achievements</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">UNESCO House - Visit us</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Governance</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Executive Board</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">General Conference</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Director General</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Accountability</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Budget &amp; Strategy</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Internal oversight</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Reform / Strategic transformation</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Networks</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/fieldoffice" class="nav-link">Field Offices</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Institutes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">UNESCO &amp; the UN</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Private Sector</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">NGO</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Get Involved</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Share and spread the word</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Donate</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Become a partner</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Join UNESCO</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="galaxy-popin__tabs__content__pane" id="wwd">
+            <ul class="nav-items row">
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://www.unesco.org/" class="nav-link">Our expertise</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Education</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Global Priorities</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Gender Equality</a>
+                  </li>
+                  <li class="nav-item">
+                    <span class="nav-link">Priority Africa</span>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">How we work : UNESCO Services</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">Stories</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Where we work</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">UNESCO in the World</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Target groups</a>
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://en.unesco.org/" class="nav-link">SIDS</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-md-3">
+                <a href="https://en.unesco.org/" class="nav-link">Newsroom</a>
+              </li>
+            </ul>
+          </div>
+          <div class="galaxy-popin__tabs__content__pane" id="allWebsites">
+
+            <div class="galaxy-popin__dynamic-search">
+
+              <input class="galaxy-popin__dynamic-search__input" data-search-for="unesco" placeholder="Search for a site or UNESCO entity" type="search" aria-label="Search for a site or UNESCO entity" >
+
+              <div class="galaxy-popin__dynamic-search__items" data-search-id="unesco">
+                <a class="galaxy-popin__dynamic-search__item" href="http://www.unesco.org/reports/wwdr/2021/en">
+                  <h2>2021 World Water Development Report</h2>
+                  <p>The 2021 World Water Development Report on “Valuing Water” assesses the current status of, and challenges to, the valuation of water across different sectors and perspectives, and identifies ways in which valuation can be promoted as a tool to help achieve sustainability.</p>
+                </a>
+                <a class="galaxy-popin__dynamic-search__item" href="https://unesco-biennale-luanda.dev.ows.fr/en">
+                  <h2>Biennale of Luanda</h2>
+                  <p>Pan-African Forum for the Culture of Peace</p>
+                </a>
+                <a class="galaxy-popin__dynamic-search__item" href="https://unesco-icd.dev.ows.fr/">
+                  <h2>E-platform on Intercultural Dialogue</h2>
+                  <p>UNESCO's intercultural dialogue (ICD) e-Platform is a destination for audiences that want to learn from shared knowledge and experiences, or simply connect with one another to collaborate and exchange ideas</p>
+                </a>
+                <a class="galaxy-popin__dynamic-search__item" href="https://unesco-mab50.dev.ows.fr/">
+                  <h2>Man and the Biosphere - 50th Anniversary</h2>
+                </a>
+                <a class="galaxy-popin__dynamic-search__item" href="https://www.unesco.org/reports/science/2021/en">
+                  <h2>Sciences Report 2021</h2>
+                  <p>Published in June 2021, the seventh report in the series arrives at a crucial juncture, as countries are now one-third of the way to the 2030 deadline for achieving their Sustainable Development Goals (SDGs). </p>
+                </a>
+                <a class="galaxy-popin__dynamic-search__item" href="https://www.unesco.org/">
+                  <h2>UNESCO.org</h2>
+                  <p>L'<strong>Organisation des Nations unies</strong> pour l'éducation, la science et la culture est une institution spécialisée internationale de l'Organisation des Nations unies, créée le 16 novembre 1945 à la suite des dégâts et des massacres de la Seconde Guerre mondiale.</p>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main>

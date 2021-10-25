@@ -20,15 +20,16 @@ $audio-icon-size: (
   }
 }
 
-.media--type-audio {
+.media--type-audio,
+.media--type-audio-radio {
   audio {
-    display:none;
+    display: none;
   }
   .image-icon {
     position: relative;
     margin-bottom: 1.5rem;
     .field--name-field-media-image {
-      margin-bottom: 0!important;
+      margin-bottom: 0 !important;
     }
     .metadata {
       position: absolute;
@@ -102,9 +103,9 @@ $audio-icon-size: (
   }
 }
 
-.media--type-audio.media--view-mode-medium {
+.media--type-audio.media--view-mode-medium,
+.media--type-audio-radio.media--view-mode-medium {
   .field--name-field-media-image + .field--name-field-media-audio-file {
     display: none;
   }
 }
-
