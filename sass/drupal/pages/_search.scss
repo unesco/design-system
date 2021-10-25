@@ -37,6 +37,14 @@ $search_dropdown_z: 500;
       right: 0;
       bottom: 0;
       transition: opacity 0.2s;
+
+      @include max-screen($screen-desktop) {
+        top: 6.5rem !important;
+      }
+
+      @include max-screen($screen-tablet) {
+        top: 4rem !important;
+      }
     }
 
     .unesco-search--close {
@@ -70,10 +78,9 @@ $search_dropdown_z: 500;
       .wrapper-search-text {
         padding: 6rem 2rem;
       }
-
     }
 
-    @include max-screen(575px) {
+    @include max-screen($screen-tablet) {
       top: 4rem !important;
 
       .unesco-search--close {
@@ -309,7 +316,7 @@ $search_dropdown_z: 500;
           >div {
             margin-left: -1rem;
             margin-right: -1rem;
-            
+
             >.facet-dataset_filters {
               padding: 0 1rem;
               width: 50%;
