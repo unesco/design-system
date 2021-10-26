@@ -22,6 +22,7 @@ $audio-icon-size: (
 
 .media--type-audio,
 .media--type-audio-radio {
+  position: relative;
   audio {
     display: none;
   }
@@ -100,6 +101,14 @@ $audio-icon-size: (
     background-color: $white;
     transition: 5s ease;
     z-index: -1;
+  }
+
+  iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
   }
 }
 

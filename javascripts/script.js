@@ -14,6 +14,16 @@
       $(elt).closest('.load-more').addClass('load-more-clicked');
     },
 
+    closeSearchDropDown: function() {
+      var $dropdown = $('.unesco-search--dropdown');
+
+      if ($dropdown.length) {
+        $dropdown.removeClass('active');
+        $dropdown.css('top', '-500px');
+        $('html').css('overflow', '');
+      }
+    },
+
     initAll: function (context, settings) {
       context = context || {};
       settings = settings || {};
@@ -46,6 +56,7 @@
       this.initStoryParallax(context, settings);
       this.initParagraphParallax(context, settings);
       this.initGalaxyMenu(context, settings);
+      this.initSearchHeader(context, settings);
       this.initSearchFilters(context, settings);
       this.initMapListMobile(context, settings);
       this.initMapSizeMobile(context, settings);
@@ -248,6 +259,7 @@
       let menuBurger = $('.navbar-toggler');
       let parentItem = $('header .menu-level-0 > .nav-item > .dropdown-toggle');
       let siteName = $('.js-site-name');
+      var self = this;
 
       menuBurger.on('click', function () {
         $('html, body').toggleClass('menu-open').removeClass('galaxy-menu-open');
@@ -255,6 +267,7 @@
         $('.active-galaxy-tab').removeClass('active-galaxy-tab');
         $('.submenu-open').removeClass('submenu-open');
         $('.menu--galaxy-menu .popin').addClass('hidden');
+        self.closeSearchDropDown();
       });
 
       parentItem.on('click', function () {
@@ -893,6 +906,31 @@
           }
         });
       });
+    },
+
+    initSearchHeader: function (context, settings) {
+      var $dropdown = $('.unesco-search--dropdown');
+
+      if ($dropdown.length) {
+        var $overlay = $('.unesco-search--overlay');
+        var $closeBtn = $('.unesco-search--close');
+
+        $('.js-search-menu-trigger').once('header-search').on('click', function(e) {
+          e.preventDefault();
+          var position = $('header').offset().top + $('header').outerHeight();
+
+          $('html, body').animate({scrollTop: 0}, 'fast', 'swing', function () {
+            $('html').css('overflow', 'hidden');
+            $dropdown.css('top', position + 'px');
+            $overlay.css('top', position + 'px');
+            $dropdown.addClass('active');
+          });
+
+        });
+
+        $overlay.once('header-search').on('click', this.closeSearchDropDown);
+        $closeBtn.once('header-search').on('click', this.closeSearchDropDown);
+      }
     },
 
     // Used $(document) to fix issues when user is logged in
