@@ -265,6 +265,8 @@
               & > li > *:first-child {
                 font-weight: 600;
                 display: block;
+                padding: 0;
+                margin-bottom: 0.75rem;
               }
 
               ul.menu-lvl3 {
