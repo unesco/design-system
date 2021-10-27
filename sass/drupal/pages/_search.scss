@@ -225,6 +225,19 @@ $search_dropdown_z: 500;
     }
   }
 
+  .reset-link {
+    color: $grey4;
+    margin-top: .5rem;
+    font-size: .875rem;
+    &:hover {
+      text-decoration: none;
+    }
+    @include min-screen($screen-desktop) {
+      margin-top: 0;
+      margin-left: 2rem;
+    }
+  }
+
   .slick-prev,
   .slick-next {
     font-size: 0;
@@ -370,19 +383,6 @@ $search_dropdown_z: 500;
         }
       }
 
-    }
-
-    .reset-link {
-      color: $grey4;
-      font-weight: 400;
-      margin-top: .5rem;
-      &:hover {
-        text-decoration: none;
-      }
-      @include min-screen($screen-desktop) {
-        margin-top: 0;
-        margin-right: 2rem;
-      }
     }
   }
 }
