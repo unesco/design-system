@@ -621,16 +621,20 @@ header.header {
   .slider {
     &_back,
     &_next {
-      margin: 0 .5rem;
-      width: 2rem;
-      min-width: 2rem;
-      height: 2rem;
-      line-height: 2rem;
-      text-align: center;
-      color: $white;
-      border: .0625rem solid $white;
-      border-radius: 50%;
-      cursor: pointer;
+      display: none;
+      @include min-screen($screen-desktop) {
+        display: block;
+        margin: 0 .5rem;
+        width: 2rem;
+        min-width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: center;
+        color: $white;
+        border: .0625rem solid $white;
+        border-radius: 50%;
+        cursor: pointer;
+      }
     }
     &_back {
       &::after {
