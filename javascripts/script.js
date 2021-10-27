@@ -449,10 +449,20 @@
         }
       });
 
-      sequencedContainer.find('.btn-primary').on('click', function () {
+      sequencedContainer.find('.sequenced-see-more').on('click', function () {
         sequencedLink.each(function () {
           $(this).show();
         });
+        sequencedContainer.find('.sequenced-see-less').show();
+        $(this).hide();
+      });
+      sequencedContainer.find('.sequenced-see-less').on('click', function () {
+        sequencedLink.each(function (index) {
+          if (index >= limit) {
+            $(this).hide();
+          }
+        });
+        sequencedContainer.find('.sequenced-see-more').show();
         $(this).hide();
       });
     },
