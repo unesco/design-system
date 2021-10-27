@@ -5,11 +5,13 @@
   Unesco.initMediaSlider();
   Unesco.initCarouselCards();
   Unesco.initDropdownFooter();
-  Unesco.initDropdownDocument();
 
   let desktopWidth = 992;
 
   let navBar = $('header .navbar');
+
+
+
 
   function navWrapperHeight() {
     let main = $('main');
@@ -337,6 +339,27 @@
       }
     });
   }
+  
+  function dropdownDocument() {
+    const $dropdownButton = $('.js-dropdown-menu');
+
+    $dropdownButton.on('click', function (e) {
+
+      e.stopPropagation();
+
+      if(this.classList.contains('js-dropdown-menu')){
+        $dropdownButton.next().removeClass('show');
+      }
+
+      const $this = $(this).next();
+      $this.addClass('show');
+
+      $(document).one('click', function () {
+        $this.removeClass('show');
+      });
+    });
+
+  }
 
   menuMobile();
   menuDesktop();
@@ -346,6 +369,7 @@
   stickyMenu();
   galaxyPopin();
   themingOption();
+  dropdownDocument();
 
   $( window ).resize(function () {
     navWrapperHeight();

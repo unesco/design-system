@@ -5741,24 +5741,61 @@
         <section id="dropdown" class="bs-docs-section p-4 border-top">
           <h2 class="mb-4 section-title">Dropdown</h2>
           <div class="row">
+
             <div class="col-md-12">
-              <h4 class="mb-4">Dropdown Document</h4>
+              <h4 class="mb-4">Dropdown Direct Download</h4>
               <div class="bs-component" style="margin-bottom: 3em;">
 
                 <div class="dropdown">
-                  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="document-X" data-bs-toggle="dropdown">Read more in...</button>
-                  
-                  <div aria-labelledby="document-X" class="dropdown-menu document-menu item-list">
-                    <ul>
-                      <li><a href="#" target="_blank">English</a></li>
-                      <li><a href="#" target="_blank">French</a></li>
-                      <li><a href="#" target="_blank">Spanish</a></li>
-                    </ul>
-                  </div>
+                  <button class="js-dropdown-menu btn btn-blue1" type="button" id="dropdown-menu-X" >
+                    Download
+                    <i class="material-icons-sharp">save_alt</i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdown-menu-X">
+                    <li><a class="dropdown-item" href="#">English</a></li>
+                    <li><a class="dropdown-item" href="#">French</a></li>
+                    <li><a class="dropdown-item" href="#">Spanish</a></li>
+                  </ul>
                 </div>
 
               </div>
             </div>
+
+            <div class="col-md-12">
+              <h4 class="mb-4">Dropdown Hosted on Unexco</h4>
+              <div class="bs-component" style="margin-bottom: 3em;">
+
+                <div class="dropdown">
+                  <button class="js-dropdown-menu btn btn-outline-primary" type="button" id="document-Y" >View full report</button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdown-menu-Y">
+                    <li><a class="dropdown-item" href="#">English</a></li>
+                    <li><a class="dropdown-item" href="#">French</a></li>
+                    <li><a class="dropdown-item" href="#">Spanish</a></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <h4 class="mb-4">Dropdown External Site</h4>
+              <div class="bs-component" style="margin-bottom: 3em;">
+
+                <div class="dropdown">
+                  <button class="js-dropdown-menu btn btn-outline-primary" type="button" id="document-Z" >
+                    Read more
+                    <i class="material-icons-sharp">open_in_new</i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdown-menu-Z">
+                    <li><a class="dropdown-item"href="/" target="_blank">English</a></li>
+                    <li><a class="dropdown-item"href="/" target="_blank">French</a></li>
+                    <li><a class="dropdown-item"href="/" target="_blank">Spanish</a></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </section>
         <!-- !Dropdown  -->
