@@ -224,3 +224,8 @@ $hub-title-small: (
   vertical-align: middle;
   font-size: 1.3em;
 }
+
+.small, small {
+  font-size: .875em;
+  font-weight: inherit;
+}
