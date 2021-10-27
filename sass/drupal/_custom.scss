@@ -115,7 +115,7 @@ div#sliding-popup .eu-cookie-withdraw-banner,
     header.navbar {
       top: 2.438rem !important;
     }
-  
+
     &.toolbar-tray-open.header-sticky {
       header.navbar {
         top: 4.938rem !important;
@@ -180,4 +180,26 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
       }
     }
   }
+}
+
+
+// Arrow
+
+.arrow-black {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: $darkGrey;
+  text-align: center;
+  &::after {
+    @include icon('arrow_forward');
+    color: $white;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+.arrow-primary {
+  @extend .arrow-black;
+  background-color: $BlueU;
 }
