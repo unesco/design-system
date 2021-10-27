@@ -184,7 +184,6 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
 
 
 // Arrow
-
 .arrow-black {
   display: inline-block;
   width: 1.5rem;
@@ -202,4 +201,17 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
 .arrow-primary {
   @extend .arrow-black;
   background-color: $BlueU;
+}
+
+// Icon
+.icon-business {
+  display: inline-block;
+  vertical-align: middle;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem !important;
+  border-radius: 50%;
+  background-color: $grey1;
+  color: $BlueU;
+  text-align: center;
 }
