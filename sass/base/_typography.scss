@@ -6,8 +6,13 @@ $page-title: (
   large: 3rem
 );
 
-$hero-title : (
+$hero-title: (
   null: 1.75rem,
+  large: 3.75rem
+);
+
+$display1-size: (
+  null: 2rem,
   large: 3.75rem
 );
 
@@ -110,6 +115,23 @@ $full-media-title: (
 .section-title-small {
   @include responsive(font-size, $section-title-small);
   font-weight: 600;
+}
+
+.display-1 {
+  @include responsive(font-size, $display1-size);
+  font-weight: 800;
+}
+
+.display-2 {
+  @extend .article-title;
+}
+
+.display-3 {
+  @extend .section-title;
+}
+
+.display-4 {
+  @extend .section-title-small;
 }
 
 // Text
