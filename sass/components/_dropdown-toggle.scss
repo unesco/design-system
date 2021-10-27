@@ -1,0 +1,39 @@
+// dropdown-toggle
+
+.dropdown-toggle {
+
+  &::after {
+    content: none;
+  }
+}
+
+.dropdown-menu {
+  width: 11.625rem;
+  padding: 1rem 1.5rem;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0 0 .5rem 0;
+    padding: 0;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: #7F888F;
+    text-decoration: none;
+    line-height: 2.2;
+    font-size: .875rem;
+
+    &:hover {
+      color: #212121;
+    }
+  }
+}

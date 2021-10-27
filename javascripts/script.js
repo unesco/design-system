@@ -424,9 +424,9 @@
     },
 
     initDropdownDocument: function (context, settings) {
-      let dropdownDocument = $('.document-wrapper .dropdown .dropdown-toggle', context);
+      const dropdownDocument = $('.dropdown .dropdown-toggle', context);
 
-      $(document).click(function () {
+      $(document).on('click', function () {
         dropdownDocument.next('.dropdown-menu').removeClass('show');
       });
 
