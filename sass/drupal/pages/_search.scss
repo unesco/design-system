@@ -227,14 +227,13 @@ $search_dropdown_z: 500;
 
   .reset-link {
     color: $grey4;
-    margin-top: .5rem;
     font-size: .875rem;
     &:hover {
       text-decoration: none;
     }
     @include min-screen($screen-desktop) {
-      margin-top: 0;
       margin-left: 2rem;
+      margin-top: .5rem;
     }
   }
 
