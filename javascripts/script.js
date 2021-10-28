@@ -276,7 +276,8 @@
 
       if (siteName.length >= 1 && window.innerWidth < 992) {
         let siteNameHeight = siteName[1].offsetHeight;
-        $('body:not(.portail-unesco) header.navbar').css({height: `calc(4.5rem + ${siteNameHeight}px)`});
+        let headerHeight = 72 + siteNameHeight;
+
         $( '<style>' +
           '.menu-open .parent-menu-open:not(.portail-unesco) header::before, ' +
           '.menu-open .transparent-header:not(.portail-unesco) header::before, ' +
@@ -285,9 +286,9 @@
           '.menu-open .transparent-header:not(.portail-unesco) header::after, ' +
           '.menu-open .header-with-line:not(.header-sticky.portail-unesco) header::after { top: calc(4.5rem + ' + siteNameHeight + 'px); }' +
           '.menu-open body:not(.portail-unesco) .menu--main .main-navigation { margin-top: calc(4.5rem + ' + siteNameHeight + 'px); }' +
+          'body:not(.portail-unesco) header.navbar {height:' + headerHeight + 'px;}' +
           '</style>').appendTo('head');
       }
-
     },
 
     initDropdownMenu: function (context, settings) {
