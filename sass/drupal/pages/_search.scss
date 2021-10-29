@@ -208,11 +208,16 @@ $search_dropdown_z: 500;
     width: 100%;
     display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
+
+    @include min-screen($screen-desktop) {
+      flex-wrap: nowrap;
+    }
   }
 
   .item-list {
     @include max-screen($screen-desktop - 1px) {
-      width: 100%;
+      width: calc(100% - 110px);
       overflow: auto;
       @include scrollbar-custom;
       padding-bottom: .5rem;
@@ -227,6 +232,7 @@ $search_dropdown_z: 500;
 
   .reset-link {
     color: $grey4;
+    font-weight: 600;
     font-size: .875rem;
     &:hover {
       text-decoration: none;
