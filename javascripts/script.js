@@ -1206,6 +1206,7 @@
           audio.addEventListener('loadeddata', function () {
               duration = audio.duration;
               cover.prepend('<span class="metadata">' + format(duration) + '</span>');
+              cover.append('<div class="timeline-audio"><div class="progress-audio" style="width: 0%;"></div></div>');
             }
           );
           audio.addEventListener('timeupdate', function () {
@@ -1230,6 +1231,23 @@
                 reset = true;
               }
             }
+
+            //click on progress bar to skip audio
+            const timeline = cover.find('.timeline-audio');
+            timeline.on('click', function (e) {
+              const timelineWidth = cover.find('.timeline-audio').width();
+              const goToTime = e.offsetX / parseInt(timelineWidth) * duration;
+              audio.currentTime = goToTime;
+              let newTime = format(audio.currentTime);
+              cover.find('.metadata').text(newTime);
+            });
+
+            // Set progress bar to update as audio plays
+            setInterval(function () {
+              const progressBar = cover.find(".progress-audio");
+              let progressWidth = audio.currentTime / audio.duration * 100 + "%";
+              progressBar.css('width', progressWidth);
+            }, 500);
           });
 
           parent.find('.icons--audio').on('click', function () {
