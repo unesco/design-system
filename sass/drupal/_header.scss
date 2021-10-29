@@ -1838,6 +1838,12 @@ header {
   }
 }
 
+.galaxy-menu-open {
+  header.navbar {
+    transform: none !important;
+  }
+}
+
 // satellite page header
 .site-satellite:not(.header-sticky),
 .portail-unesco {
