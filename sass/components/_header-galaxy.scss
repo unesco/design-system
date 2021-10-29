@@ -394,19 +394,22 @@
               padding-right: 0;
               margin-bottom: 1.5rem;
               font-size: 1rem;
-              line-height: 1.5rem;
-              
-              &:focus,
-              &:hover {
-                text-decoration: underline;
-              }
+              line-height: 1.5rem; 
 
               &.dropdown-toggle::after {
                 display: none;
               }
             }
 
-            >a {
+            a.nav-link {
+              &:focus,
+              &:hover {
+                text-decoration: underline;
+              }
+            } 
+
+            >a,
+            >span {
               font-weight: 600;
             }
 
