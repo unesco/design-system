@@ -106,25 +106,31 @@
       }
     }
 
-    .footer-map #explorer {
+    .footer-map {
       max-width: 50%;
       width: 50%;
       display: none;
-
-      .map-inner {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 0.5rem;
-        height: 17.688rem;
-      }
-
+  
       @include min-screen($screen-desktop) {
         display: block;
         margin-left: auto;
       }
 
-      .tab-content article a {
-        display: none;
+      #explorer {
+        .map-wrapper {
+          width: 100%;
+  
+          .map-inner {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            height: 17.688rem;
+          }
+        }
+  
+        .tab-content article a {
+          display: none;
+        }
       }
     }
   }
