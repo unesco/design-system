@@ -8,11 +8,11 @@ global-styling:
       https://fonts.googleapis.com/css2?family=Material+Icons+Sharp: { type: external }
 
   js:
-    javascripts/vendor/slick.min.js: { minified: true }
-    javascripts/vendor/ScrollMagic.min.js: { minified: true }
-    javascripts/vendor/TweenMax.min.js: { minified: true }
-    javascripts/vendor/animation.gsap.min.js: { minified: true }
-    javascripts/vendor/slimselect.min.js: { minified: true }
+    assets/scripts/vendor/slick.min.js: { minified: true }
+    assets/scripts/vendor/ScrollMagic.min.js: { minified: true }
+    assets/scripts/vendor/TweenMax.min.js: { minified: true }
+    assets/scripts/vendor/animation.gsap.min.js: { minified: true }
+    assets/scripts/vendor/slimselect.min.js: { minified: true }
     assets/scripts/app.js: {}
     javascripts/drupal.js: {}
 

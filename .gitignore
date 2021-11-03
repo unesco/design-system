@@ -1,3 +1,5 @@
 node_modules
 assets/stylesheets
-assets/scripts
+assets/scripts/*
+!/assets/scripts/vendor/
+
