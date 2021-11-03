@@ -493,6 +493,12 @@
     }
   }
 
+  @include min-screen($screen-desktop) {
+    .site-satellite & {
+      top: 11.063rem;
+    }
+  }
+
   .breadcrumb {
     border-radius: 0;
     display: none;
