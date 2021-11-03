@@ -1,55 +1,23 @@
-@mixin paragraph-simple {
-  .paragraph {
-    &--type--banner-cta,
-    &--type--cta,
-    &--type--document,
-    &--type--dropdown,
-    &--type--parallax,
-    &--type--text-media-full,
-    &--type--media {
-      @content;
-    }
-  }
-}
-
-@mixin paragraph-border {
-  .paragraph {
-    &--type--documents,
-    &--type--datagrid,
-    &--type--faq,
-    &--type--content-featured-custom,
-    &--type--iframe,
-    &--type--image-map,
-    &--type--logo-grid,
-    &--type--number,
-    &--type--people-detail,
-    &--type--quick-link,
-    &--type--quote,
-    &--type--text-media-block {
-      @content;
-    }
-  }
-}
-
-
 .node--type-sequenced-page,
 .node--type-page,
 .node--type-article {
-  @include paragraph-simple {
+  .paragraph-simple {
     @include mt-block-sm;
   }
-  @include paragraph-border {
+  .paragraph-border {
     @include mt-block-sm;
   }
 }
 
 .node--type-homepage,
 .node--type-landing,
-.node--type-hub {
-  @include paragraph-simple {
+.node--type-hub,
+.node--type-field-office {
+  .paragraph-simple {
     @include mt-block;
   }
-  @include paragraph-border {
+
+  .paragraph-border {
     @include mt-border-block;
   }
 }
