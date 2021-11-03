@@ -134,9 +134,10 @@ div#sliding-popup .eu-cookie-withdraw-banner,
 }
 
 .toolbar-vertical {
-  &.header-sticky {
+  &.header-sticky.toolbar-fixed {
+    #environment-indicator ~ div header.navbar,
     header.navbar {
-      top: 2.438rem;
+      top: 2.438rem !important;
     }
 
     @include min-screen($screen-desktop) {
@@ -148,6 +149,42 @@ div#sliding-popup .eu-cookie-withdraw-banner,
   &.page-node-type-landing header.navbar {
     top: 2.438rem;
   }
+
+  &.parent-menu-open header .menu-level-0 > .nav-item.show {
+    transform: translateY(32px);
+  }
+}
+
+.menu-open .toolbar-vertical.parent-menu-open:not(.site-satellite) header::after,
+.menu-open .toolbar-vertical.header-with-line:not(.header-sticky):not(.site-satellite) header::after, 
+.menu-open .toolbar-vertical.path-countries:not(.header-sticky):not(.site-satellite) header::after,
+.menu-open .toolbar-vertical.transparent-header:not(.site-satellite) header::after {
+  top: 6.5rem !important;
+}
+
+.menu-open.gin--classic-toolbar {
+  .site-name,
+  .block-unesco-common-site-branding,
+  header .header .navbar-toggler {
+    transform: translateY(39px);
+  }
+
+  &.parent-menu-open:not(.portail-unesco) header, 
+  &.transparent-header:not(.portail-unesco) header, 
+  &.header-with-line:not(.header-sticky.portail-unesco) header {
+    &:after,
+    &::before {
+      margin-top: 39px;
+    }
+  }
+}
+
+#environment-indicator ~ div header.navbar {
+  transform: translateY(32px);
+}
+
+.menu-open.gin--classic-toolbar #environment-indicator ~ div header.navbar {
+ transform: none;
 }
 
 // Icons for toolbar custom.

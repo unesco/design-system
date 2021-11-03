@@ -1,0 +1,15 @@
+<div class="header-node-content">
+  <h1 class="title article-title">{{ node.title.value}}</h1>
+
+  <div class="main-node-content">
+    <div class="content-narrow">
+      {{ node.getMainImageBuild() }}
+    </div>
+
+    {% if datas.description %}
+      <div class="description">
+        {{ datas.description|raw }}
+      </div>
+    {% endif %}
+  </div>
+</div>

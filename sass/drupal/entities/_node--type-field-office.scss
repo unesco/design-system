@@ -106,7 +106,7 @@
       }
     }
 
-    .footer-map {
+    .footer-map #explorer {
       max-width: 50%;
       width: 50%;
       display: none;
@@ -121,6 +121,10 @@
       @include min-screen($screen-desktop) {
         display: block;
         margin-left: auto;
+      }
+
+      .tab-content article a {
+        display: none;
       }
     }
   }

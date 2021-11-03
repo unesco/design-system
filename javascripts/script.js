@@ -276,7 +276,8 @@
 
       if (siteName.length >= 1 && window.innerWidth < 992) {
         let siteNameHeight = siteName[1].offsetHeight;
-        $('body:not(.portail-unesco) header.navbar').css({height: `calc(4.5rem + ${siteNameHeight}px)`});
+        let headerHeight = 72 + siteNameHeight;
+
         $( '<style>' +
           '.menu-open .parent-menu-open:not(.portail-unesco) header::before, ' +
           '.menu-open .transparent-header:not(.portail-unesco) header::before, ' +
@@ -285,9 +286,9 @@
           '.menu-open .transparent-header:not(.portail-unesco) header::after, ' +
           '.menu-open .header-with-line:not(.header-sticky.portail-unesco) header::after { top: calc(4.5rem + ' + siteNameHeight + 'px); }' +
           '.menu-open body:not(.portail-unesco) .menu--main .main-navigation { margin-top: calc(4.5rem + ' + siteNameHeight + 'px); }' +
+          'body:not(.portail-unesco) header.navbar {height:' + headerHeight + 'px;}' +
           '</style>').appendTo('head');
       }
-
     },
 
     initDropdownMenu: function (context, settings) {
@@ -1205,6 +1206,7 @@
           audio.addEventListener('loadeddata', function () {
               duration = audio.duration;
               cover.prepend('<span class="metadata">' + format(duration) + '</span>');
+              cover.append('<div class="timeline-audio"><div class="progress-audio" style="width: 0%;"></div></div>');
             }
           );
           audio.addEventListener('timeupdate', function () {
@@ -1229,6 +1231,23 @@
                 reset = true;
               }
             }
+
+            //click on progress bar to skip audio
+            const timeline = cover.find('.timeline-audio');
+            timeline.on('click', function (e) {
+              const timelineWidth = cover.find('.timeline-audio').width();
+              const goToTime = e.offsetX / parseInt(timelineWidth) * duration;
+              audio.currentTime = goToTime;
+              let newTime = format(audio.currentTime);
+              cover.find('.metadata').text(newTime);
+            });
+
+            // Set progress bar to update as audio plays
+            setInterval(function () {
+              const progressBar = cover.find(".progress-audio");
+              let progressWidth = audio.currentTime / audio.duration * 100 + "%";
+              progressBar.css('width', progressWidth);
+            }, 500);
           });
 
           parent.find('.icons--audio').on('click', function () {
