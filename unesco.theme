@@ -370,3 +370,45 @@ function unesco_theme_suggestions_page_alter(array &$suggestions, array $variabl
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+
+function unesco_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+  $type = $paragraph->getType();
+
+  $paragraphTypeSimple = [
+    'banner_cta',
+    'cta',
+    'document',
+    'dropdown',
+    'parallax',
+    'text_media_full',
+    'media',
+  ];
+
+  $paragraphTypeBorder = [
+    'documents',
+    'datagrid',
+    'faq',
+    'content_featured_custom',
+    'iframe',
+    'image_map',
+    'logo_grid',
+    'number',
+    'people_detail',
+    'quick_link',
+    'quote',
+    'text_media_block',
+  ];
+
+  if (in_array($type, $paragraphTypeSimple)) {
+    $variables['attributes']['class'][] = 'paragraph-simple';
+  }
+
+  if (in_array($type, $paragraphTypeBorder)) {
+    $variables['attributes']['class'][] = 'paragraph-border';
+  }
+}
