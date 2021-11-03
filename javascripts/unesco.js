@@ -184,8 +184,6 @@
     let navBarSticky = $('header .navbar_sticky');
     let navBarHeight = navBar.outerHeight();
 
-    $('.navbar_logo').clone().prependTo(navBarSticky);
-    navBarSticky.wrapInner( "<div class='navbar_sticky-wrapper'></div>");
     $(window).scroll(function () {
       if ($(window).scrollTop() > navBarHeight) {
         navBarSticky.addClass('is-sticky');
@@ -339,7 +337,7 @@
       }
     });
   }
-  
+
   function dropdownDocument() {
     const $dropdownButton = $('.js-dropdown-menu');
 
