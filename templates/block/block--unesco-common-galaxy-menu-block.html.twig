@@ -11,7 +11,7 @@
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
   {% endif %}
   {{ title_prefix }}
-  <h2{{ title_attributes.addClass('button-galaxy').setAttribute('id', heading_id) }}><span class="button-text">{{ configuration.label }}</span></h2>
+  <div{{ title_attributes.addClass('button-galaxy').setAttribute('id', heading_id) }}><span class="button-text">{{ configuration.label }}</span></div>
   {{ title_suffix }}
 
   <div aria-labelledby="{{ heading_id }}" class="popin hidden">
