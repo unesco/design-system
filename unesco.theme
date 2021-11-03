@@ -102,7 +102,9 @@ function unesco_preprocess_taxonomy_term(&$variables) {
     $variables['page'] = TRUE;
 
     $variables['unesco_link_content'] = TRUE;
-    $variables['unesco_link_attributes'] = new Attribute();
+    if (empty($variables['unesco_link_attributes'])) {
+      $variables['unesco_link_attributes'] = new Attribute();
+    }
     $variables['unesco_link_attributes']->setAttribute(
       'href',
       $entity->field_link->first()->getUrl()->toString()
@@ -111,6 +113,14 @@ function unesco_preprocess_taxonomy_term(&$variables) {
       'title',
       $entity->label()
     );
+  }
+
+  if ($entity->bundle() === 'websites' && $view_mode === 'teaser') {
+    $variables['unesco_link_content'] = TRUE;
+    if (empty($variables['unesco_link_attributes'])) {
+      $variables['unesco_link_attributes'] = new Attribute();
+    }
+    $variables['unesco_link_attributes']->setAttribute('target', '_blank');
   }
 }
 
