@@ -841,7 +841,7 @@
       const galaxyButton = $('.block-menu--popin .button-galaxy', context);
       const galaxyButtonMobile = $('.button-text-mobile', context);
       const galaxyPopin = $('.menu--galaxy-menu .popin', context);
-      const ongletLink = $('.menu--galaxy-menu nav > ul > li > .dropdown-toggle, .menu--galaxy-menu nav .vocabulary--websites .title');
+      const ongletLink = $('.menu--galaxy-menu nav > ul > li > .dropdown-toggle, .menu--galaxy-menu nav .vocabulary--websites >.title');
       const searchInput = $('.vocabulary--websites .dynamic-search', context);
       const websiteTaxo = $('.vocabulary--websites .taxonomy-term');
 
