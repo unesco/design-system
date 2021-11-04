@@ -4,6 +4,8 @@
   "description": "Unesco",
   "main": "gulpfile.js",
   "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
     "setup": "npm install",
     "postinstall": "find node_modules/ -name '*.info' -type f -delete"
   },
