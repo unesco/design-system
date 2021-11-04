@@ -380,7 +380,7 @@
           <li class="nav-item"><a class="nav-link" href="#tabs">Nav / Tabs</a></li>
           <li class="nav-item"><a class="nav-link" href="#tooltips">Tooltips</a></li>
           <li class="nav-item"><a class="nav-link" href="#sliders">Sliders</a></li>
-          <li class="nav-item"><a class="nav-link" href="#dropdown">Dropdown</a></li>
+          <li class="nav-item"><a class="nav-link" href="#dropdownLink">Dropdown</a></li>
           <li class="nav-item"><a class="nav-link" href="#footer">Footer</a></li>
         </ul>
       </div>
@@ -10299,8 +10299,9 @@
         </section>
 
         <!-- Dropdown  -->
-        <section id="dropdown" class="bs-docs-section p-4 border-top">
-          <h2 class="mb-4 section-title">Dropdown</h2>
+        <section id="dropdownLink" class="bs-docs-section p-4 border-top">
+          <h2 class="mb-2 section-title">Dropdown Unesco</h2>
+          <p class="mb-4">https://getbootstrap.com/docs/4.6/components/dropdowns/</p>
           <div class="row">
 
             <div class="col-md-12">
@@ -10308,7 +10309,7 @@
               <div class="bs-component" style="margin-bottom: 3em;">
 
                 <div class="dropdown">
-                  <button class="js-dropdown-menu btn btn-blue1" type="button" id="dropdown-menu-X" >
+                  <button class="btn btn-blue1" type="button" id="dropdown-menu-X" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Download
                     <i class="material-icons-sharp">save_alt</i>
                   </button>
@@ -10327,7 +10328,9 @@
               <div class="bs-component" style="margin-bottom: 3em;">
 
                 <div class="dropdown">
-                  <button class="js-dropdown-menu btn btn-outline-primary" type="button" id="document-Y" >View full report</button>
+                  <button class="btn btn-outline-primary" type="button" id="document-Y" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    View full report
+                  </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdown-menu-Y">
                     <li><a class="dropdown-item" href="#">English</a></li>
                     <li><a class="dropdown-item" href="#">French</a></li>
@@ -10343,7 +10346,7 @@
               <div class="bs-component" style="margin-bottom: 3em;">
 
                 <div class="dropdown">
-                  <button class="js-dropdown-menu btn btn-outline-primary" type="button" id="document-Z" >
+                  <button class="btn btn-outline-primary" type="button" id="document-Z" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Read more
                     <i class="material-icons-sharp">open_in_new</i>
                   </button>
@@ -10357,6 +10360,54 @@
               </div>
             </div>
 
+          </div>
+
+          <h2 class="mb-4 section-title">Dropdown Boostrap</h2>
+          <div class="row">
+            <div class="col-12 d-flex">
+              <div class="bs-component" style="margin-bottom: 3em;">
+                <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                  Dropdown button
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+              </div>
+              <div class="bs-component" style="margin-bottom: 3em;">
+                <div class="btn-group ml-4">
+                <button type="button" class="btn btn-danger">Action</button>
+                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+              </div>
+              </div>
+              <div class="bs-component" style="margin-bottom: 3em;">
+                <div class="btn-group ml-4 dropright">
+                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  Dropright
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+              </div>
+              </div>
+
+            </div>
           </div>
         </section>
         <!-- !Dropdown  -->

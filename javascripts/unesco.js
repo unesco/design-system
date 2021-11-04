@@ -338,27 +338,6 @@
     });
   }
 
-  function dropdownDocument() {
-    const $dropdownButton = $('.js-dropdown-menu');
-
-    $dropdownButton.on('click', function (e) {
-
-      e.stopPropagation();
-
-      if(this.classList.contains('js-dropdown-menu')){
-        $dropdownButton.next().removeClass('show');
-      }
-
-      const $this = $(this).next();
-      $this.addClass('show');
-
-      $(document).one('click', function () {
-        $this.removeClass('show');
-      });
-    });
-
-  }
-
   menuMobile();
   menuDesktop();
   subMenu();
