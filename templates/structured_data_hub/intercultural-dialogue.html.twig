@@ -6,10 +6,12 @@
       {{ node.getMainImageBuild() }}
     </div>
 
-    {% if datas.description %}
+    {% if datas.description_en %}
       <div class="description">
-        {{ datas.description|raw }}
+        {{ datas.description_en|raw }}
       </div>
     {% endif %}
+
+    <a href="{{ datas.related_link.url }}" class="btn-primary">{{ 'Learn more'|trans }}</a>
   </div>
 </div>
