@@ -677,6 +677,8 @@
               $(this).next('.lvl1-wrapper').removeClass('is-visible').css('display', 'none');
               $(this).removeClass('active-item');
             } else {
+              menuItem.children().removeClass('active-item');
+              $('.lvl1-wrapper').removeClass('is-visible').css('display', 'none');
               $(this).next('.lvl1-wrapper').css('display', 'flex').addClass('is-visible');
               $(this).addClass('active-item');
             }
