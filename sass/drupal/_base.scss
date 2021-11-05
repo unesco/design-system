@@ -21,6 +21,13 @@ body {
       max-width: 1440px;
     }
   }
+
+  .article-container {
+    width: 100%;
+    max-width: 38.125rem;
+    margin: 0 auto;
+  }
+
   @include max-screen($screen-desktop - 1px) {
     div:not(.row) > {
       .col-lg-1,
