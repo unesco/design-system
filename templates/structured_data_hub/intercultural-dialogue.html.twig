@@ -1,19 +1,21 @@
-<div class="header-node-content">
-  <h1 class="title article-title">{{ node.title.value}}</h1>
-</div>
-
-<div class="main-node-content">
-  <div class="content-narrow">
-    {{ node.getMainImageBuild() }}
+<div class="container-article">
+  <div class="header-node-content">
+    <h1 class="title article-title">{{ node.title.value}}</h1>
   </div>
 
-  {% if datas.description_en %}
-    <div class="description">
-      {{ datas.description_en|raw }}
+  <div class="main-node-content">
+    <div class="content-narrow">
+      {{ node.getMainImageBuild() }}
     </div>
-  {% endif %}
 
-  {% if datas.related_link.url %}
-    <a href="{{ datas.related_link.url }}" class="btn btn-primary">{{ 'Learn more'|t }}</a>
-  {% endif %}
+    {% if datas.description_en %}
+      <div class="description">
+        {{ datas.description_en|raw }}
+      </div>
+    {% endif %}
+
+    {% if datas.related_link.url %}
+      <a href="{{ datas.related_link.url }}" class="btn btn-primary">{{ 'Learn more'|t }}</a>
+    {% endif %}
+  </div>
 </div>
