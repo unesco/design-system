@@ -111,7 +111,8 @@ div#sliding-popup .eu-cookie-withdraw-banner,
 }
 
 .toolbar-horizontal {
-  &.header-sticky {
+  &.header-sticky,
+  &.transparent-header.header-sticky {
     header.navbar {
       top: 2.438rem !important;
     }
@@ -136,7 +137,8 @@ div#sliding-popup .eu-cookie-withdraw-banner,
 .toolbar-vertical {
   &.header-sticky.toolbar-fixed {
     #environment-indicator ~ div header.navbar,
-    header.navbar {
+    header.navbar,
+    &.transparent-header header.navbar {
       top: 2.438rem !important;
     }
 
@@ -179,7 +181,7 @@ div#sliding-popup .eu-cookie-withdraw-banner,
   }
 }
 
-#environment-indicator ~ div header.navbar {
+.transparent-header #environment-indicator ~ div header.navbar {
   transform: translateY(32px);
 }
 

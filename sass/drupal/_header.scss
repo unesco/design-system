@@ -1559,9 +1559,12 @@ header.header-mini-light {
   }
 
   .site-name-wrapper a {
-    &::before {
-      display: inline-block;
-      content: "";
+    img {
+      display: none;
+    }
+
+    .logo-dark {
+      display: block;
       width: 9.375rem;
       height: 2rem;
       background-image: url('../images/logo-blue.svg');
@@ -1570,10 +1573,6 @@ header.header-mini-light {
       background-repeat: no-repeat;
       margin-right: 1rem;
       flex-shrink: 0;
-    }
-
-    img {
-      display: none;
     }
 
     .site-name {
