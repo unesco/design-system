@@ -315,8 +315,9 @@ function unesco_preprocess_block(&$variables) {
   }
 
   if ($plugin_id == 'galaxy-menu') {
+    /** @var \Drupal\Core\Extension\ThemeHandler $theme_handler */
     $theme_handler = \Drupal::service('theme_handler');
-    $theme_path = $theme_handler->getTheme('unesco')->getPath();
+    $theme_path = "/" . $theme_handler->getTheme('unesco')->getPath();
     $logo_path = $theme_path . '/assets/images/logo/logo.svg';
     if (!empty($theme_path) && file_exists(DRUPAL_ROOT . '/' . $logo_path)) {
       $variables['site_logo'] = '/' . $logo_path;
