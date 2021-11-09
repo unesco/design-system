@@ -664,22 +664,3 @@ header.header {
 main {
   transition: .3s ease;
 }
-
-.option-theming {
-  display: none;
-  @include min-screen($screen-desktop) {
-    display: block;
-  }
-  position: fixed;
-  z-index: 99;
-  right: 2rem;
-  bottom: 8rem;
-  background-color: $white;
-  padding: .5rem;
-  border-radius: .5rem;
-  box-shadow: 0 0 1.5rem 0 rgba(0,0,0, .2);
-
-  .custom-checkbox {
-    margin: .5rem;
-  }
-}

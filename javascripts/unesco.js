@@ -304,37 +304,6 @@
     });
   }
 
-  function themingOption() {
-    let header = $('header.header');
-    $('input[name=headerBG]').on('click', function () {
-      header.toggleClass('bg-primary');
-      if (navBar.parent().hasClass('bg-primary')) {
-        $('main').css({
-          'padding-top': navBar.innerHeight()
-        });
-      } else {
-        $('main').css({
-          'padding-top': 'initial'
-        });
-      }
-    });
-    $('input[name=headerBorder]').on('click', function () {
-      header.toggleClass('is-border');
-    });
-    $('input[name=headerBaseline]').on('click', function () {
-      header.find('.navbar_baseline').toggle();
-      if (navBar.parent().hasClass('bg-primary')) {
-        $('main').css({
-          'padding-top': navBar.innerHeight()
-        });
-      } else {
-        $('main').css({
-          'padding-top': 'initial'
-        });
-      }
-    });
-  }
-
   menuMobile();
   menuDesktop();
   subMenu();
@@ -342,7 +311,6 @@
   navWrapperHeight();
   stickyMenu();
   galaxyPopin();
-  themingOption();
 
   $( window ).resize(function () {
     navWrapperHeight();
