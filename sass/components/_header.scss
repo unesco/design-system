@@ -134,6 +134,7 @@ header.header {
         width: 100vw;
         left: 0;
         position: absolute;
+        overflow: auto;
       }
       @include min-screen($screen-desktop) {
         padding: 0;

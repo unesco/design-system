@@ -10,12 +10,19 @@
 
   let navBar = $('header .navbar');
 
-
-
-
   function navWrapperHeight() {
     let main = $('main');
     let navBarHeight = navBar.outerHeight();
+
+    if (navBar.parent().hasClass('bg-primary')) {
+      main.css({
+        'padding-top': navBarHeight
+      });
+    } else {
+      main.css({
+        'padding-top': 'initial'
+      });
+    }
 
     if ($(window).width() < desktopWidth) {
       navBar.children('.navbar_wrapper').css({
@@ -26,16 +33,6 @@
       navBar.children('.navbar_wrapper').css({
         top: 0,
         height: 'auto'
-      });
-    }
-
-    if (navBar.parent().hasClass('bg-primary')) {
-      main.css({
-        'padding-top': navBarHeight
-      });
-    } else {
-      main.css({
-        'padding-top': 'initial'
       });
     }
   }
@@ -346,7 +343,6 @@
   stickyMenu();
   galaxyPopin();
   themingOption();
-  dropdownDocument();
 
   $( window ).resize(function () {
     navWrapperHeight();

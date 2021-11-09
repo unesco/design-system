@@ -38,7 +38,7 @@ $search_dropdown_z: 500;
       bottom: 0;
       transition: opacity 0.2s;
 
-      @include max-screen($screen-desktop) {
+      @include max-screen($screen-desktop - 1) {
         top: 6.5rem !important;
       }
 
@@ -72,7 +72,7 @@ $search_dropdown_z: 500;
       }
     }
 
-    @include max-screen($screen-desktop) {
+    @include max-screen($screen-desktop - 1) {
       top: 6.5rem !important;
 
       .wrapper-search-text {
