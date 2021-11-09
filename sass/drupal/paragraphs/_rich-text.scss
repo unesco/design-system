@@ -46,6 +46,29 @@
         max-width: 83.33333%;
       }
     }
+
+    &.bg-grey {
+      background-color: $grey1;
+    }
+
+    &.bg-bluelight {
+      background-color: $blueLight;
+    }
+
+    &.bg-orangelight {
+      background-color: $orangeLight;
+    }
+
+    &.bg-purplelight {
+      background-color: $purpleLight;
+    }
+
+    &.bg-redlight {
+      background-color: $redLight;
+    }
+    &.bg-greenlight {
+      background-color: $greenLight;
+    }
   }
 }
 
