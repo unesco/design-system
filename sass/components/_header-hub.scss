@@ -10,6 +10,10 @@
     z-index: -1;
   }
 
+  .slider_button {
+    display: none;
+  }
+
   .page-node-type-structured-data-hub & {
     margin: 0 auto;
   }
@@ -657,4 +661,40 @@
       }
     }
   }
+}
+
+.show-slider {
+  @include min-screen($screen-tablet) {
+    padding-left: 3.438rem !important;
+    padding-right: 3.438rem !important;
+    position: relative;
+
+    .menu-lvl1 {
+      width: 100%;
+      overflow: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      scroll-behavior: initial;
+    }
+
+    .slider_button {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      padding: 0;
+      line-height: 0;
+      outline: none;
+    }
+
+    .slider_back {
+      left: 0;
+    }
+
+    .slider_next {
+      right: 0;
+    }
+  }
+  
 }
