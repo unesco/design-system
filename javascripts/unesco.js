@@ -39,6 +39,7 @@
 
   function menuMobile() {
     let navBurger = $('header .navbar_burger');
+    let header = $('header.header');
     navBurger.on('click', function () {
       if ($(this).parent().hasClass('active')) {
         $(this).next('.navbar_wrapper').find('.submenu-active').removeClass('submenu-active');
@@ -55,6 +56,15 @@
         }
       });
     });
+    if (!header.hasClass("bg-primary")) {
+      $(window).scroll(function () {
+        if ($(window).scrollTop() > 100) {
+          header.addClass('bg-primary');
+        } else {
+          header.removeClass('bg-primary');
+        }
+      });
+    }
   }
 
   function menuDesktop() {
