@@ -247,7 +247,9 @@
               & > .menu-item {
                 @include min-screen($screen-tablet) {
                   width: calc(33.33% - 2rem);
-                  margin: 0 2rem 2rem 0;
+                  margin: 0 2rem 0.75rem 0;
+                  white-space: normal;
+                  
                   a {
                     padding: 0;
                     margin-bottom: .75rem;
@@ -284,6 +286,7 @@
                     padding: .75rem 0;
                     white-space: normal;
                     margin-bottom: 0;
+                    display: inline-block;
                   }
 
                   a {
