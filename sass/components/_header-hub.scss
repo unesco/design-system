@@ -193,7 +193,6 @@
       }
 
       li {
-        white-space: nowrap;
         margin: .5rem 0;
         padding: 0;
         font-size: 1rem;
@@ -386,6 +385,12 @@
 
         > li {
           font-weight: 400;
+          white-space: normal;
+
+          @include min-screen($screen-tablet) {
+            white-space: nowrap;
+          }
+
           > a {
             border-bottom: .125rem solid transparent;
             transition: .3s;
