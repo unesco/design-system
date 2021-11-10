@@ -5,6 +5,7 @@
   Unesco.initMediaSlider();
   Unesco.initCarouselCards();
   Unesco.initDropdownFooter();
+  Unesco.initBackToTop();
 
   let desktopWidth = 992;
 
@@ -103,7 +104,6 @@
       navbarMenu.stop().animate({scrollLeft: "+=150"}, 400);
       return false;
     });
-
   }
 
   function subMenu() {
