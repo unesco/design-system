@@ -686,6 +686,13 @@
         });
       }
 
+      $(document).on('click', function (e) {
+        if(!$(e.target).is($('.hub-menu-header .menu-item--expanded')) && !$(e.target).is($('.hub-menu-header .menu-item--expanded *'))) {
+          menuItem.children().removeClass('active-item');
+          $('.lvl1-wrapper').removeClass('is-visible').css('display', 'none');
+        }
+      });
+
       function menuMobileItemSlide() {
 
         let hubHeaderTexts = $('.header-hub .hero-wrapper .header-texts');
