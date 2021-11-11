@@ -2,6 +2,13 @@
   &--type--rich-text {
     @include mt-block-sm;
 
+    .page-node-type-landing & {
+      @include min-screen($screen-desktop) {
+        width: 100%;
+        max-width: 65.8%;
+      }
+    }
+
     .field--name-field-title {
       font-weight: 800;
       @include responsive(font-size, $section-title);
@@ -42,8 +49,14 @@
 
     .page-node-type-landing & {
       &:not(.boxed) {
-        width: 100%;
-        max-width: 83.33333%;
+        max-width: 100%;
+
+        .rich-text {
+          @include min-screen($screen-desktop) {
+            width: 100%;
+            max-width: 65.8%;
+          }
+        }
       }
     }
 
