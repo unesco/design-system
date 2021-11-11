@@ -1339,6 +1339,10 @@
     initHubMenuSlider: function (context, settings) {
       let hubMenu = $('.hub-menu-header .menu-lvl1');
 
+      if(!hubMenu.length) {
+        return;
+      }
+
       function hasScrollbar() {
         return hubMenu.get(0).scrollWidth > hubMenu.innerWidth();
       }
