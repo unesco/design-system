@@ -39,7 +39,7 @@
       cursor: pointer;
 
       > .popup,
-      > a {
+      > .popup-link {
         position: fixed;
         z-index: 60;
         width: 100%;
@@ -63,6 +63,40 @@
           border-radius: 0.5rem;
           width: 18rem;
         }
+      }
+
+      .popup {
+        .popup-link {
+          display: inline-block;
+          position: static;
+          padding-right: 2rem;
+
+          &:hover,
+          &:focus {
+            text-decoration: none;
+
+            .arrow-black {
+              animation: arrow-slide-right .4s both;
+            }
+          }
+        }
+      }
+
+      .close {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.25rem;
+        line-height: 0;
+
+        i {
+          font-size: 1rem;
+        }
+      }
+
+      .arrow-black {
+        position: absolute;
+        top: 1.7rem;
+        right: 1.5rem;
       }
     }
 

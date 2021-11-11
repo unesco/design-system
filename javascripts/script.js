@@ -635,6 +635,7 @@
     initImageMap: function (context, settings) {
       let point = $('.image-map .circle', context);
       let positionPoint = $('.image-map .point', context);
+      let close = $('.image-map .point .close', context);
 
       positionPoint.each(function () {
         let wrapperWidth = positionPoint.next('img').get(0).naturalWidth;
@@ -655,6 +656,11 @@
       point.on('click', function () {
         point.not(this).next().fadeOut();
         $(this).next().fadeToggle();
+      });
+
+      close.on('click', function (e) {
+        e.preventDefault();
+        $(this).closest('.popup').fadeToggle();
       });
 
       $('body', context).on('click', function (e) {
