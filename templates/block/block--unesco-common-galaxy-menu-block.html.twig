@@ -28,7 +28,9 @@
         {% endif %}
 
         <a href="https://unesco.org/en" class="btn btn-secondary link-galaxy home">{{ 'Go to Unesco.org'|t }}</a>
-        <a href="https://unesco.org/en/search" class="btn btn-secondary link-galaxy advanced-search">{{ 'Advanced search'|t }}</a>
+        {% if url_advanced_search %}
+          {{ url_advanced_search }}
+        {% endif %}
         <a href="#" class="btn btn-secondary close-popin link-galaxy">{{ 'Close'|t }}</a>
       </div>
       <nav role="navigation">

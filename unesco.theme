@@ -5,6 +5,7 @@
  * Bootstrap4 theme file.
  */
 
+use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\unesco_node\Entity\Article;
@@ -323,6 +324,22 @@ function unesco_preprocess_block(&$variables) {
     }
 
     $variables['site_name'] = \Drupal::service('unesco_common.global_helper')->getSiteName();
+    $public_page = \Drupal::service('settings')->get('unesco_search.public_page');
+    if ($public_page) {
+      $variables['url_advanced_search'] = [
+        '#type' => 'link',
+        '#title' => t("Advanced search"),
+        '#url' => Url::fromRoute('view.search.search'),
+        '#attributes' => [
+          'class' => [
+            'btn',
+            'btn-secondary',
+            'link-galaxy',
+            'advanced-search'
+          ]
+        ],
+      ];
+    }
   }
 }
 
