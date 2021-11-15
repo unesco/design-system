@@ -13,26 +13,29 @@
  * @ingroup themeable
  */
 #}
-{% if content %}
-  {% if unesco_link_content %}
-    <a {{ attributes.addClass('card') }}>
-  {% else %}
-    <div{{ attributes.addClass('card') }}>
-  {% endif %}
 
-    {{ content.unesco_common_card_link }}
-    {{ content.unesco_common_card_hero_image }}
-    {% if content.unesco_common_card_image or content.unesco_common_card_body %}
-      <div class="card-body">
-        {{ content.unesco_common_card_image }}
-        {{ content.unesco_common_card_body }}
-      </div>
+{% if not hide_card %}
+  {% if content %}
+    {% if unesco_link_content %}
+      <a {{ attributes.addClass('card') }}>
+    {% else %}
+      <div{{ attributes.addClass('card') }}>
     {% endif %}
-    {{ content.unesco_common_card_footer }}
 
-  {% if unesco_link_content %}
-    </a>
-  {% else %}
-   </div>
+      {{ content.unesco_common_card_link }}
+      {{ content.unesco_common_card_hero_image }}
+      {% if content.unesco_common_card_image or content.unesco_common_card_body %}
+        <div class="card-body">
+          {{ content.unesco_common_card_image }}
+          {{ content.unesco_common_card_body }}
+        </div>
+      {% endif %}
+      {{ content.unesco_common_card_footer }}
+
+    {% if unesco_link_content %}
+      </a>
+    {% else %}
+    </div>
+    {% endif %}
   {% endif %}
 {% endif %}
