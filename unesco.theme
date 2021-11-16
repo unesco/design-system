@@ -326,19 +326,23 @@ function unesco_preprocess_block(&$variables) {
     $variables['site_name'] = \Drupal::service('unesco_common.global_helper')->getSiteName();
     $public_page = \Drupal::service('settings')->get('unesco_search.public_page');
     if ($public_page) {
-      $variables['url_advanced_search'] = [
-        '#type' => 'link',
-        '#title' => t("Advanced search"),
-        '#url' => Url::fromRoute('view.search.search'),
-        '#attributes' => [
-          'class' => [
-            'btn',
-            'btn-secondary',
-            'link-galaxy',
-            'advanced-search'
-          ]
-        ],
-      ];
+
+      $route_provider = \Drupal::service('router.route_provider');
+      if ($exists = count($route_provider->getRoutesByNames(['view.search.search'])) === 1) {
+        $variables['url_advanced_search'] = [
+          '#type' => 'link',
+          '#title' => t("Advanced search"),
+          '#url' => Url::fromRoute('view.search.search'),
+          '#attributes' => [
+            'class' => [
+              'btn',
+              'btn-secondary',
+              'link-galaxy',
+              'advanced-search'
+            ]
+          ],
+        ];
+      }
     }
   }
 }
