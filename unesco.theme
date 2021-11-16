@@ -324,24 +324,45 @@ function unesco_preprocess_block(&$variables) {
     }
 
     $variables['site_name'] = \Drupal::service('unesco_common.global_helper')->getSiteName();
-    $public_page = \Drupal::service('settings')->get('unesco_search.public_page');
-    if ($public_page) {
 
-      $route_provider = \Drupal::service('router.route_provider');
-      if ($exists = count($route_provider->getRoutesByNames(['view.search.search'])) === 1) {
-        $variables['url_advanced_search'] = [
-          '#type' => 'link',
-          '#title' => t("Advanced search"),
-          '#url' => Url::fromRoute('view.search.search'),
-          '#attributes' => [
-            'class' => [
-              'btn',
-              'btn-secondary',
-              'link-galaxy',
-              'advanced-search'
-            ]
-          ],
-        ];
+    $unesco_common_config = \Drupal::service('settings')->get('unesco_common');
+    if (isset($unesco_common_config['website_unesco_uuid']) && !empty($unesco_common_config['website_unesco_uuid'])) {
+      $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+      $result = $storage->loadByProperties(['uuid' => $unesco_common_config['website_unesco_uuid']]);
+      if (!empty($result)) {
+        $term = end($result);
+        if (!$term->field_link->isEmpty()) {
+          $uri = $term->field_link->first()->getUrl()->toString();
+          $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+          $uri .= '/' . $langcode;
+          $variables['link_unesco_org'] = [
+            '#type' => 'link',
+            '#title' => t("go to www.unesco.org"),
+            '#url' => Url::fromUri($uri),
+            '#attributes' => [
+              'class' => [
+                'btn',
+                'btn-secondary',
+                'link-galaxy',
+                'home'
+              ]
+            ],
+          ];
+
+          $variables['link_unesco_org_search'] = [
+            '#type' => 'link',
+            '#title' => t("Search all UNESCO"),
+            '#url' => Url::fromUri($uri . "/search"),
+            '#attributes' => [
+              'class' => [
+                'btn',
+                'btn-secondary',
+                'link-galaxy',
+                'advanced-search'
+              ]
+            ],
+          ];
+        }
       }
     }
   }
