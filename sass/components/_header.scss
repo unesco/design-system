@@ -222,6 +222,7 @@ header.header {
         &.submenu-active {
           .navbar_submenu {
             left: 0;
+            opacity: 1;
           }
         }
         @include min-screen($screen-desktop) {
@@ -305,6 +306,7 @@ header.header {
         left: 100vw;
         height: 100vh;
         transition: .3s ease-in-out;
+        opacity: 0;
       }
       @include min-screen($screen-desktop) {
         position: absolute;
