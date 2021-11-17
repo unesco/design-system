@@ -157,3 +157,10 @@
   height: calc(1.4em + 1rem + 2px);
   padding: .5rem 2.5rem .5rem 1rem;
 }
+
+// Paragraph structured data map.
+.structured-data-map {
+  .leaflet-container {
+    height: 350px;
+  }
+}
