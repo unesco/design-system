@@ -284,6 +284,17 @@
       transition: .3s;
     }
 
+    .sous-titre {
+      display: flex;
+      font-size: .875rem;
+      color: $grey4;
+      margin-top: 1rem;
+
+      span {
+        margin-right: 0.5rem;
+      }
+    }
+
     .field--name-field-ref-hub {
       @include responsive(font-size, $small-content-title);
     }

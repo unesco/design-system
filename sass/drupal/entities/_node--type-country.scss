@@ -427,6 +427,17 @@
           order: 1;
           transition: .3s;
         }
+        .sous-titre {
+          order: 3;
+          display: flex;
+          font-size: .875rem;
+          color: $grey4;
+          margin-top: 1rem;
+
+          span {
+            margin-right: 0.5rem;
+          }
+        }
       }
 
       .field--name-field-media-image {
