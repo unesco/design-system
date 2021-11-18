@@ -41,6 +41,22 @@ $sizes: ( xs: $xs, sm: $sm, md: $md, lg: $lg, xl: $xl );
   }
 }
 
+.round-cta {
+  width: 5rem;
+  height: 5rem;
+  line-height: 5rem;
+  i {
+    font-size: 2.25rem;
+  }
+  @include min-screen($screen-desktop) {
+    width: 6.75rem;
+    height: 6.75rem;
+    line-height: 6.75rem;
+    i {
+      font-size: 3rem;
+    }
+  }
+}
 
 //Background color / Text color / Background color in hover state / Text color in hover state / Text color in pressed state / Text color in focused state
 
