@@ -675,6 +675,10 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
       scroll-behavior: initial;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     .slider_button {
