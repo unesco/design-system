@@ -2,7 +2,7 @@
   &--type--rich-text {
     @include mt-block-sm;
 
-    .page-node-type-landing & {
+    .node--type-landing & {
       @include min-screen($screen-desktop) {
         width: 100%;
         max-width: 65.8%;
@@ -47,7 +47,7 @@
       }
     }
 
-    .page-node-type-landing & {
+    .node--type-landing & {
       &:not(.boxed) {
         max-width: 100%;
 
