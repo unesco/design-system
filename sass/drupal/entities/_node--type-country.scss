@@ -530,3 +530,21 @@
     }
   }
 }
+
+.brief-ours-offices-wrapper {
+  margin-top: 2.5rem;
+
+  @include min-screen($screen-desktop) {
+    margin-top: 3rem;
+  }
+
+  .field--name-field-title {
+    font-weight: 600;
+    @include responsive(font-size, $section-title-small);
+    margin: 0 0 1.5rem;
+
+    @include min-screen($screen-desktop) {
+      margin: 0 0 2rem;
+    }
+  }
+}
