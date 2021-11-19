@@ -1330,7 +1330,7 @@
       let articleUrl = window.location.href;
 
       if (navigator.share) {
-        shareButton.unbind('click');
+        shareButton.removeClass('addthis_button_more').unbind('click');
         shareButton.on('click', function (e) {
           e.preventDefault();
           navigator.share({
