@@ -88,6 +88,10 @@
         margin-bottom: 0.5rem;
       }
 
+      .phone-link, .mailto-link {
+        display: block;
+      }
+
       .field--name-field-social-networks {
         margin: 1.5rem -0.25rem 0;
         display: flex;
@@ -106,17 +110,27 @@
       max-width: 50%;
       width: 50%;
       display: none;
-
-      .map-inner {
-        width: 100%;
-        overflow: hidden;
-        border-radius: 0.5rem;
-        height: 17.688rem;
-      }
-
+  
       @include min-screen($screen-desktop) {
         display: block;
         margin-left: auto;
+      }
+
+      #explorer {
+        .map-wrapper {
+          width: 100%;
+  
+          .map-inner {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            height: 17.688rem;
+          }
+        }
+  
+        .tab-content article a {
+          display: none;
+        }
       }
     }
   }
@@ -138,6 +152,33 @@
       @include min-screen($screen-desktop) {
         margin-top: 0;
       }
+    }
+  }
+
+  &.node--view-mode-teaser {
+    .card {
+      height: 100%;
+      position: relative;
+    }
+
+    .card-overlay .card-body,
+    .contextual-region {
+      position: static;
+    }
+
+    .card-overlay::before {
+      z-index: 1;
+    }
+
+    .bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-position: center center;
+      background-size: cover;
+      z-index: 0;
     }
   }
 }

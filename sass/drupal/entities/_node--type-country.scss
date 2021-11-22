@@ -427,6 +427,17 @@
           order: 1;
           transition: .3s;
         }
+        .sous-titre {
+          order: 3;
+          display: flex;
+          font-size: .875rem;
+          color: $grey4;
+          margin-top: 1rem;
+
+          span {
+            margin-right: 0.5rem;
+          }
+        }
       }
 
       .field--name-field-media-image {
@@ -515,7 +526,25 @@
 .ourcountries {
   .description-wrapper {
     .field--name-field-description {
-      max-width: 38.125rem;
+      max-width: 65.8rem;
+    }
+  }
+}
+
+.brief-ours-offices-wrapper {
+  margin-top: 2.5rem;
+
+  @include min-screen($screen-desktop) {
+    margin-top: 3rem;
+  }
+
+  .field--name-field-title {
+    font-weight: 600;
+    @include responsive(font-size, $section-title-small);
+    margin: 0 0 1.5rem;
+
+    @include min-screen($screen-desktop) {
+      margin: 0 0 2rem;
     }
   }
 }

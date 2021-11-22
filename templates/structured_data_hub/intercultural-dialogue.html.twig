@@ -1,0 +1,31 @@
+<div class="header-node-content">
+  <h1 class="title article-title">{{ node.title.value}}</h1>
+</div>
+
+<div class="mt-5">
+  <div class="row">
+    <div class="col-lg-6">
+      {% if datas.description_en %}
+        <div class="description">
+          {{ datas.description_en|raw }}
+        </div>
+      {% endif %}
+    </div>
+    <div class="col-lg-6">
+      {{ node.getMainImageBuild() }}
+    </div>
+  </div>
+</div>
+
+{% if datas.related_link.url %}
+  <a href="{{ datas.related_link.url }}" class="btn btn-primary">{{ 'Learn more'|t }}</a>
+{% endif %}
+
+{% if datas.author %}
+  <div class="authors-wrapper">
+    <h3 class="about-author-title">{{ 'Authors'|t }}</h3>
+    <div class="">{{ datas.author }}</div>
+  </div>
+{% endif %}
+
+{{ node.getBuildDatasetItems() }}

@@ -1,9 +1,16 @@
 @import 'variables';
 @import 'mixins';
-@import 'normalize';
 @import 'fonts';
 @import 'typography';
 @import 'animations';
 @import 'icons';
 @import 'forms';
 @import 'vendor/vendor';
+
+// Scroll smooth
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}

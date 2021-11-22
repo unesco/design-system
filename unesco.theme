@@ -5,6 +5,7 @@
  * Bootstrap4 theme file.
  */
 
+use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\unesco_node\Entity\Article;
@@ -102,7 +103,9 @@ function unesco_preprocess_taxonomy_term(&$variables) {
     $variables['page'] = TRUE;
 
     $variables['unesco_link_content'] = TRUE;
-    $variables['unesco_link_attributes'] = new Attribute();
+    if (empty($variables['unesco_link_attributes'])) {
+      $variables['unesco_link_attributes'] = new Attribute();
+    }
     $variables['unesco_link_attributes']->setAttribute(
       'href',
       $entity->field_link->first()->getUrl()->toString()
@@ -111,6 +114,9 @@ function unesco_preprocess_taxonomy_term(&$variables) {
       'title',
       $entity->label()
     );
+    if ($entity->bundle() === 'websites' && $view_mode === 'teaser') {
+      $variables['unesco_link_attributes']->setAttribute('target', '_blank');
+    }
   }
 }
 
@@ -310,8 +316,55 @@ function unesco_preprocess_block(&$variables) {
   }
 
   if ($plugin_id == 'galaxy-menu') {
-    $variables['site_logo'] = theme_get_setting('logo.url');
+    $theme_handler = \Drupal::service('theme_handler');
+    $theme_path = $theme_handler->getTheme('unesco')->getPath();
+    $logo_path = $theme_path . '/assets/images/logo/logo.svg';
+    if (!empty($theme_path) && file_exists(DRUPAL_ROOT . '/' . $logo_path)) {
+      $variables['site_logo'] = '/' . $logo_path;
+    }
+
     $variables['site_name'] = \Drupal::service('unesco_common.global_helper')->getSiteName();
+
+    $unesco_common_config = \Drupal::service('settings')->get('unesco_common');
+    if (isset($unesco_common_config['website_unesco_uuid']) && !empty($unesco_common_config['website_unesco_uuid'])) {
+      $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+      $result = $storage->loadByProperties(['uuid' => $unesco_common_config['website_unesco_uuid']]);
+      if (!empty($result)) {
+        $term = end($result);
+        if (!$term->field_link->isEmpty()) {
+          $uri = $term->field_link->first()->getUrl()->toString();
+          $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+          $uri .= '/' . $langcode;
+          $variables['link_unesco_org'] = [
+            '#type' => 'link',
+            '#title' => t("go to www.unesco.org"),
+            '#url' => Url::fromUri($uri),
+            '#attributes' => [
+              'class' => [
+                'btn',
+                'btn-secondary',
+                'link-galaxy',
+                'home'
+              ]
+            ],
+          ];
+
+          $variables['link_unesco_org_search'] = [
+            '#type' => 'link',
+            '#title' => t("Search all UNESCO"),
+            '#url' => Url::fromUri($uri . "/search"),
+            '#attributes' => [
+              'class' => [
+                'btn',
+                'btn-secondary',
+                'link-galaxy',
+                'advanced-search'
+              ]
+            ],
+          ];
+        }
+      }
+    }
   }
 }
 
@@ -357,7 +410,6 @@ function unesco_preprocess_field(&$variables, $hook) {
  */
 function unesco_theme_suggestions_page_alter(array &$suggestions, array $variables) {
   $bundles = [
-    'hub',
     'page',
     'article',
     'sequenced_page',
@@ -369,5 +421,47 @@ function unesco_theme_suggestions_page_alter(array &$suggestions, array $variabl
       $suggestions[] = 'page__navbar_light';
       $suggestions[] = 'page__' . $node->bundle();
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+
+function unesco_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+  $type = $paragraph->getType();
+
+  $paragraphTypeSimple = [
+    'banner_cta',
+    'cta',
+    'document',
+    'dropdown',
+    'parallax',
+    'text_media_full',
+    'media',
+  ];
+
+  $paragraphTypeBorder = [
+    'documents',
+    'datagrid',
+    'faq',
+    'content_featured_custom',
+    'iframe',
+    'image_map',
+    'logo_grid',
+    'number',
+    'people_detail',
+    'quick_link',
+    'quote',
+    'text_media_block',
+  ];
+
+  if (in_array($type, $paragraphTypeSimple)) {
+    $variables['attributes']['class'][] = 'paragraph-simple';
+  }
+
+  if (in_array($type, $paragraphTypeBorder)) {
+    $variables['attributes']['class'][] = 'paragraph-border';
   }
 }

@@ -47,8 +47,10 @@
         {% set class = 'col-lg-3' %}
       {% endif %}
     {% endif %}
-    <div class="{{ class }}">
-      {{ item.content }}
-    </div>
+    {% if item.content|render|striptags|trim is not empty %}
+      <div class="{{ class }}">
+        {{ item.content }}
+      </div>
+    {% endif %}
   {% endfor %}
 </div>

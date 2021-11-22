@@ -132,15 +132,25 @@
             @include max-screen($screen-tablet - 1px) {
               padding: $btn-padding-y-sm $btn-padding-x-sm;
             }
-
-            & ~.btn {
-              margin-top: 1rem;
+            
+            @include max-screen(415px) {
+              & ~.btn {
+                margin-top: 1rem;
+              }
             }
+
 
             &.dropdown-toggle {
               &::after {
                 display: none;
               }
+            }
+          }
+
+          .dropdown {
+            @include max-screen(415px) {
+              display: flex;
+              flex-direction: column;
             }
           }
 
@@ -366,4 +376,3 @@
     }
   }
 }
-

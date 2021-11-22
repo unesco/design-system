@@ -14,7 +14,12 @@
     width: auto;
   }
 
-  label.facet-dataset_filters {
+  .block-facet-blockcountries {
+    margin-right: 0.5rem;
+  }
+
+  label.facet-dataset_filters,
+  label.facet-label {
     padding: 0.375rem 1rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -165,7 +170,7 @@
 
     @include min-screen($screen-desktop) {
       flex-direction: row;
-      width: 100vw;
+      width: 100%;
       left: 50%;
       transform: translateX(-50%);
       justify-content: center;

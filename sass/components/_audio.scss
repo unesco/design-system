@@ -32,6 +32,7 @@ $audio-icon-size: (
     .field--name-field-media-image {
       margin-bottom: 0 !important;
     }
+
     .metadata {
       position: absolute;
       top: 1rem;
@@ -45,7 +46,29 @@ $audio-icon-size: (
         left: 1.5rem;
       }
     }
+
+    .timeline-audio {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba($BlueU, 0.2);
+      height: 0.5rem;
+      z-index: 1;
+      cursor: pointer;
+
+      .progress-audio {
+        display: block;
+        background-color: $BlueU;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 0.5rem;
+        z-index: 2;
+      }
+    }
   }
+  
   .icons--audio {
     position: absolute;
     top: 50%;

@@ -1,0 +1,11 @@
+.node--type-structured-data {
+  &.node--view-mode-full {
+    .media-wrapper {
+      .field--name-field-ref-image {
+        .field--name-field-media-image {
+          height: auto;
+        }
+      }
+    }
+  }
+}

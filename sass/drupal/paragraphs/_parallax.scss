@@ -21,9 +21,10 @@
         margin-bottom: 1rem;
       }
 
-      .field--name-field-title {
+      .field--name-field-title h2 {
         @include responsive(font-size, $article-title);
         font-weight: 800;
+        color: $white;
       }
     }
 
@@ -70,6 +71,5 @@
         z-index: -1;
       }
     }
-
   }
 }

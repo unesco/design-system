@@ -175,8 +175,8 @@ header {
 
   .dropdown-menu::before {
     content: "";
-    display: block;
     position: absolute;
+    display: none;
     top: -1px;
     left: 50%;
     transform: translateX(-50%);
@@ -185,6 +185,10 @@ header {
     height: 1px;
     background-color: $navbar-dark-color;
     transition: opacity .3s;
+
+    @include min-screen($screen-desktop) {
+      display: block;
+    }
 
     @include max-screen($screen-desktop - 1) {
       width: calc(100% - 4.25rem);
@@ -216,7 +220,8 @@ header {
     width: 100vw;
     z-index: 99;
 
-    .header-sticky & {
+    .header-sticky &,
+    .transparent-header.header-sticky & {
       padding: 0.75rem 3.625rem;
       position: fixed;
       left: 0;
@@ -693,9 +698,10 @@ header {
               &::before {
                 content: '';
                 position: fixed;
-                width: calc(100% - 3rem);
+                width: calc(100vw - 3rem);
                 height: .0625rem;
-                left: 1.5rem;
+                left: 50%;
+                transform: translateX(-50%);
                 top: $topHeaderMobileFixed;
                 background-color: $navbar-dark-color;
                 z-index: 4;
@@ -706,7 +712,7 @@ header {
                 left: 0;
                 top: 0;
                 margin: 0;
-                transform: rotate(-180deg);
+                transform: rotate(-90deg);
                 font-size: 2rem;
               }
             }
@@ -1483,7 +1489,7 @@ header.header-mini-light {
   }
 }
 
-.header-sticky header.header-mini-light {
+.header-sticky header.header-mini-light.navbar {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -1553,9 +1559,12 @@ header.header-mini-light {
   }
 
   .site-name-wrapper a {
-    &::before {
-      display: inline-block;
-      content: "";
+    img {
+      display: none;
+    }
+
+    .logo-dark {
+      display: block;
       width: 9.375rem;
       height: 2rem;
       background-image: url('../images/logo-blue.svg');
@@ -1564,10 +1573,6 @@ header.header-mini-light {
       background-repeat: no-repeat;
       margin-right: 1rem;
       flex-shrink: 0;
-    }
-
-    img {
-      display: none;
     }
 
     .site-name {
@@ -1727,6 +1732,7 @@ header {
       z-index: 3;
       left: 1.5rem;
       top: 3.5rem;
+
       @include min-screen($screen-tablet) {
         left: 2.125rem;
         top: 4rem;
@@ -1828,6 +1834,12 @@ header {
     @include max-screen($screen-desktop - 1) {
       display: block;
     }
+  }
+}
+
+.galaxy-menu-open {
+  header.navbar {
+    transform: none !important;
   }
 }
 

@@ -165,20 +165,6 @@ $pre-header-close-icon: (
   }
 }
 
-// Icon
-
-.icon-business {
-  display: inline-block;
-  vertical-align: middle;
-  width: 3rem;
-  height: 3rem;
-  line-height: 3rem !important;
-  border-radius: 50%;
-  background-color: $grey1;
-  color: $BlueU;
-  text-align: center;
-}
-
 li.icon-external > a,
 a.icon-external {
   &::after {

@@ -11,7 +11,7 @@
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
   {% endif %}
   {{ title_prefix }}
-  <h2{{ title_attributes.addClass('button-galaxy').setAttribute('id', heading_id) }}><span class="button-text">{{ configuration.label }}</span></h2>
+  <div{{ title_attributes.addClass('button-galaxy').setAttribute('id', heading_id) }}><span class="button-text">{{ configuration.label }}</span></div>
   {{ title_suffix }}
 
   <div aria-labelledby="{{ heading_id }}" class="popin hidden">
@@ -27,8 +27,12 @@
         <span class="title">{{ 'Explore UNESCO'|t }}</span>
         {% endif %}
 
-        <a href="https://unesco.org/en" class="btn btn-secondary link-galaxy home">{{ 'Go to Unesco.org'|t }}</a>
-        <a href="https://unesco.org/en/search" class="btn btn-secondary link-galaxy advanced-search">{{ 'Advanced search'|t }}</a>
+        {% if link_unesco_org %}
+          {{ link_unesco_org }}
+        {% endif %}
+        {% if link_unesco_org_search %}
+          {{ link_unesco_org_search }}
+        {% endif %}
         <a href="#" class="btn btn-secondary close-popin link-galaxy">{{ 'Close'|t }}</a>
       </div>
       <nav role="navigation">

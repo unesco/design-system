@@ -74,6 +74,7 @@ $theme-colors: map-merge(
 
 $border-color: $grey2;
 $border-radius: 1.5rem;
+$border-radius-sm: 1rem;
 
 // Typography
 
@@ -128,14 +129,14 @@ $btn-line-height-lg:          $btn-line-height !default;
 $btn-font-weight:             600;
 
 $btn-border-radius:           $border-radius !default;
-$btn-border-radius-lg:        $btn-border-radius !default;
-$btn-border-radius-sm:        $btn-border-radius!default;
+$btn-border-radius-lg:        2rem !default;
+$btn-border-radius-sm:        1.5rem !default;
 
 
 // Dropdowns
 
 $dropdown-border-color:      $border-color !default;
-$dropdown-border-radius:     $border-radius !default;
+$dropdown-border-radius:     $border-radius-sm !default;
 $dropdown-divider-bg:        $border-color !default;
 
 $dropdown-color:             $grey4 !default;

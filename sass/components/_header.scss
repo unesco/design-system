@@ -134,6 +134,7 @@ header.header {
         width: 100vw;
         left: 0;
         position: absolute;
+        overflow: auto;
       }
       @include min-screen($screen-desktop) {
         padding: 0;
@@ -167,6 +168,14 @@ header.header {
           padding: .5rem 0;
           @include min-screen($screen-desktop) {
             padding: 0;
+            font-size: .875rem;
+          }
+        }
+        .button-galaxy {
+          font-size: 1rem;
+          padding: .5rem 2rem .5rem 0;
+          @include min-screen($screen-desktop) {
+            padding: 0 2rem 0 0;
             font-size: .875rem;
           }
         }
@@ -213,6 +222,7 @@ header.header {
         &.submenu-active {
           .navbar_submenu {
             left: 0;
+            opacity: 1;
           }
         }
         @include min-screen($screen-desktop) {
@@ -296,6 +306,7 @@ header.header {
         left: 100vw;
         height: 100vh;
         transition: .3s ease-in-out;
+        opacity: 0;
       }
       @include min-screen($screen-desktop) {
         position: absolute;
@@ -614,6 +625,9 @@ header.header {
       &-img {
         margin-bottom: 1rem;
         width: 100%;
+        img {
+          width: 100%;
+        }
       }
     }
   }
@@ -621,16 +635,20 @@ header.header {
   .slider {
     &_back,
     &_next {
-      margin: 0 .5rem;
-      width: 2rem;
-      min-width: 2rem;
-      height: 2rem;
-      line-height: 2rem;
-      text-align: center;
-      color: $white;
-      border: .0625rem solid $white;
-      border-radius: 50%;
-      cursor: pointer;
+      display: none;
+      @include min-screen($screen-desktop) {
+        display: block;
+        margin: 0 .5rem;
+        width: 2rem;
+        min-width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: center;
+        color: $white;
+        border: .0625rem solid $white;
+        border-radius: 50%;
+        cursor: pointer;
+      }
     }
     &_back {
       &::after {
@@ -647,23 +665,4 @@ header.header {
 
 main {
   transition: .3s ease;
-}
-
-.option-theming {
-  display: none;
-  @include min-screen($screen-desktop) {
-    display: block;
-  }
-  position: fixed;
-  z-index: 99;
-  right: 2rem;
-  bottom: 8rem;
-  background-color: $white;
-  padding: .5rem;
-  border-radius: .5rem;
-  box-shadow: 0 0 1.5rem 0 rgba(0,0,0, .2);
-
-  .custom-checkbox {
-    margin: .5rem;
-  }
 }
