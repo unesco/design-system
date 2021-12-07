@@ -149,8 +149,22 @@ body.is-fixed {
 
         }
 
-      }
+        .image-icon {
+          position: relative;
 
+          .middle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+          }
+        }
+
+        .field--type-image + .image-icon {
+          display: none;
+        }
+      }
     }
 
     .resource-modal-actions {
@@ -214,5 +228,35 @@ body.is-fixed {
       }
     }
 
+  }
+}
+
+.resource-modal {
+  .resource-menu {
+    width: 11.625rem;
+    padding: 1rem 1.5rem;
+
+    ul {
+      list-style: none;
+      margin: 0;
+    }
+
+    li {
+      margin: 0 0 .5rem 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    a {
+      color: $grey4;
+      text-decoration: none;
+      line-height: 2.2;
+      font-size: .875rem;
+
+      &:hover {
+        color: $darkGrey;
+      }
+    }
   }
 }

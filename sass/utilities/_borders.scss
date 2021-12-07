@@ -1,0 +1,25 @@
+@each $pos, $posValue in (empty:"",t:"top",r:"right",b:"bottom",l:"left"){
+  @each $border, $value in $border-widths {
+    @if $posValue == "" {
+      .border-#{$border} {
+        border-width:$value !important;
+      }
+      } @else {
+       .border-#{$posValue}-#{$border} {
+        border-#{$posValue}-width:$value !important;
+      }
+    }
+  }
+}
+
+@each $pos, $posValue in (empty:"",t:"top",r:"right",b:"bottom",l:"left"){
+  @each $tcolor, $value in $theme-colors {
+    @if $posValue == "" {
+      // already done for border
+      } @else {
+       .border-#{$posValue}-#{$tcolor} {
+        border-#{$posValue}-color:$value !important;
+      }
+    }
+  }
+}

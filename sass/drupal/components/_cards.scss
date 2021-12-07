@@ -1,0 +1,25 @@
+.card {
+  &[class*="border"] {
+    border-width: .0625rem;
+  }
+  &-title {
+    font-size: 1.125rem;
+  }
+  &-text {
+    font-size: 1rem;
+  }
+}
+
+.social_network,
+.card-footer {
+  .round {
+    .material-icons-sharp, .icon {
+      font-size: 1.125rem;
+
+      &::before {
+        font-size: 1.125rem;
+        line-height: 2rem;
+      }
+    }
+  }
+}

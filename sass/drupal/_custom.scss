@@ -158,7 +158,7 @@ div#sliding-popup .eu-cookie-withdraw-banner,
 }
 
 .menu-open .toolbar-vertical.parent-menu-open:not(.site-satellite) header::after,
-.menu-open .toolbar-vertical.header-with-line:not(.header-sticky):not(.site-satellite) header::after, 
+.menu-open .toolbar-vertical.header-with-line:not(.header-sticky):not(.site-satellite) header::after,
 .menu-open .toolbar-vertical.path-countries:not(.header-sticky):not(.site-satellite) header::after,
 .menu-open .toolbar-vertical.transparent-header:not(.site-satellite) header::after {
   top: 6.5rem !important;
@@ -171,8 +171,8 @@ div#sliding-popup .eu-cookie-withdraw-banner,
     transform: translateY(39px);
   }
 
-  &.parent-menu-open:not(.portail-unesco) header, 
-  &.transparent-header:not(.portail-unesco) header, 
+  &.parent-menu-open:not(.portail-unesco) header,
+  &.transparent-header:not(.portail-unesco) header,
   &.header-with-line:not(.header-sticky.portail-unesco) header {
     &:after,
     &::before {
@@ -253,4 +253,20 @@ $colors: ( grey: $grey1, orange: $orangeLight, green: $greenLight, blue: $blueLi
   background-color: $grey1;
   color: $BlueU;
   text-align: center;
+}
+
+.pre_header {
+  position: relative;
+}
+
+.list-group-flush {
+  .list-group-item {
+    padding: 1rem 0;
+  }
+}
+
+.social_network {
+  .icon-external::after {
+    display: none;
+  }
 }

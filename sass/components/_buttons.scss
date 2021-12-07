@@ -3,11 +3,7 @@
 .btn {
   white-space: nowrap;
 
-  i {
-    font-size: 1.2em;
-    vertical-align: text-bottom;
-    margin-left: .25rem;
-  }
+
 
   &-outline-primary,
   &-outline-gray4,
@@ -140,6 +136,20 @@ button.button-galaxy {
   text-decoration: underline;
 }
 
+.btn-reset {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  text-shadow: none;
+  &:hover,
+  &:active,
+  &:focus {
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+  }
+}
+
 // Tags
 
 .tag {
@@ -160,11 +170,6 @@ button.button-galaxy {
     box-shadow: 0 0 0 .125rem $LightBlue;
   }
 
-  i {
-    font-size: 1rem;
-    vertical-align: text-bottom;
-    margin-left: .125rem;
-  }
 
   &-primary {
     background-color: $BlueU;

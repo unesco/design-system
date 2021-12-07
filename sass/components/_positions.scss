@@ -1,0 +1,13 @@
+$max: 100;
+$step: 5;
+$directions: (top: top, bottom: bottom, start: left, end: right);
+
+@each $name, $position in $directions {
+
+  @for $i from 0 through ceil($max/$step) {
+    $value: ($i)*$step;
+    .#{$name}-#{$value} {
+      #{$position}: $value#{'%'};
+    }
+  }
+}

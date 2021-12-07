@@ -1,0 +1,19 @@
+.media--type-publication {
+  &.media--view-mode-paragraph-resource {
+
+    .image-icon {
+      position: relative;
+    }
+    .top-left {
+      position: absolute;
+      top: 20%;
+      left: 14%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    .field--name-field-media-image + .default-image {
+      display: none;
+    }
+  }
+}

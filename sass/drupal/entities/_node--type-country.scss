@@ -521,6 +521,30 @@
     }
   }
 
+  // Temporarily hide map and ISO codes, move arrow down on mobile (see #63660) 
+  .map-wrapper {
+    display: none;
+  }
+
+  #block-unesco-content .custom-node-list .list-wrapper > article .node__content {
+    .country-iso-wrapper {
+      display: none;
+    }
+
+    .date-member {
+      @include min-screen($screen-desktop) {
+        grid-column-start: 3;
+      }
+    }
+
+    a:after {
+      bottom: -1.125rem;
+    }
+  }
+
+  #block-unesco-content .custom-node-list .list-wrapper > article a .node__content::after {
+    bottom: -1.5rem;
+  }
 }
 
 .ourcountries {

@@ -1,0 +1,54 @@
+.js-slider-full {
+
+  .wrapper-infos {
+    max-width: 80.25rem;
+
+    .field--name-field-text,
+    .slide-text {
+      p {
+        line-height: 1.375rem;
+        @include min-screen($screen-desktop) {
+          line-height: 1.75rem;
+        }
+      }
+    }
+  }
+
+  .wrapper-image {
+    &::after {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.4) 100%);
+    }
+  }
+}
+
+.wrapper-medias {
+
+  .slider-nav {
+    .carousel-button {
+      font-size: 0;
+      margin-top: 0;
+    }
+  }
+}
+
+.carousel-cards {
+
+  .slick-slider {
+
+    .slick-list {
+      margin: 0 -.75rem;
+      padding: 0 2.5rem;
+
+      @include min-screen($screen-tablet) {
+        margin: 0 -20rem;
+        padding: 0 21rem;
+      }
+
+      @include min-screen($screen-desktop-xl) {
+        &::before {
+          left: 0;
+        }
+      }
+    }
+  }
+}

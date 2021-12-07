@@ -1,0 +1,175 @@
+.slider-parallax {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+}
+
+.slider-parallax__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-parallax__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  @include descending-z-index;
+  transition: transform 800ms ease;
+
+  &:not(:last-child).-hide {
+    transform: translateY(-100%) ;
+  }
+}
+
+.parallax__background {
+  width: 100%;
+  height: 100%;
+}
+
+.slider-parallax__image {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  transform: translateX(-50%);
+
+  img {
+    @include img-cover;
+    position: relative;
+    z-index: -1;
+  }
+
+  &::after {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    opacity: .4;
+  }
+
+  .field--name-field-ref-image,
+  .media--type-image,
+  .field--name-field-media-image {
+    height: 100%;
+  }
+}
+
+.slider-parallax__image__article {
+  display: block;
+  height: 100%;
+  width: 100%;
+
+}
+
+.slider-parallax__copyright {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 1.5rem;
+  z-index: 2;
+  font-size: .75rem;
+  font-weight: 400;
+  opacity: .7;
+  color: $white;
+
+  &::before {
+    content: '\00A9';
+    margin-right: 0.25rem;
+  }
+}
+
+
+.slider-parallax__content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $white;
+  z-index: 2;
+  transition: all 300ms ease 800ms;
+
+  .slider-parallax__item + .slider-parallax__item  & {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .slider-parallax__item.-hide + .slider-parallax__item  & {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .slider-parallax__item.-hide & {
+    transition: all 300ms ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.slider-parallax__content__topic {
+  font-size: 1.125rem;
+  color: #FFF;
+
+  &::after {
+    content: "chevron_right";
+    font-family: 'Material Icons Sharp';
+    font-feature-settings: 'liga' 1;
+    font-weight: 400;
+    display: inline;
+    vertical-align: bottom;
+    margin-left: 0.5rem;
+    line-height: 1.2;
+  }
+}
+
+.slider-parallax__content__title {
+  margin: 0.67em 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  font-weight: 800;
+  color: #fff;
+  font-size: 2.25rem;
+}
+
+.slider-parallax__content__text {
+  font-size: 1.125rem;
+  line-height: 1.33;
+}
+
+.slider-parallax__content__rubric {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.slider-parallax__content__paragraph {
+  font-size: 1.5rem;
+  font-weight: 600;
+  max-width: 46rem;
+}
+
+.slider-parallax__button {
+  position: fixed;
+  right: 6rem;
+  bottom: 2rem;
+  padding: .825rem 1.25rem;
+  z-index: 31;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms linear, visibility 300ms linear;
+
+  @include min-screen($screen-desktop) {
+    bottom: 5rem;
+  }
+
+  &.-show {
+    opacity: 1;
+    visibility: visible;
+  }
+}

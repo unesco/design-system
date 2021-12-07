@@ -1,5 +1,5 @@
 node_modules
 assets/stylesheets
+/.idea/
 assets/scripts/*
 !/assets/scripts/vendor/
-

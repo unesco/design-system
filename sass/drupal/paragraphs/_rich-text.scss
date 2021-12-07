@@ -2,6 +2,7 @@
   &--type--rich-text {
     @include mt-block-sm;
 
+    .node--type-publication &,
     .node--type-landing & {
       @include min-screen($screen-desktop) {
         width: 100%;
@@ -37,17 +38,7 @@
       }
     }
 
-    a[href*="//"] {
-      &::after {
-        @include icon('open_in_new');
-        margin-left: 4px;
-        line-height: 1;
-        display: inline;
-        vertical-align: middle;
-      }
-    }
-
-    .node--type-landing & {
+    .landing-layout & {
       &:not(.boxed) {
         max-width: 100%;
 
@@ -86,9 +77,10 @@
 }
 
 
-// Homepage/ landing override
+// Homepage/ landing /publication override
 
 .node--type-homepage,
+.node--type-publication,
 .node--type-landing {
 
   .paragraph--type--rich-text {

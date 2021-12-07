@@ -1,79 +1,19 @@
-// Responsive font size
-// Title
-$page-title: (
-  null: 1.75rem,
-  medium: 2.25rem,
-  large: 3rem
-);
+.display-1 {
+  @include responsive(font-size, $display1-size);
+  font-weight: 800;
+}
 
-$hero-title: (
-  null: 1.75rem,
-  large: 3.75rem
-);
+.display-2 {
+  @extend .article-title;
+}
 
-$display1-size: (
-  null: 2rem,
-  large: 3.75rem
-);
+.display-3 {
+  @extend .section-title;
+}
 
-$section-title: (
-  null: 1.5rem,
-  large: 2.25rem
-);
-
-$section-title-small: (
-  null: 1.125rem,
-  large: 1.5rem
-);
-
-$article-title: (
-  null: 1.75rem,
-  large: 3rem
-);
-
-// Text
-$section-text: (
-  null: 1.125rem,
-  large: 1.5rem
-);
-
-$section-text-small: (
-  null: 1rem,
-  large: 1.125rem
-);
-
-$text: (
-  null: 1rem,
-  medium: 1.125rem
-);
-
-$small-text: (
-  null: .875rem,
-  medium: 1rem
-);
-
-$big-text: (
-  null: 1rem,
-  medium: 1.25rem
-);
-
-$small-content-title: (
-  null: 1.125rem,
-  large: 1.25rem
-);
-
-// Quote
-$blockquote-text: (
-  null: 1.5rem,
-  large: 1.75rem
-);
-
-// Full media
-$full-media-title: (
-  null: 1.75rem,
-  large: 2.25rem
-);
-
+.display-4 {
+  @extend .section-title-small;
+}
 // Title
 
 .page-title {
@@ -117,22 +57,6 @@ $full-media-title: (
   font-weight: 600;
 }
 
-.display-1 {
-  @include responsive(font-size, $display1-size);
-  font-weight: 800;
-}
-
-.display-2 {
-  @extend .article-title;
-}
-
-.display-3 {
-  @extend .section-title;
-}
-
-.display-4 {
-  @extend .section-title-small;
-}
 
 // Text
 
@@ -149,9 +73,9 @@ $full-media-title: (
   line-height: 1.3;
 }
 
-// Rich Text
+
 ul.list {
-  @include responsive(font-size, $text);
+  /*@include responsive(font-size, $text);*/
 
   li {
     margin-bottom: 1rem;
@@ -165,7 +89,6 @@ ul.list {
 ol.list {
   list-style: none;
   margin-left: 0;
-  @include responsive(font-size, $text);
 
   & > li {
     position: relative;
@@ -214,18 +137,38 @@ a.link {
   }
 }
 
-$hub-title-small: (
-  null: 1.25rem,
-  large: 1.875rem
-);
-
-.material-icons,
-.material-icons-sharp {
-  vertical-align: middle;
-  font-size: 1.3em;
+/* increase font size*/
+.big,big{
+  font-size: 1.55em;
 }
 
-.small, small {
+
+/*fix small issue with font-weight*/
+.small,small{
   font-size: .875em;
   font-weight: inherit;
+}
+
+  @each $name, $width in $grid-breakpoints {
+  @include media-breakpoint-up($name) {
+    .small-#{$name}{
+      font-size: .875em;
+      font-weight: inherit;
+    }
+
+    .big-#{$name}{
+      font-size: 1.45em;
+    }
+  }
+}
+
+  @each $name, $width in $grid-breakpoints {
+  @include media-breakpoint-up($name) {
+    .text-#{$name}-white{
+      color:$white !important;
+    }
+     .text-#{$name}-dark{
+      color:$dark !important;
+    }
+  }
 }

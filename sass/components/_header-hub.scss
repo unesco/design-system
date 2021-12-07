@@ -510,51 +510,6 @@
       top: 11.063rem;
     }
   }
-
-  .breadcrumb {
-    border-radius: 0;
-    display: none;
-    margin: 0 -0.816rem;
-    position: relative;
-    padding: 0;
-    background-color: transparent;
-
-    @include min-screen($screen-desktop) {
-      display: flex;
-      width: 100vw;
-      max-width: 83rem;
-    }
-
-    @include max-screen(1440px) {
-      padding: 0 3.5rem;
-    }
-
-    .breadcrumb-item + .breadcrumb-item::before {
-      display: none;
-    }
-
-    li {
-      padding: 0 0.406rem;
-
-      &,  a {
-        font-size: 0.875rem;
-        line-height: 1.5rem;
-        color: $white;
-        text-decoration: none;
-      }
-
-      &::after {
-        @include icon('chevron_right');
-        color: inherit;
-        vertical-align: middle;
-        margin-left: 0.375rem;
-      }
-
-      &:last-of-type::after {
-        display: none;
-      }
-    }
-  }
 }
 
 .node--type-landing {

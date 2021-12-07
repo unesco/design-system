@@ -14,6 +14,7 @@ $padding-top: (
 );
 
 .header-landing,
+.header-publication,
 .header-homepage {
   @include responsive(padding-top, $padding-top);
   @include responsive(padding-bottom, $space-bottom7);
@@ -149,6 +150,7 @@ $padding-top: (
 
 .media-small {
 
+  .header-publication,
   .header-landing,
   .header-homepage {
     min-height: 22rem;
@@ -163,6 +165,7 @@ $padding-top: (
 
 }
 
+.node--type-publication,
 .node--type-homepage,
 .node--type-landing {
 

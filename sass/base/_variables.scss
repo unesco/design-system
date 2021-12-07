@@ -14,12 +14,6 @@ $grey2:       #D5DADD;
 $grey1:       #F1F4F6;
 $white:       #ffffff;
 
-//Bootstrap
-$warning:       #D8552C;
-$danger:        #BC4242;
-$success:       #429045;
-$info:          #B2D6F2;
-$dark:          #2B2E33;
 
 // Shades
 $greenLight:       #A6DDCB;
@@ -27,11 +21,37 @@ $blueLight:        #A1D7E1;
 $purpleLight:      #C2CBEC;
 $redLight:         #ECBEB5;
 $orangeLight:      #EECF93;
+
 $green:            #4FB293;
 $teal:             #2D9BB1;
 $purple:           #4B6AD9;
 $red:              #D6664F;
 $orange:           #E4A429;
+$blue:            #2D9BB1;
+
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+
+
+//Bootstrap
+/*$warning:       #D8552C;*/
+$warning:       $orange;
+/*$danger:        #BC4242;*/
+$danger:        #D8552C;
+/*$success:       #429045;*/
+$success:       $green;
+/*$info:          #B2D6F2;*/
+$info:          $blue;
+/*$dark:          #2B2E33;*/
+$dark:          $darkGrey;
+
+
+//font 
+$display1-size:             4rem !default;
+
+//Grid
+$grid-row-columns:          12 !default;
 
 // Node status
 $unpublished:       #DEADCC;
@@ -54,4 +74,80 @@ $btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, bord
 $r-breakpoints: (
   medium: $screen-tablet,
   large: $screen-desktop
+);
+
+// Responsive font size
+// Title
+$page-title: (
+  null: 1.75rem,
+  medium: 2.25rem,
+  large: 3rem
+);
+
+$hero-title : (
+  null: 1.75rem,
+  large: 3.75rem
+);
+
+$section-title: (
+  null: 1.5rem,
+  large: 2.25rem
+);
+
+$section-title-small: (
+  null: 1.125rem,
+  large: 1.5rem
+);
+
+$article-title: (
+  null: 1.75rem,
+  large: 3rem
+);
+
+// Text
+$section-text: (
+  null: 1.125rem,
+  large: 1.5rem
+);
+
+$section-text-small: (
+  null: 1rem,
+  large: 1.125rem
+);
+
+$text: (
+  null: 1rem,
+  medium: 1.125rem
+);
+
+$small-text: (
+  null: .875rem,
+  medium: 1rem
+);
+
+$big-text: (
+  null: 1rem,
+  medium: 1.25rem
+);
+
+$small-content-title: (
+  null: 1.125rem,
+  large: 1.25rem
+);
+
+// Quote
+$blockquote-text: (
+  null: 1.5rem,
+  large: 1.75rem
+);
+
+// Full media
+$full-media-title: (
+  null: 1.75rem,
+  large: 2.25rem
+);
+
+$hub-title-small: (
+  null: 1.25rem,
+  large: 1.875rem
 );

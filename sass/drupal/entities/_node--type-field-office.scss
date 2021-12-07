@@ -103,6 +103,10 @@
             display: none;
           }
         }
+
+        .icon-external::after {
+          display: none;
+        }
       }
     }
 
@@ -159,6 +163,17 @@
     .card {
       height: 100%;
       position: relative;
+
+      .social_network {
+        a span {
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .card-overlay .card-body,

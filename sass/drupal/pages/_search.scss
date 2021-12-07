@@ -534,6 +534,12 @@ $search_dropdown_z: 500;
     }
   }
 
+  .select-unselect-all {
+    a {
+      color: $grey4;
+    }
+  }
+
   &.block-facet-blockmajor-event {
     ul {
 
