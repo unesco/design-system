@@ -1,0 +1,12 @@
+.vocabulary-people {
+  &.biography {
+    .content {
+      display: flex;
+      flex-direction: column;
+
+      @include min-screen($screen-tablet) {
+        flex-direction: row;
+      }
+    }
+  }
+}

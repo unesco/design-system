@@ -2,7 +2,7 @@
  * @file
  * Theme javascript.
  */
-(function ($) {
+ (function ($) {
   "use strict";
 
   window.Unesco = window.Unesco || {
@@ -53,7 +53,7 @@
       this.initImageMap(context, settings);
       this.initHeaderHubMenu(context, settings);
       this.initFooterHubMobile(context, settings);
-      this.initStoryParallax(context, settings);
+      this.initSliderParallax(context, settings);
       this.initParagraphParallax(context, settings);
       this.initGalaxyMenu(context, settings);
       this.initSearchHeader(context, settings);
@@ -68,6 +68,7 @@
       this.initwebformScrollUp(context, settings);
       this.initmobileShare(context, settings);
       this.initHubMenuSlider(context, settings);
+      this.initNavSlider(context, settings);
     },
 
     initSliderMediaFull: function (context, settings) {
@@ -514,7 +515,7 @@
 
     initAuthorReadMore: function (context, settings) {
       let maxLength = 150;
-      let authorText = $(".vocabulary-people .rich-text p");
+      let authorText = $(".vocabulary-people.full .rich-text p");
 
       authorText.each(function () {
         let myStr = $(this).text();
@@ -549,26 +550,20 @@
     },
 
     initCommonExternalLink: function (context, settings) {
-      const host = window.location.host.replace(/\./g, "\\.");
-      const match = new RegExp("^http(s)?:\\/\\/(?!" + host + ")");
+      let host = window.location.host;
+      const matchUrl = new RegExp("([a-z]{2}\.)?unesco\.org");
+      const external = new RegExp(host);
 
-      $("a", context)
-        .on("click", function (event) {
-            // The content that had the event listener attached.
-            const target = event.currentTarget;
-            const href = target.href;
-            if (href === "#") {
-              return;
-            }
+      $('a', context).each(function () {
+        const target = $(this)[0].href;
 
-            if (match.test(href) || target.rel === "external") {
-              event.stopPropagation();
-
-              window.open(href, target);
-              return false;
-            }
-          }
-        );
+        if (target === "#" || target === "/" || (matchUrl.test(host) && matchUrl.test(target))) {
+          return;
+        } else if (!(external.test(target))) {
+          $(this).attr('target', '_blank');
+          return;
+        }
+      });
     },
 
     initSummaryMobile: function (context, settings) {
@@ -751,88 +746,77 @@
 
     },
 
-    initStoryParallax: function (context, settings) {
-      var storyItem = $('.story-item');
-      var story = storyItem.parent();
+    initSliderParallax: function (context, settings) {
 
-      $('.story-item:not(:first) .text-wrapper').hide();
+      const $sliders = $('.slider-parallax');
 
-      var controller = new ScrollMagic.Controller();
-      var nbSlides = $('.header-node-content.story .story-item').length;
-      var slideDuration;
-      if(nbSlides > 1) {
-        slideDuration = nbSlides*25;
-      } else {
-        slideDuration = "0.1";
-      }
+      for (let index = 0; index < $sliders.length; index++) {
+        const slider = $sliders[index];
+        const $slider = $(slider);
+        const $items = $('.slider-parallax__item', slider);
+        const nbSlides = $items.length;
+        const slideDuration = nbSlides > 1 ? nbSlides * 100 : 0.1;
+        const Drupal = window.Drupal || { t : e => e };
+        $slider.prepend('<button class="slider-parallax__button btn btn-outline-white">' + Drupal.t('Skip') + '</button>');
+        const $btnSkip = $slider.find('.slider-parallax__button');
+        $slider.after('<div class="slider-parallax__scroll"></div>');
+        const $scroll = $slider.next('.slider-parallax__scroll');
 
-      var wipeAnimation = new TimelineMax()
-        .staggerTo(".story-item:not(:last)", 1, {
-          y: "-100%",
-          ease: Linear.easeNone,
-          onStartParams: ["{self}"],
-          onStart: function fadeOut(tween) {
-            $(tween.target).find('.text-wrapper').fadeOut();
-            $(tween.target).next().find('.text-wrapper').delay(600).fadeIn();
-            var ele = $(tween.target).next('.story-item').offset();
-            var height= $(window).height();
-            countEle++;
-            $("html, body").animate({
-              scrollTop: (height + 200) * countEle
-            }, 1000);
-            return false;
-          },
-          onReverseCompleteParams: ["{self}"],
-          onReverseComplete: function fadeIn(tween) {
-            $(tween.target).find('.text-wrapper').fadeIn();
-            $(tween.target).next().find('.text-wrapper').fadeOut();
-            var ele = $(tween.target).next('.story-item').offset();
-            var height= $(window).height();
-            countEle--;
-            $("html, body").animate({
-              scrollTop: (height + 200) * countEle
-            }, 1000);
-            return false;
-          },
-        }, 2, 1)
-        .staggerTo(".story-item:last", 1, {
-          onCompleteParams: ["{self}"],
-          onComplete: function (tween) {
-            $(tween.target).find('.text-wrapper').fadeOut();
-          },
-          onReverseCompleteParams: ["{self}"],
-          onReverseComplete: function (tween) {
-            $(tween.target).find('.text-wrapper').fadeIn();
-          },
-        }, 1);
-
-      new ScrollMagic.Scene({
-        delay: 0,
-        triggerElement: ".header-node-content.story",
-        triggerHook: "onLeave",
-        duration: slideDuration+"%"
-      })
-        .setPin(".header-node-content.story")
-        .setTween(wipeAnimation)
-        .addTo(controller);
-
-      if (storyItem.length > 1) {
-        story.prepend('<button class="btn btn-skip-story btn-outline-white">' + Drupal.t('Skip') + '</button>');
-        let btnSkip = story.find('.btn-skip-story');
-        let showBtnPosition = 400;
-        let lastSlidePosition = $('.scrollmagic-pin-spacer').outerHeight(true);
-        let hideBtnPosition = lastSlidePosition - $(window).outerHeight(true);
-
-        btnSkip.click(function () {
-          $(window).scrollTop(lastSlidePosition);
+        $btnSkip.on('click', function () {
+          $scroll[0].scrollIntoView({behavior: "smooth", block: "start"});
         });
-        $(window).scroll(function () {
-          if (showBtnPosition < $(window).scrollTop() && hideBtnPosition > $(window).scrollTop()) {
-            btnSkip.fadeIn();
-          } else {
-            btnSkip.fadeOut();
-          }
-        });
+
+        const wipeAnimation = new TimelineMax()
+          .staggerTo($items, 1, {
+            onUpdateParams: ["{self}"],
+            onUpdate: (e) => {
+
+              const { target } = e;
+              const index = [...target.parentElement.children].indexOf(target) + 1;
+              const total = target.parentElement.children.length;
+              const maxTime = e.duration();
+              const time = e.time();
+              const half = maxTime / 2;
+
+              /* hide slide if progress > 50% */
+              if(nbSlides > 1 && time > half) {
+                target.classList.add('-hide');
+
+                if(index === 1) {
+                  $btnSkip.addClass('-show');
+                }
+              }
+
+              /* show slide if progress < 50% */
+              if(nbSlides > 1 && time < half) {
+                target.classList.remove('-hide');
+
+                if(index === 1) {
+                  $btnSkip.removeClass('-show');
+                }
+              }
+
+              /* hide skip button if exit slider whith down scroll */
+              if(nbSlides > 1 && index === total && time >= 1) {
+                $btnSkip.removeClass('-show');
+              }
+
+              /* whow skip button if enter slider whit up scroll */
+              if(nbSlides > 1 && index === total && time < 1) {
+                $btnSkip.addClass('-show');
+              }
+
+            },
+          }, 1);
+
+        new ScrollMagic.Scene({
+          triggerElement: slider,
+          triggerHook: 0,
+          duration: slideDuration+"%",
+        })
+          .setTween(wipeAnimation)
+          .setPin(slider)
+          .addTo(new ScrollMagic.Controller());
       }
 
     },
@@ -1361,8 +1345,8 @@
         }
       });
 
-      hubMenu.before('<button class="slider_button slider_back round round-md round-grey2"><span class="material-icons-sharp">chevron_left</span></button>');
-      hubMenu.after('<button class="slider_button slider_next round round-md round-grey2"><span class="material-icons-sharp">chevron_right</span></button>');
+      hubMenu.before('<button class="slider_button slider_back round round-md round-gray2"><span class="material-icons-sharp">chevron_left</span></button>');
+      hubMenu.after('<button class="slider_button slider_next round round-md round-gray2"><span class="material-icons-sharp">chevron_right</span></button>');
 
       hubMenu.prev('.slider_back').on('click', function () {
         hubMenu.stop().animate({scrollLeft: "-=150"}, 400);
@@ -1378,7 +1362,64 @@
         $('.lvl1-wrapper').prev('.active-item').removeClass('active-item');
         $('.lvl1-wrapper').removeClass('is-visible').css('display', 'none');
       });
-    }
-  };
+    },
+
+    initNavSlider: function (context, settings) {
+      let navSlider = $('.nav-slider');
+      function hasScrollbar(navEl,sliderEl) {
+        return navEl.prop("scrollWidth")> sliderEl.innerWidth();
+      }
+      function addSlider(navEl,sliderEl){
+        sliderEl.addClass('nav-slider-show ');
+        navEl.first().addClass("pl-5");
+        sliderEl.find('.nav-slider-btn').removeClass('d-none');
+        sliderEl.find('.nav-slider-btn').addClass('d-flex');
+      }
+      function removeSlider(navEl,sliderEl){
+       sliderEl.removeClass('nav-slider-show');
+       navEl.first().removeClass("pl-5");
+       sliderEl.find('.nav-slider-btn').addClass('d-none');
+       sliderEl.find('.nav-slider-btn').removeClass('d-flex');
+     }
+
+     navSlider.each(function( index,navSliderItem) {
+      let navSliderItemLocal = $(navSliderItem);
+      let navSliderNav = navSliderItemLocal.children(".nav");
+      navSliderItemLocal.addClass('position-relative');
+      navSliderNav.addClass('overflow-auto');
+      navSliderNav.addClass('flex-nowrap scrollbar-none');
+      navSliderNav.children(".nav-item").addClass('text-nowrap');
+
+      if(navSliderItemLocal.find('.nav-slider-back').length == 0){
+
+        navSliderNav.before('<div class="align-items-center position-absolute nav-slider-btn d-none" style="left:0; top: calc(50% - 1.25rem);z-index:10"><div class="nav-slider-back round round-md round-gray2" role="button"><span class="material-icons-sharp">chevron_left</span></div><div>');
+      }
+
+
+      if(navSliderItemLocal.find('.nav-slider-next').length ==0){
+        navSliderNav.after('<div class="align-items-center position-absolute nav-slider-btn d-none" style="right:0; top: calc(50% - 1.25rem);z-index:10"><div class="nav-slider-next round round-md round-gray2" role="button"><span class="material-icons-sharp">chevron_right</span></div></div>');
+      }
+
+      navSliderItemLocal.find('.nav-slider-back').on('click', function () {
+        navSliderNav.stop().animate({scrollLeft: "-=150"}, 400);
+        return false;
+      });
+      navSliderItemLocal.find('.nav-slider-next').on('click', function () {
+        navSliderNav.stop().animate({scrollLeft: "+=150"}, 400);
+        return false;
+      });
+      $(window).on('load resize', function () {
+        /*console.log(navSliderNav.prop("scrollWidth"));*/
+        /*console.log(navSliderItemLocal.innerWidth());*/
+        if(hasScrollbar(navSliderNav,navSliderItemLocal)) {
+          addSlider(navSliderNav,navSliderItemLocal);
+        } else {
+          removeSlider(navSliderNav,navSliderItemLocal);
+        }
+      });
+
+      }); //end each
+   }
+ };
 
 })(jQuery);

@@ -18,6 +18,8 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+  font-size: .85em;
 }
 
 $icons: (
@@ -90,3 +92,15 @@ $icon-color: (
   }
 }
 
+/* icon alignment */
+.material-icons,
+.material-icons-sharp,
+.icon::before {
+  vertical-align: middle;
+  font-size: 1em;
+  line-height: 1.55em;
+}
+
+.icon::before {
+  font-size: .85em;
+}

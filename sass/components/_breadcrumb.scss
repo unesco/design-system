@@ -1,0 +1,32 @@
+// breadcrumb change divider / separator
+.breadcrumb-item {
+	+ .breadcrumb-item {
+		&::before {
+      float: left; // Suppress inline spacings and underlining of the separator
+      //padding-right: $breadcrumb-item-padding;
+      color: inherit;
+      @include icon('chevron_right');
+      vertical-align: middle;
+  }
+   &.active {
+      	> a {
+      		color: $breadcrumb-active-color;;
+      	}
+      }
+}
+}
+
+// breadcrumb on dark background
+.breadcrumb.text-light,.breadcrumb.text-white {
+	.breadcrumb-item {
+		&.active {
+			color: $grey3;
+			> a {
+				color: $grey3;
+			}
+		}
+		> a {
+			color: $white;
+		}
+	}
+}

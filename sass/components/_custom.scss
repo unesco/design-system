@@ -91,7 +91,6 @@ $pre-header-close-icon: (
 
 .pre_header {
   z-index: 999;
-  position: relative;
   background-color: $Blue3;
   padding: .5rem 1rem;
   display: flex;
@@ -160,15 +159,17 @@ $pre-header-close-icon: (
 
 .list-group-flush {
   border-top: .0625rem solid $grey2;
-  .list-group-item {
-    padding: 1rem 0;
-  }
 }
 
+
 li.icon-external > a,
-a.icon-external {
+a.icon-external,
+.rich-text p a[target="_blank"] {
   &::after {
-    @include icon('open_in_new');
+    content: "open_in_new";
+    font-family: 'Material Icons Sharp';
+    font-feature-settings: 'liga' 1;
+    font-weight: 400;
     margin-left: 4px;
     line-height: 1;
   }
@@ -187,4 +188,17 @@ a.icon-external {
     margin: 0 auto;
     display: block;
   }
+}
+
+
+// hide scroolbar
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

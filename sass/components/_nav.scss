@@ -1,0 +1,55 @@
+// fix nav to have border bottom transparent to allow various background color
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    border-color: $nav-tabs-link-active-border-color $nav-tabs-link-active-border-color transparent $nav-tabs-link-active-border-color;
+}
+// Nav with Border bottom
+.nav-border {
+    border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+    .nav-link {
+        position: relative;
+        transition: .3s;
+        border-bottom: 0.125rem solid transparent;
+
+        &:hover,
+        &:focus {
+            border-bottom: 0.125rem solid $primary;
+        }
+    }
+
+    .nav-link.active,
+    .show>.nav-link {
+        position: relative;
+
+        /* border-bottom:$nav-tabs-border-width*2 solid $nav-tabs-link-active-border-color;*/
+        border-bottom: 0.125rem solid $primary;
+    }
+}
+.nav-border-white {
+    border-bottom: $nav-tabs-border-width solid $white;
+
+    .nav-link {
+        position: relative;
+        transition: .3s;
+        color: $white;
+        border-bottom: 0.125rem solid transparent;
+
+        &:hover,
+        &:focus {
+            border-bottom: 0.125rem solid $white;
+        }
+
+        &.disabled {
+            color: $nav-tabs-link-active-border-color;
+        }
+    }
+
+    .nav-link.active,
+    .show>.nav-link {
+        position: relative;
+        color: $white;
+        /* border-bottom:$nav-tabs-border-width*2 solid $nav-tabs-link-active-border-color;*/
+        border-bottom: 0.125rem solid $white;
+    }
+}

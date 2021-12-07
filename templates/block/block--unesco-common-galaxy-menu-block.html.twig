@@ -19,12 +19,16 @@
       <div class="top">
         <span class="button-text-mobile">{{ configuration.label }}</span>
         {% if site_logo and site_name %}
-        <div class="site-info-wrapper">
-          <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
-          <span class="site-name">{{ site_name }}</span>
-        </div>
+          <div class="site-info-wrapper">
+            <a href="{{ url('<front>') }}">
+              <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+              <span class="site-name">{{ site_name }}</span>
+            </a>
+          </div>
         {% else %}
-        <span class="title">{{ 'Explore UNESCO'|t }}</span>
+          <a href="{{ url('<front>') }}">
+            <span class="title">{{ 'Explore UNESCO'|t }}</span>
+          </a>
         {% endif %}
 
         {% if link_unesco_org %}

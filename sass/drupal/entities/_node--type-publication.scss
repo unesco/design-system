@@ -1,0 +1,18 @@
+.node--type-publication {
+  &.node--view-mode-full {
+    .publication--link {
+      z-index: 1;
+    }
+
+    .publication-main {
+      background-color: $grey1;
+      text-align: center;
+      border-radius: .5rem;
+      padding: 1rem 0;
+
+      @include min-screen($screen-desktop){
+        padding: 3rem 0;
+      }
+    }
+  }
+}

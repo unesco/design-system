@@ -124,11 +124,23 @@ function unesco_preprocess_taxonomy_term(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function unesco_preprocess_taxonomy_term__people(&$variables) {
+  $variables['attributes']['class'][] = $variables['elements']['#view_mode'];
   if (isset($variables['elements']['#view_mode']) && $variables['elements']['#view_mode'] == 'people_detail') {
     $variables['page'] = TRUE;
   }
   if (isset($variables['elements']['#view_mode']) && $variables['elements']['#view_mode'] == 'content') {
     $variables['page'] = TRUE;
+  }
+  if (isset($variables['elements']['#view_mode']) && $variables['elements']['#view_mode'] == 'biography') {
+    $variables['page'] = TRUE;
+    $variables['attributes']['class'][] = 'border-top';
+    $variables['attributes']['class'][] = 'border-grey';
+  }
+  if (isset($variables['elements']['#view_mode']) && $variables['elements']['#view_mode'] == 'people_grid') {
+    $variables['page'] = TRUE;
+    $variables['attributes']['class'][] = 'col-lg-3';
+    $variables['attributes']['class'][] = 'col-sm-6';
+    $variables['attributes']['class'][] = 'mb-4';
   }
 }
 
@@ -158,6 +170,7 @@ function unesco_preprocess_html(&$variables) {
       $bundles_with_hero = [
         'homepage',
         'landing',
+        'publication',
       ];
       $header_with_line = [
         'report',
@@ -165,8 +178,18 @@ function unesco_preprocess_html(&$variables) {
         'idea'
       ];
 
+      $bundles_narrow = [
+        'page',
+        'article',
+        'sequenced_page',
+      ];
+
       if (in_array($node->bundle(), $bundles_with_hero) && $node->hasField('field_ref_image') && !$node->field_ref_image->isEmpty()) {
         $variables['attributes']['class'][] = 'transparent-header';
+      }
+
+      if (!in_array($node->bundle(), $bundles_narrow)) {
+        $variables['attributes']['class'][] = 'landing-layout';
       }
 
       if ($node->bundle() === 'article'
@@ -289,6 +312,11 @@ function unesco_theme_suggestions_alter(array &$suggestions, array $variables, $
 
   if ($hook === 'node' && in_array($variables['elements']['#view_mode'], Article::VIEW_MODES)) {
     $suggestions[] = $hook . '__full';
+  }
+
+  if ($hook === 'taxonomy_term' && isset($variables['elements']['#taxonomy_term']) && !empty($variables['elements']['#taxonomy_term'])) {
+    $term = $variables['elements']['#taxonomy_term'];
+    $suggestions[] = $hook . '__' . $term->bundle() . '__' . $variables['elements']['#view_mode'];
   }
 
 }

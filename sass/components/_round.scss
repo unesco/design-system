@@ -1,16 +1,22 @@
-$xs : 1.5rem;
-$sm : 2rem;
+$xs : 1rem;
+$sm : 1.5rem;
+$default : 2rem;
 $md : 2.5rem;
 $lg : 3rem;
 $xl : 4.5rem;
+$xxl : 7.5rem;
+$fontSizeFactor: .65;
 
 .round {
   display: inline-block;
-  width: $sm;
-  height: $sm;
-  line-height: $sm;
+  width: $default;
+  height: $default;
+  min-width: $default;
+  font-size: $default*$fontSizeFactor;
+  vertical-align: middle;
   border-radius: 50%;
   background-color: $BlueU;
+  color: $white;
   text-decoration: none;
   text-align: center;
   transition: $btn-transition;
@@ -21,23 +27,19 @@ $xl : 4.5rem;
     box-shadow: 0 0 0 .125rem $LightBlue;
     outline: none;
   }
-  i {
-    color: $white;
-    font-size: $sm*.5;
-    transition: $btn-transition;
+  &.material-icons-sharp {
+     line-height: 1.55em;
   }
 }
 
-$sizes: ( xs: $xs, sm: $sm, md: $md, lg: $lg, xl: $xl );
+$sizes: ( xs: $xs, sm: $sm, md: $md, lg: $lg, xl: $xl, xxl: $xxl );
 
 @each $sizeType, $size in $sizes {
   .round-#{$sizeType} {
     width: $size;
     height: $size;
-    line-height: $size;
-    i {
-      font-size: $size*.5;
-    }
+    min-width: $size;
+    font-size: $size*$fontSizeFactor;
   }
 }
 
@@ -63,34 +65,28 @@ $sizes: ( xs: $xs, sm: $sm, md: $md, lg: $lg, xl: $xl );
 $colors:
     (primary, $BlueU, $white, $Blue2, $white, $white, $white),
     (secondary, $Blue2, $white, $Blue3, $white, $white, $white),
-    (grey1, $grey1, $grey4, $grey1, $darkGrey, $grey3, $grey4),
-    (grey2, $grey2, $grey4, $grey2, $darkGrey, $grey3, $grey4),
-    (grey4, $grey4, $grey2, $grey4, $white, $grey3, $white),
-    (grey5, $grey5, $grey2, $grey5, $white, $grey3, $white),
+    (gray, $grey1, $grey4, $grey2, $darkGrey, $grey4, $grey5),
+    (gray1, $grey1, $grey4, $grey2, $darkGrey, $grey4, $grey5),
+    (gray2, $grey2, $grey4, $grey3, $darkGrey, $grey5, $grey5),
+    (gray3, $grey3, $grey2, $grey5, $white, $grey3, $white),
+    (gray4, $grey4, $grey2, $grey5, $white, $grey3, $white),
+    (gray5, $grey5, $grey2, $grey3, $white, $grey2, $white),
     (white, $white, $grey4, $white, $darkGrey, $grey3, $grey4);
 
 @each $colorName, $bgColor, $textColor, $bgColorHover, $textHover, $textPressed, $textFocused in $colors {
   .round-#{$colorName} {
     background-color: $bgColor;
-    i {
-      color: $textColor;
-    }
+    color: $textColor;
     &:hover {
       background-color: $bgColorHover;
-      i {
-        color: $textHover;
-      }
+      color: $textHover;
     }
     &:focus {
-      i {
-        color: $textFocused;
-      }
+      color: $textFocused;
     }
     &:active {
       &:hover {
         background-color: $bgColor;
-      }
-      i {
         color: $textPressed;
       }
     }

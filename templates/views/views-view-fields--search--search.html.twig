@@ -30,7 +30,7 @@
  */
 #}
 {%- if unesco_search_url -%}
-  <a href="{{ unesco_search_url }}" class="link-item-content-search">
+  <a href="{{ unesco_search_url }}" class="link-item-content-search" {% if unesco_dl %}download="{{ unesco_dl_name }}"{% endif %}{% if unesco_blank %} target="_blank" {% endif %}>
 {%- endif %}
 <div class="row-content">
 {% for field in fields|without('image_solr') -%}

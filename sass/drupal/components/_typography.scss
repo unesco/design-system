@@ -1,0 +1,4 @@
+ol.list,
+ul.list {
+  @include responsive(font-size, $text);
+}

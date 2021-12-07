@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   height: 39rem;
+  overflow: hidden;
   @include min-screen($screen-desktop) {
     height: 44rem;
   }
@@ -16,7 +17,7 @@
   .wrapper-infos {
     position: absolute;
     width: 100%;
-    max-width: 80.25rem;
+    /*max-width: 80.25rem;*/
     padding: 0 1.5rem;
     bottom: 6rem;
     left: 50%;
@@ -47,14 +48,14 @@
       color: $white;
 
       p {
-        line-height: 1.375rem;
+       /* line-height: 1.375rem;*/
 
         &:last-of-type {
           margin-bottom: 0;
         }
 
         @include min-screen($screen-desktop) {
-          line-height: 1.75rem;
+       /*   line-height: 1.75rem;*/
         }
       }
     }
@@ -94,7 +95,7 @@
       content: '';
       position: absolute;
       z-index: 1;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.4) 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.25) 100%);
       width: 100%;
       height: 100%;
       top: 0;
@@ -182,8 +183,8 @@
     }
 
     .carousel-button {
-      font-size: 0;
-      margin-top: 0;
+      /*font-size: 0;
+      margin-top: 0;*/
 
       &.slick-disabled {
         opacity: 0.5;
@@ -258,12 +259,16 @@
   .slick-slider {
 
     .slick-list {
-      margin: 0 -.75rem;
-      padding: 0 2.5rem;
+   /*   margin: 0 -.75rem;
+      padding: 0 2.5rem;*/
+
+      .slick-track {
+        display: flex;
+      }
 
       @include min-screen($screen-tablet) {
-        margin: 0 -20rem;
-        padding: 0 21rem;
+      /*  margin: 0 -20rem;
+        padding: 0 21rem;*/
       }
 
       @include min-screen($screen-desktop-xl) {
@@ -279,7 +284,7 @@
         }
 
         &::before {
-          left: 0;
+          left: -20rem;
           background: linear-gradient(90deg, rgba($white, 1) 40%, rgba($white, 0) 100%);
         }
 
@@ -294,14 +299,17 @@
       .slick-slide {
         margin-left: .75rem;
         margin-right: .75rem;
+        height: unset;
+         padding: 0;
 
         @include min-screen($screen-tablet) {
           width: 18rem;
+          max-width: 18rem;
         }
 
         @include min-screen($screen-desktop) {
           margin: 0 1rem;
-          padding: 0;
+         
         }
 
         &:focus {

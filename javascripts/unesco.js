@@ -6,6 +6,8 @@
   Unesco.initCarouselCards();
   Unesco.initDropdownFooter();
   Unesco.initBackToTop();
+  Unesco.initSliderParallax();
+  Unesco.initNavSlider();
 
   let desktopWidth = 992;
 
