@@ -30,7 +30,7 @@
     "gulp-notify": "^3.2",
     "gulp-plumber": "^1.2",
     "gulp-rename": "^1.4",
-    "gulp-sass": "^4.0",
+    "gulp-sass": "^5.1",
     "gulp-sourcemaps": "^2.6",
     "jquery": "^1.9.1",
     "jshint": "^2.10",
