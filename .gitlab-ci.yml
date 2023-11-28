@@ -12,26 +12,6 @@
 
 variables:
 
-  # Server descriptions
-
-  # using gitlab user to connect to servers
-  # Stage config, srvltydev. user denix. Accessible only upon request from outside.
-  STAGE_HOST: "srvbltydev.unesco.org"
-  SSH_LOGIN: "ssh -p22 -oStrictHostKeyChecking=no denix"
-  GIT_ROOT: "/var/www/drupal/"
-  # Production config, physical machine hosted at UNESCO. User denix
-  PRODUCTION_HOST: "srvblty2.unesco.org"
-  SSH_LOGIN_PROD: "ssh -p22 -oStrictHostKeyChecking=no denix"
-  GIT_ROOT_PROD: "/var/www/drupalci/"
-
-  # Variables for docker
-  # UNESCO proxy
-  HTTP_PROXY: "http://192.168.1.30:8080"
-  HTTPS_PROXY: "http://192.168.1.30:8080"
-  NO_PROXY: "localhost,127.0.0.1,.unesco.org"
-  HTTPS_PROXY_REQUEST_FULLURI: "false"
-  HTTP_PROXY_REQUEST_FULLURI: "true"
-
 ################################################################################
 # Define your stages, this will be "pipelines" in gitlab.
 #   https://docs.gitlab.com/ee/ci/pipelines.html
@@ -39,8 +19,6 @@ variables:
 stages:
   - build
   - deploy
-
-image: registry.repository.unesco.org/dpi/docker-debian10-lamp:master
 
 ################################################################################
 # Build Template
